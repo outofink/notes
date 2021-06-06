@@ -1,6 +1,6 @@
----
-title: Definite Integrals
-author: Moshe Krumbein
+--- 
+title: Definite Integrals 
+author: Moshe Krumbein 
 date: Spring 2021
 ---
 
@@ -49,7 +49,8 @@ $$\int_{a}^{b} f(x)dx = F(x) \Big|_a^b = F(b) - F(a)$$
 
 5. $\int_{-a}^{a} f(x)dx = 0$ where $f(x)$ is an odd function
 
-6. $\int_{-a}^{a} f(x)dx = 2\int_{0}^{a}f(x)dx$ where $f(x)$ is an even function
+6. $\int_{-a}^{a} f(x)dx = 2\int_{0}^{a}f(x)dx$ where $f(x)$ is an even
+   function
 
 ## Definite integrals using partial fractions
 
@@ -76,18 +77,18 @@ The volume of a disk is $\pi r^2 h$ so for a function we get between $a$ and
 $b$ we get:
 
 $$\lim\limits_{n \to \infty} f(x)\pi \cdot
-\frac{b-a}{n}\sum_{k=1}^{n}f^2\left(a+\frac{b-a}{n}k\right)$$
-$$\boxed{V=\pi \int_{a}^{b}f^2(x)dx}$$
+\frac{b-a}{n}\sum_{k=1}^{n}f^2\left(a+\frac{b-a}{n}k\right)$$ $$\boxed{V=\pi
+\int_{a}^{b}f^2(x)dx}$$
 
 ### Example
 
-$$f(x)=\sqrt x, 1 \leq x \leq 3, \text{rotated around the $x$-axis.}$$
-$$V = \pi \int_{1}^{3}(\sqrt x)^dx=\pi \frac{x^2}{2}\Big|_{x=1}^{x=3}=\boxed{4\pi}$$
+$$f(x)=\sqrt x, 1 \leq x \leq 3, \text{rotated around the $x$-axis.}$$ $$V =
+\pi \int_{1}^{3}(\sqrt x)^dx=\pi \frac{x^2}{2}\Big|_{x=1}^{x=3}=\boxed{4\pi}$$
 
 ## Rotation around a shifted axis
 
-$$f(x)=\sqrt x, 1 \leq x \leq 3, \text{rotated around $y=1$.}$$
-$$V = \pi \int_{1}^{3}R^2(x)dx= \pi \int_{1}^{3} (\sqrt x - 1)^2dx$$
+$$f(x)=\sqrt x, 1 \leq x \leq 3, \text{rotated around $y=1$.}$$ $$V = \pi
+\int_{1}^{3}R^2(x)dx= \pi \int_{1}^{3} (\sqrt x - 1)^2dx$$
 
 ## Area of washers
 
@@ -112,22 +113,21 @@ $$F'(x) = \frac{d}{dx}F(x)=f(x)$$
 
 ### Proof
 
-$$F'(x) = \lim\limits_{h \to 0} \frac{F(x+h) -F(x)}{h}$$
-$$=\lim\limits_{h \to 0}  \frac{1}{h}\left[\int_{a}^{x+h}f(u)dx + \int_{x}^{a}f(u)du\right]$$
+$$F'(x) = \lim\limits_{h \to 0} \frac{F(x+h) -F(x)}{h}$$ $$=\lim\limits_{h \to
+0}  \frac{1}{h}\left[\int_{a}^{x+h}f(u)dx + \int_{x}^{a}f(u)du\right]$$
 $$=\lim\limits_{h \to 0} \frac{1}{h} \int_{x}^{x+h}f(u)du$$
-$$\int_{x}^{x+h}f(u)du \approx f(x) \cdot h$$
-$$\lim\limits_{h \to 0} \int_{x}^{x+h}f(u)du = \lim\limits_{h \to 0} \frac{1}{h} \cdot h$$
-$$=\lim\limits_{h \to 0} f(x) = f(x)$$
-$$ \blacksquare$$
+$$\int_{x}^{x+h}f(u)du \approx f(x) \cdot h$$ $$\lim\limits_{h \to 0}
+\int_{x}^{x+h}f(u)du = \lim\limits_{h \to 0} \frac{1}{h} \cdot h$$
+$$=\lim\limits_{h \to 0} f(x) = f(x)$$ $$ \blacksquare$$
 
 #### Indefinite integrals
 
-$$F(x)=\int_{a}^{x}f(u)du, G(x)=\int_{b}^{x}f(u)du$$
-$$F'(x)=G'(x)=f(x)$$
+$$F(x)=\int_{a}^{x}f(u)du, G(x)=\int_{b}^{x}f(u)du$$ $$F'(x)=G'(x)=f(x)$$
 
 Functions whose derivatives are equal differ only by a constant:
 
-$$F(x)= \int_{x}^{x}f(u)du = \int_{a}^{b}f(u)du+\int_{b}^{x}f(u)du=\int_{a}^{b}f(u)du+ G(x) = C + G(x)$$
+$$F(x)= \int_{x}^{x}f(u)du =
+\int_{a}^{b}f(u)du+\int_{b}^{x}f(u)du=\int_{a}^{b}f(u)du+ G(x) = C + G(x)$$
 
 #### General anti-derivatives
 
@@ -154,10 +154,9 @@ $$G(x)= \int_{a}^{x}f(u)du \implies F(x)=G(x)+C$$
 
 Therefore:
 
-$$G(a)= \int_{a}^{a}f(u)du = 0 \implies F(a) = G(a) + C = C$$
-$$G(x) = \int_{a}^{x}f(u)du = F(x)-C = F(x)-F(x)$$
-$$G(b) = \int_{a}^{b}f(u)du=F(b)-F(a)$$
-$$\blacksquare$$
+$$G(a)= \int_{a}^{a}f(u)du = 0 \implies F(a) = G(a) + C = C$$ $$G(x) =
+\int_{a}^{x}f(u)du = F(x)-C = F(x)-F(x)$$ $$G(b) =
+\int_{a}^{b}f(u)du=F(b)-F(a)$$ $$\blacksquare$$
 
 ## Derivative of anti-derivative theorem - Leibniz's Rule
 
@@ -169,14 +168,12 @@ g'(x)$$
 
 ### Proof
 
-$$F(x) = \int_{0}^{x}f(u)du$$
-$$\int_{g(x)}^{h(x)}f(u)du= \int_{g(x)}^{0}f(u)du+\int_{0}^{h(x)}f(u)du$$
-$$ = -\int_{0}^{h(g)}f(u)du + \int_{0}^{h(x)}f(u)du$$
-$$=F(h(x))- F(g(x))$$
+$$F(x) = \int_{0}^{x}f(u)du$$ $$\int_{g(x)}^{h(x)}f(u)du=
+\int_{g(x)}^{0}f(u)du+\int_{0}^{h(x)}f(u)du$$ $$ = -\int_{0}^{h(g)}f(u)du +
+\int_{0}^{h(x)}f(u)du$$ $$=F(h(x))- F(g(x))$$
 
 $$\frac{d}{dx}(I) = \frac{d}{dx}\left[F(h(x)-F(g(x)))\right]$$
-$$=F'(h(x))h'(x)-F'(g(x))g'(x)$$
-$$ = f(h(x))h'(x)- f(g(x))g'(x)$$
+$$=F'(h(x))h'(x)-F'(g(x))g'(x)$$ $$ = f(h(x))h'(x)- f(g(x))g'(x)$$
 $$\blacksquare$$
 
 ### Examples
@@ -184,29 +181,30 @@ $$\blacksquare$$
 1.
 
 $$\frac{d}{dx}\int_{5}^{\sin x}t^2dt = \sin^2(x) \cdot (\sin x)' - 5^2 \cdot
-(5)'$$
-$$=\sin^2x \cdot \cos x$$
+(5)'$$ $$=\sin^2x \cdot \cos x$$
 
 2.
 
-$$\frac{d}{dx} \int_{x^3}^{3}\arctan t dt = \arctan 3 \cdot (3)' - \arctan(x^3) \cdot (x^3)'$$
-$$=-3x^2 \arctan x^3$$
+$$\frac{d}{dx} \int_{x^3}^{3}\arctan t dt = \arctan 3 \cdot (3)' - \arctan(x^3)
+\cdot (x^3)'$$ $$=-3x^2 \arctan x^3$$
 
 ### Applications
 
-$$\lim\limits_{x \to 0} \frac{1}{x^3}\int_{0}^{x}\frac{t^2}{t^4+1}dt = \left("\frac{0}{0}"\right)$$
-$$\to \lim\limits_{x \to 0} \frac{\frac{d}{dx}\int_{0}^{x}\frac{t^2}{t^4+1}dt}{\frac{d}{dx}(x^3)}$$
-$$=\lim\limits_{x \to 0} \frac{\frac{x^2}{x^3+1}}{3x^2} = \lim\limits_{x \to 0} \frac{1}{3(x^4+1)} = \boxed{\frac{1}{3}}$$
+$$\lim\limits_{x \to 0} \frac{1}{x^3}\int_{0}^{x}\frac{t^2}{t^4+1}dt =
+\left("\frac{0}{0}"\right)$$ $$\to \lim\limits_{x \to 0}
+\frac{\frac{d}{dx}\int_{0}^{x}\frac{t^2}{t^4+1}dt}{\frac{d}{dx}(x^3)}$$
+$$=\lim\limits_{x \to 0} \frac{\frac{x^2}{x^3+1}}{3x^2} = \lim\limits_{x \to 0}
+\frac{1}{3(x^4+1)} = \boxed{\frac{1}{3}}$$
 
 ### Applications in investigating functions
 
-1. Find the extreme points in the function:
-$$F(x) = \int_{0}^{x}\frac{\sin t}{t}dt, \quad x > 0$$
+1. Find the extreme points in the function: $$F(x) = \int_{0}^{x}\frac{\sin
+t}{t}dt, \quad x > 0$$
 
-$$\frac{d}{dx}F(x)=\frac{d}{dx}\int_{0}^{x}\frac{\sin t}{t}dt = \frac{\sin x}{x} = 0$$
+$$\frac{d}{dx}F(x)=\frac{d}{dx}\int_{0}^{x}\frac{\sin t}{t}dt = \frac{\sin
+x}{x} = 0$$
 
-$$\max F(x) \to x = (2k+1)\pi$$
-$$\min F(x) \to x = 2k\pi$$
+$$\max F(x) \to x = (2k+1)\pi$$ $$\min F(x) \to x = 2k\pi$$
 
 2. $\displaystyle F(x) = \int_{0}^{x}t^2 \sqrt{2-t}\;dt$
 
@@ -219,8 +217,7 @@ Find:
 
 Answer:
 
-1. The domain of $f(x)$ is $2-x \geq 0, \to x \leq 2$
-2.
+1. The domain of $f(x)$ is $2-x \geq 0, \to x \leq 2$ 2.
 
 > $F'(x)= \frac{d}{dx}\int_{-3}^{x}t^2 \sqrt{t-2}\;dt$
 
@@ -238,19 +235,17 @@ Answer:
 
 # Improper integrals
 
-1. If $f$ is continuous on $[a, \infty)$, then:
-$$\int_{a}^{\infty} f(x)dx = \lim\limits_{b \to \infty} \int_{a}^{b} f(x)dx
-\tag{1}$$
+1. If $f$ is continuous on $[a, \infty)$, then: $$\int_{a}^{\infty} f(x)dx =
+\lim\limits_{b \to \infty} \int_{a}^{b} f(x)dx \tag{1}$$
 
-1. If $f$ is continuous on $(-\infty, b]$, then:
-$$\int_{-\infty}^{b} f(x)dx = \lim\limits_{a \to -\infty} \int_{a}^{b} f(x)dx
-\tag{2}$$
+1. If $f$ is continuous on $(-\infty, b]$, then: $$\int_{-\infty}^{b} f(x)dx =
+\lim\limits_{a \to -\infty} \int_{a}^{b} f(x)dx \tag{2}$$
 
-1. If $f$ is continuous on $(a, b]$, then:
-$$\int_{a}^{b} f(x)dx = \lim\limits_{c \to a^+} \int_{c}^{b} f(x)dx \tag{3}$$
+1. If $f$ is continuous on $(a, b]$, then: $$\int_{a}^{b} f(x)dx =
+\lim\limits_{c \to a^+} \int_{c}^{b} f(x)dx \tag{3}$$
 
-1. If $f$ is continuous on $[a, b)$, then:
-$$\int_{a}^{b} f(x)dx = \lim\limits_{c \to b^-} \int_{a}^{c} f(x)dx \tag{4}$$
+1. If $f$ is continuous on $[a, b)$, then: $$\int_{a}^{b} f(x)dx =
+\lim\limits_{c \to b^-} \int_{a}^{c} f(x)dx \tag{4}$$
 
 In each case, if the limit is finite we say that the improper integral
 **converges** and the limit is the value of the improper integral. If the
@@ -258,44 +253,47 @@ integral fails to exist the improper integral **diverges**.
 
 Basically, whichever part is undefined is replaced with a limit.
 
-$$\begin{gathered}
-    \int_{2}^{\infty}\frac{1}{x^p}dx = \lim\limits_{b \to \infty} \int_{1}^{b}\frac{1}{x^p}dx \\
-    = \lim\limits_{b \to \infty} \left[\frac{x^{p-1}}{p-1}\right]_{x=1}^{x=b}\\
-    = \lim\limits_{b \to \infty} \frac{1}{1-p}\left[b^{1-p}-1\right] \\
-\end{gathered}$$
+$$\begin{gathered} \int_{2}^{\infty}\frac{1}{x^p}dx = \lim\limits_{b \to
+\infty} \int_{1}^{b}\frac{1}{x^p}dx \\ = \lim\limits_{b \to \infty}
+\left[\frac{x^{p-1}}{p-1}\right]_{x=1}^{x=b}\\ = \lim\limits_{b \to \infty}
+\frac{1}{1-p}\left[b^{1-p}-1\right] \\ \end{gathered}$$
 
-When $p > 1$, the function converges, and when $p \leq 1$, the function diverges.
+When $p > 1$, the function converges, and when $p \leq 1$, the function
+diverges.
 
 # Direct comparison test for divergence or convergence  (First theorem)
 
 Suppose $f(x)$ and $g(x)$ exist such that $x \in [a, \infty)$, $0 \leq f(x)
 \leq g(x)$.
 
-1. If $\displaystyle\int_{a}^{\infty}f(x)dx$ diverges then $\displaystyle\int_{a}^{\infty}g(x)dx$ also
-diverges.
+1. If $\displaystyle\int_{a}^{\infty}f(x)dx$ diverges then
+$\displaystyle\int_{a}^{\infty}g(x)dx$ also diverges.
 
-1. If $\displaystyle\int_{a}^{\infty}g(x)dx$ converges then $\displaystyle\int_{a}^{\infty}f(x)dx$ also
-converges.
+1. If $\displaystyle\int_{a}^{\infty}g(x)dx$ converges then
+$\displaystyle\int_{a}^{\infty}f(x)dx$ also converges.
 
 ## Examples
 
 1. $\displaystyle\int_{1}^{\infty} e^{-x^2}dx$
 
     Considering $e^{-x^2} < e^{-x}$ when $x>1$ and
-    $\displaystyle\int_{1}^{\infty}e^{-x}dx=\frac{1}{e}$, the original function also
-    converges.
+    $\displaystyle\int_{1}^{\infty}e^{-x}dx=\frac{1}{e}$, the original function
+    also converges.
 
 2. $\displaystyle\int_{1}^{\infty}\frac{\sin^2 x}{x^2}dx$
 
     $\displaystyle 0 \leq \frac{\sin^2 x }{x^2} \leq \frac{1}{x^2}$
 
-    $\displaystyle\int_{1}^{\infty}\frac{1}{x^2}dx$ converges, so our function does as well.
+    $\displaystyle\int_{1}^{\infty}\frac{1}{x^2}dx$ converges, so our function
+    does as well.
 
 3. $\displaystyle\int_{1}^{\infty}\frac{1}{\sqrt{x^2-0.1}}dx$
 
-    $\displaystyle\frac{1}{\sqrt{x^2-0.1}} \geq \frac{1}{x}$ when $x \in [1, \infty)$
+    $\displaystyle\frac{1}{\sqrt{x^2-0.1}} \geq \frac{1}{x}$ when $x \in [1,
+    \infty)$
 
-    Since $\displaystyle\int_{1}^{\infty}\frac{1}{x}dx$ diverges, so does our function.
+    Since $\displaystyle\int_{1}^{\infty}\frac{1}{x}dx$ diverges, so does our
+    function.
 
 # Limits comparison test (Second theorem)
 
@@ -316,10 +314,12 @@ diverge or converge together.
     Since we know that $\displaystyle \int_{1}^{\infty}\frac{dx}{x^2}$
     converges and
 
-    $$\lim\limits_{x \to \infty} \frac{\frac{1}{4+x^2}}{\frac{1}{x^2}} = \lim\limits_{x \to \infty} \frac{x^2}{4+x^2} = 1$$
+    $$\lim\limits_{x \to \infty} \frac{\frac{1}{4+x^2}}{\frac{1}{x^2}} =
+    \lim\limits_{x \to \infty} \frac{x^2}{4+x^2} = 1$$
 
     our integral also converges.
 
 ## Essential condition of convergence
 
-For $\displaystyle\int_{a}^{\infty}f(x)dx$ to converge, $\displaystyle\lim\limits_{x \to \infty} f(x)$ must approach $0$.
+For $\displaystyle\int_{a}^{\infty}f(x)dx$ to converge,
+$\displaystyle\lim\limits_{x \to \infty} f(x)$ must approach $0$.
