@@ -338,7 +338,7 @@ $$\vec v = \vec{(v_1,v_2,v_3)}\quad \vec u =\vec{(u_1,u_2,u_3)}$$
 $$||\vec u -\vec v||^2 = ||(u_1-v_1),(u_2-v_2),(u_3-v_3)||$$
 $$=u_1^2+v_1^2-2u_1v_1+u_2^2+v_2^2-2u_2v_2+u_3^2+v_3^2-2u_3v_3$$
 $$=||\vec u||^2+||\vec v||^2-2 \cdot \vec u \cdot \vec v$$
-$$\boxed{\cos \varphi = \frac{\vec u - \vec v}{||\vec u|| \cdot ||\vec v||}}$$
+$$\boxed{\cos \varphi = \frac{\vec u \cdot \vec v}{||\vec u|| \cdot ||\vec v||}}$$
 
 ### Alternative definition of scalar multiplication
 
@@ -357,4 +357,4 @@ plane.
 
 ### Angle between vector and a plane
 
-$$\boxed{\sin \varphi = \cos (90 \text{\textdegree} - \varphi) = \frac{\vec n - \vec v}{||\vec n|| \cdot ||\vec v||}}$$
+$$\boxed{\sin \varphi = \cos (90 \text{\textdegree} - \varphi) = \frac{\vec n \cdot \vec v}{||\vec n|| \cdot ||\vec v||}}$$
