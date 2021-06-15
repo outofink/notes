@@ -24,7 +24,7 @@ $$\varphi (t) = f(x+0+at, y_0+bt) \quad \frac{\partial f(\mu_0)}{\partial L} =
 $$\varphi '(t) = f_x'x_t'+f_y'y_t' = af_x' +bf_y' = \vec{(f_x',f_y')}\cdot
 \vec{(a,b)}$$
 
-$$\varphi'(0) = \vec({f_x'(x_0,y_0),f_y'(x_0,y_0))}\cdot \vec{(a,b)}$$
+$$\varphi'(0) = \vec{(f_x'(x_0,y_0),f_y'(x_0,y_0)} \cdot \vec{(a,b)}$$
 $$\frac{\partial f(\mu_0)}{\partial L} = \underbrace{\vec{(f_x'(\mu_0),f_y'(\mu_0))}}_{\vec{\mathrm{grad}f(\mu_0)}} \cdot
 \frac{\vec{(a,b)}}{\sqrt{a^2+b^2}} = \vec{\mathrm{grad} f(\mu_0)}\cdot \hat u = \vec{\nabla
 f(\mu_0)} \cdot \hat u$$
@@ -50,9 +50,13 @@ derivative.
 
 ### 2.
 
-Claim: Gradient vectors is perpendicular the contour line $c=f(\mu_0).$
+#### Claim:
 
-Proof: Contour line $f(x,y) = f(\mu_0) = \text{const}$
+Gradient vectors is perpendicular the contour line $c=f(\mu_0).$
+
+#### Proof:
+
+Contour line $f(x,y) = f(\mu_0) = \text{const}$
 $$\Downarrow$$
 $$df(x,y) = 0$$
 $$f_x'(\mu_0)dx+f_y'(\mu_0dy)=0$$
