@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gelasio&display=swap" rel="stylesheet">
+  <meta name="author" content="Moshe Krumbein" />
+  <title>Advanced Intergation</title>
+
+<link rel="icon" type="image/png" href="../favicon.png"/>
+<link rel="stylesheet" href="../style.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article class="markdown-body">
+<h1 class="title">Advanced Intergation</h1>
+
+<img src="../divider.svg" class="break"/>
+
+<a href="./">Return to Math</a>
+
+<!--  -->
+<h1 id="double-integrals">Double integrals</h1>
+<p><span class="math display">\iint\limits_D f(x,y)\,dx\,dy = \iint\limits_D f(x,y)\,dA</span> Where <span class="math inline">dA</span> is the area.</p>
+<p>In essence, a double integral is the integral in terms of <span class="math inline">y</span> and then in term of <span class="math inline">x</span> or visa versa.</p>
+<p>For example: <span class="math display">\int\limits_{a}^{b}\int\limits_{c}^{d}f(x,y)\,dy\,dx = \int\limits_{a}^{b}\left[\int\limits_{c}^{d}f(x,y)\,dy\right]dx</span></p>
+<p>Furthermore, the limits of the integrals can include <span class="math inline">x</span> and <span class="math inline">y</span> as well, and can be solved in a similar fashion.</p>
+<h1 id="polar-coordinates">Polar Coordinates</h1>
+<p><span class="math display">\begin{gathered}
+    x = r\cos\varphi \\
+    y = r\sin\varphi \\
+    dA = rdrd\varphi \\
+    \varphi \in [0, 2\pi]
+\end{gathered}</span></p>
+<p>This allows us to transform pretty ugly looking integrals such as:</p>
+<p><span class="math display">\int_{-2}^{2}\int_{-\sqrt{4-y^2}}^{\sqrt{4-y^2}}\sqrt{x^2+y^2}\;dxdy</span></p>
+<p>Into much easer to solve integrals, such as:</p>
+<p><span class="math display">\int_{0}^{2\pi}\int_{0}^{2}r^2drd\varphi</span></p>
+<p><em>Note:</em> This makes integrals around a circles (specifically when its center is on the origin) but slightly more difficult in other cases.</p>
+<p>In the case of finding the area of a triangle, the radius will be in the form <span class="math inline">\frac{a}{\sin\varphi}</span> or <span class="math inline">\frac{a}{\cos\varphi}</span> if the triangle is resting on the <span class="math inline">y</span>-axis or <span class="math inline">x</span>-axis respectively.</p>
+<p>In a case of integrating around a circle but its center is not at the origin, the radius will be in the form <span class="math inline">2b\sin\varphi</span> or <span class="math inline">2b\cos\varphi</span>, if the center is offset vertically or horizontally, respectively.</p>
+<h1 id="line-integrals">Line Integrals</h1>
+<p>A <em>line integral</em> is an integral where the function to be integrated is evaluated along a curve.</p>
+<p><span class="math display">c:\begin{cases}
+    x=x(t) \\
+    y=y(t) \\
+    a \leq t \leq b
+\end{cases}</span> <span class="math display">ds=\sqrt{x&#39;^2(t)+y&#39;^2(t)}dt</span> <span class="math display">\int_{c} f(x,y)ds = \int_{t=a}^{t=b}f(x(t),y(t))\sqrt{x&#39;^2(t)+y&#39;^2(t)}dt</span></p>
+<!-- <a href="index.html">Return to Table of Contents</a>
+ -->
+
+<a href="./">Return to Math</a>
+
+<img src="../divider.svg" class="break"/>
+
+</article>
+</body>
+</html>

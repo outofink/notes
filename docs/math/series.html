@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gelasio&display=swap" rel="stylesheet">
+  <meta name="author" content="Moshe Krumbein" />
+  <title>Series</title>
+
+<link rel="icon" type="image/png" href="../favicon.png"/>
+<link rel="stylesheet" href="../style.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article class="markdown-body">
+<h1 class="title">Series</h1>
+
+<img src="../divider.svg" class="break"/>
+
+<a href="./">Return to Math</a>
+
+<!--  -->
+<h1 id="taylor-series-and-maclaurin-series">Taylor series and Maclaurin series</h1>
+<h2 id="maclaurin-polynomial">Maclaurin polynomial</h2>
+<p>For any function, we can approximate it with a polynomial (the higher the power, the better the approximation).</p>
+<p>Suppose our function is differentiable infinitely, such that:</p>
+<p><span class="math display">
+\begin{gathered}
+    f(0)  =p(x)   = a_0  = a_0 0!\\
+    f&#39;(0) =p&#39;(0)  = a_1  = a_1 1!\\
+    f&#39;&#39;(0)=p&#39;&#39;(0) = 2a^2 = a_2 2!\\
+    \dots \\
+    f^{(n)}(0) = p^{(n)}(0) = a_n n!
+\end{gathered}
+\quad \vline \quad
+\begin{gathered}
+    p_n(x)   = a_1  + a_2x  + \dots + a_nx^n \\
+    p&#39;_n(x)  = a_1  + 2a_2x + \dots + a_n nx^{n-1} \\
+    p&#39;&#39;_n(x) = 2a_2 + 6a_3x + \dots + a_n n (n-1) x^{n-2} \\
+    \dots \\
+    p_n^{(n)} = a_n n (n-1)(n-2)\dots =a_nn!
+\end{gathered}
+</span></p>
+<p>Providing the following equation:</p>
+<p><span class="math display">p_n(x) = \frac{f(0)}{0!} + \frac{f&#39;(0)}{1!}x + \frac{f&#39;&#39;(0)}{2!}x^2+ \dots + \frac{f^{(n)}(0)}{n!}x^n = \sum_{k=0}^{n}\frac{f^{(k)}(0)}{k!}x^k</span></p>
+<h2 id="taylor-series-of-trigonometric-functions">Taylor series of trigonometric functions</h2>
+<p><span class="math display">
+\begin{gathered}
+    \sin x \approx p_n(x) = x-\frac{x^3}{3!}+ \frac{x^5}{5!} - \dots = \sum_{k=0}^{n}(-1)^k \frac{x^{2k+1}}{(2k+1)!} \\
+    \cos x \approx q_n(x) = 1-\frac{x^2}{2!}+ \frac{x^4}{4!} - \dots = \sum_{k=0}^{n}(-1)^k \frac{x^{2k}}{(2k)!} \\
+\end{gathered}
+</span></p>
+<p>The remainder of a Taylor series is defined as follows: <span class="math display">f(x)- p_n(x) = R_n(x)</span></p>
+<h2 id="fundamental-expansions">Fundamental expansions</h2>
+<p><span class="math display">e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!}\tag{1}</span> <span class="math display">\ln(x+1) = \sum_{n=1}^{\infty}(-1)^{n-1}\frac{x^n}{n}\tag{2}</span> <span class="math display">\sin x = \sum_{n=0}^{\infty}(-1)^n \frac{x^{2n+1}}{(2n+1)!} \tag{3}</span> <span class="math display">\cos x = \sum_{n=0}^{\infty}(-1)^n \frac{x^{2n}}{(2n)!} \tag{4}</span> <span class="math display">(1+t)^\alpha = 1+\alpha t +\frac{ \alpha (\alpha - 1)}{2!}t^2 + \frac{\alpha
+(\alpha - 1)(\alpha - 2)}{3!}t^3 \dots, \;|x| &lt; 1 \tag{5}</span></p>
+<h3 id="additional-expansions">Additional expansions</h3>
+<p><span class="math display">\arctan x = \sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{2n+1}</span> <span class="math display">\ln (a-x) = \ln a - \sum_{n=1}^{\infty}\frac{x^n}{n \cdot a^n}</span> <span class="math display">\frac{1}{x-a}= \sum_{n=0}^{\infty}\frac{x^n}{a^n}</span> <span class="math display">\frac{1}{1+x}=\sum_{n=0}^{\infty}(-1)^nx^n</span></p>
+<h1 id="taylor-series">Taylor series</h1>
+<p>A Maclaurin series is specifically around <span class="math inline">x=0</span>, but a Taylor series is around any given point <span class="math inline">(x=a)</span>.</p>
+<p>Maclaurin series:</p>
+<p><span class="math display">f(t)= \sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}t^n</span></p>
+<p>We define <span class="math inline">t=x-a</span> (<span class="math inline">t=0 \implies x=a</span>) providing:</p>
+<p><span class="math display">f(x-a) =\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n</span></p>
+<p>This can also be stated as:</p>
+<p><span class="math display">P_n(f,a,x)=\sum_{k=0}^{\infty}\frac{f^{(k)}(a)}{k!}(x-a)^k</span></p>
+<p>Where <span class="math inline">a</span> is the given point and <span class="math inline">x</span> is the desired point.</p>
+<h1 id="using-the-maclaurin-series-for-calculating-limits">Using the Maclaurin series for calculating limits</h1>
+<p><span class="math display">\lim\limits_{x \to 0} \frac{\cos x -1 }{x^2} = \left(\frac{0}{0}\right)</span></p>
+<p><span class="math display">\cos x -1 +\frac{x^2}{2}-\frac{x^4}{4!} = R_4(x)= o(x^4)</span></p>
+<p><span class="math display">\lim\limits_{x \to 0} \frac{1-\frac{x^2}{2}-1+o(x^2)}{x^2} = -\frac{1}{2}</span></p>
+<p><span class="math display">\lim\limits_{x \to 0} \frac{o(x^n)}{x^n} = 0</span></p>
+<h1 id="evaluating-error">Evaluating error</h1>
+<p>Definition:</p>
+<p>Given <span class="math inline">f</span> differentiable <span class="math inline">n</span> times surrounding <span class="math inline">x=a</span>, then the polynomial:</p>
+<p><span class="math display">P_n(f,a,x)=\sum_{k=0}^{\infty}\frac{f^{(k)}(a)}{k!}(x-a)^k</span></p>
+<p>is called a Taylor polynomial.</p>
+<p>The “remainder” is defined as:</p>
+<p><span class="math display">R_n(f,a,x) = f(x) -P_n(f,a)(x)</span></p>
+<h2 id="taylor-remainder-theorem-in-lagrange-form">Taylor remainder theorem in Lagrange form</h2>
+<p>Let <span class="math inline">f</span> be differentiable <span class="math inline">(n+1)</span> times surrounding point <span class="math inline">x</span> and <span class="math inline">x</span> be a surrounding point of <span class="math inline">a</span>.</p>
+<p>Therefore there exists a point <span class="math inline">c</span> between <span class="math inline">x</span> and <span class="math inline">a</span> such that:</p>
+<p><span class="math display">R_n(f,a,x) = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}</span></p>
+<h3 id="proof">Proof</h3>
+<p>According to Cauchy’s theorem: Let <span class="math inline">f,g</span> be continuous on <span class="math inline">[a,b]</span> and differentiable on <span class="math inline">(a,b)</span> and <span class="math inline">g&#39; \neq 0</span> on <span class="math inline">(a,b)</span>.</p>
+<p>Therefore there exists <span class="math inline">c \in (a,b)</span> such that:</p>
+<p><span class="math display">\frac{f(b)-f(a)}{g(b)-g(a)}= \frac{f&#39;(c)}{g&#39;(c)}</span></p>
+<p>We will use this theorem on the following two functions:</p>
+<p><span class="math display">h(t) = R_n(f,t,x)</span> <span class="math display">g(t) = (x-t)^{n+1}</span> <span class="math display">\text{($x$ is constant, $t$ is variable)}</span></p>
+<p><span class="math display">g(t) = (x-t)^{n+1} \implies g&#39;(t) = (n+1)(x-t)^n</span></p>
+<p><span class="math inline">g&#39;=0</span> only when <span class="math inline">t=x</span>, which is a extreme of the open interval <span class="math inline">(a,x)</span>, and therefore <span class="math inline">g&#39; \neq 0</span>.</p>
+<p><span class="math display">h(t) = R_n(f,t,x) = f(x) - P_n(f,t)(x)</span> <span class="math display">=f(x)-\left(f(t)+f&#39;(t)(x-t)+\frac{f&#39;&#39;(t)}{2!}(x-t)^2+\dots+\frac{f^{(n)}(t)}{n!}(x-t)^n\right)</span> <span class="math display">h&#39;_t(t)=0-f&#39;(t)-f&#39;&#39;(t)(x-t)+f&#39;(t)-\frac{f&#39;&#39;&#39;(t)}{2!}2(x-t)\frac{f&#39;&#39;(t)}{2!}-\cdots + \frac{f^{(n)}(t)}{n!}n(x-t)^{n-1} \cdots</span></p>
+<p>Nearly everything crosses out, leaving</p>
+<p><span class="math display">h&#39;(x) = -\frac{f^{(n+1)}(t)}{n!}(x-t)^n</span></p>
+<p>Therefore according to Cauchy’s theorem:</p>
+<p><span class="math display">\frac{h(a)-h(x)}{g(a)-g(x)}=\frac{h&#39;(c)}{g&#39;(c)}</span></p>
+<p>Plugging everything in:</p>
+<p><span class="math display">\frac{R_n(f,a,x) - 0}{(x-a)^{n+1}}= \frac{f^{(n+1)}(c)}{(n+1)!}</span> <span class="math display">R_n(f,a,x) = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}</span> <span class="math display">\blacksquare</span></p>
+<h2 id="example">Example</h2>
+<p>We want to approximate <span class="math inline">|\sqrt 8 -x|&lt;\frac{1}{100}</span></p>
+<p><span class="math display">
+\begin{gathered}
+    f(x)=\sqrt x \quad
+    x=8 \quad
+    a=9
+\end{gathered}
+</span></p>
+<p><span class="math display">P_1(f,9,8) = f(9) + f&#39;(9)(8-9) =\sqrt 9 + \frac{1}{2\sqrt 9}(8-9)=\frac{17}{6}</span> <span class="math display">R_1(f,9,8) = \frac{f&#39;&#39;(c)}{2!}(8-9)^2</span> <span class="math display">|R_1| = \left|\frac{-\frac{1}{4}c^{-3/2}}{2!}(8-9)^2\right| &lt; \frac{1}{64}</span> <span class="math display">R_2(f,9,8) = \frac{f&#39;&#39;&#39;(c)}{2!}(8-9)^3</span> <span class="math display">|R_2|&lt;\frac{1}{1664}</span></p>
+<p>Now to actually calculate to approximation:</p>
+<p><span class="math display">P_2(\sqrt x, 9) = f(9)+f&#39;(9)(x-9)+\frac{f&#39;&#39;(9)}{2!}(x-9)^2</span> <span class="math display">P_2(\sqrt x, 9)(8) = 3- \frac{1}{6} - \frac{1}{8\cdot27} \approx 2.8287</span> <span class="math display">\sqrt 8 \approx 2.8284</span></p>
+<!-- <a href="index.html">Return to Table of Contents</a>
+ -->
+
+<a href="./">Return to Math</a>
+
+<img src="../divider.svg" class="break"/>
+
+</article>
+</body>
+</html>

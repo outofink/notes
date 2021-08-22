@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gelasio&display=swap" rel="stylesheet">
+  <meta name="author" content="Moshe Krumbein" />
+  <title>Multivariable Functions</title>
+
+<link rel="icon" type="image/png" href="../favicon.png"/>
+<link rel="stylesheet" href="../style.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article class="markdown-body">
+<h1 class="title">Multivariable Functions</h1>
+
+<img src="../divider.svg" class="break"/>
+
+<a href="./">Return to Math</a>
+
+<!--  -->
+<h1 id="functions-with-two-variables">Functions with two variables</h1>
+<p><span class="math display">z=f(x,y)=\frac{1}{\sqrt{25-x^2-y^2}}</span></p>
+<p><span class="math display">\text{Dom } f = \{(x,y):x^2+y^2&lt;25\}</span> <span class="math display">\text{Im }  f = \left\{z \geq \frac{1}{5}\right\}</span></p>
+<p><em>Elevation lines</em> are horizontal cross-sections of the graph.</p>
+<h1 id="limits-of-functions-with-two-variables">Limits of functions with two variables</h1>
+<p><span class="math display">\lim\limits_{(x,y) \to (a,b)} f(x,y) = f(a,b)</span></p>
+<p>For example <span class="math inline">f(x,y) = x^2+y^2</span>: <span class="math display">\lim\limits_{(x,y) \to (1,2)} f(x,y)=5</span></p>
+<h2 id="calculation-of-the-limit-or-proving-the-limit-does-not-exist">Calculation of the limit or proving the limit does not exist</h2>
+<ol type="1">
+<li></li>
+</ol>
+<p><span class="math display">\lim\limits_{(x,y) \to (1,2)} \frac{\arctan(x+y-3)}{\ln(x+y-2)}</span> <span class="math display">t=x+y-1</span> <span class="math display">(x,y) \to (1,2) \implies t \to 1</span> <span class="math display">\lim\limits_{t \to 1} \frac{\arctan(t-1)}{\ln t}</span></p>
+<p>is <span class="math inline">1</span> using L’Hospital’s rule.</p>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<p><span class="math display">\lim\limits_{(x,y) \to (1,1)} \frac{xy-y^2}{\sqrt x - \sqrt y} = \frac{y(x-y)}{\sqrt x - \sqrt y}= y(\sqrt x + \sqrt y) = 2</span></p>
+<ol start="3" type="1">
+<li></li>
+</ol>
+<p><span class="math display">\lim\limits_{(x,y) \to (0,0)} \frac{x^3+y^2}{x^2+y^2}</span></p>
+<p>We say the limit only exists if it doesn’t matter what way we get to the limit.</p>
+<p>Approach A:</p>
+<p><span class="math display">\lim\limits_{x \to 0, y=x} \frac{x^3 + y^2}{x^2+y^2} = \frac{x^3 + x^2}{2x^2} = \frac{1}{2}</span> <span class="math display">\lim\limits_{x \to 0, y=2x} \frac{x^3 + y^2}{x^2+y^2} = \frac{x^3 + 4x^2}{5x^2} = \frac{4}{5}</span></p>
+<p><span class="math inline">\frac{1}{2} \neq \frac{4}{5}</span>, so the limit does not exist.</p>
+<p>Approach B:</p>
+<p><span class="math display">\lim\limits_{x \to 0, y=kx} \frac{x^3+k^2x^2}{x^2+k^2x^2} = \frac{k^2}{1+k^2}</span></p>
+<p>The limit is dependent on <span class="math inline">k</span>, and therefore does not exist.</p>
+<p>Approach C:</p>
+<p>The limit is dependent on the angle.</p>
+<p>Approach D:</p>
+<p>Find the limit of first <span class="math inline">x</span> and then <span class="math inline">y</span>. Then find the limit of <span class="math inline">y</span> and then <span class="math inline">x</span>. If time limits are not equal the limit does not exist.</p>
+<h2 id="so-how-can-we-prove-the-limit-does-exist">So how can we prove the limit <em>does</em> exist?</h2>
+<h3 id="sandwich-rule">Sandwich Rule</h3>
+<p><span class="math display">\lim\limits_{(x.y) \to (0,0)} \frac{xy^3}{y^2+x^2}</span> <span class="math display">\left|\frac{xy^3}{x^2+y^2}\right| \leq \left|\frac{xy^3}{y^2}\right| = |xy| =|x||y| \to 0</span></p>
+<p>If the numerator has a higher power than the denominator, we know that the numerator approaches zero faster than the denominator.</p>
+<p>If the denominator is larger on the numerator, we will see that the limit will approach infinity.</p>
+<p>If the powers are equal than we know that the limit will not exist.</p>
+<h1 id="continuity-of-functions-with-two-variables">Continuity of functions with two variables</h1>
+<p>Function <span class="math inline">z=f(x,y)</span> is defined as continuous at <span class="math inline">(a,b)</span> if:</p>
+<ol type="1">
+<li>The function is defined at <span class="math inline">(a,b)</span></li>
+<li><span class="math inline">\lim\limits_{(x,y) \to (a,b)} f(x,y)</span> exists</li>
+<li><span class="math inline">\lim\limits_{(x,y) \to (a,b)} f(x,y) = f(a,b)</span></li>
+</ol>
+<h1 id="partial-differentiation">Partial differentiation</h1>
+<h2 id="partial-derivative-in-terms-of-x">Partial derivative in terms of <span class="math inline">x</span></h2>
+<p><span class="math display">\frac{\partial}{\partial x} f(x_0,y_0) = f&#39;_x(x_0,y_0) = \lim\limits_{h \to 0} \frac{f(x_0+h,y_0)-f(x_0,y_0)}{h}</span></p>
+<h2 id="partial-derivative-in-terms-of-y">Partial derivative in terms of <span class="math inline">y</span></h2>
+<p><span class="math display">\frac{\partial}{\partial y} f(x_0,y_0) = f&#39;_y(x_0,y_0) = \lim\limits_{h \to 0} \frac{f(x_0,y_0+h)-f(x_0,y_0)}{h}</span></p>
+<h2 id="calculating-partial-derivatives">Calculating partial derivatives</h2>
+<p>Consider all other variables as constants and differentiate.</p>
+<h2 id="second-order-partial-differentiation">Second order partial differentiation</h2>
+<p><span class="math display">
+\begin{gathered}
+    f(x,y) = x^3y^2+x^2y -xy^3 \\
+    f&#39;_x(x,y) = 3x^2y^2+2xy-y^3 \\
+    f&#39;_y(x,y) = 2x^3+x^2-3xy^2 \\
+    \\
+    f&#39;&#39;_{xy}(x,y) = 6x^2y - 6xy\\
+    f&#39;&#39;_{yx}(x,y) = 6x^2y - 6xy\\
+    \\
+    f&#39;&#39;_{xy} = f&#39;&#39;_{yx}
+\end{gathered}
+</span></p>
+<h2 id="eulers-theorem">Euler’s Theorem</h2>
+<p>If <span class="math inline">f(x,y)</span> and its partial derivatives <span class="math inline">f&#39;_x,f&#39;_y,f&#39;&#39;_{xy},f&#39;&#39;_{yx}</span> are all continuous.</p>
+<h1 id="differentiability">Differentiability</h1>
+<blockquote>
+<p><em>Reminder:</em> A function <span class="math inline">y=f(x)</span> is defined as differentiable at <span class="math inline">x=x_0</span> if:</p>
+</blockquote>
+<p><span class="math display">\alpha = \frac{f(x)-g(x)}{x-x_0} \to 0</span></p>
+<blockquote>
+<p>as <span class="math inline">x \to x_0</span>.</p>
+</blockquote>
+<p><span class="math display">z=f(x,y)</span></p>
+<p>A tangent plane is defined as <span class="math inline">g(x,y)=ax+by+c</span></p>
+<h2 id="definition">Definition</h2>
+<h3 id="first-definition">First Definition</h3>
+<p>The tangent of the function <span class="math inline">f(x,y)</span> at the point <span class="math inline">(x_0,y_0)</span> where the relative error (<span class="math inline">\alpha</span>):</p>
+<p><span class="math display">\alpha = \frac{f(x,y)-g(x,y)}{\sqrt{(x-x_0)^2+(y-y_0)^2}}</span></p>
+<p>Given:</p>
+<p><span class="math display">f(x_0,y_0) = g(x_0,y_0)</span> <span class="math display">\alpha \to 0</span></p>
+<h3 id="second-definition">Second Definition</h3>
+<p>A function is called differentiable if at the point exists the tangent plane.</p>
+<h2 id="rule-1">Rule 1</h2>
+<p>If the function <span class="math inline">f(x,y)</span> is differentiable at <span class="math inline">(x_0,y_0)</span>, then the tangent plane is:</p>
+<p><span class="math display">g(x,y)=f(x_0,y_0)+f&#39;_x(x_0,y_0)(x-x_0)+f&#39;_y(x_0,y_0)(y-y_0)</span></p>
+<p>Simplified is:</p>
+<p><span class="math display">g(x,y) = xa+by+f(x_0,y_0)-ax_0-by_0</span></p>
+<p>The limit exists if we get the same answer no matter the method.</p>
+<h2 id="rule-2">Rule 2</h2>
+<p>If a function <span class="math inline">f(x,y)</span> is differentiable at <span class="math inline">(x_0,y_0)</span> then it is also continuous at that point.</p>
+<h1 id="chain-rule-for-multi-variable-functions">Chain rule for multi-variable functions</h1>
+<h2 id="function-with-only-one-variable">Function with only one variable</h2>
+<p><span class="math display">f(g(x))&#39; = f&#39;(gx))g&#39;(x)</span></p>
+<p>If we define <span class="math inline">t=g(x)</span>: <span class="math display">f(g(x))&#39; = f&#39;_tt&#39;_x</span></p>
+<h2 id="function-with-two-variables">Function with two variables</h2>
+<h3 id="case-1">Case 1</h3>
+<p><span class="math display">z=f(u,v), \quad u=u(x,y), v=v(x,y)</span></p>
+<p>One the one hand: <span class="math display">dz=z&#39;_xdx+z&#39;_ydy</span> On the other hand: <span class="math display">dz=z_udu+z_vdv=z_u(u_xdx+u_ydy)+z_v(v_xdx+v_ydy)</span> <span class="math display">=(z_u u_x + z_v u_x)dx+(z_u u_y +z_v v_y)dy</span></p>
+<p><span class="math display">z&#39;_x = z_u u_x + z_v u_x = \frac{\partial z}{\partial u}\cdot\frac{\partial
+u}{\partial x} + \frac{\partial z}{\partial v}\cdot\frac{\partial v}{\partial x}</span> <span class="math display">z&#39;_y = z_u u_y + z_u v_y = \frac{\partial z}{\partial u}\cdot\frac{\partial
+u}{\partial y} + \frac{\partial z}{\partial v}\cdot\frac{\partial v}{\partial y}</span></p>
+<h3 id="case-2">Case 2</h3>
+<p><span class="math display">z=z(x,y), \quad x=x(t), y=y(t)</span> <span class="math display">dz=z&#39;_x dx + z&#39;_y dy</span> <span class="math display">=z&#39;_xx&#39;_tdt+z&#39;_yy&#39;_tdt = (z_xx_t+z_yy_t)dt</span></p>
+<p><span class="math display">z&#39;_t=z&#39;_xx&#39;_t+z&#39;_yy&#39;_t</span> <span class="math display">\frac{\partial z}{\partial t} = \frac{\partial z}{\partial x}\cdot\frac{\partial
+x}{\partial t} + \frac{\partial z}{\partial y}\cdot\frac{\partial y}{\partial t}</span></p>
+<h3 id="case-3">Case 3</h3>
+<p><span class="math display">z=z(t), \quad t=t(x,y)</span> <span class="math display">z&#39;_xdx+z&#39;_ydy=dz=z&#39;_tdx</span> <span class="math display">=z&#39;_t(t&#39;_xdx+t&#39;_ydy)</span> <span class="math display">=z&#39;_tt&#39;_xdx+z&#39;_tt&#39;_ydy</span> <span class="math display">
+\begin{gathered}
+        z&#39;_x = z&#39;_tt&#39;_x \\
+        z&#39;_y=z&#39;_tt&#39;_y \\
+        \frac{\partial z}{\partial x} = \frac{\partial z}{\partial t}\cdot \frac{\partial t}{\partial x} \\
+        \frac{\partial z}{\partial y} = \frac{\partial z}{\partial t}\cdot \frac{\partial t}{\partial y} \\
+\end{gathered}
+</span></p>
+<h2 id="examples">Examples</h2>
+<ol type="1">
+<li><span class="math display">z=u^2v, u=x\sin y, v= y\cos x</span> Find <span class="math inline">z&#39;_x, z&#39;_y</span>.</li>
+</ol>
+<p>First way: <span class="math display">z=x^2\sin^2(y)y\cos x = x^2\cos(x)y\sin^2(y)</span> <span class="math display">z&#39;_x=(2x\cos x -x^2\sin x)y\sin^2x</span> <span class="math display">z&#39;_y=(\sin^2y+2y\sin y \cos y) x^2\cos x</span></p>
+<p>Second way:</p>
+<ol start="2" type="1">
+<li><span class="math display">z=x^2y^3+f\left(\frac{x^2}{y}\right)</span></li>
+</ol>
+<p><span class="math display">z&#39;_x=2xy^3+f&#39;_tt&#39;_x</span> <span class="math display">=2xy^3+f&#39;_t \cdot \frac{2x}{y}</span></p>
+<h1 id="vectors">Vectors</h1>
+<h2 id="geometric-definition">Geometric definition</h2>
+<p>Line segment with direction.</p>
+<p><span class="math inline">\vec{AB}</span>, where <span class="math inline">A</span> is the starting point and <span class="math inline">B</span> in the end.</p>
+<h2 id="algebraic-definition">Algebraic definition</h2>
+<p>On <span class="math inline">\mathbb{R}^2</span>: <span class="math inline">\vec{AB} = \vec{(x_B-x_A,y_B-y_A)}</span></p>
+<p>On <span class="math inline">\mathbb{R}^3</span>: <span class="math inline">\vec{AB} = \vec{(x_B-x_A,y_B-y_A,z_B-z_A)}</span></p>
+<h2 id="examples-1">Examples</h2>
+<ol type="1">
+<li><p><span class="math inline">\mathbb{R}^2: A(1,2), B(0,-2)</span></p>
+<p><span class="math inline">\vec{AB} = \vec{(0-1,-2-2)}=\vec{(-1,-4)}</span></p></li>
+<li><p><span class="math inline">\mathbb{R}^3:A(1,2,3),B(2,1,4)</span></p>
+<p><span class="math inline">\vec{AB}=\vec{(2-1,1-2,4-3)}=\vec{(1,-1,1)}</span></p>
+<p><span class="math inline">C(-1,2,5), D(0,1,6)</span></p>
+<p><span class="math inline">\vec{CD} = \vec{(0-(-1),1-2,6-5)} = \vec{(1,-1,1)}</span></p>
+<p><span class="math inline">\vec{AB} \equiv \vec{CD} \quad (\vec{AB} = \vec{CD})</span></p></li>
+</ol>
+<h2 id="operations-between-vectors">Operations between vectors</h2>
+<h3 id="scalar-multiplication">Scalar multiplication</h3>
+<p>Given <span class="math inline">\vec{u} = \vec{(u_1,u_2)}\;(\mathbb{R}_2)</span> or <span class="math inline">\vec{v}=\vec{(v_1,v_2,v_3)}\;(\mathbb{R}_3)</span>:</p>
+<p>For <span class="math inline">\alpha,\beta \in \mathbb{R}</span>, then:</p>
+<p><span class="math inline">\beta \vec{u} = \vec{(\beta u_1, \beta u_2)}</span></p>
+<p><span class="math inline">\alpha \vec{v}=\vec{(\alpha v_1, \alpha v_2, \alpha v_3)}</span></p>
+<h3 id="sum">Sum</h3>
+<p><span class="math inline">\mathbb{R}^2: \vec{v}=\vec{(v_1,v_2)},\quad\vec{u}=\vec{(u_1,u_2)} \implies \vec{v}+ \vec{u} = \vec{(v_1+u_1,v_2+u_2)}</span></p>
+<p><span class="math inline">\mathbb{R}^3: \vec{v}=\vec{(v_1,v_2,v_3)},\quad\vec{u}=\vec{(u_1,u_2,u_3)} \implies \vec{v} + \vec{u} = \vec{(v_1+u_1,v_2+u_2, v_3+u_3)}</span></p>
+<h3 id="linear-combination">Linear Combination</h3>
+<p>Given a group of <span class="math inline">n</span> vectors (<span class="math inline">\vec{v_1}, \cdots, \vec{v_n}</span>) and a group of <span class="math inline">n</span> scalars (<span class="math inline">\alpha_1,\cdots, \alpha_n</span>).</p>
+<p>The vectors <span class="math inline">\alpha_1\vec{v_1}, \alpha_2\vec{v_2},\cdots, \alpha_n \vec{v_n}</span> is called the linear combination of <span class="math inline">n</span> vectors.</p>
+<h2 id="standard-vectors">Standard vectors</h2>
+<p><span class="math inline">\vec{(1,2,3)} = 1 \cdot \vec{(1,0,0)} + 2 \cdot \vec{(0,1,0)} + 3 \cdot \vec{(0,0,1)}</span></p>
+<p><span class="math inline">=1\vec i + 2\vec j + 3 \vec k</span></p>
+<p><span class="math display">\vec{(x,y,z)} = x \vec i + y \vec j + z \vec k</span></p>
+<h2 id="scalar-multiplication-between-vectors">Scalar multiplication between vectors</h2>
+<p>A function that take each real vector pair (<span class="math inline">\vec v, \vec u</span>) is called scalar multiplication if there exists the following four axioms:</p>
+<ol type="1">
+<li>Similarity: <span class="math inline">\vec v \cdot \vec u = \vec u \cdot \vec v</span></li>
+<li>Homogamy: <span class="math inline">(\alpha \vec v) \cdot \vec u = \alpha (\vec v \cdot \vec u)</span></li>
+<li>Additivity: <span class="math inline">(\vec v_1 + \vec v_2) \cdot \vec u = \vec v_1 \cdot \vec u + \vec v_2 \cdot \vec u</span></li>
+</ol>
+<p>(2 and 3 are also called linearity)</p>
+<ol start="4" type="1">
+<li>Positivity; <span class="math inline">\vec v \cdot \vec v \geq 0</span></li>
+</ol>
+<p>Then:</p>
+<p><span class="math inline">\vec v = \vec{(v_1,v_2,v_3)}\quad \vec u =\vec{(u_1,u_2,u_3)}</span></p>
+<p>Where <span class="math inline">u_i, v_i \in \mathbb{R}</span>, then;</p>
+<p><span class="math inline">\vec v \cdot \vec u = v_1u_1 + v_2u_2+v_3u_3</span></p>
+<p><span class="math inline">||\vec v|| = \sqrt{\vec v^2}</span></p>
+<h2 id="angle-between-vectors">Angle between vectors</h2>
+<h3 id="cosine-rule">Cosine rule</h3>
+<p><span class="math display">b^2=a^2+c^2-2ac\cos \beta</span> <span class="math display">||\vec u - \vec v||^2 = ||\vec v||^2+||\vec u||^2 - 2 \cdot ||\vec v|| \cdot
+||\vec u|| \cdot \cos \beta</span></p>
+<p>Example:</p>
+<p><span class="math display">\vec v = \vec{(v_1,v_2,v_3)}\quad \vec u =\vec{(u_1,u_2,u_3)}</span> <span class="math display">||\vec u -\vec v||^2 = ||(u_1-v_1),(u_2-v_2),(u_3-v_3)||</span> <span class="math display">=u_1^2+v_1^2-2u_1v_1+u_2^2+v_2^2-2u_2v_2+u_3^2+v_3^2-2u_3v_3</span> <span class="math display">=||\vec u||^2+||\vec v||^2-2 \cdot \vec u \cdot \vec v</span> <span class="math display">\boxed{\cos \varphi = \frac{\vec u \cdot \vec v}{||\vec u|| \cdot ||\vec v||}}</span></p>
+<h3 id="alternative-definition-of-scalar-multiplication">Alternative definition of scalar multiplication</h3>
+<p><span class="math display">\vec v \cdot \vec u = ||\vec v|| \cdot ||\vec u|| \cdot \cos \varphi</span></p>
+<p>If <span class="math inline">\varphi = \frac{\pi}{2}</span> then <span class="math inline">\cos \varphi = 0</span> and therefore <span class="math inline">\vec v \cdot \vec u</span>.</p>
+<p>If <span class="math inline">\vec v \cdot \vec u = 0</span> then <span class="math inline">\vec v \perp \vec u</span></p>
+<p>Given plane <span class="math inline">p</span> and vector <span class="math inline">\vec n</span>; <span class="math inline">\vec n \perp p</span> is called the normal vector.</p>
+<p>If <span class="math inline">\vec n \perp p</span> then <span class="math inline">\vec n</span> is perpendicular to every vector on the plane.</p>
+<h3 id="angle-between-vector-and-a-plane">Angle between vector and a plane</h3>
+<p><span class="math display">\boxed{\sin \varphi = \cos (90 \text{\textdegree} - \varphi) = \frac{\vec n \cdot \vec v}{||\vec n|| \cdot ||\vec v||}}</span></p>
+<!-- <a href="index.html">Return to Table of Contents</a>
+ -->
+
+<a href="./">Return to Math</a>
+
+<img src="../divider.svg" class="break"/>
+
+</article>
+</body>
+</html>

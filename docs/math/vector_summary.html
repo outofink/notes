@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gelasio&display=swap" rel="stylesheet">
+  <meta name="author" content="Moshe Krumbein" />
+  <title>Vector Summary</title>
+
+<link rel="icon" type="image/png" href="../favicon.png"/>
+<link rel="stylesheet" href="../style.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article class="markdown-body">
+<h1 class="title">Vector Summary</h1>
+
+<img src="../divider.svg" class="break"/>
+
+<a href="./">Return to Math</a>
+
+<!--  -->
+<h1 id="vectors">Vectors</h1>
+<h2 id="vector-coordinates">Vector Coordinates</h2>
+<p><span class="math display">A(a_1,a_2,a_3), \; B(b_1,b_2,b_3)</span></p>
+<p>From <span class="math inline">A</span> to <span class="math inline">B</span>:</p>
+<p><span class="math display">\vec{AB}=\vec{(b_1-a_1.b_2-a_2,b_3-a_3)}</span></p>
+<p>All vectors with the same coordinates are <em>equivalent</em>.</p>
+<h2 id="operations-on-and-between-vectors">Operations On and Between Vectors</h2>
+<h3 id="adding-vectors">Adding Vectors</h3>
+<p><span class="math display">
+\begin{gathered}
+    \vec v = \vec{(v_1,v_2,v_3)}, \; \vec u = \vec{(u_1,u_2,u_3)} \\
+    \vec v + \vec u = \vec{(v_1+u_1,v_2+u_2,v_3+u_3)} \\
+\end{gathered}
+</span></p>
+<h3 id="multiplication-between-a-vector-with-a-scalar">Multiplication Between a Vector with a Scalar</h3>
+<p><span class="math display">
+\begin{gathered}
+    \alpha \in \mathbb{R}, \; \vec v= \vec{(v_1,v_2,v_3)} \\
+    \alpha \cdot \vec v = \vec{(\alpha \; v_1, \alpha \; v_2, \alpha \; v_3)} \\
+\end{gathered}
+</span></p>
+<h3 id="scalar-multiplication-between-vectors">Scalar Multiplication Between Vectors</h3>
+<p><span class="math display">
+\begin{gathered}
+    \vec v = \vec{(v_1,v_2,v_3)}, \; \vec u = \vec{(u_1,u_2,u_3)} \\
+    \vec v \cdot \vec u = v_1 u_1 + v_2 u_2 + v_3 u_3 \\
+\end{gathered}
+</span></p>
+<h2 id="uses-for-scalar-multiplication">Uses for Scalar Multiplication</h2>
+<h3 id="normal-of-a-vector-length">Normal of a Vector (Length)</h3>
+<p>Given:</p>
+<p><span class="math display">\vec v = \vec{(v_1,v_2,v_3)}</span></p>
+<p>Its normal (<span class="math inline">\hat v</span>) is defined by:</p>
+<p><span class="math display">\frac{\vec v}{||\vec v||} = \hat v</span></p>
+<p>Where:</p>
+<p><span class="math display">||\vec v|| = \sqrt{v_1^2+v_2^2+v_3^2}</span></p>
+<h3 id="alternative-definition-of-scalar-multiplication">Alternative Definition of Scalar Multiplication</h3>
+<p><span class="math display">
+    \vec v \cdot \vec u = ||\vec v|| \cdot ||\vec u||
+    \cdot \cos \measuredangle (\vec v, \vec u)
+</span></p>
+<p>From here, the angle between two vectors can be defined as:</p>
+<p><span class="math display">
+    \cos \measuredangle (\vec v, \vec u)
+    = \frac{\vec v \cdot \vec u}{||\vec v|| \cdot ||\vec u||}
+    = \hat v \cdot \hat u
+</span></p>
+<p>If <span class="math inline">\vec v \cdot \vec u = 0</span>, then <span class="math inline">\vec v \perp \vec u</span> (perpendicular to each other).</p>
+<p>If <span class="math inline">\cos \measuredangle (\vec v, \vec u) = 0</span>, then <span class="math inline">\vec v \perp \vec u</span>.</p>
+<p>And if <span class="math inline">||\vec u|| = 0</span>, then <span class="math inline">\forall \; \alpha \in \mathbb{R}: \vec v \cdot \vec u = 0</span>.</p>
+<p>Conclusion: vector zero is perpendicular to all other vectors.</p>
+<h4 id="claim">Claim:</h4>
+<p>If <span class="math inline">||\vec u|| = 0</span>, then <span class="math inline">u_1=u_2=u_3=0</span>, because:</p>
+<p><span class="math display">0 = ||\vec u||^2 = u_1^2+u_2^2+u_3^2 \implies u_1=u_2=u_3=0</span></p>
+<h3 id="plane">Plane</h3>
+<figure>
+<img src="plane.svg" style="width:50.0%" alt="Plane" /><figcaption aria-hidden="true">Plane</figcaption>
+</figure>
+<p><span class="math display">
+\begin{gathered}
+    \vec n \perp P \\
+    \vec n \perp \mu_0\vec \mu \\
+    \vec{(a,b,c)} \cdot \vec{(x-x_0,y-y_0,z-z_0)} = 0 \\
+    a(x-x_0)+b(y-y_0)+c(z-z_0)=0 \\
+    ax+by+cd=d \\
+    d=ax_0+by_0+cz_0
+\end{gathered}
+</span></p>
+<h3 id="angle-between-a-vector-to-a-plane">Angle Between a Vector to a Plane</h3>
+<p><span class="math display">
+\begin{gathered}
+    \vec v = \vec{(v_1,v_2,v_3)}, \; P\!: ax+by+cz=d \\
+    \varphi = \measuredangle(\vec v, P): \quad
+    \sin \varphi = \cos \left(\frac{\pi}{2}-\varphi\right)
+    = \frac{\vec n \cdot \vec v}{||\vec n|| \cdot ||\vec v||}
+\end{gathered}
+</span></p>
+<h2 id="parallel-vectors">Parallel Vectors</h2>
+<p>If <span class="math inline">\vec v \parallel \vec u</span> then there exists a constant <span class="math inline">c</span> such that <span class="math inline">\vec v = c \cdot \vec u</span>.</p>
+<h3 id="parametric-equation-of-the-line-l">Parametric Equation of the Line <span class="math inline">L</span></h3>
+<figure>
+<img src="parallel.svg" style="width:50.0%" alt="Parallel Lines" /><figcaption aria-hidden="true">Parallel Lines</figcaption>
+</figure>
+<p><span class="math display">
+\begin{gathered}
+    L \parallel \vec v \\
+    \vec{\mu_0\mu} \parallel \vec v \\
+\end{gathered}
+</span></p>
+<p>Therefore, there exists a constant <span class="math inline">t</span>, such that:</p>
+<p><span class="math display">
+\begin{gathered}
+    \vec{\mu_0\mu} = t \vec v \\
+    \vec{(x-x_0,y-y_0,z-z_0)} = t \vec{(v_1,v_2,v_3)} \\
+    \\
+    L:\begin{cases}
+        x = x_0+tv_1 \\
+        y = y_0+tv_2 \\
+        z = z_0+tv_3
+    \end{cases}
+\end{gathered}
+</span></p>
+<h2 id="applications-for-gradient-vectors">Applications for Gradient Vectors</h2>
+<p><span class="math display">
+\vec{\mathrm{grad}f(\mu_0)} = \vec \nabla f(\mu_0) =
+\vec{(f_x&#39;(\mu_0), f_y&#39;(\mu_0))}
+</span></p>
+<p>At extreme points:</p>
+<p><span class="math display">\vec \nabla g(\mu) \parallel \vec \nabla g(\mu)</span></p>
+<p>Therefore, there exists a constant <span class="math inline">\lambda</span> such that:</p>
+<p><span class="math display">
+\begin{cases}
+    \vec \nabla f(\mu) = \lambda \vec \nabla g(\mu) \\
+    g(x,y)=0
+\end{cases}
+</span></p>
+<!-- <a href="index.html">Return to Table of Contents</a>
+ -->
+
+<a href="./">Return to Math</a>
+
+<img src="../divider.svg" class="break"/>
+
+</article>
+</body>
+</html>

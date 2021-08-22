@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gelasio&display=swap" rel="stylesheet">
+  <meta name="author" content="Moshe Krumbein" />
+  <title>Polynomials</title>
+
+<link rel="icon" type="image/png" href="../favicon.png"/>
+<link rel="stylesheet" href="../style.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article class="markdown-body">
+<h1 class="title">Polynomials</h1>
+
+<img src="../divider.svg" class="break"/>
+
+<a href="./">Return to Math</a>
+
+<!--  -->
+<h1 id="inequalities">Inequalities</h1>
+<blockquote>
+<p><em>Note:</em> We must always first define the domain of the function</p>
+</blockquote>
+<p>There are two main approaches to solving inequalities:</p>
+<ol type="1">
+<li>Multiply both sides of the equation by the square of the common denominator</li>
+</ol>
+<p>For example:</p>
+<p><span class="math display">
+\begin{aligned}
+   \frac{2x+3}{x-4} &amp;&gt; 0 \\
+   \quad \\
+   \frac{2x+3}{x-4} &amp;&gt; 0, \quad x \neq 4 \\
+   \frac{2x+3}{x-4} &amp;&gt; 0 \;\| \cdot (x-4)^2 \\
+   (2x+3)(x-4) &amp;&gt; 0
+\end{aligned}</span></p>
+<p><span class="math display">
+\begin{gathered}
+   x &lt; -\frac{3}{2},\quad x &gt; 4 \\
+   \text{or} \\
+   (-\infty, -1.5)\cup(4, +\infty)
+\end{gathered}
+</span></p>
+<p><span class="math display">\pagebreak</span></p>
+<ol start="2" type="1">
+<li>Build a table</li>
+</ol>
+<blockquote>
+<p><em>Note:</em> Can only be done if one side of the equation is zero</p>
+</blockquote>
+<p>Example:</p>
+<p><span class="math display">
+\begin{aligned}
+    (x-2)(4-x)(9+x) &amp;\le 0
+\end{aligned}
+</span> <span class="math display">\text{Domain: } x \in \mathbb{R}</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><span class="math inline">(-\infty, -9)</span></th>
+<th style="text-align: center;"><span class="math inline">-9</span></th>
+<th style="text-align: center;"><span class="math inline">(-9, 2)</span></th>
+<th style="text-align: center;"><span class="math inline">2</span></th>
+<th style="text-align: center;"><span class="math inline">(2, 4)</span></th>
+<th style="text-align: center;"><span class="math inline">4</span></th>
+<th style="text-align: center;"><span class="math inline">(4, +\infty)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">(x-2)</span></td>
+<td style="text-align: center;"><span class="math inline">-</span></td>
+<td style="text-align: center;"><span class="math inline">-</span></td>
+<td style="text-align: center;"><span class="math inline">-</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">+</span></td>
+<td style="text-align: center;"><span class="math inline">+</span></td>
+<td style="text-align: center;"><span class="math inline">+</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">(4-x)</span></td>
+<td style="text-align: center;"><span class="math inline">+</span></td>
+<td style="text-align: center;"><span class="math inline">+</span></td>
+<td style="text-align: center;"><span class="math inline">+</span></td>
+<td style="text-align: center;"><span class="math inline">+</span></td>
+<td style="text-align: center;"><span class="math inline">+</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">-</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">(9+x)</span></td>
+<td style="text-align: center;"><span class="math inline">-</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">+</span></td>
+<td style="text-align: center;"><span class="math inline">+</span></td>
+<td style="text-align: center;"><span class="math inline">+</span></td>
+<td style="text-align: center;"><span class="math inline">+</span></td>
+<td style="text-align: center;"><span class="math inline">+</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">(x-2)(4-x)(9+x)</span></td>
+<td style="text-align: center;"><span class="math inline">+</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">-</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">+</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">-</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">
+\begin{gathered}
+    -9\le x \le2,\quad x \ge 4 \\
+    \text{or} \\
+    [-9, 2]\cup[4, +\infty)
+\end{gathered}
+</span></p>
+<p>This works whilst dividing as well, just make sure the domain is taken into account.</p>
+<h1 id="polynomials">Polynomials</h1>
+<blockquote>
+<p>A <em>polynomial</em> is a sum of monomials.</p>
+</blockquote>
+<blockquote>
+<p>A <em>monomial</em> is any expression in the form of <span class="math inline">Ax^H</span>.</p>
+</blockquote>
+<blockquote>
+<p>Examples: <span class="math inline">2\sqrt{x} \;(2x^\frac{1}{2}), 4x^3 \;(4x^3), \frac{x}{4}\;(\frac{1}{4}x^1), x\;(1x^1), 12\;(12x^0)</span></p>
+</blockquote>
+<h2 id="rules">Rules</h2>
+<ol type="1">
+<li>Can combine monomials of the same degree
+<ul>
+<li><span class="math inline">ax^n + bx^n = (a+b)x^n</span></li>
+</ul></li>
+<li>Is ordered according to degree
+<ul>
+<li><span class="math inline">A_{n}x^{n} + A_{n-1}x^{n-1}+A_{n-2}x^{n-2}\dots + A_2x^2+A_1x+A_0,  A_n \neq 0</span></li>
+<li><span class="math inline">ax^3+bx^2+cx+d</span></li>
+</ul></li>
+<li>The <em>degree</em> of a polynomial is defined by the highest exponent in the expression</li>
+</ol>
+<p>Examples:</p>
+<ul>
+<li><span class="math inline">x^8 -4</span> is a polynomial to the <span class="math inline">8^{\text{th}}</span> degree</li>
+<li><span class="math inline">4x^3 -2x^2-5x+13</span> is a polynomial to the <span class="math inline">3^{\text{rd}}</span> degree</li>
+</ul>
+<h2 id="characteristics">Characteristics</h2>
+<p>Given polynomials <span class="math inline">p_1, p_2</span> to the <span class="math inline">m</span> and <span class="math inline">n</span> degrees respectively:</p>
+<ul>
+<li><p><span class="math inline">p_1(x) + p_2(x)</span> is a polynomial to either the <span class="math inline">m</span> or <span class="math inline">m</span> degree, or lower</p></li>
+<li><p><span class="math inline">p_1(x) \cdot p_2(x)</span> is a polynomial to the <span class="math inline">m+n</span> degree</p></li>
+<li><p><span class="math inline">\frac{p_1(x)}{p_2(x)}</span> is not necessarily a polynomial</p></li>
+</ul>
+<blockquote>
+<p>i.e. <span class="math inline">\frac{x+2}{x-1}</span> is not a polynomial</p>
+</blockquote>
+<h2 id="polynomial-division">Polynomial division</h2>
+<p><span class="math display">a \;\vdots\; b \equiv \exists \; c \in \mathbb{R} \;|\; b \cdot c = a</span></p>
+<p>Or in English, <span class="math inline">a \;\vdots\; b</span> states that there exists <span class="math inline">c</span> (real number) such that <span class="math inline">b \cdot c = a</span>.</p>
+<p>For binomials <span class="math inline">(p,q) \to \frac{p(x)}{q(x)} = r(x)</span> such that <span class="math inline">r(x) = ax+b</span></p>
+<p>If <span class="math inline">r(x)</span> does not exist, <span class="math inline">p \not \vdots \; q</span></p>
+<h2 id="does-px-vdots-x-b">Does <span class="math inline">P(x) \;\vdots\; x-B</span>?</h2>
+<p>Or in other words, is <span class="math inline">p(b) = 0 \iff p(x) \;\vdots\; (x-b)</span> true?</p>
+<h3 id="proof">Proof:</h3>
+<p><span class="math display">
+    p(b) = 0 \iff p(x) \;\vdots\; (x-b) \equiv p(b) \neq 0 \iff p(x) \not\vdots\; (x-b)
+</span></p>
+<p>If <span class="math inline">p(x) \not \vdots\; (x-b)</span>, there will be a remainder <span class="math inline">c</span> or the <span class="math inline">0^\text{th}</span> degree (number) such that:</p>
+<p><span class="math display">
+\begin{aligned}
+    p(x) &amp;= (x-b)\cdot r(x)+c \\
+    p(b) &amp;= (b-b)\cdot r(b)+c \\
+\end{aligned}
+</span></p>
+<p><span class="math display">
+\because c \neq 0,\; p(b) \neq 0 \therefore 0 \neq 0 \\
+</span> <span class="math display">\text{Contradiction, Q.E.D.}</span></p>
+<h2 id="approach">Approach</h2>
+<p><span class="math display">
+\begin{aligned}
+    \frac{x^5-3x^4+7x^3+x^2-5x-1}{x-1}
+\end{aligned}
+</span></p>
+<p>Basically we do polynomial long division, I’ll add an example in later…</p>
+<ul>
+<li><p>Given polynomials <span class="math inline">(p,q)</span>, if dividing <span class="math inline">q</span> from <span class="math inline">p</span> produces a remainder,<span class="math inline">\quad</span> <span class="math inline">p(x) \not \vdots \;\; q(x)</span></p></li>
+<li><p>Given <span class="math inline">p:q = r \text{ with remainder } s \implies \frac{p}{q}=r+\frac{s}{q}</span></p></li>
+</ul>
+<h2 id="implications">Implications</h2>
+<p><span class="math display">\text{For any $b$ such that $p(b) = 0 \implies p(b) \;\vdots\; (x-b)$}</span></p>
+<p>Example:</p>
+<p><span class="math display">p(x)=x^2-3x-18</span> <span class="math display">\because</span> <span class="math display">
+\begin{aligned}
+    p(6)&amp;=6^2-3(6)-18 \\
+    p(6)&amp;=0 \\
+\end{aligned}
+</span> <span class="math display">\therefore</span> <span class="math display">(x^2 -3x-18) \;\vdots\; (x-6)</span></p>
+<h2 id="large-exponents">Large exponents</h2>
+<p><span class="math display">p = a^n</span> <span class="math display">
+\text{sgn}(p) := \begin{cases}
+   +1 &amp;\text{if $n$ is even and } a \neq 0 \text{,} \\
+   +1 &amp;\text{if $n$ is odd and } a &gt; 0 \text{,} \\
+   -1 &amp;\text{if $n$ is odd and } a &lt; 0 \text{,} \\
+   0 &amp;\text{if } a = 0 \text{.}
+\end{cases}
+</span></p>
+<p>In other words, any inequality that has zero on one side and polynomials that are multiplying or dividing, we can reduce any odd exponent to <span class="math inline">1</span> and any even exponent to <span class="math inline">2</span>.</p>
+<h3 id="example">Example</h3>
+<p><span class="math display">
+\begin{gathered}
+    \frac{(x^2-4)^{17} (x^2-3)^{33}}{(x-2)^5 (4x^2 - 7)^{40}} \leq 0 \\
+    \text{Is equivalent to:} \\
+    \frac{(x^2-4) (x^2-3)}{(x-2) (4x^2 - 7)^{2}} \leq 0 \\
+\end{gathered}
+</span></p>
+<h1 id="functions">Functions</h1>
+<p><span class="math display">f(x) &gt; 0</span></p>
+<p>This is asking which <span class="math inline">x</span> is greater than <span class="math inline">0</span> in <span class="math inline">y=f(x)</span> where <span class="math inline">y=f(x)</span> is <em>continuous</em>.</p>
+<h2 id="continuous-function">Continuous function</h2>
+<p>A <em>continuous</em> function is a function that does not have any abrupt changes in value, known as discontinuities.</p>
+<h2 id="defining-the-domain">Defining the domain</h2>
+<p>The <em>domain</em> of a function is the set of all possible inputs for the function. For example, the domain of <span class="math inline">f(x)=x^2</span> is all real numbers, and the domain of <span class="math inline">g(x)=\frac{1}{x}</span> is all real numbers except for <span class="math inline">x=0</span>.</p>
+<h2 id="implications-1">Implications</h2>
+<p>If <span class="math inline">f(x)</span> is continuous, and <span class="math inline">f(a)</span> is positive and <span class="math inline">f(b)</span> is negative, there exists <em>at least</em> one point between <span class="math inline">f(a)</span> and <span class="math inline">f(b)</span> that is equal to <span class="math inline">0</span>.</p>
+<p>If <span class="math inline">f(x)</span> is continuous, and <span class="math inline">f(x)</span> does not cross the <span class="math inline">x</span>-axis, if <span class="math inline">f(a)</span> is positive, all other points are positive, or if <span class="math inline">f(a)</span> is negative, all other points in the function is negative.</p>
+<h2 id="example-1">Example</h2>
+<p><span class="math display">
+\begin{aligned}
+    (x^2 -2x -15)(64-x^2) = 0
+\end{aligned}
+</span></p>
+<p>The solutions are <span class="math inline">x = -8, -3, 5, 8</span>.</p>
+<p>We know that there are no other values for <span class="math inline">x</span> where <span class="math inline">f(x) = 0</span> and between each solution, all values are either positive or negative.</p>
+<p><span class="math display">
+\begin{gathered}
+    16x^4 - 17x^2      + 1 \\
+    16x^4 - 16x^2 - x^2 + 1 \\
+    16x^2(x^2 - 1) - 1(x^2 - 1) \\
+    (16x^2-1)(x^2-1) \\
+    (4x-1)(4x+1)(x-1)(x+1) \\
+    \{\frac{1}{4}, -\frac{1}{4}, 1, -1\}
+\end{gathered}
+</span></p>
+<h2 id="irrational-equations">Irrational equations</h2>
+<p><span class="math display">\sqrt{a}, \text{Domain: }a\geq0</span></p>
+<p><span class="math display">
+\begin{gathered}
+    \sqrt{3x^2+9x-14}-x=2 \\
+    \text{Domain: } (-\infty, \frac{-9-\sqrt{249}}{6}]\cup[\frac{-9+\sqrt{349}}{6},+\infty) \\
+    \sqrt{3x^2+9x-14}=x+2 \| ^2 \\
+    3x^2+9x-14=x^2+4x+4 \\
+\end{gathered}
+</span></p>
+<ol type="1">
+<li>Define the domain (everything inside the root has to be <span class="math inline">\geq0</span>)</li>
+<li>We have to check our answers afterwards</li>
+</ol>
+<p><span class="math display">
+\begin{gathered}
+    \sqrt{2x+1}=\sqrt{x-3}+2\|^2 \\
+    2x+1=x-3+4\sqrt{x-3} +4 \|-x-1 \\
+    4\sqrt{x-3} = x \| ^2 \\
+    x^2 = 16(x-3) \\
+    x^2 -16x +48 = 0 \\
+    x=4, 12 \\
+    \{4, 12\}
+\end{gathered}
+</span></p>
+<h2 id="irrational-inequalities">Irrational inequalities</h2>
+<p><span class="math display">A, B \geq 0 \to A&gt;B \iff A^2 &gt; B^2</span></p>
+<p><span class="math display">
+\begin{gathered}
+    \sqrt{11-x} &lt; x-1 \\
+    \{x \;|\; x\leq 11\} \\
+    \sqrt{11-x}-x-1 &lt; 0 \\
+\end{gathered}
+</span></p>
+<h2 id="absolute-value-inequalities">Absolute value inequalities</h2>
+<h3 id="definition">Definition</h3>
+<ol type="1">
+<li><p><span class="math display">|a| \text{ is the distance from $0$}</span></p></li>
+<li><p><span class="math display">
+|a| := \begin{cases}
+a &amp;\text{if $a \geq 0$} \\
+-a &amp;\text{if $a &lt; 0$} \\
+\end{cases}
+</span></p></li>
+</ol>
+<h3 id="characteristics-1">Characteristics</h3>
+<p><span class="math display">|a \cdot b| = |a| \cdot |b|</span> <span class="math display">\left|\frac{a}{b}\right| = \frac{|a|}{|b|}</span> <span class="math display">|a^h| = |a|^h</span></p>
+<h3 id="example-2">Example</h3>
+<p><span class="math display">3|x+2| = 5-x</span></p>
+<p>There are two parts:</p>
+<ol type="1">
+<li>If <span class="math inline">x\geq-2</span>, then <span class="math inline">|x+2| = x+2</span></li>
+</ol>
+<p><span class="math display">
+\begin{aligned}
+    3(x+2) &amp;= 5-x \\
+    3x + 6 &amp;= 5-x \\
+    x&amp;=-\frac{1}{4}
+\end{aligned}
+</span></p>
+<ol start="2" type="1">
+<li>If <span class="math inline">x&lt;-2</span>, then <span class="math inline">|x+2| = -(x+2)</span></li>
+</ol>
+<p><span class="math display">
+\begin{aligned}
+    -3(x+2) &amp;= 5-x \\
+    -3x - 6 &amp;= 5-x \\
+    x&amp;=-\frac{11}{2}
+\end{aligned}
+</span></p>
+<p><span class="math display">\left\{-\frac{1}{4}, -\frac{11}{2}\right\}</span></p>
+<hr />
+<p><span class="math display">
+    (2x+3)^2 - |2x+3| = -12
+</span></p>
+<h3 id="tricks-to-solve">Tricks to solve</h3>
+<p><span class="math display">|x| = b</span> <span class="math display">|x+a| + |x+b| + |x+c| = d </span></p>
+<h2 id="exponents">Exponents</h2>
+<p>For all natural numbers (<span class="math inline">m,n \in \mathbb{N}</span>):</p>
+<p><span class="math display">a^n = \underbrace{a \cdotp a \cdotp \mathellipsis a}_{\text{n times}}</span></p>
+<p><span class="math display">a^m \cdot a^n = n^{m+n}</span> <span class="math display">\frac{a^m}{a^n} = n^{m-n}</span> <span class="math display">(a^m)^n = a^{m \cdot n}</span> <span class="math display">a^{-n}=\frac{1}{a^n}</span> <span class="math display">a^n \cdot b^n = (a \cdot b )^n</span></p>
+<p><span class="math display">a^0 = 1</span> <span class="math display">0^m = 0</span> <span class="math display">0^0 = \emptyset</span></p>
+<blockquote>
+<p><em>Note:</em> When <span class="math inline">m,n \not \in \mathbb{N}</span>, <span class="math inline">x&gt; 0</span>, otherwise we run into issues…</p>
+</blockquote>
+<h3 id="exponential-equations">Exponential equations</h3>
+<p><span class="math display">a^x=a^y \;|\; a &gt; 0 \implies x= y</span> <span class="math display">a^m = a^n, m=n \text{ or } a=1</span></p>
+<h3 id="special-solutions">Special solutions</h3>
+<p>“Special” solutions are those that the base of the exponents are either <span class="math inline">0</span> or negative and still are true.</p>
+<h3 id="exponential-inequalities">Exponential inequalities</h3>
+<p><span class="math display">a^m &gt; a^n</span> <span class="math display">
+\begin{gathered}
+    a \geq 1 \to \\
+    m&gt;n
+\end{gathered}
+\quad \vline \quad
+\begin{gathered}
+    a&lt;1 \to \\
+    m&lt;n
+\end{gathered}
+</span></p>
+<h3 id="inequalities-with-variables-in-the-base-and-the-exponent">Inequalities with variables in the base and the exponent</h3>
+<p><span class="math display">\begin{gathered}
+    b^a &gt; b^c  \\
+    \text{Where $a, b, c$ contain $x$}
+\end{gathered}
+</span> For any base <span class="math inline">b</span>, we must consider: <span class="math display">
+\begin{gathered}
+    0&lt;b&lt;1 \\
+    a&lt;c
+\end{gathered}
+\quad \vline \quad
+\begin{gathered}
+    b=1 \\
+    \emptyset
+\end{gathered}
+\quad \vline \quad
+\begin{gathered}
+    b&gt;1 \\
+    a&gt;c
+\end{gathered}
+</span></p>
+<p>However, if <span class="math inline">b^a \geq b^c</span>: <span class="math display">
+\begin{gathered}
+    0&lt;b&lt;1 \\
+    a&lt;c
+\end{gathered}
+\quad \vline \quad
+\begin{gathered}
+    b=1 \\
+    \mathbb{R}
+\end{gathered}
+\quad \vline \quad
+\begin{gathered}
+    b&gt;1 \\
+    a&gt;c
+\end{gathered}
+</span></p>
+<h1 id="logarithms">Logarithms</h1>
+<p><span class="math display">\log_a{b}=n \iff a^n=b</span> <span class="math display">\text{$a$ is called the base and $b$ is called the argument.}</span> <span class="math display">a&gt;0, \quad b &gt; 0, \quad a\neq 1</span></p>
+<p>Example:</p>
+<p><span class="math display">
+\begin{aligned}
+   8&amp;=2^3 \\
+   2&amp;=8^{\frac{1}{3}}=\sqrt[3]{8} \\
+   3&amp;= \log_2{8}
+\end{aligned}
+</span></p>
+<h2 id="properties">Properties</h2>
+<p><span class="math display">a^{\log_a{b}} = b \tag{1}</span> <span class="math display">\log_a 1 = 0 \tag{2}</span> <span class="math display">\log_a a = 1 \tag{2}</span> <span class="math display">\log_a b + log_a c = log_a (bc) \tag{4}</span> <span class="math display">\log_a b - log_a c = log_a \left(\frac{b}{c}\right) \tag{5}</span> <span class="math display">n\log_a b = log_a (b^n) \tag{6}</span> <span class="math display">\log_a b = \frac{log_c b}{log_c a} \tag{7}</span> <span class="math display">\log_a b \cdot \log_c a = log_c a^{\log_a b} = log_c b</span> <span class="math display">log_a b = \frac{1}{log_b a} \tag{8}</span> <span class="math display">\log_{a^m} b = \frac{1}{m} log_a b\tag{9}</span> <span class="math display">\log_{a^m} b^n = \frac{n}{m} \log_a b \tag{6+8}</span></p>
+<p><span class="math display">log_c a &gt; log_c b</span> <span class="math display">
+\begin{gathered}
+    0&lt;c&lt;1 \\
+    a&lt;b
+\end{gathered}
+\quad \vline \quad
+\begin{gathered}
+    c&gt;1 \\
+    a&gt;b
+\end{gathered}
+</span></p>
+<p><span class="math display">\text{sgn}(log_a b) = \text{sgn}((a-1)(b-1))</span></p>
+<!-- <a href="index.html">Return to Table of Contents</a>
+ -->
+
+<a href="./">Return to Math</a>
+
+<img src="../divider.svg" class="break"/>
+
+</article>
+</body>
+</html>

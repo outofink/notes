@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gelasio&display=swap" rel="stylesheet">
+  <meta name="author" content="Moshe Krumbein" />
+  <title>First Midterm</title>
+
+<link rel="icon" type="image/png" href="../favicon.png"/>
+<link rel="stylesheet" href="../style.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article class="markdown-body">
+<h1 class="title">First Midterm</h1>
+
+<img src="../divider.svg" class="break"/>
+
+<a href="./">Return to Math</a>
+
+<!--  -->
+<h1 id="summary">Summary</h1>
+<h2 id="theorems">Theorems</h2>
+<ol type="1">
+<li><p>Cauchy’s mean value theorem</p>
+<p>If <span class="math inline">f(x)</span> and <span class="math inline">g(x)</span> are continuous on <span class="math inline">[a,b]</span> and are differentiable on <span class="math inline">(a,b)</span> and <span class="math inline">g&#39;(x) \neq 0</span> for all <span class="math inline">x \in (a,b)</span>, then there exists <span class="math inline">c \in  (a, b)</span> such that: <span class="math display">\frac{f(b)-f(a)}{g(b)-g(a)} = \frac{f&#39;(c)}{g&#39;(c)}</span></p></li>
+<li><p>Lagrange’s mean value theorem (specific case of Cauchy’s mean value theorem)</p>
+<p>If <span class="math inline">g(x) = x</span> and <span class="math inline">f(x), g(x)</span> satisfy Cauchy’s mean value theorem: <span class="math display">\exists \; c \in (a,b): \frac{f(b)-f(b)}{b-a}=f&#39;(c)</span></p></li>
+<li><p>Role’s theorem (specific case of Lagrange’s theorem)</p>
+<p>If <span class="math inline">f(x)</span> satisfies Lagrange’s theorem and <span class="math inline">f(a) = f(b)</span>: <span class="math display">\exists \; c \in (a,b): f&#39;(c) = 0</span></p></li>
+<li><p>Cauchy’s intermediate value theorem</p>
+<p>If <span class="math inline">f(x)</span> is continuous on <span class="math inline">[a,b]</span> and <span class="math inline">f(a) \cdot f(b) &lt; 0</span>: <span class="math display">\exists \; a &lt; c &lt; b: f(c) = 0</span></p></li>
+</ol>
+<h2 id="integrals">Integrals</h2>
+<ol type="1">
+<li><p>Immediate (anti-derivatives)</p></li>
+<li><p>Inverse chain rule (<span class="math inline">t</span>-substitution)</p>
+<p><span class="math display">\int f&#39;(g(x))g&#39;(x)dx = f(g(x)) + c</span></p></li>
+<li><p>Integration by parts</p>
+<p><span class="math inline">\int uv&#39;dx = uv - \int vu&#39;dx</span></p>
+<ol type="a">
+<li><span class="math inline">\int p_m(x)e^{ax}dx, \int p_m(x)\sin(ax)dx, \int p_m(x)\cos(ax)dx</span></li>
+</ol>
+<blockquote>
+<p>Where <span class="math inline">p_m</span> is a polynomial to the <span class="math inline">m^{\text{th}}</span> power.</p>
+</blockquote>
+<blockquote>
+<p>Define <span class="math inline">u = p_m(x)</span> and do integration by parts <span class="math inline">m</span> times.</p>
+</blockquote>
+<ol start="2" type="a">
+<li>Contains <span class="math inline">\ln</span>, <span class="math inline">\arcsin</span>, <span class="math inline">\arccos</span>, <span class="math inline">\arctan</span></li>
+</ol>
+<blockquote>
+<p>Define <span class="math inline">a</span> as that function.</p>
+</blockquote>
+<ol start="3" type="a">
+<li><span class="math inline">\int e^{ax}\sin(bx)dx, \int e^{ax}\cos(bx)dx, \int \ln (\sin x)dx,  \int \ln (\cos x) dx</span></li>
+</ol>
+<blockquote>
+<p>Any integral that after integrating by parts twice contains the original integral.</p>
+</blockquote>
+<blockquote>
+<p>Define <span class="math inline">I</span> as that integral and solve algebraically.</p>
+</blockquote></li>
+<li><p>Substitution</p>
+<ol type="a">
+<li>Polynomials (partial fractions)</li>
+<li>Trigonometric substitution to get out of square roots (trigonometric substitution)</li>
+<li>Trigonometric substitution to get to a rational function (universal trigonometric substitution)</li>
+</ol></li>
+</ol>
+<!-- <a href="index.html">Return to Table of Contents</a>
+ -->
+
+<a href="./">Return to Math</a>
+
+<img src="../divider.svg" class="break"/>
+
+</article>
+</body>
+</html>

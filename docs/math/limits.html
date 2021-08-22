@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gelasio&display=swap" rel="stylesheet">
+  <meta name="author" content="Moshe Krumbein" />
+  <title>Limits</title>
+
+<link rel="icon" type="image/png" href="../favicon.png"/>
+<link rel="stylesheet" href="../style.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<article class="markdown-body">
+<h1 class="title">Limits</h1>
+
+<img src="../divider.svg" class="break"/>
+
+<a href="./">Return to Math</a>
+
+<!--  -->
+<h1 id="neighborhood">Neighborhood</h1>
+<p>The <em>neighborhood</em> of a value is an open set of values surrounding the target value.</p>
+<p>i.e. the neighborhood of <span class="math inline">5</span> could be <span class="math inline">(4.99999, 5.00001)</span></p>
+<p>The smallest positive value is denoted as <span class="math inline">\delta</span> such that <span class="math inline">5 \in (5-\delta,5+\delta)</span></p>
+<p><span class="math display">\delta, \epsilon &gt; 0</span></p>
+<p><span class="math display"> a \text{ is an interior point of } I \iff I \subset (a-\delta,a+\delta)</span></p>
+<p>It is possible to approximate the limit by using numbers very close to the limit (I.e. instead of <span class="math inline">1</span>, input <span class="math inline">0.99999999</span> or <span class="math inline">1.00000001</span>)</p>
+<h1 id="basics">Basics</h1>
+<p><span class="math display">\lim\limits_{x \to a} f(x) =b</span></p>
+<p>For all <span class="math inline">\epsilon &gt; 0</span> there exists <span class="math inline">\delta &gt; 0</span> such that for all <span class="math inline">a-\delta&lt;x&lt;a+\delta</span> there exists <span class="math inline">b-\epsilon&lt;f(x)&lt;b-\epsilon</span></p>
+<p>It is possible to take the limit from the left (<span class="math inline">\lim\limits_{x \to a^-}{f(x)}=b</span>) or the right (<span class="math inline">\lim\limits_{x \to a^+}{f(x)}=b</span>).</p>
+<p>Even though the limit from the left and the right both exist, if they both don’t approach the same value, the limit does not exist.</p>
+<h1 id="calculating-limits">Calculating limits</h1>
+<p>If <span class="math inline">a</span> is an internal value to the domain of the function <span class="math inline">f(x)</span>, then: <span class="math display">\lim\limits_{x \to a} f(x) = f(a)</span></p>
+<p>For example, <span class="math inline">\lim\limits_{x \to 0} \sqrt{x}</span> does not exist even though <span class="math inline">\sqrt{0}</span> exists, because the domain doesn’t have a neighborhood of values surrounding <span class="math inline">0</span> from both sides.</p>
+<p>If given <span class="math inline">y=f(x), y=g(x)</span>, where <span class="math inline">\lim\limits_{x \to a} f(x) = b_1</span> and <span class="math inline">\lim\limits_{x \to a} g(x) =b_2</span>, then: <span class="math display">\lim\limits_{x \to a} (f(x) \pm g(x)) = b_1 \pm b_2 \tag{1}</span> <span class="math display">\lim\limits_{x \to a} (f(x) \cdot g(x)) = b_1 \cdot b_2 \tag{2}</span> <span class="math display">\lim\limits_{x \to a} \left(\frac{f(x)}{g(x)}\right) = \frac{b_1}{b_2}, \quad b \neq 0 \tag{3}</span></p>
+<p>Given <span class="math inline">\lim\limits_{x \to a} f(x) = b</span> and <span class="math inline">\lim\limits_{x \to a} g(x) =c</span>, then: <span class="math display">\lim\limits_{x \to a} (g \circ f)(x) = c</span></p>
+<p>Given <span class="math inline">\lim\limits_{x \to a} f(x) = b</span> and <span class="math inline">\lim\limits_{x \to a} g(x) =+\infty</span>, then: <span class="math display">\lim\limits_{x \to a} (f(x) + g(x)) = +\infty</span> <span class="math display">\lim\limits_{x \to a} (f(x) \cdot g(x)) = \begin{cases}
+    +\infty, &amp;\quad b&gt;0 \\
+    -\infty, &amp;\quad b&lt;0 \\
+    \text{indeterminate}, &amp;\quad b=0
+\end{cases}</span> <span class="math display">\lim\limits_{x \to a} \frac{1}{g(x)} = 0</span></p>
+<h1 id="indeterminates">Indeterminates</h1>
+<p>Given <span class="math inline">\lim\limits_{x \to a} f(x) = 0</span> and <span class="math inline">\lim\limits_{x \to a} g(x) = 0</span>, then:</p>
+<p><span class="math display">\lim\limits_{x \to a} \frac{f(x)}{g(x)} = \frac{0}{0} = \;? \tag{1}</span></p>
+<p>Given <span class="math inline">\lim\limits_{x \to a} f(x) = +\infty</span> and <span class="math inline">\lim\limits_{x \to a} g(x) = +\infty</span>, then:</p>
+<p><span class="math display">\lim\limits_{x \to a} \frac{f(x)}{g(x)} = \frac{+\infty}{+\infty} = \;? \tag{2}</span></p>
+<p>Given <span class="math inline">\lim\limits_{x \to a} f(x) = +\infty</span> and <span class="math inline">\lim\limits_{x \to a} g(x) = +\infty</span>, then:</p>
+<p><span class="math display">\lim\limits_{x \to a} (f(x)-g(x)) = \infty - \infty = \;? \tag{3}</span></p>
+<p>Given <span class="math inline">\lim\limits_{x \to a} f(x) = +\infty</span> and <span class="math inline">\lim\limits_{x \to a} g(x) = 0</span>, then:</p>
+<p><span class="math display">\lim\limits_{x \to a} \frac{f(x)}{g(x)} = \frac{\infty}{0} = \;? \tag{4}</span></p>
+<h1 id="workarounds">Workarounds</h1>
+<p><span class="math display">\lim\limits_{x \to a} f(x) = b+</span></p>
+<ol type="1">
+<li><span class="math inline">\lim\limits_{x \to a} f(x) = b</span></li>
+<li><span class="math inline">\delta &gt; 0, a-\delta &lt; x &lt; a+ \delta : f(x) \ge b</span></li>
+</ol>
+<p>If <span class="math inline">b&gt;0</span>: <span class="math display">\frac{b}{0^+} = +\infty</span> <span class="math display">\frac{b}{0^-} = -\infty</span></p>
+<p>For example:</p>
+<p><span class="math display">\lim\limits_{x \to \pi^+} \frac{x}{\sin x} = \frac{\pi^+}{0^-} = -\infty</span> <span class="math display">\lim\limits_{x \to 0^+} \frac{\log x}{x} = \frac{-\infty}{0^+} = -\infty
+\cdot \frac{1}{0^+} = -\infty \cdot (+\infty) = -\infty</span> <span class="math display">\lim\limits_{x \to 0^+} (\log^2 x + \log x -5) = \lim\limits_{x \to 0^+} (\log x)(\log x + 1) - 5
+= (-\infty)(-\infty) - 5 = +\infty</span></p>
+<h1 id="limit-as-x-to-infty">Limit as <span class="math inline">x \to \infty</span></h1>
+<p><span class="math display">y=f(x) \quad (a, +\infty) \subset D</span> <span class="math display">\lim\limits_{x \to +\infty} f(x) = b</span></p>
+<p>For each <span class="math inline">\epsilon&gt;0</span>, exists N such that for every <span class="math inline">x&gt;N</span> exists <span class="math inline">b-\epsilon&lt;f(x)&lt;b+\epsilon</span>.</p>
+<p><span class="math display">y=f(x) \quad (-\infty, a) \subset D</span> <span class="math display">\lim\limits_{x \to -\infty} f(x) = b</span></p>
+<p>For each <span class="math inline">\epsilon&gt;0</span>, exists N such that for every <span class="math inline">x&lt;N</span> exists <span class="math inline">b-\epsilon&lt;f(x)&lt;b+\epsilon</span>.</p>
+<h2 id="polynomials">Polynomials</h2>
+<p><span class="math display">\text{Example: }\lim\limits_{x \to +\infty} \frac{-x^2 +3x -7 }{5x^2 -x -11}</span></p>
+<p>We factor out the largest factor (in our example <span class="math inline">x^2</span>) and solve:</p>
+<p><span class="math display">=\lim\limits_{x \to +\infty} \frac{x^2(-1+\frac{3}{x}-\frac{7}{x^2})}{x^2(5 - \frac{1}{x} - \frac{11}{x^2})}</span> <span class="math display">=-\frac{1}{5}</span></p>
+<h1 id="sandwich-rule-squeeze-theorem">“Sandwich Rule” (Squeeze Theorem)</h1>
+<p><span class="math display">\text{Given: } \lim\limits_{x \to a} f(x) = b \quad \lim\limits_{x \to a} g(x) = b</span> <span class="math display">\text{If: } g(x) \leq h(x) \leq f(x)</span> <span class="math display">\text{Then: } \lim\limits_{x \to a} h(x) = b</span></p>
+<p>Given functions <span class="math inline">q(x)</span> and <span class="math inline">p(x)</span>:</p>
+<ol type="1">
+<li><span class="math inline">\lim\limits_{x \to a} p(x) = 0</span></li>
+<li><span class="math inline">m \leq q(x) \leq n \quad (m, n \in \mathbb{R})</span></li>
+</ol>
+<p><span class="math display">\lim\limits_{x \to a} q(x) \cdot p(x) = 0</span></p>
+<h2 id="example">Example</h2>
+<p><span class="math display">\lim\limits_{x \to +\infty} \frac{\sin x}{x}=\lim\limits_{x \to +\infty} \sin x \cdot \frac{1}{x}</span> <span class="math display">\text{Because: } -1 \leq \sin x \leq 1</span> <span class="math display">\lim\limits_{x \to -\infty} \sin x \cdot \frac{1}{x} = 0</span></p>
+<p><span class="math display">\lim\limits_{x \to +\infty} \frac{3x^3-5x^2+\cos(x^5-3x)}{2x^3-5x-\sin(\sqrt{x})}=\frac{3}{2}</span></p>
+<h1 id="solving-limlimits_x-to-0-fracsin-xx">Solving <span class="math inline">\lim\limits_{x \to 0} \frac{\sin x}{x}</span></h1>
+<p>For values <span class="math inline">x \in \left(0,\frac{\pi}{2}\right)</span>: <span class="math display">\sin x &lt; x &lt; \tan x</span> Therefore: <span class="math display">\frac{1}{\sin x} &gt; \frac{1}{x} &gt; \frac{1}{\tan x} \; || \cdot \sin x</span> <span class="math display">1 &gt; \frac{\sin x}{x} &gt; \cos x</span></p>
+<p><span class="math display">\lim\limits_{x \to 0} \frac{\sin x}{x}</span> <span class="math display">1 &gt; \frac{\sin x}{x} &gt; 1</span> <span class="math display">\lim\limits_{x \to 0} \frac{\sin x}{x} = 1</span></p>
+<h2 id="generalization">Generalization</h2>
+<p><span class="math display">\lim\limits_{x \to 0} \frac{\sin ax}{x} = a</span> <span class="math display">\lim\limits_{x \to 0} \frac{\sin ax}{\sin bx} = \frac{a}{b}</span></p>
+<h2 id="limit-as-x-to-pi">limit as <span class="math inline">x \to \pi</span></h2>
+<p><span class="math display">\lim\limits_{x \to \pi} \frac{\sin 5x}{\sin 2x}</span> <span class="math display">=\lim\limits_{t \to 0} \frac{\sin (5t + 5 \pi)}{\sin (2t + 2 \pi)}</span> <span class="math display">=\lim\limits_{t \to 0} \frac{-\sin 5t}{\sin 2t} = -\frac{5}{2}</span></p>
+<h2 id="why-we-use-radians">Why we use radians</h2>
+<p>For small values of <span class="math inline">x</span>, <span class="math inline">\sin x</span> and <span class="math inline">\tan x</span> approach <span class="math inline">x</span>.</p>
+<h1 id="defining-e">Defining <span class="math inline">e</span></h1>
+<p><span class="math display">\lim\limits_{x \to +\infty} \left(1+\frac{1}{x}\right)^x = 2.718281828 \ldots =e</span> <span class="math display">=\lim\limits_{x \to 0} (1+x)^{\frac{1}{x}}</span></p>
+<h1 id="continuity">Continuity</h1>
+<p>Function <span class="math inline">y=f(x)</span> is <em>continuous</em> at the point <span class="math inline">x=a</span> given:</p>
+<ol type="1">
+<li>Exists <span class="math inline">b = \lim\limits_{x \to a-} f(x)</span></li>
+<li>Exists <span class="math inline">c = \lim\limits_{x \to a+} f(x)</span></li>
+<li><span class="math inline">b=c=f(a)</span></li>
+</ol>
+<h2 id="elementary-functions">Elementary functions</h2>
+<p><span class="math display">y = c, x^n, a^x, |x|, \sin x, \cos x, \tan x, \arcsin x, \arccos x, \arctan x</span></p>
+<p>If <span class="math inline">f(x)</span> and <span class="math inline">g(x)</span> are <em>elementary</em> functions then:</p>
+<p><span class="math display">\begin{gathered}
+    y=f(x)+g(x) \\
+    y=f(x)-g(x) \\
+    y=f(x) \cdot g(x) \\
+    y=f(g(x))
+\end{gathered}
+\quad\vline\quad
+\begin{gathered}
+    y=\frac{f(x)}{g(x)} \\
+    y=f(x)^{g(x)} \\
+    y=\log_{f(x)}{g(x)} \\
+\end{gathered}</span></p>
+<p>are all elementary functions.</p>
+<p>If <span class="math inline">a</span> is an interior point of <span class="math inline">f(x)</span>, then <span class="math inline">f(x)</span> at point <span class="math inline">a</span>.</p>
+<p>The exception being <em>piecewise</em> functions.</p>
+<h1 id="piecewise-functions">Piecewise functions</h1>
+<p><span class="math display">f(x) = \begin{cases}
+    x-5, \quad &amp;x \ge 3 \\
+    8-2x, \quad &amp;x &lt; 3
+\end{cases}</span></p>
+<p>If <span class="math inline">\lim\limits_{x \to a+} f(x) = b</span>, <span class="math inline">\lim\limits_{x \to a-} f(x) = b</span>, and <span class="math inline">f(a) = b</span>, then the function is continuous at point <span class="math inline">a</span>.</p>
+<p>In the example above, the function would not be continuous at point <span class="math inline">3</span>, because the limit from the left and the limit from the right are not equal.</p>
+<p>However the function <span class="math display">f(x) = \begin{cases}
+    x-5, \quad &amp;x \ge 3 \\
+    -8-2x, \quad &amp;x &lt; 3
+\end{cases}</span> is continuous at <span class="math inline">x=3</span> because the limit from the left, right, and at <span class="math inline">3</span> are all equal.</p>
+<h1 id="discontinuity">Discontinuity</h1>
+<h2 id="removable-discontinuity">Removable discontinuity</h2>
+<ol type="1">
+<li><span class="math inline">\lim\limits_{x \to a+} f(x) =b</span></li>
+<li><span class="math inline">\lim\limits_{x \to a-} f(x) =b</span></li>
+<li><span class="math inline">f(a) = c</span> or does not exist</li>
+</ol>
+<h3 id="examples">Examples</h3>
+<p><span class="math display">f(x)=\frac{x^2-4}{x-2} \tag{1}</span> <span class="math display">\lim\limits_{x \to 2-} f(x) = \lim\limits_{x \to 2+} f(x) = 4</span></p>
+<p><span class="math display">f(x) = \begin{cases}
+    \frac{\sin 4x}{x},  \quad &amp;x &gt; 0 \\
+    4+ e^{\frac{1}{x}}, \quad &amp;x &lt; 0
+\end{cases}\tag{2}</span> <span class="math display">\lim\limits_{x \to 0-} f(x) = \lim\limits_{x \to 0+} f(x) = 4</span></p>
+<h2 id="stepjump-discontinuity-type-1">Step/jump discontinuity (type 1)</h2>
+<ol type="1">
+<li><span class="math inline">\lim\limits_{x \to a+} f(x) =b</span></li>
+<li><span class="math inline">\lim\limits_{x \to a-} f(x) =c</span></li>
+<li><span class="math inline">b \neq c</span></li>
+</ol>
+<h3 id="examples-1">Examples</h3>
+<p><span class="math display">f(x) = x \sqrt{\frac{1}{x^2}} \tag{1}</span> <span class="math display">\lim\limits_{x \to 0+} f(x) =  1 \quad\vline\quad \lim\limits_{x \to 0-} f(x) = -1</span></p>
+<p><span class="math display">f(x) = \begin{cases}
+    \frac{\sin(x-1)}{x-1}, \quad &amp;x &lt; 1 \\
+    x^{\frac{1}{x-1}},     \quad &amp;x &gt; 1
+\end{cases} \tag{2}</span> <span class="math display">\lim\limits_{x \to 1-} f(x) = 1 \quad\vline\quad \lim\limits_{x \to 1+} f(x) = 1</span></p>
+<h2 id="asymptotic-discontinuity-type-2">Asymptotic discontinuity (type 2)</h2>
+<p>The limit from at least one side is infinity or does not exist.</p>
+<h3 id="examples-2">Examples</h3>
+<p><span class="math display">f(x) = \frac{x^2 -5x +6}{x^2-4} \tag{1}</span> <span class="math display">\lim\limits_{x \to -2} \frac{x-3}{x+2}</span> <span class="math display">\lim\limits_{x \to -2^-} \frac{x-3}{x+2} = \frac{-5}{0^-} = +\infty \quad\vline\quad
+\lim\limits_{x \to -2^+} \frac{x-3}{x+2} = \frac{-5}{0^+} = -\infty</span></p>
+<p><span class="math display">f(x) = e^{-\frac{1}{x}} \tag{2}</span> <span class="math display">\lim\limits_{x \to 0^+} e^{-\frac{1}{x}} = e^{-\frac{1}{0^+}} = 0 \quad\vline\quad
+\lim\limits_{x \to 0^-} e^{-\frac{1}{x}} = e^{-\frac{1}{0^-}} = +\infty</span></p>
+<h1 id="intermediate-value-theorem">Intermediate value theorem</h1>
+<p>Given <span class="math inline">f(a)&gt;0</span> and <span class="math inline">f(b)&lt;0</span> and <span class="math inline">y=f(x)</span> is continuous, there exists at least one <span class="math inline">c \in (a,b)</span> such that <span class="math inline">f(c) = 0</span>. <span class="math display">f(a) \cdot f(b) &lt; 0</span> <span class="math display">\exists \;c \in (a,b) \to f(c) = 0</span></p>
+<p><span class="math display">Ax^5 +Bx^2+Cx+D=0 \;|| :A \quad A \neq 0</span> <span class="math display">x^3 + \frac{B}{A}x^2 + \frac{C}{A}x + \frac{D}{A} = 0</span> <span class="math display">\frac{B}{A} =a, \frac{C}{A} =b, \frac{D}{A}=c</span> <span class="math display">f(x)=x^3+x^2+bx+c=0</span> <span class="math display">\lim\limits_{x \to +\infty} f(x) = +\infty \quad\vline\quad \lim\limits_{x \to -\infty} f(x) = -\infty</span> <span class="math display">\forall n \exists b \to x&gt;b, f(x) &gt;0</span></p>
+<p><span class="math display">\lim\limits_{x \to +\infty} f(x) = +\infty: \exists a \forall x&gt;a \exists f(x)&gt;0</span></p>
+<!-- <a href="index.html">Return to Table of Contents</a>
+ -->
+
+<a href="./">Return to Math</a>
+
+<img src="../divider.svg" class="break"/>
+
+</article>
+</body>
+</html>

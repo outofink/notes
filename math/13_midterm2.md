@@ -8,14 +8,16 @@ date: Spring 2021
 
 ## Riemann Sum
 
-A *Riemann sum* is a certain kind of approximation of an integral by a finite sum.
+A _Riemann sum_ is a certain kind of approximation of an integral by a finite sum.
 
 The sum is calculated by partitioning the region into shapes (most commonly
 rectangles) such that the width of rectangle is infinitesimally small. In
 short, this sum produces the following:
 
-$$\int_{a}^{b}f(x)dx \equiv \lim\limits_{n \to \infty} \frac{b-a}{n}
-\sum_{k=1}^{n}f\left(a+\frac{k}{n}(b-a)\right)$$
+$$
+\int_{a}^{b}f(x)dx \equiv \lim\limits_{n \to \infty} \frac{b-a}{n}
+\sum_{k=1}^{n}f\left(a+\frac{k}{n}(b-a)\right)
+$$
 
 ## Newton-Leibniz Theorem
 
@@ -25,7 +27,7 @@ $$\int_{a}^{b} f(x)dx = F(x) \Big|_a^b = F(b) - F(a)$$
 
 1. If $a<b$ and $f(x)>$ or $a<b$ and $f(x)>0$ then $\int_{a}^{b}f(x)dx<0$.
 
-    If $a<b$ and $f(x)<$ or $a>b$ and $f(x)>0$ then $\int_{a}^{b}f(x)dx>0$.
+   If $a<b$ and $f(x)<$ or $a>b$ and $f(x)>0$ then $\int_{a}^{b}f(x)dx>0$.
 
 2. $\int_{a}^{b}f(x)dx = \int_{a}^{c}f(x)dx + \int_{c}^{b}f(x)dx$
 
@@ -61,8 +63,11 @@ preferable to do the geometric calculation rather than the integral.
 The volume of a disk is $\pi r^2 h$ so for a function we get between $a$ and
 $b$ we get:
 
-$$\lim\limits_{n \to \infty} f(x)\pi \cdot
-\frac{b-a}{n}\sum_{k=1}^{n}f^2\left(a+\frac{b-a}{n}k\right)$$
+$$
+\lim\limits_{n \to \infty} f(x)\pi \cdot
+\frac{b-a}{n}\sum_{k=1}^{n}f^2\left(a+\frac{b-a}{n}k\right)
+$$
+
 $$\boxed{V=\pi \int_{a}^{b}f^2(x)dx}$$
 
 ### Example
@@ -90,40 +95,48 @@ In class we went through all the proofs, see other notes for details.
 If functions $f(x)$ and $g(x)$ are differentiable and the function $f(u)$ is
 continuous on $g(x) < u < h(x)$, then:
 
-$$\frac{d}{dx} \int_{g(x)}^{h(x)}f(u)du = f(h(x)) \cdot h'(x) = f(g(x) \cdot
-g'(x)$$
+$$
+\frac{d}{dx} \int_{g(x)}^{h(x)}f(u)du = f(h(x)) \cdot h'(x) = f(g(x) \cdot
+g'(x)
+$$
 
 ### Examples and Applications
 
-1.
-$$\frac{d}{dx}\int_{5}^{\sin x}t^2dt = \sin^2(x) \cdot (\sin x)' - 5^2 \cdot
-(5)'$$
-$$=\sin^2x \cdot \cos x$$
+1.  $$
+    \frac{d}{dx}\int_{5}^{\sin x}t^2dt = \sin^2(x) \cdot (\sin x)' - 5^2 \cdot
+    (5)'
+    $$
 
-2.
-$$\frac{d}{dx} \int_{x^3}^{3}\arctan t dt = \arctan 3 \cdot (3)' - \arctan(x^3) \cdot (x^3)'$$
-$$=-3x^2 \arctan x^3$$
+    $$=\sin^2x \cdot \cos x$$
 
-3.
-$$\lim\limits_{x \to 0} \frac{1}{x^3}\int_{0}^{x}\frac{t^2}{t^4+1}dt = \left("\frac{0}{0}"\right)$$
-$$\to \lim\limits_{x \to 0} \frac{\frac{d}{dx}\int_{0}^{x}\frac{t^2}{t^4+1}dt}{\frac{d}{dx}(x^3)}$$
-$$=\lim\limits_{x \to 0} \frac{\frac{x^2}{x^3+1}}{3x^2} = \lim\limits_{x \to 0} \frac{1}{3(x^4+1)} = \boxed{\frac{1}{3}}$$
+2.  $$\frac{d}{dx} \int_{x^3}^{3}\arctan t dt = \arctan 3 \cdot (3)' - \arctan(x^3) \cdot (x^3)'$$
+    $$=-3x^2 \arctan x^3$$
+
+3.  $$\lim\limits_{x \to 0} \frac{1}{x^3}\int_{0}^{x}\frac{t^2}{t^4+1}dt = \left("\frac{0}{0}"\right)$$
+    $$\to \lim\limits_{x \to 0} \frac{\frac{d}{dx}\int_{0}^{x}\frac{t^2}{t^4+1}dt}{\frac{d}{dx}(x^3)}$$
+    $$=\lim\limits_{x \to 0} \frac{\frac{x^2}{x^3+1}}{3x^2} = \lim\limits_{x \to 0} \frac{1}{3(x^4+1)} = \boxed{\frac{1}{3}}$$
 
 # Improper Integrals
 
 1. If $f$ is continuous on $[a, \infty)$, then:
-$$\int_{a}^{\infty} f(x)dx = \lim\limits_{b \to \infty} \int_{a}^{b} f(x)dx
-\tag{1}$$
+
+   $$
+   \int_{a}^{\infty} f(x)dx = \lim\limits_{b \to \infty} \int_{a}^{b} f(x)dx
+   \tag{1}
+   $$
 
 1. If $f$ is continuous on $(-\infty, b]$, then:
-$$\int_{-\infty}^{b} f(x)dx = \lim\limits_{a \to -\infty} \int_{a}^{b} f(x)dx
-\tag{2}$$
+
+   $$
+   \int_{-\infty}^{b} f(x)dx = \lim\limits_{a \to -\infty} \int_{a}^{b} f(x)dx
+   \tag{2}
+   $$
 
 1. If $f$ is continuous on $(a, b]$, then:
-$$\int_{a}^{b} f(x)dx = \lim\limits_{c \to a^+} \int_{c}^{b} f(x)dx \tag{3}$$
+   $$\int_{a}^{b} f(x)dx = \lim\limits_{c \to a^+} \int_{c}^{b} f(x)dx \tag{3}$$
 
 1. If $f$ is continuous on $[a, b)$, then:
-$$\int_{a}^{b} f(x)dx = \lim\limits_{c \to b^-} \int_{a}^{c} f(x)dx \tag{4}$$
+   $$\int_{a}^{b} f(x)dx = \lim\limits_{c \to b^-} \int_{a}^{c} f(x)dx \tag{4}$$
 
 In each case, if the limit is finite we say that the improper integral
 **converges** and the limit is the value of the improper integral. If the
@@ -131,11 +144,13 @@ integral fails to exist the improper integral **diverges**.
 
 Basically, whichever part is undefined is replaced with a limit.
 
-$$\begin{gathered}
+$$
+\begin{gathered}
     \int_{2}^{\infty}\frac{1}{x^p}dx = \lim\limits_{b \to \infty} \int_{1}^{b}\frac{1}{x^p}dx \\
     = \lim\limits_{b \to \infty} \left[\frac{x^{p-1}}{p-1}\right]_{x=1}^{x=b}\\
     = \lim\limits_{b \to \infty} \frac{1}{1-p}\left[b^{1-p}-1\right] \\
-\end{gathered}$$
+\end{gathered}
+$$
 
 When $p > 1$, the function converges, and when $p \leq 1$, the function diverges.
 
@@ -145,30 +160,30 @@ Suppose $f(x)$ and $g(x)$ exist such that $x \in [a, \infty)$, $0 \leq f(x)
 \leq g(x)$.
 
 1. If $\displaystyle\int_{a}^{\infty}f(x)dx$ diverges then $\displaystyle\int_{a}^{\infty}g(x)dx$ also
-diverges.
+   diverges.
 
 1. If $\displaystyle\int_{a}^{\infty}g(x)dx$ converges then $\displaystyle\int_{a}^{\infty}f(x)dx$ also
-converges.
+   converges.
 
 ### Examples
 
 1. $\displaystyle\int_{1}^{\infty} e^{-x^2}dx$
 
-    Considering $e^{-x^2} < e^{-x}$ when $x>1$ and
-    $\displaystyle\int_{1}^{\infty}e^{-x}dx=\frac{1}{e}$, the original function also
-    converges.
+   Considering $e^{-x^2} < e^{-x}$ when $x>1$ and
+   $\displaystyle\int_{1}^{\infty}e^{-x}dx=\frac{1}{e}$, the original function also
+   converges.
 
 2. $\displaystyle\int_{1}^{\infty}\frac{\sin^2 x}{x^2}dx$
 
-    $\displaystyle 0 \leq \frac{\sin^2 x }{x^2} \leq \frac{1}{x^2}$
+   $\displaystyle 0 \leq \frac{\sin^2 x }{x^2} \leq \frac{1}{x^2}$
 
-    $\displaystyle\int_{1}^{\infty}\frac{1}{x^2}dx$ converges, so our function does as well.
+   $\displaystyle\int_{1}^{\infty}\frac{1}{x^2}dx$ converges, so our function does as well.
 
 3. $\displaystyle\int_{1}^{\infty}\frac{1}{\sqrt{x^2-0.1}}dx$
 
-    $\displaystyle\frac{1}{\sqrt{x^2-0.1}} \geq \frac{1}{x}$ when $x \in [1, \infty)$
+   $\displaystyle\frac{1}{\sqrt{x^2-0.1}} \geq \frac{1}{x}$ when $x \in [1, \infty)$
 
-    Since $\displaystyle\int_{1}^{\infty}\frac{1}{x}dx$ diverges, so does our function.
+   Since $\displaystyle\int_{1}^{\infty}\frac{1}{x}dx$ diverges, so does our function.
 
 ## Limits Comparison Test (Second Theorem)
 
@@ -186,12 +201,12 @@ diverge or converge together.
 
 1. $\displaystyle \int_{1}^{\infty}\frac{dx}{4+x^2}$
 
-    Since we know that $\displaystyle \int_{1}^{\infty}\frac{dx}{x^2}$
-    converges and
+   Since we know that $\displaystyle \int_{1}^{\infty}\frac{dx}{x^2}$
+   converges and
 
-    $$\lim\limits_{x \to \infty} \frac{\frac{1}{4+x^2}}{\frac{1}{x^2}} = \lim\limits_{x \to \infty} \frac{x^2}{4+x^2} = 1$$
+   $$\lim\limits_{x \to \infty} \frac{\frac{1}{4+x^2}}{\frac{1}{x^2}} = \lim\limits_{x \to \infty} \frac{x^2}{4+x^2} = 1$$
 
-    our integral also converges.
+   our integral also converges.
 
 ## Essential Condition of Convergence
 
@@ -205,7 +220,9 @@ For any function, we can approximate it with a polynomial (the higher the
 power, the better the approximation).
 
 Suppose our function is differentiable infinitely, such that:
+
 $$
+\begin{array}{c|c}
 \begin{gathered}
     f(0)  =p(x)   = a_0  = a_0 0!\\
     f'(0) =p'(0)  = a_1  = a_1 1!\\
@@ -213,7 +230,7 @@ $$
     \dots \\
     f^{(n)}(0) = p^{(n)}(0) = a_n n!
 \end{gathered}
-\quad \vline \quad
+&
 \begin{gathered}
     p_n(x)   = a_1  + a_2x  + \dots + a_nx^n \\
     p'_n(x)  = a_1  + 2a_2x + \dots + a_n nx^{n-1} \\
@@ -221,6 +238,7 @@ $$
     \dots \\
     p_n^{(n)} = a_n n (n-1)(n-2)\dots =a_nn!
 \end{gathered}
+\end{array}
 $$
 
 Providing the following equation:
@@ -244,8 +262,11 @@ $$e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!}\tag{1}$$
 $$\ln(x+1) = \sum_{n=1}^{\infty}(-1)^{n-1}\frac{x^n}{n}\tag{2}$$
 $$\sin x = \sum_{n=0}^{\infty}(-1)^n \frac{x^{2n+1}}{(2n+1)!} \tag{3}$$
 $$\cos x = \sum_{n=0}^{\infty}(-1)^n \frac{x^{2n}}{(2n)!} \tag{4}$$
-$$(1+t)^\alpha = 1+\alpha t +\frac{ \alpha (\alpha - 1)}{2!}t^2 + \frac{\alpha
-(\alpha - 1)(\alpha - 2)}{3!}t^3 \dots, \;|x| < 1 \tag{5}$$
+
+$$
+(1+t)^\alpha = 1+\alpha t +\frac{ \alpha (\alpha - 1)}{2!}t^2 + \frac{\alpha
+(\alpha - 1)(\alpha - 2)}{3!}t^3 \dots, \;|x| < 1 \tag{5}
+$$
 
 ### Additional Expansions
 
@@ -325,7 +346,7 @@ $$\sqrt 8 \approx 2.8284$$
 
 ## Double Factorials
 
-The *double factorial* of a number $n$, denoted by $n!!$, is the
+The _double factorial_ of a number $n$, denoted by $n!!$, is the
 product of all the integers from $1$ up to $n$ that have the same parity (even or
 odd) as $n$.
 
@@ -349,7 +370,7 @@ $$z=f(x,y)=\frac{1}{\sqrt{25-x^2-y^2}}$$
 $$\text{Dom } f = \{(x,y):x^2+y^2<25\}$$
 $$\text{Im }  f = \left\{z \geq \frac{1}{5}\right\}$$
 
-*Contour lines* are horizontal cross-sections of the graph.
+_Contour lines_ are horizontal cross-sections of the graph.
 
 ## Limits of Functions with Two Variables
 
@@ -360,19 +381,16 @@ $$\lim\limits_{(x,y) \to (1,2)} f(x,y)=5$$
 
 ### Calculation of the Limit or Proving the Limit Does Not Exist
 
-1.
-$$\lim\limits_{(x,y) \to (1,2)} \frac{\arctan(x+y-3)}{\ln(x+y-2)}$$
-$$t=x+y-1$$
-$$(x,y) \to (1,2) \implies t \to 1$$
-$$\lim\limits_{t \to 1} \frac{\arctan(t-1)}{\ln t}$$
-equals $1$ using L'Hospital's rule.
+1.  $$\lim\limits_{(x,y) \to (1,2)} \frac{\arctan(x+y-3)}{\ln(x+y-2)}$$
+    $$t=x+y-1$$
+    $$(x,y) \to (1,2) \implies t \to 1$$
+    $$\lim\limits_{t \to 1} \frac{\arctan(t-1)}{\ln t}$$
+    equals $1$ using L'Hospital's rule.
 
-2.
-$$\lim\limits_{(x,y) \to (1,1)} \frac{xy-y^2}{\sqrt x - \sqrt y} = \frac{y(x-y)}{\sqrt x - \sqrt y}= y(\sqrt x + \sqrt y) = 2$$
+2.  $$\lim\limits_{(x,y) \to (1,1)} \frac{xy-y^2}{\sqrt x - \sqrt y} = \frac{y(x-y)}{\sqrt x - \sqrt y}= y(\sqrt x + \sqrt y) = 2$$
 
-3.
-$$\lim\limits_{(x,y) \to (0,0)} \frac{x^3+y^2}{x^2+y^2}$$
-We say the limit only exists if it doesn't matter what way we get to the limit.
+3.  $$\lim\limits_{(x,y) \to (0,0)} \frac{x^3+y^2}{x^2+y^2}$$
+    We say the limit only exists if it doesn't matter what way we get to the limit.
 
 #### Approach A
 
@@ -396,7 +414,7 @@ The limit is dependent on the angle.
 Find the limit of first $x$ and then $y$. Then find the limit of $y$ and then $x$.
 If time limits are not equal the limit does not exist.
 
-### So How Can We Prove the Limit *Does* Exist?
+### So How Can We Prove the Limit _Does_ Exist?
 
 #### Sandwich Rule
 
@@ -406,7 +424,7 @@ $$\left|\frac{xy^3}{x^2+y^2}\right| \leq \left|\frac{xy^3}{y^2}\right| = |xy| =|
 If the numerator has a higher power than the denominator, we know that the
 numerator approaches zero faster than the denominator.
 
-If the denominator is larger  on the numerator, we will see that the limit will
+If the denominator is larger on the numerator, we will see that the limit will
 approach infinity.
 
 If the powers are equal then we know that the limit will not exist.
