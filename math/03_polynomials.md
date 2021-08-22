@@ -6,7 +6,7 @@ date: Fall 2020
 
 # Inequalities
 
-> *Note:* We must always first define the domain of the function
+> _Note:_ We must always first define the domain of the function
 
 There are two main approaches to solving inequalities:
 
@@ -21,7 +21,8 @@ $$
    \frac{2x+3}{x-4} &> 0, \quad x \neq 4 \\
    \frac{2x+3}{x-4} &> 0 \;\| \cdot (x-4)^2 \\
    (2x+3)(x-4) &> 0
-\end{aligned}$$
+\end{aligned}
+$$
 
 $$
 \begin{gathered}
@@ -31,11 +32,9 @@ $$
 \end{gathered}
 $$
 
-$$\pagebreak$$
-
 2. Build a table
 
-> *Note:* Can only be done if one side of the equation is zero
+> _Note:_ Can only be done if one side of the equation is zero
 
 Example:
 
@@ -44,14 +43,15 @@ $$
     (x-2)(4-x)(9+x) &\le 0
 \end{aligned}
 $$
+
 $$\text{Domain: } x \in \mathbb{R}$$
 
 |                   | $(-\infty, -9)$ | $-9$ | $(-9, 2)$ | $2$ | $(2, 4)$ | $4$ | $(4, +\infty)$ |
-|:-----------------:|:---------------:|:----:|:---------:|:---:|:--------:|:---:|:--------------:|
-| $(x-2)$           | $-$             | $-$  | $-$       | $0$ | $+$      | $+$ | $+$            |
-| $(4-x)$           | $+$             | $+$  | $+$       | $+$ | $+$      | $0$ | $-$            |
-| $(9+x)$           | $-$             | $0$  | $+$       | $+$ | $+$      | $+$ | $+$            |
-| $(x-2)(4-x)(9+x)$ | $+$             | $0$  | $-$       | $0$ | $+$      | $0$ | $-$            |
+| :---------------: | :-------------: | :--: | :-------: | :-: | :------: | :-: | :------------: |
+|      $(x-2)$      |       $-$       | $-$  |    $-$    | $0$ |   $+$    | $+$ |      $+$       |
+|      $(4-x)$      |       $+$       | $+$  |    $+$    | $+$ |   $+$    | $0$ |      $-$       |
+|      $(9+x)$      |       $-$       | $0$  |    $+$    | $+$ |   $+$    | $+$ |      $+$       |
+| $(x-2)(4-x)(9+x)$ |       $+$       | $0$  |    $-$    | $0$ |   $+$    | $0$ |      $-$       |
 
 $$
 \begin{gathered}
@@ -66,21 +66,21 @@ account.
 
 # Polynomials
 
-> A *polynomial* is a sum of monomials.
+> A _polynomial_ is a sum of monomials.
 
->  A *monomial* is any expression in the form of $Ax^H$.
+> A _monomial_ is any expression in the form of $Ax^H$.
 
 > Examples: $2\sqrt{x} \;(2x^\frac{1}{2}), 4x^3 \;(4x^3), \frac{x}{4}\;(\frac{1}{4}x^1), x\;(1x^1), 12\;(12x^0)$
 
 ## Rules
 
 1. Can combine monomials of the same degree
-    - $ax^n + bx^n = (a+b)x^n$
+   - $ax^n + bx^n = (a+b)x^n$
 1. Is ordered according to degree
-    - $A_{n}x^{n} + A_{n-1}x^{n-1}+A_{n-2}x^{n-2}\dots + A_2x^2+A_1x+A_0,
+   - $A_{n}x^{n} + A_{n-1}x^{n-1}+A_{n-2}x^{n-2}\dots + A_2x^2+A_1x+A_0,
         A_n \neq 0$
-    - $ax^3+bx^2+cx+d$
-1. The *degree* of a polynomial is defined by the highest exponent in the
+   - $ax^3+bx^2+cx+d$
+1. The _degree_ of a polynomial is defined by the highest exponent in the
    expression
 
 Examples:
@@ -133,6 +133,7 @@ $$
 $$
 \because c \neq 0,\; p(b) \neq 0 \therefore 0 \neq 0 \\
 $$
+
 $$\text{Contradiction, Q.E.D.}$$
 
 ## Approach
@@ -158,18 +159,21 @@ Example:
 
 $$p(x)=x^2-3x-18$$
 $$\because$$
+
 $$
 \begin{aligned}
     p(6)&=6^2-3(6)-18 \\
     p(6)&=0 \\
 \end{aligned}
 $$
+
 $$\therefore$$
 $$(x^2 -3x-18) \;\vdots\; (x-6)$$
 
 ## Large exponents
 
 $$p = a^n$$
+
 $$
 \text{sgn}(p) := \begin{cases}
    +1 &\text{if $n$ is even and } a \neq 0 \text{,} \\
@@ -196,23 +200,23 @@ $$
 
 $$f(x) > 0$$
 
-This is asking which $x$ is greater than $0$ in $y=f(x)$ where $y=f(x)$ is *continuous*.
+This is asking which $x$ is greater than $0$ in $y=f(x)$ where $y=f(x)$ is _continuous_.
 
 ## Continuous function
 
-A *continuous* function is a function that does not have any abrupt changes in value, known as
+A _continuous_ function is a function that does not have any abrupt changes in value, known as
 discontinuities.
 
 ## Defining the domain
 
-The *domain* of a function is the set of all possible inputs for the function.
+The _domain_ of a function is the set of all possible inputs for the function.
 For example, the domain of $f(x)=x^2$ is all real numbers, and the domain of $g(x)=\frac{1}{x}$ is
 all real numbers except for $x=0$.
 
 ## Implications
 
 If $f(x)$ is continuous, and $f(a)$ is positive and $f(b)$ is negative, there
-exists *at least* one point between $f(a)$ and $f(b)$ that is equal to $0$.
+exists _at least_ one point between $f(a)$ and $f(b)$ that is equal to $0$.
 
 If $f(x)$ is continuous, and $f(x)$ does not cross the
 $x$-axis, if $f(a)$ is positive, all other points are positive, or if $f(a)$ is
@@ -289,11 +293,11 @@ $$
 1. $$|a| \text{ is the distance from $0$}$$
 
 2. $$
-|a| := \begin{cases}
-   a &\text{if $a \geq 0$} \\
-   -a &\text{if $a < 0$} \\
-\end{cases}
-$$
+   |a| := \begin{cases}
+      a &\text{if $a \geq 0$} \\
+      -a &\text{if $a < 0$} \\
+   \end{cases}
+   $$
 
 ### Characteristics
 
@@ -302,7 +306,6 @@ $$\left|\frac{a}{b}\right| = \frac{|a|}{|b|}$$
 $$|a^h| = |a|^h$$
 
 ### Example
-
 
 $$3|x+2| = 5-x$$
 
@@ -332,7 +335,6 @@ $$\left\{-\frac{1}{4}, -\frac{11}{2}\right\}$$
 
 ---
 
-
 $$
     (2x+3)^2 - |2x+3| = -12
 $$
@@ -358,7 +360,7 @@ $$a^0 = 1$$
 $$0^m = 0$$
 $$0^0 = \emptyset$$
 
-> *Note:* When $m,n \not \in \mathbb{N}$, $x> 0$, otherwise we run into issues...
+> _Note:_ When $m,n \not \in \mathbb{N}$, $x> 0$, otherwise we run into issues...
 
 ### Exponential equations
 
@@ -373,59 +375,70 @@ negative and still are true.
 ### Exponential inequalities
 
 $$a^m > a^n$$
+
 $$
+\begin{array}{c|c}
 \begin{gathered}
     a \geq 1 \to \\
     m>n
 \end{gathered}
-\quad \vline \quad
+&
 \begin{gathered}
     a<1 \to \\
     m<n
 \end{gathered}
+\end{array}
 $$
 
 ### Inequalities with variables in the base and the exponent
 
-$$\begin{gathered}
+$$
+\begin{gathered}
     b^a > b^c  \\
     \text{Where $a, b, c$ contain $x$}
 \end{gathered}
 $$
+
 For any base $b$, we must consider:
+
 $$
+\begin{array}{c|c|c}
 \begin{gathered}
     0<b<1 \\
     a<c
 \end{gathered}
-\quad \vline \quad
+&
 \begin{gathered}
     b=1 \\
     \emptyset
 \end{gathered}
-\quad \vline \quad
+&
 \begin{gathered}
     b>1 \\
     a>c
 \end{gathered}
+\end{array}
 $$
 
 However, if $b^a \geq b^c$:
+
 $$
+\begin{array}{c|c|c}
 \begin{gathered}
     0<b<1 \\
     a<c
 \end{gathered}
-\quad \vline \quad
+&
 \begin{gathered}
     b=1 \\
     \mathbb{R}
 \end{gathered}
-\quad \vline \quad
+&
 \begin{gathered}
     b>1 \\
     a>c
 \end{gathered}
+\end{array}
 $$
 
 # Logarithms
@@ -459,16 +472,19 @@ $$\log_{a^m} b = \frac{1}{m} log_a b\tag{9}$$
 $$\log_{a^m} b^n = \frac{n}{m} \log_a b \tag{6+8}$$
 
 $$log_c a > log_c b$$
+
 $$
+\begin{array}{c|c}
 \begin{gathered}
     0<c<1 \\
     a<b
 \end{gathered}
-\quad \vline \quad
+&
 \begin{gathered}
     c>1 \\
     a>b
 \end{gathered}
+\end{array}
 $$
 
 $$\text{sgn}(log_a b) = \text{sgn}((a-1)(b-1))$$

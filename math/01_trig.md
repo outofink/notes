@@ -6,14 +6,14 @@ author: Moshe Krumbein
 
 # Trigonometric identities
 
-| $a$      | $0\text{\textdegree}$ | $30\text{\textdegree}$ | $45\text{\textdegree}$ | $60\text{\textdegree}$ | $90\text{\textdegree}$ |
-|:--------:|:---------------------:|:----------------------:|:----------------------:|:----------------------:|:----------------------:|
-| $\sin a$ | $0$                   | $\frac{1}{2}$          | $\frac{\sqrt{2}}{2}$   | $\frac{\sqrt{3}}{2}$   | $1$                    |
-| $\cos a$ | $1$                   | $\frac{\sqrt{3}}{2}$   | $\frac{\sqrt{2}}{2}$   | $\frac{1}{2}$          | $0$                    |
-| $\tan a$ | $0$                   | $\frac{1}{\sqrt{3}}$   | $1$                    | $\sqrt{3}$             | $\emptyset$            |
-| $\cot a$ | $\emptyset$           | $\sqrt{3}$             | $1$                    | $\frac{1}{\sqrt{3}}$   | $0$                    |
+|   $a$    | $0\text{\textdegree}$ | $30\text{\textdegree}$ | $45\text{\textdegree}$ | $60\text{\textdegree}$ | $90\text{\textdegree}$ |
+| :------: | :-------------------: | :--------------------: | :--------------------: | :--------------------: | :--------------------: |
+| $\sin a$ |          $0$          |     $\frac{1}{2}$      |  $\frac{\sqrt{2}}{2}$  |  $\frac{\sqrt{3}}{2}$  |          $1$           |
+| $\cos a$ |          $1$          |  $\frac{\sqrt{3}}{2}$  |  $\frac{\sqrt{2}}{2}$  |     $\frac{1}{2}$      |          $0$           |
+| $\tan a$ |          $0$          |  $\frac{1}{\sqrt{3}}$  |          $1$           |       $\sqrt{3}$       |      $\emptyset$       |
+| $\cot a$ |      $\emptyset$      |       $\sqrt{3}$       |          $1$           |  $\frac{1}{\sqrt{3}}$  |          $0$           |
 
-> *Note:* $180\text{\textdegree} = \pi$ radians
+> _Note:_ $180\text{\textdegree} = \pi$ radians
 
 Main identity:
 
@@ -22,6 +22,7 @@ $$\tan^2(\alpha) + 1 = \frac{1}{\cos^2(\alpha)} = \sec^2(\alpha)$$
 $$\cot^2(\alpha) + 1 = \frac{1}{\sin^2(\alpha)} = \csc^2(\alpha)$$
 
 Example:
+
 $$
 \begin{gathered}
     \cos^2 \alpha - \cos^2 \beta = \sin^2 \beta - \sin^2 \alpha \\
@@ -35,28 +36,29 @@ $$
 
 # Trigonometric equations
 
-***
-
 $$\sin x=a$$
 
 $$
+\begin{array}{c|c|c}
 \begin{gathered}
     a<-1, a>1 \\
     x = \emptyset
 \end{gathered}
-\quad \vline \quad
+&
 \begin{gathered}
     \sin x = 1 \\
     x = \frac{\pi}{2} + 2 \pi k, \;k \in \mathbb{Z}
 \end{gathered}
-\quad \vline \quad
+&
 \begin{gathered}
     \sin x = -1 \\
     x = -\frac{\pi}{2} + 2 \pi k, \;k \in \mathbb{Z}
 \end{gathered}
+\end{array}
 $$
 
 $$1 < a < 1$$
+
 $$
 \begin{aligned}
     x_1 &=& \arcsin a + 2 \pi k, \; k \in \mathbb{Z} \\
@@ -64,28 +66,31 @@ $$
 \end{aligned}
 $$
 
-***
+---
 
 $$\cos x=a$$
 
 $$
+\begin{array}{c|c|c}
 \begin{gathered}
     a<-1, a>1 \\
     x = \emptyset
 \end{gathered}
-\quad \vline \quad
+&
 \begin{gathered}
     \cos x = 1 \\
     x = 2 \pi k, \;k \in \mathbb{Z}
 \end{gathered}
-\quad \vline \quad
+&
 \begin{gathered}
     \cos x = -1 \\
     x = \pi + 2 \pi k, \;k \in \mathbb{Z}
 \end{gathered}
+\end{array}
 $$
 
 $$-1 < a < 1$$
+
 $$
 \begin{aligned}
     x_1 &=&  \arccos a + 2 \pi k, \; k \in \mathbb{Z} \\
@@ -93,15 +98,16 @@ $$
 \end{aligned}
 $$
 
-***
+---
 
 $$\tan x=a$$
 $$x \ne \frac{\pi}{2} + \pi n, \; n \in \mathbb{Z}$$
 $$x= \arctan a + \pi k$$
 
-***
+---
 
 $$
+\begin{array}{c|c|c}
 \begin{gathered}
     \sin \alpha = \sin \beta \\
     \\
@@ -110,7 +116,7 @@ $$
         \alpha &= \pi - &\beta + 2 \pi k
     \end{alignedat}
 \end{gathered}
-\quad \vline \quad
+&
 \begin{gathered}
     \cos \alpha = \cos \beta \\
     \\
@@ -119,34 +125,37 @@ $$
         \alpha &= - &\beta + 2 \pi k
     \end{alignedat}
 \end{gathered}
-\quad \vline \quad
+&
 \begin{gathered}
     \tan \alpha = \tan \beta \\
     \\
     \alpha =   \beta + \pi k \\
     \\
 \end{gathered}
+\end{array}
 $$
 
 $$
+\begin{array}{c|c}
 \begin{gathered}
     \sin x = 0 \\
     x= \pi k \;(k \in \mathbb{Z})
 \end{gathered}
-\quad \vline \quad
+&
 \begin{gathered}
     \cos x = 0 \\
     x= \frac{\pi}{2} + \pi k \;(k \in \mathbb{Z})
 \end{gathered}
+\end{array}
 $$
 
 # Evenness and symmetry of trigonometric functions
 
 $\cos$ is an even function, meaning $\cos (- \alpha) =   \cos (\alpha)$
 
-$\sin$ is an odd  function, meaning $\sin (- \alpha) = - \sin (\alpha)$
+$\sin$ is an odd function, meaning $\sin (- \alpha) = - \sin (\alpha)$
 
-$\tan$ is an odd  function, meaning $\tan (- \alpha) = - \tan (\alpha)$
+$\tan$ is an odd function, meaning $\tan (- \alpha) = - \tan (\alpha)$
 
 $$
 \begin{gathered}
@@ -200,12 +209,18 @@ $$\cos(\alpha + \beta) = \cos \alpha \cos \beta - \sin \alpha \sin \beta$$
 $$\sin(\alpha - \beta) = \sin \alpha \cos \beta - \cos \alpha \sin \beta$$
 $$\cos(\alpha - \beta) = \cos \alpha \cos \beta + \sin \alpha \sin \beta$$
 
-$$\tan(\alpha + \beta) = \frac{\tan \alpha + \tan \beta}{1-\tan \alpha
-\tan \beta}$$
-$$\tan(\alpha - \beta) = \frac{\tan \alpha - \tan \beta}{1+\tan \alpha
-\tan \beta}$$
+$$
+\tan(\alpha + \beta) = \frac{\tan \alpha + \tan \beta}{1-\tan \alpha
+\tan \beta}
+$$
+
+$$
+\tan(\alpha - \beta) = \frac{\tan \alpha - \tan \beta}{1+\tan \alpha
+\tan \beta}
+$$
 
 $$\sin(2\alpha) = 2\sin \alpha \cos \alpha$$
+
 $$
 \begin{aligned}
   \cos(2\alpha) \\
@@ -214,6 +229,7 @@ $$
   &=2\cos^2 \alpha - 1
 \end{aligned}
 $$
+
 $$\tan(2\alpha) = \frac{2\tan \alpha}{1-\tan^2 \alpha}$$
 
 $$2\sin\left(\frac{\alpha+\beta}{2}\right)\cos\left(\frac{\alpha-\beta}{2}\right) = \sin\alpha + \sin\beta$$

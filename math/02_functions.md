@@ -31,23 +31,23 @@ $$
 
 # Definitions
 
-*Natural domain* - the maximum set of values for which the function is defined
+_Natural domain_ - the maximum set of values for which the function is defined
 
-*Injective function (one-to-one)* - each value in range has at most one
+_Injective function (one-to-one)_ - each value in range has at most one
 corresponding value as part of the domain
 
-*Surjective function* - where every value in the range has at least one
+_Surjective function_ - where every value in the range has at least one
 value in the domain
 
-If a function is both injective and surjective, it is an *invertible function*
-such that exists an *inverse function* such that:
+If a function is both injective and surjective, it is an _invertible function_
+such that exists an _inverse function_ such that:
 
 $$f:X \to Y, \quad \exists! \; g:Y \to X$$
 $$f(x)=y \iff g(y)=x$$
 
 It can also be written as $f^{-1}(x)$.
 
-The *image* of a function is the set of all output values it may produce.
+The _image_ of a function is the set of all output values it may produce.
 
 # Composing functions
 
@@ -61,9 +61,8 @@ $$(g \circ f)(x) = g(f(x))$$
 
 If we compose a function with its inverse, it always returns $x$.
 
-$$\pagebreak$$
-
 # Simple transformations
+
 If $(a,b)$ is on the graph $y=f(x)$, then:
 
 $$
@@ -88,22 +87,18 @@ If:
 1. If $a \in D$ then $-a \in D$
 2. For all $f(a) = f(-a):a \in D$
 
-Then the function is *even*.
+Then the function is _even_.
 
 If:
 
 1. If $a \in D$ then $-a \in D$
 2. For all $-f(a) = f(-a):a \in D$
 
-Then the function is *odd*.
+Then the function is _odd_.
 
-$$\break$$
+The sum of _odd_ parts in a function is _odd_.
 
-The sum of *odd* parts in a function is *odd*.
-
-The sum of *even* parts in a function is *even*.
-
-$$\break$$
+The sum of _even_ parts in a function is _even_.
 
 $$y=f(x), f:D \to E$$
 $$\text{Given: $a \in D$ then $-a \in D$}$$
@@ -114,8 +109,6 @@ $$g(x)=\frac{f(x)+f(-x)}{2} \text{ is even.}$$
 $$h(x)=\frac{f(x)-f(-x)}{2} \text{ is odd.}$$
 
 $$f(x)=g(x)+h(x)$$
-
-$$\break$$
 
 # Graphing quadratic functions
 
@@ -130,7 +123,7 @@ $$\left(-\frac{B}{2A}, -\frac{\Delta}{4A}\right)$$
 
 $$y=f(x), f: D \to E $$
 
-Is a *periodic function* if of period $T$:
+Is a _periodic function_ if of period $T$:
 
 1. For each $x \in D$, then $x \pm T \in D$
 1. For each $x \in D$, then $f(x)=f(x+T)$
@@ -140,13 +133,13 @@ $$x \pm kT \in D$$
 From 2 we see that for $x \in D$ for each $k \in \mathbb{Z}$:
 $$f(x+kT) = f(x)$$
 
-The *minimum period* is the smallest period in a given function.
+The _minimum period_ is the smallest period in a given function.
 
-*Integer part $([x])$ *- the integer that has the largest absolute value less than or
+_Integer part $([x])$ _- the integer that has the largest absolute value less than or
 equal to the absolute value of $x$.
 $$D= \mathbb{R}, \text{Im}=\mathbb{Z}$$
 
-*Fractional part $(\{x\} = x- [x])$ *- the decimal part of a positive number or
+_Fractional part $(\{x\} = x- [x])$ _- the decimal part of a positive number or
 one minus the decimal part of a negative number
 $$D = \mathbb{R}, \text{Im}=[0,1)$$
 
@@ -178,6 +171,7 @@ function with period of the least common multiple of $(T_1, T_2)$.
 # Inverse trigonometric functions
 
 # $\sin$ and $\arcsin$
+
 $$f (x)=\sin    x \quad f:\left[-\frac{\pi}{2},\frac{\pi}{2}\right] \to [-1,1]$$
 $$f'(x)=\arcsin x \quad f:[-1,1] \to \left[-\frac{\pi}{2},\frac{\pi}{2}\right]$$
 

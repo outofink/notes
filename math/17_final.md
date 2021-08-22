@@ -18,7 +18,7 @@ $$\lim\limits_{x \to 0} \frac{\cos x -1 }{x^2} = \left(\frac{0}{0}\right)$$
 
 $$\cos x = 1 +\frac{x^2}{2} + o(x^2)$$
 
-$o(x^n)$, also known as *little o notation*, represents a set of terms with a
+$o(x^n)$, also known as _little o notation_, represents a set of terms with a
 powers larger than $n$, such that:
 $$\lim\limits_{x \to 0} \frac{o(x^n)}{x^n} = 0$$
 
@@ -85,6 +85,7 @@ The limit is dependent on $k$, and therefore does not exist.
 #### Approach C:
 
 The limit is dependent on the angle, where:
+
 $$
 \begin{gathered}
     x=r\cos \varphi \\
@@ -97,7 +98,7 @@ $$
 Find the limit of first $x$ and then $y$. Then find the limit of $y$ and then $x$.
 If the limits are not equal the limit does not exist.
 
-## So how can we prove the limit *does* exist?
+## So how can we prove the limit _does_ exist?
 
 ### Sandwich Rule
 
@@ -162,6 +163,7 @@ $$g(x,y)=f(x_0,y_0)+f'_x(x_0,y_0)(x-x_0)+f'_y(x_0,y_0)(y-y_0)$$
 
 In order to solve when $(x_0,y_0) \neq (0,0)$, the following substitution is
 done:
+
 $$
 \begin{gathered}
     u = x - x_0 \\
@@ -227,6 +229,7 @@ $$z_t=z_xx_t+z_yy_t$$
 
 $$z=z(t), \quad t=t(x,y)$$
 $$z_xdx+z_ydy=dz=z_tdx$$
+
 $$
 \begin{gathered}
         z_x=z_tt_x \\
@@ -254,14 +257,25 @@ $$
 
 ## Attributes of Gradient Vectors
 
-$$\frac{\partial f(\mu_0)}{\partial \vec u} = \vec\nabla f(\mu_0)\cdot \hat u
-= \vec{||\nabla f(\mu_0)}||\cdot ||\vec u||\cdot \cos \varphi$$
-$$\max \frac{\partial f(\mu_0)}{\partial \vec u} = ||\vec\nabla f(\mu_0)||
-\iff \cos \varphi = 1 \iff \varphi = 0$$
-$$\min \frac{\partial f(\mu_0)}{\partial \vec u} = -||\vec\nabla f(\mu_0)||
-\iff \cos \varphi = -1 \iff \varphi = \pi$$
-$$\frac{\partial f(\mu_0)}{\partial \vec u} = 0 \iff \cos \varphi = 0 \iff
-\varphi = \frac{\pi}{2}$$
+$$
+\frac{\partial f(\mu_0)}{\partial \vec u} = \vec\nabla f(\mu_0)\cdot \hat u
+= \vec{||\nabla f(\mu_0)}||\cdot ||\vec u||\cdot \cos \varphi
+$$
+
+$$
+\max \frac{\partial f(\mu_0)}{\partial \vec u} = ||\vec\nabla f(\mu_0)||
+\iff \cos \varphi = 1 \iff \varphi = 0
+$$
+
+$$
+\min \frac{\partial f(\mu_0)}{\partial \vec u} = -||\vec\nabla f(\mu_0)||
+\iff \cos \varphi = -1 \iff \varphi = \pi
+$$
+
+$$
+\frac{\partial f(\mu_0)}{\partial \vec u} = 0 \iff \cos \varphi = 0 \iff
+\varphi = \frac{\pi}{2}
+$$
 
 The use of $||\vec\nabla f(\mu_0)||$ is the finding the maximal directional
 derivative.
@@ -278,13 +292,17 @@ $z,z_x,z_y,z_{xy},z_{yz}$ are all continuous.
 
 In order to find potential points, find that points that satisfy:
 
-$$\begin{cases}
+$$
+\begin{cases}
     f_x = 0 \\
     f_y = 0
-\end{cases}$$
+\end{cases}
+$$
 
 For each potential extremum ($\mu_0$):
+
 $$
+\begin{array}{c|c}
 \begin{gathered}
     \text{Minimum:} \\
     \begin{cases}
@@ -294,7 +312,7 @@ $$
     \text{Unknown using this method:} \\
     f_{xx}(\mu_0) = 0
 \end{gathered}
-\quad\vline\quad
+&
 \begin{gathered}
     \text{Maximum:} \\
     \begin{cases}
@@ -304,6 +322,7 @@ $$
     \text{Saddle point:} \\
     f_{xx}(\mu_0) f_{yy}(\mu_0) - f_{xy}^2(\mu_0) < 0
 \end{gathered}
+\end{array}
 $$
 
 ## Finding Extrema under Constraints
@@ -311,19 +330,21 @@ $$
 We are able to check local maxima and minima under constraint of another
 function $g$ (either implicit or explicit).
 
-With an *explicit* constraint (any function that can easily be solved for $x$),
+With an _explicit_ constraint (any function that can easily be solved for $x$),
 one can find the extrema in the same way one would for a single variable
 function (because the entire function is now only in terms of $x$).
 
 #### Example:
 
-$$\begin{gathered}
+$$
+\begin{gathered}
     f(x,y) = x^2+y^2 \quad y=2x \\
     f(x,y)=f(x,2x)=x^2+(2x)^2 \\
     \dots \\
-\end{gathered}$$
+\end{gathered}
+$$
 
-With an *implicit* constraint (a function which cannot be easily solved for
+With an _implicit_ constraint (a function which cannot be easily solved for
 $x$), potential extrema can be found using the following system of equations:
 
 $$
@@ -339,12 +360,13 @@ $$
 \end{cases}
 $$
 
-Where $\lambda$ is the *Lagrange multiplier* (an arbitrary constant).
+Where $\lambda$ is the _Lagrange multiplier_ (an arbitrary constant).
 
 For each potential extremum ($\mu$), its height is $f(\mu)$. The maximum and
 minimum can be found accordingly.
 
 #### Note:
+
 If only one extremum is found, we cannot determine whether it is a
 maximum or maximum using this method.
 
@@ -366,12 +388,14 @@ can be solved in a similar fashion.
 
 ## Polar Coordinates
 
-$$\begin{gathered}
+$$
+\begin{gathered}
     x = r\cos\varphi \\
     y = r\sin\varphi \\
     dA = rdrd\varphi \\
     \varphi \in [0, 2\pi]
-\end{gathered}$$
+\end{gathered}
+$$
 
 This allows us to transform pretty ugly looking integrals such as:
 
@@ -396,14 +420,17 @@ is offset vertically or horizontally, respectively.
 
 ## Line Integrals
 
-A *line integral* is an integral where the function to be integrated is
+A _line integral_ is an integral where the function to be integrated is
 evaluated along a curve.
 
-$$c:\begin{cases}
+$$
+c:\begin{cases}
     x=x(t) \\
     y=y(t) \\
     a \leq t \leq b
-\end{cases}$$
+\end{cases}
+$$
+
 $$ds=\sqrt{x'^2(t)+y'^2(t)}dt$$
 $$\int_{c} f(x,y)ds = \int_{t=a}^{t=b}f(x(t),y(t))\sqrt{x'^2(t)+y'^2(t)}dt$$
 
@@ -416,7 +443,7 @@ $$A(a_1,a_2,a_3), \; B(b_1,b_2,b_3)$$
 From $A$ to $B$:
 $$\vec{AB}=\vec{(b_1-a_1.b_2-a_2,b_3-a_3)}$$
 
-All vectors with the same coordinates are *equivalent*.
+All vectors with the same coordinates are _equivalent_.
 
 ## Operations On and Between Vectors
 
@@ -468,6 +495,7 @@ $$
 $$
 
 From here, the angle between two vectors can be defined as:
+
 $$
     \cos \measuredangle (\vec v, \vec u)
     = \frac{\vec v \cdot \vec u}{||\vec v|| \cdot ||\vec u||}
@@ -533,6 +561,7 @@ $$
 $$
 
 Therefore, there exists a constant $t$, such that:
+
 $$
 \begin{gathered}
     \vec{\mu_0\mu} = t \vec v \\

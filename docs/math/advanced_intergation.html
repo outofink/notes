@@ -49,12 +49,14 @@
 <p>For example: <span class="math display">\int\limits_{a}^{b}\int\limits_{c}^{d}f(x,y)\,dy\,dx = \int\limits_{a}^{b}\left[\int\limits_{c}^{d}f(x,y)\,dy\right]dx</span></p>
 <p>Furthermore, the limits of the integrals can include <span class="math inline">x</span> and <span class="math inline">y</span> as well, and can be solved in a similar fashion.</p>
 <h1 id="polar-coordinates">Polar Coordinates</h1>
-<p><span class="math display">\begin{gathered}
+<p><span class="math display">
+\begin{gathered}
     x = r\cos\varphi \\
     y = r\sin\varphi \\
     dA = rdrd\varphi \\
     \varphi \in [0, 2\pi]
-\end{gathered}</span></p>
+\end{gathered}
+</span></p>
 <p>This allows us to transform pretty ugly looking integrals such as:</p>
 <p><span class="math display">\int_{-2}^{2}\int_{-\sqrt{4-y^2}}^{\sqrt{4-y^2}}\sqrt{x^2+y^2}\;dxdy</span></p>
 <p>Into much easer to solve integrals, such as:</p>
@@ -64,11 +66,14 @@
 <p>In a case of integrating around a circle but its center is not at the origin, the radius will be in the form <span class="math inline">2b\sin\varphi</span> or <span class="math inline">2b\cos\varphi</span>, if the center is offset vertically or horizontally, respectively.</p>
 <h1 id="line-integrals">Line Integrals</h1>
 <p>A <em>line integral</em> is an integral where the function to be integrated is evaluated along a curve.</p>
-<p><span class="math display">c:\begin{cases}
+<p><span class="math display">
+c:\begin{cases}
     x=x(t) \\
     y=y(t) \\
     a \leq t \leq b
-\end{cases}</span> <span class="math display">ds=\sqrt{x&#39;^2(t)+y&#39;^2(t)}dt</span> <span class="math display">\int_{c} f(x,y)ds = \int_{t=a}^{t=b}f(x(t),y(t))\sqrt{x&#39;^2(t)+y&#39;^2(t)}dt</span></p>
+\end{cases}
+</span></p>
+<p><span class="math display">ds=\sqrt{x&#39;^2(t)+y&#39;^2(t)}dt</span> <span class="math display">\int_{c} f(x,y)ds = \int_{t=a}^{t=b}f(x(t),y(t))\sqrt{x&#39;^2(t)+y&#39;^2(t)}dt</span></p>
 <!-- <a href="index.html">Return to Table of Contents</a>
  -->
 

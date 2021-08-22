@@ -50,7 +50,8 @@ $$
     t  &= \arctan x \\
     dt &= \frac{1}{1+x^2}dx
 \end{vmatrix}
-= \int t dx $$
+= \int t dx
+$$
 
 $$\int \frac{g'(x)}{g(x)}dx=\ln|g(x)|+c$$
 
@@ -70,11 +71,14 @@ $$
 
 ## Example
 
-$$\int xe^x dx =
+$$
+\int xe^x dx =
 \begin{vmatrix}
-   u = x &\;\vline\;& v' = e^x \\
-   u' = 1 &\;\vline\;& v= \int e^x dx =e^x
-\end{vmatrix}$$
+   u = x &\; | \;& v' = e^x \\
+   u' = 1 &\; | \;& v= \int e^x dx =e^x
+\end{vmatrix}
+$$
+
 $$xe^x - \int e^x dx =xe^x -e^x +c$$
 
 ## Cases
@@ -89,11 +93,14 @@ Define $u=p_m(x)$ and do integration by parts $m$ times
 
 Integrals that contain $\ln$ or $arc$-functions.
 
-$$\int \ln x dx =
+$$
+\int \ln x dx =
 \begin{vmatrix}
-    u=\ln x &\vline& v' = 1 \\
-    u' = \frac{1}{x} &\vline& v= \int dx=x
-\end{vmatrix}$$
+    u=\ln x & | & v' = 1 \\
+    u' = \frac{1}{x} & | & v= \int dx=x
+\end{vmatrix}
+$$
+
 $$x \ln x - \int x \cdot \frac{1}{x} = x \ln x - \int dx = x \ln x - x + c$$
 
 ### Type III
@@ -102,11 +109,15 @@ Repeating integrals
 
 $$\int \cos (\ln x)$$
 $$\int e^{ax} \cdot \cos(bx), \int e^{ax} \cdot \sin(bx)$$
-$$\int \frac{\ln x}{x} dx =
+
+$$
+\int \frac{\ln x}{x} dx =
 \begin{vmatrix}
-    u=\ln x &\vline& v' = \frac{1}{x} \\
-    u' = \frac{1}{x} &\vline& v= \ln x
-\end{vmatrix}$$
+    u=\ln x & | & v' = \frac{1}{x} \\
+    u' = \frac{1}{x} & | & v= \ln x
+\end{vmatrix}
+$$
+
 $$
 \begin{gathered}
     =\ln^2 x - \int \frac{\ln x}{x} dx \\
@@ -130,36 +141,36 @@ $n>m$:
 1. $\int \frac{dx}{(x-a)(x-b)} = \int \frac{Adx}{x-a} + \int \frac{Bdx}{x-b} =
    A\ln|x-a|+B\ln|x-b|+c$
 
-    $A= \frac{1}{a-b}$, $B = -\frac{1}{a-b}$
+   $A= \frac{1}{a-b}$, $B = -\frac{1}{a-b}$
 
-    $\int \frac{x^2+x-1}{(x-1)(x+2)(x+1)}dx$
+   $\int \frac{x^2+x-1}{(x-1)(x+2)(x+1)}dx$
 
-    $\frac{x^2+x-1}{(x-1)(x+2)(x+1)} = \frac{A}{x-1} + \frac{B}{x+2} + \frac{C}{x+1}$
+   $\frac{x^2+x-1}{(x-1)(x+2)(x+1)} = \frac{A}{x-1} + \frac{B}{x+2} + \frac{C}{x+1}$
 
-    $A(x+2)(x+1) + B(x+1)(x-1) + C(x+2)(x-1) = x^2+x+1$
+   $A(x+2)(x+1) + B(x+1)(x-1) + C(x+2)(x-1) = x^2+x+1$
 
-    $A = -\frac{1}{2}, B=-\frac{1}{6}, C=\frac{5}{3}$
+   $A = -\frac{1}{2}, B=-\frac{1}{6}, C=\frac{5}{3}$
 
 2. $\int \frac{x^2-x+2}{(x-1)^3}dx$
 
-    $\frac{x^2-x+2}{(x-1)^3} = \frac{(x-1+1)^2 +(x-1+1)+2}{(x-1)^3} = \frac{(x-1)^2+2(x-1)+1+(x-1)-1+2}{(x-1)^3}$
+   $\frac{x^2-x+2}{(x-1)^3} = \frac{(x-1+1)^2 +(x-1+1)+2}{(x-1)^3} = \frac{(x-1)^2+2(x-1)+1+(x-1)-1+2}{(x-1)^3}$
 
-    $\frac{(x-1)^2+(x-1)+2}{(x-1)^3} = \frac{1}{x-1} + \frac{1}{(x-1)^2} +
+   $\frac{(x-1)^2+(x-1)+2}{(x-1)^3} = \frac{1}{x-1} + \frac{1}{(x-1)^2} +
     \frac{2}{(x-1)^3}$
 
-    Second approach:
+   Second approach:
 
-    $\frac{x^2-x+2}{(x-1)^3} = \frac{A}{x-1} + \frac{B}{(x-1)^2} + \frac{C}{(x-1)^3}$
+   $\frac{x^2-x+2}{(x-1)^3} = \frac{A}{x-1} + \frac{B}{(x-1)^2} + \frac{C}{(x-1)^3}$
 
-    Example:
+   Example:
 
-    $\int \frac{x^3+1}{(x-2)^5}dx$
+   $\int \frac{x^3+1}{(x-2)^5}dx$
 
-    $\frac{x^3+1}{(x-2)^5} = \frac{A}{x-2} + \frac{B}{(x-2)^2} + \frac{C}{(x-2)^3}+ \frac{D}{(x-2)^4}+ \frac{E}{(x-2)^5}$
+   $\frac{x^3+1}{(x-2)^5} = \frac{A}{x-2} + \frac{B}{(x-2)^2} + \frac{C}{(x-2)^3}+ \frac{D}{(x-2)^4}+ \frac{E}{(x-2)^5}$
 
 3. $\int \frac{x^3-x^2+x-2}{(x+1)(x-1)^5}dx$
 
-    $\frac{x^3-x^2+x-2}{(x+1)(x-1)^5}=\frac{A}{x+1} +\frac{B}{x-1} + \frac{C}{(x-1)^2} + \frac{D}{(x-1)^3}$
+   $\frac{x^3-x^2+x-2}{(x+1)(x-1)^5}=\frac{A}{x+1} +\frac{B}{x-1} + \frac{C}{(x-1)^2} + \frac{D}{(x-1)^3}$
 
 # Trigonometric integrals
 

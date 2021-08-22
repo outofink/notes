@@ -8,7 +8,7 @@ author: Moshe Krumbein
 
 For finding the slope at a single point.
 $$f(x)=y$$
-$$ f'(x) = \lim\limits_{h \to 0} \frac{f(x_0+h)-f(x_0)}{h}$$
+$$ f'(x) = \lim\limits\_{h \to 0} \frac{f(x_0+h)-f(x_0)}{h}$$
 
 # Identities
 
@@ -44,6 +44,7 @@ $$f'(f'(x)) \cdot (f'(x))' = 1$$
 $$(f^{-1}(x))' = \frac{1}{f'(f^{-1}(x))}$$
 
 # Derivative of powers
+
 $$\left(f(x)^{g(x)}\right)' = f(x)^{g(x)} \cdot \left(g'(x)\ln(f(x)) + g(x) \cdot \frac{f'(x)}{f(x)}\right)$$
 
 # L'H$\text{\^{o}}$pital's Rule

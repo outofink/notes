@@ -45,35 +45,56 @@
 <!--  -->
 <h1 id="directional-derivatives-and-gradient-vectors">Directional Derivatives and Gradient Vectors</h1>
 <p>For multi-variable functions until now, we were able to calculate the derivative in the <span class="math inline">x</span> or <span class="math inline">y</span> directions. Directional derivatives allow us to find the directive of a function in any direction.</p>
-<p><span class="math display">L: \begin{cases}
+<p><span class="math display">
+L: \begin{cases}
    x=x_0 + at \\
    y=y_0 + bt
-\end{cases}</span> <span class="math display">L \parallel \vec u = \vec{(a,b)}</span></p>
+\end{cases}
+</span></p>
+<p><span class="math display">L \parallel \vec u = \vec{(a,b)}</span></p>
 <p><span class="math display">\frac{\partial f (\mu_0)}{\partial L} = \lim\limits_{\mu \to \mu_0} \frac{f(\mu)-f(\mu_0)}{||\mu_0 \vec \mu||}</span></p>
-<p><span class="math display">\varphi (t) = f(x+0+at, y_0+bt) \quad \frac{\partial f(\mu_0)}{\partial L} =
-\frac{\varphi &#39; (0)}{\sqrt{a^2+b^2}}</span></p>
-<p><span class="math display">\varphi &#39;(t) = f_x&#39;x_t&#39;+f_y&#39;y_t&#39; = af_x&#39; +bf_y&#39; = \vec{(f_x&#39;,f_y&#39;)}\cdot
-\vec{(a,b)}</span></p>
-<p><span class="math display">\varphi&#39;(0) = \vec{(f_x&#39;(x_0,y_0),f_y&#39;(x_0,y_0)} \cdot \vec{(a,b)}</span> <span class="math display">\frac{\partial f(\mu_0)}{\partial L} = \underbrace{\vec{(f_x&#39;(\mu_0),f_y&#39;(\mu_0))}}_{\vec{\mathrm{grad}f(\mu_0)}} \cdot
+<p><span class="math display">
+\varphi (t) = f(x+0+at, y_0+bt) \quad \frac{\partial f(\mu_0)}{\partial L} =
+\frac{\varphi &#39; (0)}{\sqrt{a^2+b^2}}
+</span></p>
+<p><span class="math display">
+\varphi &#39;(t) = f_x&#39;x_t&#39;+f_y&#39;y_t&#39; = af_x&#39; +bf_y&#39; = \vec{(f_x&#39;,f_y&#39;)}\cdot
+\vec{(a,b)}
+</span></p>
+<p><span class="math display">\varphi&#39;(0) = \vec{(f_x&#39;(x_0,y_0),f_y&#39;(x_0,y_0)} \cdot \vec{(a,b)}</span></p>
+<p><span class="math display">
+\frac{\partial f(\mu_0)}{\partial L} = \underbrace{\vec{(f_x&#39;(\mu_0),f_y&#39;(\mu_0))}}_{\vec{\mathrm{grad}f(\mu_0)}} \cdot
 \frac{\vec{(a,b)}}{\sqrt{a^2+b^2}} = \vec{\mathrm{grad} f(\mu_0)}\cdot \hat u = \vec{\nabla
-f(\mu_0)} \cdot \hat u</span></p>
+f(\mu_0)} \cdot \hat u
+</span></p>
 <h2 id="attributes-of-gradient-vectors">Attributes of Gradient Vectors</h2>
 <h3 id="section">1.</h3>
-<p><span class="math display">\frac{\partial f(\mu_0)}{\partial \vec u} = \vec{\nabla f(\mu_0)}\cdot \hat u
-= \vec{||\nabla f(\mu_0)}||\cdot ||\vec u||\cdot \cos \varphi</span></p>
-<p><span class="math display">\max \frac{\partial f(\mu_0)}{\partial \vec u} = ||\vec{\nabla f(\mu_0)}||
-\iff \cos \varphi = 1 \iff \varphi = 0</span></p>
-<p><span class="math display">\min \frac{\partial f(\mu_0)}{\partial \vec u} = -||\vec{\nabla f(\mu_0)}||
-\iff \cos \varphi = -1 \iff \varphi = \pi</span></p>
-<p><span class="math display">\frac{\partial f(\mu_0)}{\partial \vec u} = 0 \iff \cos \varphi = 0 \iff
-\varphi = \frac{\pi}{2}</span></p>
+<p><span class="math display">
+\frac{\partial f(\mu_0)}{\partial \vec u} = \vec{\nabla f(\mu_0)}\cdot \hat u
+= \vec{||\nabla f(\mu_0)}||\cdot ||\vec u||\cdot \cos \varphi
+</span></p>
+<p><span class="math display">
+\max \frac{\partial f(\mu_0)}{\partial \vec u} = ||\vec{\nabla f(\mu_0)}||
+\iff \cos \varphi = 1 \iff \varphi = 0
+</span></p>
+<p><span class="math display">
+\min \frac{\partial f(\mu_0)}{\partial \vec u} = -||\vec{\nabla f(\mu_0)}||
+\iff \cos \varphi = -1 \iff \varphi = \pi
+</span></p>
+<p><span class="math display">
+\frac{\partial f(\mu_0)}{\partial \vec u} = 0 \iff \cos \varphi = 0 \iff
+\varphi = \frac{\pi}{2}
+</span></p>
 <p>The use of <span class="math inline">||\vec{\nabla f(\mu_0)}||</span> is the finding the maximal directional derivative.</p>
 <h3 id="section-1">2.</h3>
 <h4 id="claim">Claim:</h4>
 <p>Gradient vectors is perpendicular the contour line <span class="math inline">c=f(\mu_0).</span></p>
 <h4 id="proof">Proof:</h4>
-<p>Contour line <span class="math inline">f(x,y) = f(\mu_0) = \text{const}</span> <span class="math display">\Downarrow</span> <span class="math display">df(x,y) = 0</span> <span class="math display">f_x&#39;(\mu_0)dx+f_y&#39;(\mu_0dy)=0</span> <span class="math display">\vec{(f_x&#39;(\mu_0),f_y&#39;(\mu_0))}\cdot \vec{(dx,dy)} =0 \implies \vec{\nabla
-f(\mu_0)} \perp \vec{(dx,dy)}</span></p>
+<p>Contour line <span class="math inline">f(x,y) = f(\mu_0) = \text{const}</span> <span class="math display">\Downarrow</span> <span class="math display">df(x,y) = 0</span> <span class="math display">f_x&#39;(\mu_0)dx+f_y&#39;(\mu_0dy)=0</span></p>
+<p><span class="math display">
+\vec{(f_x&#39;(\mu_0),f_y&#39;(\mu_0))}\cdot \vec{(dx,dy)} =0 \implies \vec{\nabla
+f(\mu_0)} \perp \vec{(dx,dy)}
+</span></p>
 <p>Suppose <span class="math inline">y=y(x)</span>:</p>
 <p><span class="math display">\vec{(dx,dy)} = (dx,y_x&#39;(x_0)dx) = (1,y&#39;(x_0)dx)</span></p>
 <h1 id="local-extrema-of-multi-variable-functions">Local extrema of multi-variable functions</h1>
@@ -81,40 +102,52 @@ f(\mu_0)} \perp \vec{(dx,dy)}</span></p>
 <p>If an extremum exists than the directional derivative for any given direction will be equal to <span class="math inline">0</span>.</p>
 <p><span class="math display">\frac{\partial f(\mu_0)}{\partial \vec u} = \vec{\nabla} f(\mu_0) \hat u = 0</span></p>
 <p>For all <span class="math inline">\hat u</span>: <span class="math inline">\vec{\nabla} f(\mu_0) \perp 0</span>, which is only true if <span class="math inline">\vec{\nabla} f(\mu_0) = 0</span> which means:</p>
-<p><span class="math display">\begin{cases}
+<p><span class="math display">
+\begin{cases}
     f_x&#39;(\mu_0) = 0 \\
     f_y&#39;(\mu_0) = 0
-\end{cases}</span></p>
+\end{cases}
+</span></p>
 <h2 id="conditions">Conditions</h2>
 <p>Given <span class="math inline">z=f(x,y)</span> and the coordinate <span class="math inline">\mu_0</span>. Given an direction <span class="math inline">\vec u =\vec{(a,b)}</span> at <span class="math inline">\mu_0</span>:</p>
 <p><span class="math display">z=f(x_0+at,y_0+bt) \quad (z=z(f))</span> <span class="math display">z_t = z_xx_t+z_yy_t = xf_x+bf_y</span> <span class="math display">z_{tt} = a(f_{xx}x_t+f_{xy}y_t)+b(f_{yx}x_t+f_{yy}y_t)</span> <span class="math display">=a^2f_{xx}+2abf_{xy}+b^2f_{yy}</span> <span class="math display">=b^2\left(f_{xx}\left(\frac{a}{b}\right)^2+2f_{xy}\left(\frac{a}{b}\right)+f_{yy}\right)</span> <span class="math display">w=\frac{a}{b}</span> <span class="math display">\Delta = b^2-4ac = f_{xy}^2(\mu_0) - f_{xx}(\mu_0) f_{yy}(\mu_0)</span> <span class="math display">...</span></p>
 <p>So when will <span class="math inline">z_{tt}(\mu_0)&gt;0</span> (minimum) for all <span class="math inline">w</span>:</p>
-<p><span class="math display">\begin{cases}
+<p><span class="math display">
+\begin{cases}
     f_{xx}(\mu_0)&gt;0 \\
     \Delta &lt; 0
-\end{cases}</span> <span class="math display">\frac{\Delta}{4} &lt; 0 : f_{xy}^2(\mu_0)-f_{xx}(\mu_0)f_{yy}(\mu_0)&lt;0</span></p>
+\end{cases}
+</span></p>
+<p><span class="math display">\frac{\Delta}{4} &lt; 0 : f_{xy}^2(\mu_0)-f_{xx}(\mu_0)f_{yy}(\mu_0)&lt;0</span></p>
 <p>Otherwise written as:</p>
-<p><span class="math display">\boxed{\begin{cases}
+<p><span class="math display">
+\boxed{\begin{cases}
     f_{xx}(\mu_0) &gt; 0 \\
     f_{xx}(\mu_0) f_{yy}(\mu_0) - f_{xy}^2(\mu_0) &gt; 0
-\end{cases}}</span></p>
+\end{cases}}
+</span></p>
 <p>And for the maximum:</p>
-<p><span class="math display">\boxed{\begin{cases}
+<p><span class="math display">
+\boxed{\begin{cases}
     f_{xx}(\mu_0) &lt; 0 \\
     f_{xx}(\mu_0) f_{yy}(\mu_0) - f_{xy}^2(\mu_0) &gt; 0
-\end{cases}}</span></p>
+\end{cases}}
+</span></p>
 <h3 id="note">Note:</h3>
 <p>If <span class="math inline">z_{tt}(\mu_0) = 0</span> we cannot find the characteristics at <span class="math inline">\mu_0</span>.</p>
 <p>If <span class="math inline">\Delta &gt; 0</span> aka <span class="math inline">f_{xx}(\mu_0) f_{yy}(\mu_0) - f_{xy}^2(\mu_0) &lt; 0</span> there directions such that <span class="math inline">z_{tt}(\mu_0) &lt; 0</span> and some <span class="math inline">z_{tt}(\mu_0) &gt; 0</span>, also known as a <em>saddle point</em> (because it looks like a saddle).</p>
 <h2 id="summary">Summary</h2>
 <p>To find local maxima/minima of <span class="math inline">z=f(x,y)</span>, first ensure that it is differentiable at the point of inspection (<span class="math inline">\mu_0</span>) and that <span class="math inline">z,z_x,z_y,z_{xy},z_{yz}</span> are all continuous.</p>
 <p>In order to find potential points, find that points that satisfy:</p>
-<p><span class="math display">\begin{cases}
+<p><span class="math display">
+\begin{cases}
     f_x = 0 \\
     f_y = 0
-\end{cases}</span></p>
+\end{cases}
+</span></p>
 <p>For each potential extremum (<span class="math inline">\mu_0</span>):</p>
 <p><span class="math display">
+\begin{array}{c|c}
 \begin{gathered}
     \text{Minimum:} \\
     \begin{cases}
@@ -124,7 +157,7 @@ f(\mu_0)} \perp \vec{(dx,dy)}</span></p>
     \text{Unknown using this method:} \\
     f_{xx}(\mu_0) = 0
 \end{gathered}
-\quad\vline\quad
+&amp;
 \begin{gathered}
     \text{Maximum:} \\
     \begin{cases}
@@ -134,6 +167,7 @@ f(\mu_0)} \perp \vec{(dx,dy)}</span></p>
     \text{Saddle point:} \\
     f_{xx}(\mu_0) f_{yy}(\mu_0) - f_{xy}^2(\mu_0) &lt; 0
 \end{gathered}
+\end{array}
 </span></p>
 <h1 id="extrema-under-constraints">Extrema under constraints</h1>
 <p>Given <span class="math inline">z=f(x,y)</span>, if exists the condition <span class="math inline">g(x,y)=0</span>:</p>
@@ -145,13 +179,25 @@ f(\mu_0)} \perp \vec{(dx,dy)}</span></p>
 <p><span class="math display">y=-x-3</span> <span class="math display">x^2+(x+3)^2+x(x+3)+x-x-3</span> <span class="math display">=3(x^2+3x+2)</span> <span class="math display">z&#39;=3(2x+3) = 0 \implies x=-\frac{3}{2}</span> <span class="math display">z&#39;&#39;=6&gt;0 \implies \text{Minimum} \to \min \left(-\frac{3}{2},-\frac{3}{2},-\frac{3}{4}\right)</span></p>
 <h3 id="constraint-of-an-implicit-function">Constraint of an implicit function</h3>
 <p>Constraint:</p>
-<p><span class="math display">g(x,y)=0</span> <span class="math display">\begin{cases}
+<p><span class="math display">g(x,y)=0</span></p>
+<p><span class="math display">
+\begin{cases}
     x=x(t) \\
     y=y(t)
-\end{cases}</span> <span class="math display">z=f(x,y)=f(x(t),y(t))</span></p>
-<p><span class="math inline">\mu_0</span> will be a suspect point if <span class="math inline">z_t&#39;(\mu_0)=0</span>. <span class="math display">z_t=z_xx_t+z_yy_t=\vec{(z_x,z_y)}\cdot \vec{(x_t,y_t)} = \vec \nabla f \cdot
-\vec{(x_t,y_t)} \implies \vec \nabla f \perp \vec{(x_t,y_t)}</span> <span class="math display">g(x(t),y(t))</span> <span class="math display">0=g_t&#39;=g_xx_t+g_yy_t = \vec{(g_x,g_x)}\cdot \vec{(x_t,y_t)} \implies \vec
-\nabla g \perp \vec{(x_t,y_t)}</span> <span class="math display">\vec \nabla f \parallel \vec \nabla g</span></p>
+\end{cases}
+</span></p>
+<p><span class="math display">z=f(x,y)=f(x(t),y(t))</span></p>
+<p><span class="math inline">\mu_0</span> will be a suspect point if <span class="math inline">z_t&#39;(\mu_0)=0</span>.</p>
+<p><span class="math display">
+z_t=z_xx_t+z_yy_t=\vec{(z_x,z_y)}\cdot \vec{(x_t,y_t)} = \vec \nabla f \cdot
+\vec{(x_t,y_t)} \implies \vec \nabla f \perp \vec{(x_t,y_t)}
+</span></p>
+<p><span class="math display">g(x(t),y(t))</span></p>
+<p><span class="math display">
+0=g_t&#39;=g_xx_t+g_yy_t = \vec{(g_x,g_x)}\cdot \vec{(x_t,y_t)} \implies \vec
+\nabla g \perp \vec{(x_t,y_t)}
+</span></p>
+<p><span class="math display">\vec \nabla f \parallel \vec \nabla g</span></p>
 <p><span class="math display">
 \begin{cases}
     \vec \nabla f = \lambda \vec \nabla g \\
@@ -167,11 +213,13 @@ f(\mu_0)} \perp \vec{(dx,dy)}</span></p>
 <p>We are able to check local maxima and minima under constraint of another function (either implicit or explicit).</p>
 <p>With an <em>explicit</em> constraint (any function that can easily be solved for <span class="math inline">x</span>), one can find the extrema in the same way one would for a single variable function (because the entire function is now only in terms of <span class="math inline">x</span>).</p>
 <p>Example:</p>
-<p><span class="math display">\begin{gathered}
+<p><span class="math display">
+\begin{gathered}
     f(x,y) = x^2+y^2 \quad y=2x \\
     f(x,y)=f(x,2x)=x^2+(2x)^2 \\
     \dots \\
-\end{gathered}</span></p>
+\end{gathered}
+</span></p>
 <p>With an <em>implicit</em> constraint (a function which cannot be easily solved for <span class="math inline">x</span>), potential extrema can be found using the following system of equations:</p>
 <p><span class="math display">
 \begin{cases}
@@ -179,7 +227,8 @@ f(\mu_0)} \perp \vec{(dx,dy)}</span></p>
     f_y&#39; = \lambda g_y&#39; \\
     g = 0
 \end{cases}
-</span> Where <span class="math inline">\lambda</span> is the <em>Lagrange multiplier</em> (an arbitrary constant).</p>
+</span></p>
+<p>Where <span class="math inline">\lambda</span> is the <em>Lagrange multiplier</em> (an arbitrary constant).</p>
 <p>For each potential extremum (<span class="math inline">\mu</span>), its height is <span class="math inline">f(\mu)</span>. The maximum and minimum can be found accordingly.</p>
 <p><em>Note:</em> If only one extremum is found, we cannot determine whether it is a maximum or maximum using this method.</p>
 <!-- <a href="index.html">Return to Table of Contents</a>

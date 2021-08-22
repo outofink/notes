@@ -14,6 +14,7 @@ power, the better the approximation).
 Suppose our function is differentiable infinitely, such that:
 
 $$
+\begin{array}{c|c}
 \begin{gathered}
     f(0)  =p(x)   = a_0  = a_0 0!\\
     f'(0) =p'(0)  = a_1  = a_1 1!\\
@@ -21,7 +22,7 @@ $$
     \dots \\
     f^{(n)}(0) = p^{(n)}(0) = a_n n!
 \end{gathered}
-\quad \vline \quad
+&
 \begin{gathered}
     p_n(x)   = a_1  + a_2x  + \dots + a_nx^n \\
     p'_n(x)  = a_1  + 2a_2x + \dots + a_n nx^{n-1} \\
@@ -29,6 +30,7 @@ $$
     \dots \\
     p_n^{(n)} = a_n n (n-1)(n-2)\dots =a_nn!
 \end{gathered}
+\end{array}
 $$
 
 Providing the following equation:
@@ -53,8 +55,11 @@ $$e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!}\tag{1}$$
 $$\ln(x+1) = \sum_{n=1}^{\infty}(-1)^{n-1}\frac{x^n}{n}\tag{2}$$
 $$\sin x = \sum_{n=0}^{\infty}(-1)^n \frac{x^{2n+1}}{(2n+1)!} \tag{3}$$
 $$\cos x = \sum_{n=0}^{\infty}(-1)^n \frac{x^{2n}}{(2n)!} \tag{4}$$
-$$(1+t)^\alpha = 1+\alpha t +\frac{ \alpha (\alpha - 1)}{2!}t^2 + \frac{\alpha
-(\alpha - 1)(\alpha - 2)}{3!}t^3 \dots, \;|x| < 1 \tag{5}$$
+
+$$
+(1+t)^\alpha = 1+\alpha t +\frac{ \alpha (\alpha - 1)}{2!}t^2 + \frac{\alpha
+(\alpha - 1)(\alpha - 2)}{3!}t^3 \dots, \;|x| < 1 \tag{5}
+$$
 
 ### Additional expansions
 

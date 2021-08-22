@@ -11,7 +11,7 @@ $$z=f(x,y)=\frac{1}{\sqrt{25-x^2-y^2}}$$
 $$\text{Dom } f = \{(x,y):x^2+y^2<25\}$$
 $$\text{Im }  f = \left\{z \geq \frac{1}{5}\right\}$$
 
-*Elevation lines* are horizontal cross-sections of the graph.
+_Elevation lines_ are horizontal cross-sections of the graph.
 
 # Limits of functions with two variables
 
@@ -63,7 +63,7 @@ Approach D:
 Find the limit of first $x$ and then $y$. Then find the limit of $y$ and then $x$.
 If time limits are not equal the limit does not exist.
 
-## So how can we prove the limit *does* exist?
+## So how can we prove the limit _does_ exist?
 
 ### Sandwich Rule
 
@@ -73,7 +73,7 @@ $$\left|\frac{xy^3}{x^2+y^2}\right| \leq \left|\frac{xy^3}{y^2}\right| = |xy| =|
 If the numerator has a higher power than the denominator, we know that the
 numerator approaches zero faster than the denominator.
 
-If the denominator is larger  on the numerator, we will see that the limit will
+If the denominator is larger on the numerator, we will see that the limit will
 approach infinity.
 
 If the powers are equal than we know that the limit will not exist.
@@ -100,7 +100,7 @@ $$\frac{\partial}{\partial y} f(x_0,y_0) = f'_y(x_0,y_0) = \lim\limits_{h \to 0}
 
 Consider all other variables as constants and differentiate.
 
-##  Second order partial differentiation
+## Second order partial differentiation
 
 $$
 \begin{gathered}
@@ -122,7 +122,7 @@ continuous.
 
 # Differentiability
 
-> *Reminder:* A function $y=f(x)$ is defined as differentiable at $x=x_0$ if:
+> _Reminder:_ A function $y=f(x)$ is defined as differentiable at $x=x_0$ if:
 
 $$\alpha = \frac{f(x)-g(x)}{x-x_0} \to 0$$
 
@@ -180,6 +180,7 @@ $$f(g(x))' = f'_tt'_x$$
 ## Function with two variables
 
 ### Case 1
+
 $$z=f(u,v), \quad u=u(x,y), v=v(x,y)$$
 
 One the one hand:
@@ -188,10 +189,15 @@ On the other hand:
 $$dz=z_udu+z_vdv=z_u(u_xdx+u_ydy)+z_v(v_xdx+v_ydy)$$
 $$=(z_u u_x + z_v u_x)dx+(z_u u_y +z_v v_y)dy$$
 
-$$z'_x = z_u u_x + z_v u_x = \frac{\partial z}{\partial u}\cdot\frac{\partial
-u}{\partial x} + \frac{\partial z}{\partial v}\cdot\frac{\partial v}{\partial x}$$
-$$z'_y = z_u u_y + z_u v_y = \frac{\partial z}{\partial u}\cdot\frac{\partial
-u}{\partial y} + \frac{\partial z}{\partial v}\cdot\frac{\partial v}{\partial y}$$
+$$
+z'_x = z_u u_x + z_v u_x = \frac{\partial z}{\partial u}\cdot\frac{\partial
+u}{\partial x} + \frac{\partial z}{\partial v}\cdot\frac{\partial v}{\partial x}
+$$
+
+$$
+z'_y = z_u u_y + z_u v_y = \frac{\partial z}{\partial u}\cdot\frac{\partial
+u}{\partial y} + \frac{\partial z}{\partial v}\cdot\frac{\partial v}{\partial y}
+$$
 
 ### Case 2
 
@@ -200,8 +206,11 @@ $$dz=z'_x dx + z'_y dy$$
 $$=z'_xx'_tdt+z'_yy'_tdt = (z_xx_t+z_yy_t)dt$$
 
 $$z'_t=z'_xx'_t+z'_yy'_t$$
-$$\frac{\partial z}{\partial t} = \frac{\partial z}{\partial x}\cdot\frac{\partial
-x}{\partial t} + \frac{\partial z}{\partial y}\cdot\frac{\partial y}{\partial t}$$
+
+$$
+\frac{\partial z}{\partial t} = \frac{\partial z}{\partial x}\cdot\frac{\partial
+x}{\partial t} + \frac{\partial z}{\partial y}\cdot\frac{\partial y}{\partial t}
+$$
 
 ### Case 3
 
@@ -209,6 +218,7 @@ $$z=z(t), \quad t=t(x,y)$$
 $$z'_xdx+z'_ydy=dz=z'_tdx$$
 $$=z'_t(t'_xdx+t'_ydy)$$
 $$=z'_tt'_xdx+z'_tt'_ydy$$
+
 $$
 \begin{gathered}
         z'_x = z'_tt'_x \\
@@ -220,9 +230,8 @@ $$
 
 ## Examples
 
-1.
-$$z=u^2v, u=x\sin y, v= y\cos x$$
-Find $z'_x, z'_y$.
+1.  $$z=u^2v, u=x\sin y, v= y\cos x$$
+    Find $z'_x, z'_y$.
 
 First way:
 $$z=x^2\sin^2(y)y\cos x = x^2\cos(x)y\sin^2(y)$$
@@ -231,8 +240,7 @@ $$z'_y=(\sin^2y+2y\sin y \cos y) x^2\cos x$$
 
 Second way:
 
-2.
-$$z=x^2y^3+f\left(\frac{x^2}{y}\right)$$
+2.  $$z=x^2y^3+f\left(\frac{x^2}{y}\right)$$
 
 $$z'_x=2xy^3+f'_tt'_x$$
 $$=2xy^3+f'_t \cdot \frac{2x}{y}$$
@@ -255,17 +263,17 @@ On $\mathbb{R}^3$: $\vec{AB} = \vec{(x_B-x_A,y_B-y_A,z_B-z_A)}$
 
 1. $\mathbb{R}^2: A(1,2), B(0,-2)$
 
-    $\vec{AB} = \vec{(0-1,-2-2)}=\vec{(-1,-4)}$
+   $\vec{AB} = \vec{(0-1,-2-2)}=\vec{(-1,-4)}$
 
 2. $\mathbb{R}^3:A(1,2,3),B(2,1,4)$
 
-    $\vec{AB}=\vec{(2-1,1-2,4-3)}=\vec{(1,-1,1)}$
+   $\vec{AB}=\vec{(2-1,1-2,4-3)}=\vec{(1,-1,1)}$
 
-    $C(-1,2,5), D(0,1,6)$
+   $C(-1,2,5), D(0,1,6)$
 
-    $\vec{CD} = \vec{(0-(-1),1-2,6-5)} = \vec{(1,-1,1)}$
+   $\vec{CD} = \vec{(0-(-1),1-2,6-5)} = \vec{(1,-1,1)}$
 
-    $\vec{AB} \equiv \vec{CD} \quad (\vec{AB} = \vec{CD})$
+   $\vec{AB} \equiv \vec{CD} \quad (\vec{AB} = \vec{CD})$
 
 ## Operations between vectors
 
@@ -324,13 +332,16 @@ $\vec v \cdot \vec u = v_1u_1 + v_2u_2+v_3u_3$
 
 $||\vec v|| = \sqrt{\vec v^2}$
 
-## Angle between  vectors
+## Angle between vectors
 
 ### Cosine rule
 
 $$b^2=a^2+c^2-2ac\cos \beta$$
-$$||\vec u - \vec v||^2 = ||\vec v||^2+||\vec u||^2 - 2 \cdot ||\vec v|| \cdot
-||\vec u|| \cdot \cos \beta$$
+
+$$
+||\vec u - \vec v||^2 = ||\vec v||^2+||\vec u||^2 - 2 \cdot ||\vec v|| \cdot
+||\vec u|| \cdot \cos \beta
+$$
 
 Example:
 

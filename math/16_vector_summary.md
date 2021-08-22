@@ -14,7 +14,7 @@ From $A$ to $B$:
 
 $$\vec{AB}=\vec{(b_1-a_1.b_2-a_2,b_3-a_3)}$$
 
-All vectors with the same coordinates are *equivalent*.
+All vectors with the same coordinates are _equivalent_.
 
 ## Operations On and Between Vectors
 

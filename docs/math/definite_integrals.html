@@ -53,8 +53,10 @@
 <p>A Riemann sum <span class="math inline">S</span> of <span class="math inline">f</span> over <span class="math inline">I</span> with partition <span class="math inline">P</span> is defined as</p>
 <p><span class="math display">S=\sum _{i=1}^{n}f(x_{i}^{*})\,\Delta x_{i}</span></p>
 <p>where <span class="math inline">\Delta x_{i}=x_{i}-x_{i-1}</span> and <span class="math inline">x_{i}^{*}\in [x_{i-1},x_{i}]</span>. One might produce different Riemann sums depending on which <span class="math inline">x_{i}^{*}</span>’s are chosen. In the end this will not matter, if the function is Riemann integrable, when the difference or width of the summands <span class="math inline">\Delta x_{i}</span> approaches zero.</p>
-<p><span class="math display">\int_{a}^{b}f(x)dx = \lim\limits_{n \to \infty} \frac{b-a}{n}
-\sum_{k=1}^{n}f\left(a+\frac{k}{n}(b-a)\right)</span></p>
+<p><span class="math display">
+\int_{a}^{b}f(x)dx = \lim\limits_{n \to \infty} \frac{b-a}{n}
+\sum_{k=1}^{n}f\left(a+\frac{k}{n}(b-a)\right)
+</span></p>
 <h2 id="newton-leibniz-theorem">Newton-Leibniz Theorem</h2>
 <p><span class="math display">\int_{a}^{b} f(x)dx = F(x) \Big|_a^b = F(b) - F(a)</span></p>
 <h2 id="characteristics">Characteristics</h2>
@@ -78,9 +80,11 @@
 <p>How to find the volume of a function rotated around the <span class="math inline">x</span>-axis.</p>
 <h2 id="method-of-disks">Method of Disks</h2>
 <p>The volume of a disk is <span class="math inline">\pi r^2 h</span> so for a function we get between <span class="math inline">a</span> and <span class="math inline">b</span> we get:</p>
-<p><span class="math display">\lim\limits_{n \to \infty} f(x)\pi \cdot
+<p><span class="math display">
+\lim\limits_{n \to \infty} f(x)\pi \cdot
 \frac{b-a}{n}\sum_{k=1}^{n}f^2\left(a+\frac{b-a}{n}k\right)</span> <span class="math display">\boxed{V=\pi
-\int_{a}^{b}f^2(x)dx}</span></p>
+\int_{a}^{b}f^2(x)dx}
+</span></p>
 <h3 id="example">Example</h3>
 <p><span class="math display">f(x)=\sqrt x, 1 \leq x \leq 3, \text{rotated around the $x$-axis.}</span> <span class="math display">V =
 \pi \int_{1}^{3}(\sqrt x)^dx=\pi \frac{x^2}{2}\Big|_{x=1}^{x=3}=\boxed{4\pi}</span></p>
@@ -104,8 +108,10 @@
 <h4 id="indefinite-integrals">Indefinite integrals</h4>
 <p><span class="math display">F(x)=\int_{a}^{x}f(u)du, G(x)=\int_{b}^{x}f(u)du</span> <span class="math display">F&#39;(x)=G&#39;(x)=f(x)</span></p>
 <p>Functions whose derivatives are equal differ only by a constant:</p>
-<p><span class="math display">F(x)= \int_{x}^{x}f(u)du =
-\int_{a}^{b}f(u)du+\int_{b}^{x}f(u)du=\int_{a}^{b}f(u)du+ G(x) = C + G(x)</span></p>
+<p><span class="math display">
+F(x)= \int_{x}^{x}f(u)du =
+\int_{a}^{b}f(u)du+\int_{b}^{x}f(u)du=\int_{a}^{b}f(u)du+ G(x) = C + G(x)
+</span></p>
 <h4 id="general-anti-derivatives">General anti-derivatives</h4>
 <p><span class="math display">\int_{a}^{x}f(u)du + C = \int f(x)dx</span></p>
 <h2 id="part-2">Part 2</h2>
@@ -125,18 +131,21 @@
 \int_{a}^{b}f(u)du=F(b)-F(a)</span> <span class="math display">\blacksquare</span></p>
 <h2 id="derivative-of-anti-derivative-theorem---leibnizs-rule">Derivative of anti-derivative theorem - Leibniz’s Rule</h2>
 <p>If functions <span class="math inline">f(x)</span> and <span class="math inline">g(x)</span> are differentiable and the function <span class="math inline">f(u)</span> is continuous on <span class="math inline">g(x) &lt; u &lt; h(x)</span>, then:</p>
-<p><span class="math display">\frac{d}{dx} \int_{g(x)}^{h(x)}f(u)du = f(h(x)) \cdot h&#39;(x) = f(g(x) \cdot
-g&#39;(x)</span></p>
+<p><span class="math display">
+\frac{d}{dx} \int_{g(x)}^{h(x)}f(u)du = f(h(x)) \cdot h&#39;(x) = f(g(x) \cdot
+g&#39;(x)
+</span></p>
 <h3 id="proof-2">Proof</h3>
 <p><span class="math display">F(x) = \int_{0}^{x}f(u)du</span> <span class="math display">\int_{g(x)}^{h(x)}f(u)du=
-\int_{g(x)}^{0}f(u)du+\int_{0}^{h(x)}f(u)du</span> <span class="math display"> = -\int_{0}^{h(g)}f(u)du +
-\int_{0}^{h(x)}f(u)du</span> <span class="math display">=F(h(x))- F(g(x))</span></p>
+\int_{g(x)}^{0}f(u)du+\int_{0}^{h(x)}f(u)du</span> <span class="math display"> = -\int*{0}^{h(g)}f(u)du +
+\int*{0}^{h(x)}f(u)du</span> <span class="math display">=F(h(x))- F(g(x))</span></p>
 <p><span class="math display">\frac{d}{dx}(I) = \frac{d}{dx}\left[F(h(x)-F(g(x)))\right]</span> <span class="math display">=F&#39;(h(x))h&#39;(x)-F&#39;(g(x))g&#39;(x)</span> <span class="math display"> = f(h(x))h&#39;(x)- f(g(x))g&#39;(x)</span> <span class="math display">\blacksquare</span></p>
 <h3 id="examples">Examples</h3>
 <ol type="1">
 <li></li>
 </ol>
-<p><span class="math display">\frac{d}{dx}\int_{5}^{\sin x}t^2dt = \sin^2(x) \cdot (\sin x)&#39; - 5^2 \cdot
+<p><span class="math display">
+\frac{d}{dx}\int_{5}^{\sin x}t^2dt = \sin^2(x) \cdot (\sin x)&#39; - 5^2 \cdot
 (5)&#39;</span> <span class="math display">=\sin^2x \cdot \cos x</span></p>
 <ol start="2" type="1">
 <li></li>
@@ -146,15 +155,21 @@ g&#39;(x)</span></p>
 <h3 id="applications">Applications</h3>
 <p><span class="math display">\lim\limits_{x \to 0} \frac{1}{x^3}\int_{0}^{x}\frac{t^2}{t^4+1}dt =
 \left(&quot;\frac{0}{0}&quot;\right)</span> <span class="math display">\to \lim\limits_{x \to 0}
-\frac{\frac{d}{dx}\int_{0}^{x}\frac{t^2}{t^4+1}dt}{\frac{d}{dx}(x^3)}</span> <span class="math display">=\lim\limits_{x \to 0} \frac{\frac{x^2}{x^3+1}}{3x^2} = \lim\limits_{x \to 0}
-\frac{1}{3(x^4+1)} = \boxed{\frac{1}{3}}</span></p>
+\frac{\frac{d}{dx}\int_{0}^{x}\frac{t^2}{t^4+1}dt}{\frac{d}{dx}(x^3)}
+</span></p>
+<p><span class="math display">
+=\lim\limits_{x \to 0} \frac{\frac{x^2}{x^3+1}}{3x^2} = \lim\limits_{x \to 0}
+\frac{1}{3(x^4+1)} = \boxed{\frac{1}{3}}
+</span></p>
 <h3 id="applications-in-investigating-functions">Applications in investigating functions</h3>
 <ol type="1">
 <li>Find the extreme points in the function: <span class="math display">F(x) = \int_{0}^{x}\frac{\sin
 t}{t}dt, \quad x &gt; 0</span></li>
 </ol>
-<p><span class="math display">\frac{d}{dx}F(x)=\frac{d}{dx}\int_{0}^{x}\frac{\sin t}{t}dt = \frac{\sin
-x}{x} = 0</span></p>
+<p><span class="math display">
+\frac{d}{dx}F(x)=\frac{d}{dx}\int_{0}^{x}\frac{\sin t}{t}dt = \frac{\sin
+x}{x} = 0
+</span></p>
 <p><span class="math display">\max F(x) \to x = (2k+1)\pi</span> <span class="math display">\min F(x) \to x = 2k\pi</span></p>
 <ol start="2" type="1">
 <li><span class="math inline">\displaystyle F(x) = \int_{0}^{x}t^2 \sqrt{2-t}\;dt</span></li>
@@ -202,10 +217,12 @@ x}{x} = 0</span></p>
 </ol>
 <p>In each case, if the limit is finite we say that the improper integral <strong>converges</strong> and the limit is the value of the improper integral. If the integral fails to exist the improper integral <strong>diverges</strong>.</p>
 <p>Basically, whichever part is undefined is replaced with a limit.</p>
-<p><span class="math display">\begin{gathered} \int_{2}^{\infty}\frac{1}{x^p}dx = \lim\limits_{b \to
+<p><span class="math display">
+\begin{gathered} \int_{2}^{\infty}\frac{1}{x^p}dx = \lim\limits_{b \to
 \infty} \int_{1}^{b}\frac{1}{x^p}dx \\ = \lim\limits_{b \to \infty}
 \left[\frac{x^{p-1}}{p-1}\right]_{x=1}^{x=b}\\ = \lim\limits_{b \to \infty}
-\frac{1}{1-p}\left[b^{1-p}-1\right] \\ \end{gathered}</span></p>
+\frac{1}{1-p}\left[b^{1-p}-1\right] \\ \end{gathered}
+</span></p>
 <p>When <span class="math inline">p &gt; 1</span>, the function converges, and when <span class="math inline">p \leq 1</span>, the function diverges.</p>
 <h1 id="direct-comparison-test-for-divergence-or-convergence-first-theorem">Direct comparison test for divergence or convergence (First theorem)</h1>
 <p>Suppose <span class="math inline">f(x)</span> and <span class="math inline">g(x)</span> exist such that <span class="math inline">x \in [a, \infty)</span>, <span class="math inline">0 \leq f(x) \leq g(x)</span>.</p>
@@ -234,8 +251,10 @@ x}{x} = 0</span></p>
 <ol type="1">
 <li><p><span class="math inline">\displaystyle \int_{1}^{\infty}\frac{dx}{4+x^2}</span></p>
 <p>Since we know that <span class="math inline">\displaystyle \int_{1}^{\infty}\frac{dx}{x^2}</span> converges and</p>
-<p><span class="math display">\lim\limits_{x \to \infty} \frac{\frac{1}{4+x^2}}{\frac{1}{x^2}} =
- \lim\limits_{x \to \infty} \frac{x^2}{4+x^2} = 1</span></p>
+<p><span class="math display">
+\lim\limits_{x \to \infty} \frac{\frac{1}{4+x^2}}{\frac{1}{x^2}} =
+\lim\limits_{x \to \infty} \frac{x^2}{4+x^2} = 1
+</span></p>
 <p>our integral also converges.</p></li>
 </ol>
 <h2 id="essential-condition-of-convergence">Essential condition of convergence</h2>

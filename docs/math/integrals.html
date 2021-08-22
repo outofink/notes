@@ -77,7 +77,8 @@
     t  &amp;= \arctan x \\
     dt &amp;= \frac{1}{1+x^2}dx
 \end{vmatrix}
-= \int t dx </span></p>
+= \int t dx
+</span></p>
 <p><span class="math display">\int \frac{g&#39;(x)}{g(x)}dx=\ln|g(x)|+c</span></p>
 <h1 id="integration-by-parts">Integration by Parts</h1>
 <p><span class="math display">
@@ -92,29 +93,39 @@
 \end{gathered}
 </span></p>
 <h2 id="example-1">Example</h2>
-<p><span class="math display">\int xe^x dx =
+<p><span class="math display">
+\int xe^x dx =
 \begin{vmatrix}
-   u = x &amp;\;\vline\;&amp; v&#39; = e^x \\
-   u&#39; = 1 &amp;\;\vline\;&amp; v= \int e^x dx =e^x
-\end{vmatrix}</span> <span class="math display">xe^x - \int e^x dx =xe^x -e^x +c</span></p>
+   u = x &amp;\; | \;&amp; v&#39; = e^x \\
+   u&#39; = 1 &amp;\; | \;&amp; v= \int e^x dx =e^x
+\end{vmatrix}
+</span></p>
+<p><span class="math display">xe^x - \int e^x dx =xe^x -e^x +c</span></p>
 <h2 id="cases">Cases</h2>
 <h3 id="type-i">Type I</h3>
 <p><span class="math display">\int p_m(x) \cdot e^ax, \int p_m(x) \cdot \sin(ax), \int p_m(x) \cdot \cos(ax)</span></p>
 <p>Define <span class="math inline">u=p_m(x)</span> and do integration by parts <span class="math inline">m</span> times</p>
 <h3 id="type-ii">Type II</h3>
 <p>Integrals that contain <span class="math inline">\ln</span> or <span class="math inline">arc</span>-functions.</p>
-<p><span class="math display">\int \ln x dx =
+<p><span class="math display">
+\int \ln x dx =
 \begin{vmatrix}
-    u=\ln x &amp;\vline&amp; v&#39; = 1 \\
-    u&#39; = \frac{1}{x} &amp;\vline&amp; v= \int dx=x
-\end{vmatrix}</span> <span class="math display">x \ln x - \int x \cdot \frac{1}{x} = x \ln x - \int dx = x \ln x - x + c</span></p>
+    u=\ln x &amp; | &amp; v&#39; = 1 \\
+    u&#39; = \frac{1}{x} &amp; | &amp; v= \int dx=x
+\end{vmatrix}
+</span></p>
+<p><span class="math display">x \ln x - \int x \cdot \frac{1}{x} = x \ln x - \int dx = x \ln x - x + c</span></p>
 <h3 id="type-iii">Type III</h3>
 <p>Repeating integrals</p>
-<p><span class="math display">\int \cos (\ln x)</span> <span class="math display">\int e^{ax} \cdot \cos(bx), \int e^{ax} \cdot \sin(bx)</span> <span class="math display">\int \frac{\ln x}{x} dx =
+<p><span class="math display">\int \cos (\ln x)</span> <span class="math display">\int e^{ax} \cdot \cos(bx), \int e^{ax} \cdot \sin(bx)</span></p>
+<p><span class="math display">
+\int \frac{\ln x}{x} dx =
 \begin{vmatrix}
-    u=\ln x &amp;\vline&amp; v&#39; = \frac{1}{x} \\
-    u&#39; = \frac{1}{x} &amp;\vline&amp; v= \ln x
-\end{vmatrix}</span> <span class="math display">
+    u=\ln x &amp; | &amp; v&#39; = \frac{1}{x} \\
+    u&#39; = \frac{1}{x} &amp; | &amp; v= \ln x
+\end{vmatrix}
+</span></p>
+<p><span class="math display">
 \begin{gathered}
     =\ln^2 x - \int \frac{\ln x}{x} dx \\
     I = \int \frac{\ln x}{x} dx \\

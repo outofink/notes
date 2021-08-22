@@ -144,15 +144,24 @@
 <h3 id="case-1">Case 1</h3>
 <p><span class="math display">z=f(u,v), \quad u=u(x,y), v=v(x,y)</span></p>
 <p>One the one hand: <span class="math display">dz=z&#39;_xdx+z&#39;_ydy</span> On the other hand: <span class="math display">dz=z_udu+z_vdv=z_u(u_xdx+u_ydy)+z_v(v_xdx+v_ydy)</span> <span class="math display">=(z_u u_x + z_v u_x)dx+(z_u u_y +z_v v_y)dy</span></p>
-<p><span class="math display">z&#39;_x = z_u u_x + z_v u_x = \frac{\partial z}{\partial u}\cdot\frac{\partial
-u}{\partial x} + \frac{\partial z}{\partial v}\cdot\frac{\partial v}{\partial x}</span> <span class="math display">z&#39;_y = z_u u_y + z_u v_y = \frac{\partial z}{\partial u}\cdot\frac{\partial
-u}{\partial y} + \frac{\partial z}{\partial v}\cdot\frac{\partial v}{\partial y}</span></p>
+<p><span class="math display">
+z&#39;_x = z_u u_x + z_v u_x = \frac{\partial z}{\partial u}\cdot\frac{\partial
+u}{\partial x} + \frac{\partial z}{\partial v}\cdot\frac{\partial v}{\partial x}
+</span></p>
+<p><span class="math display">
+z&#39;_y = z_u u_y + z_u v_y = \frac{\partial z}{\partial u}\cdot\frac{\partial
+u}{\partial y} + \frac{\partial z}{\partial v}\cdot\frac{\partial v}{\partial y}
+</span></p>
 <h3 id="case-2">Case 2</h3>
 <p><span class="math display">z=z(x,y), \quad x=x(t), y=y(t)</span> <span class="math display">dz=z&#39;_x dx + z&#39;_y dy</span> <span class="math display">=z&#39;_xx&#39;_tdt+z&#39;_yy&#39;_tdt = (z_xx_t+z_yy_t)dt</span></p>
-<p><span class="math display">z&#39;_t=z&#39;_xx&#39;_t+z&#39;_yy&#39;_t</span> <span class="math display">\frac{\partial z}{\partial t} = \frac{\partial z}{\partial x}\cdot\frac{\partial
-x}{\partial t} + \frac{\partial z}{\partial y}\cdot\frac{\partial y}{\partial t}</span></p>
+<p><span class="math display">z&#39;_t=z&#39;_xx&#39;_t+z&#39;_yy&#39;_t</span></p>
+<p><span class="math display">
+\frac{\partial z}{\partial t} = \frac{\partial z}{\partial x}\cdot\frac{\partial
+x}{\partial t} + \frac{\partial z}{\partial y}\cdot\frac{\partial y}{\partial t}
+</span></p>
 <h3 id="case-3">Case 3</h3>
-<p><span class="math display">z=z(t), \quad t=t(x,y)</span> <span class="math display">z&#39;_xdx+z&#39;_ydy=dz=z&#39;_tdx</span> <span class="math display">=z&#39;_t(t&#39;_xdx+t&#39;_ydy)</span> <span class="math display">=z&#39;_tt&#39;_xdx+z&#39;_tt&#39;_ydy</span> <span class="math display">
+<p><span class="math display">z=z(t), \quad t=t(x,y)</span> <span class="math display">z&#39;_xdx+z&#39;_ydy=dz=z&#39;_tdx</span> <span class="math display">=z&#39;_t(t&#39;_xdx+t&#39;_ydy)</span> <span class="math display">=z&#39;_tt&#39;_xdx+z&#39;_tt&#39;_ydy</span></p>
+<p><span class="math display">
 \begin{gathered}
         z&#39;_x = z&#39;_tt&#39;_x \\
         z&#39;_y=z&#39;_tt&#39;_y \\
@@ -221,8 +230,11 @@ x}{\partial t} + \frac{\partial z}{\partial y}\cdot\frac{\partial y}{\partial t}
 <p><span class="math inline">||\vec v|| = \sqrt{\vec v^2}</span></p>
 <h2 id="angle-between-vectors">Angle between vectors</h2>
 <h3 id="cosine-rule">Cosine rule</h3>
-<p><span class="math display">b^2=a^2+c^2-2ac\cos \beta</span> <span class="math display">||\vec u - \vec v||^2 = ||\vec v||^2+||\vec u||^2 - 2 \cdot ||\vec v|| \cdot
-||\vec u|| \cdot \cos \beta</span></p>
+<p><span class="math display">b^2=a^2+c^2-2ac\cos \beta</span></p>
+<p><span class="math display">
+||\vec u - \vec v||^2 = ||\vec v||^2+||\vec u||^2 - 2 \cdot ||\vec v|| \cdot
+||\vec u|| \cdot \cos \beta
+</span></p>
 <p>Example:</p>
 <p><span class="math display">\vec v = \vec{(v_1,v_2,v_3)}\quad \vec u =\vec{(u_1,u_2,u_3)}</span> <span class="math display">||\vec u -\vec v||^2 = ||(u_1-v_1),(u_2-v_2),(u_3-v_3)||</span> <span class="math display">=u_1^2+v_1^2-2u_1v_1+u_2^2+v_2^2-2u_2v_2+u_3^2+v_3^2-2u_3v_3</span> <span class="math display">=||\vec u||^2+||\vec v||^2-2 \cdot \vec u \cdot \vec v</span> <span class="math display">\boxed{\cos \varphi = \frac{\vec u \cdot \vec v}{||\vec u|| \cdot ||\vec v||}}</span></p>
 <h3 id="alternative-definition-of-scalar-multiplication">Alternative definition of scalar multiplication</h3>

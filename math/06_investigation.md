@@ -20,11 +20,10 @@ For all points $a,b \in I$:
 
 $a>b \iff f(a) > f(b)$
 
-A *local minimum* of a function is where the derivative to left is positive,
+A _local minimum_ of a function is where the derivative to left is positive,
 the right is negative, and the point itself is zero.
 
-A *local maximum* of a function is where the derivative to left is negative,
+A _local maximum_ of a function is where the derivative to left is negative,
 the right is positive, and the point itself is zero.
 
 $$x \in (I \cap D)\backslash \{a\}$$
-

@@ -20,12 +20,14 @@ can be solved in a similar fashion.
 
 # Polar Coordinates
 
-$$\begin{gathered}
+$$
+\begin{gathered}
     x = r\cos\varphi \\
     y = r\sin\varphi \\
     dA = rdrd\varphi \\
     \varphi \in [0, 2\pi]
-\end{gathered}$$
+\end{gathered}
+$$
 
 This allows us to transform pretty ugly looking integrals such as:
 
@@ -35,7 +37,7 @@ Into much easer to solve integrals, such as:
 
 $$\int_{0}^{2\pi}\int_{0}^{2}r^2drd\varphi$$
 
-*Note:* This makes integrals around a circles (specifically when its center is
+_Note:_ This makes integrals around a circles (specifically when its center is
 on the origin) but slightly more difficult in other cases.
 
 In the case of finding the area of a triangle, the radius will be in the form
@@ -48,13 +50,16 @@ is offset vertically or horizontally, respectively.
 
 # Line Integrals
 
-A *line integral* is an integral where the function to be integrated is
+A _line integral_ is an integral where the function to be integrated is
 evaluated along a curve.
 
-$$c:\begin{cases}
+$$
+c:\begin{cases}
     x=x(t) \\
     y=y(t) \\
     a \leq t \leq b
-\end{cases}$$
+\end{cases}
+$$
+
 $$ds=\sqrt{x'^2(t)+y'^2(t)}dt$$
 $$\int_{c} f(x,y)ds = \int_{t=a}^{t=b}f(x(t),y(t))\sqrt{x'^2(t)+y'^2(t)}dt$$
