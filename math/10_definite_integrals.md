@@ -106,7 +106,7 @@ $$V= \pi \int_{a}^{b} (R^2-r^2)dx$$
 
 ### Definition
 
-$f(x)$ is continuous om the closed interval $[a,b]$ and differentiable on the
+$f(x)$ is continuous on the closed interval $[a,b]$ and differentiable on the
 open interval $(a,b)$, then the function $F(x)$ can be expressed as:
 
 $$F(x) = \int_{a}^{b} f(x)dx, \quad a \leq x, \leq b$$
