@@ -4,3 +4,6 @@
 !math/*.svg
 !web/*
 !docs/**/*
+!aleph/**/*.md
+!aleph/**/*.svg
+!aleph/**/*.png
