@@ -173,7 +173,7 @@ function with period of the least common multiple of $(T_1, T_2)$.
 # $\sin$ and $\arcsin$
 
 $$f (x)=\sin    x \quad f:\left[-\frac{\pi}{2},\frac{\pi}{2}\right] \to [-1,1]$$
-$$f'(x)=\arcsin x \quad f:[-1,1] \to \left[-\frac{\pi}{2},\frac{\pi}{2}\right]$$
+$$f^{-1}(x)=\arcsin x \quad f:[-1,1] \to \left[-\frac{\pi}{2},\frac{\pi}{2}\right]$$
 
 $$\sin(\arcsin x) = x \quad x \in [-1,1]$$
 $$\arcsin(\sin x) = x \quad x \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$$
@@ -181,7 +181,7 @@ $$\arcsin(\sin x) = x \quad x \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$$
 # $\cos$ and $\arccos$
 
 $$f (x)=\cos    x \quad f:[0,\pi] \to [-1,1]$$
-$$f'(x)=\arccos x \quad f:[-1,1] \to [0,\pi]$$
+$$f^{-1}(x)=\arccos x \quad f:[-1,1] \to [0,\pi]$$
 
 $$\cos(\arccos x) = x \quad x \in [-1,1]$$
 $$\arccos(\cos x) = x \quad x \in [0,\pi]$$
@@ -189,7 +189,7 @@ $$\arccos(\cos x) = x \quad x \in [0,\pi]$$
 # $\tan$ and $\arctan$
 
 $$f (x)=\tan    x \quad f:\left(-\frac{\pi}{2},\frac{\pi}{2}\right) \to \mathbb{R}$$
-$$f'(x)=\arctan x \quad f:\mathbb{R} \to \left(-\frac{\pi}{2},\frac{\pi}{2}\right)$$
+$$f^{-1}(x)=\arctan x \quad f:\mathbb{R} \to \left(-\frac{\pi}{2},\frac{\pi}{2}\right)$$
 
 $$
 \begin{alignedat}{2}
