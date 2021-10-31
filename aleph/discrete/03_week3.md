@@ -1,5 +1,5 @@
 ---
-title: Discrete Mathematics - Chapter 3
+title: Discrete Math - Chapter 3
 author: Moshe Krumbein
 date: Fall 2021
 header-includes: |

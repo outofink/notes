@@ -7,7 +7,11 @@
 My notes for university, written in Markdown + LaTeX math, rendered for the web.
 
 So far I have notes for:
-- [Calculus 1 & 2](https://outofink.github.io/notes/math)
+
+- [Calculus](https://outofink.github.io/notes/calulus)
+- [Mathematical Methods](https://outofink.github.io/notes/mathematical_methods)
+- [Linear Algebra](https://outofink.github.io/notes/linear_algebra)
+- [Discrete Mathematics](https://outofink.github.io/notes/discrete_mathematics)
 
 ---
 

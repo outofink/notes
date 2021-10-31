@@ -24,7 +24,8 @@ body {
   padding: 64px;
   /* background-color: #faf2ef; */
 }
-.markdown-body a {
+.return,
+.markdown-body p > a:not(.footnote-ref):not(.footnote-back) {
   color: #24292e;
   background-color: transparent;
   /* text-decoration: none; */
@@ -33,6 +34,15 @@ body {
   text-decoration: underline 2px;
   font-size: 1em;
   margin: 24px;
+}
+
+.markdown-body a {
+  color: #24292e;
+  background-color: transparent;
+  /* text-decoration: none; */
+  text-decoration: underline 2px;
+  font-size: 1em;
+  margin: 3px;
 }
 
 .markdown-body a:not([href]) {
@@ -100,7 +110,7 @@ body {
   border-bottom: 0;
 }
 
-.markdown-body p > a {
+.markdown-body p > a:not(.footnote-ref):not(.footnote-back) {
   font-size: 2em;
   line-height: 2;
   margin: 0;
@@ -108,9 +118,9 @@ body {
   font-style: italic;
 }
 
-.markdown-body p > a::before {
+.markdown-body p > a:not(.footnote-ref):not(.footnote-back)::before {
   content: "~ ";
 }
-.markdown-body p > a::after {
+.markdown-body p > a:not(.footnote-ref):not(.footnote-back)::after {
   content: " ~";
 }

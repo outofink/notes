@@ -1,5 +1,5 @@
 ---
-title:  Linear Algebra - Chapter 1
+title: Linear Algebra - Chapter 1
 author: Moshe Krumbein
 date: Fall 2021
 ---
@@ -19,7 +19,7 @@ temperature, weight, volume
 
 force, velocity
 
-$$\mathbb{R}^n\left\{\begin{bmatrix}
+$$\mathbb{R}^n = \left\{\begin{bmatrix}
     x_1\\x_2\\ \vdots \\ x_n
 \end{bmatrix} \Huge \mid x_1, x_2, \mathellipsis x_n \in \mathbb{R}\right\}$$
 

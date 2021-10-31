@@ -1,5 +1,5 @@
 ---
-title:  Linear Algebra - Chapter 2
+title: Linear Algebra - Chapter 2
 author: Moshe Krumbein
 date: Fall 2021
 ---

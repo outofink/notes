@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.5, user-scalable=yes" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gelasio&display=swap" rel="stylesheet">
+  <meta name="author" content="Moshe Krumbein" />
+  <title>Discrete Math - Chapter 1</title>
+
+<link rel="icon" type="image/png" href="../favicon.png"/>
+<link rel="stylesheet" href="../style.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  
+</head>
+<body>
+<article class="markdown-body">
+<h1 class="title">Discrete Math - Chapter 1</h1>
+
+<img src="../divider.svg" class="break"/>
+
+<a class="return" href="./">Return to Discrete Mathematics</a>
+
+<!--  -->
+<h1 id="course-details">Course details</h1>
+<p>The course is split up into three parts</p>
+<ol type="1">
+<li><a href="https://en.wikipedia.org/wiki/Set_theory">Set Theory</a> and <a href="https://en.wikipedia.org/wiki/Mathematical_logic">Logic</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Combinatorics">Combinatorics</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Graph_theory">Graph Theory</a></li>
+</ol>
+<h2 id="what-is-a-discrete-set">What is a “discrete set”?</h2>
+<p>A <em>discrete set</em> is one that has a specific individualized parts.</p>
+<p>Discrete sets may be finite or infinite (countable).</p>
+<h2 id="types-of-questions">Types of questions:</h2>
+<p><a href="https://en.wikipedia.org/wiki/Birthday_problem">Birthday Problem</a></p>
+<p>A bunch of other examples…</p>
+<h2 id="what-is-a-set">What is a <em>set</em>?</h2>
+<p>A <em>set</em> is a collection of objects.</p>
+<p>A set of objects of does not have to contain objects of only one type.</p>
+<p>A property of sets is that a set <span class="math inline">A</span> has a <em>binary relation</em> between between itself and an object <span class="math inline">o</span>. Either <span class="math inline">A</span> <em>contains</em> or <em>does not contain</em> <span class="math inline">o</span>.</p>
+<h3 id="example">Example:</h3>
+<p><span class="math display">
+\begin{gathered}
+    A=\{1,4,7,8\} \\
+    B=\{a,b,c,d\} \\
+    C=\{x,y,z\} \\
+    \\
+    1 \in A \\
+    2 \notin A
+\end{gathered}
+</span></p>
+<p>Additionally, a set that has multiple members of the same element is equivalent to a set that has one one of the element, due to the property of <em>binary relation</em>.</p>
+<p><span class="math display">A = \{1,4,7,8\} = \{1,1,4,4,4,7,8\}</span></p>
+<p><em>Size of a set</em>: number of (by definition, distinct) elements in a set.</p>
+<p><span class="math display">|A| = 4</span></p>
+<p><span class="math display">
+\begin{gathered}
+    B = \{\{1,2,3\},4\} \\
+    4 \in B \quad 1 \notin B
+\end{gathered}
+</span></p>
+<h2 id="a-conditional-set-such-that">A conditional set: (such that)</h2>
+<p><span class="math display">\{ x \;|\; \text{such that } x \}</span></p>
+<p><span class="math display">B = \{a \in A \;|\; a &lt; 5 \}</span></p>
+<h3 id="example-1">Example:</h3>
+<p>All of the whole numbers from 1 to 1000.</p>
+<p><span class="math display">\{x \;|\; 1&lt;x&lt;1000, \text{ such that $x$ is whole }\}</span></p>
+<p>Although the following set is small in size, it is easier to express it in the following fashion instead of explicitly:</p>
+<p><span class="math display">\{x \;|\; x^5-4x^3+7x^2-11x+\sqrt 2=0\}</span></p>
+<h3 id="dictionary-quantifiers">Dictionary (quantifiers):</h3>
+<p><span class="math display">
+\begin{gathered}
+    \forall = \text{for all} \\
+    \exists = \text{exists}
+\end{gathered}
+</span></p>
+<h2 id="containment-subset">Containment (Subset)</h2>
+<p><strong>Definition:</strong> <span class="math inline">B</span> <em>contains</em> <span class="math inline">A</span> when all elements in <span class="math inline">B</span> are also in <span class="math inline">A</span>.</p>
+<p><span class="math display">B \subseteq A</span></p>
+<p>Specifically if <span class="math inline">A</span> and <span class="math inline">B</span> are distinct:</p>
+<p><span class="math display">B \subsetneq A</span></p>
+<p>If two sets are <em>equivalent</em>: (<span class="math inline">A \subseteq B, B \subseteq A</span>)</p>
+<p><span class="math display">A=B</span></p>
+<h3 id="example-2">Example:</h3>
+<p><span class="math display">
+\begin{gathered}
+    A = \{1,3,4, \{1\}, \{1,2\}\} \\
+    |A| = 5 \\
+    1 \in A \\
+    \{1\} \in A \\
+    \{1\} \subseteq A \\
+    \text{ (because of the first element)} \\
+    \{\{1\}\} \subseteq A \\
+    \text{(because of the forth element)} \\
+    \{1,2\} \in A \\
+    \{1,2\} \nsubseteq A \\
+    \{1\} \subseteq A \\
+    \{1\} \subsetneq A \\
+\end{gathered}
+</span></p>
+<h3 id="note"><em>Note:</em></h3>
+<p><span class="math inline">A \in B</span>: the <em>element</em> <span class="math inline">A</span> is in <em>set</em> <span class="math inline">B</span>.</p>
+<p><span class="math inline">A \subseteq B</span>: the contents of <em>set</em> <span class="math inline">A</span> are all in <em>set</em> <span class="math inline">B</span>.</p>
+<h2 id="special-sets">Special sets</h2>
+<p><span class="math display">
+\begin{alignedat}{3}
+    \emptyset  =&amp; \{\}
+        &amp;- &amp;\;\text{empty set} \\
+    \mathbb{N} =&amp; \{1,2,3,\mathellipsis\}
+        &amp;- &amp;\;\text{natural numbers} \\
+    \mathbb{Z} =&amp; \{\mathellipsis,-2,-1,0,1,2,3,\mathellipsis\}
+        &amp;- &amp;\;\text{whole numbers} \\
+    \mathbb{Q} =&amp; \left\{ \frac{m}{n} \;|\; m,n \in \mathbb{Z}, n \neq 0 \right\}
+        &amp;- &amp;\;\text{rational numbers} \\
+    \mathbb{R} \quad&amp; &amp;- &amp;\;\text{real numbers} \\
+\end{alignedat}
+</span> <span class="math display">
+    \emptyset \subsetneq
+    \mathbb{N} \subsetneq
+    \mathbb{Z} \subsetneq
+    \mathbb{Q} \subsetneq
+    \mathbb{R}
+</span></p>
+<h2 id="binary-operations-on-sets">Binary operations on sets</h2>
+<h3 id="union">Union</h3>
+<p><span class="math display">A \cup B = \{a \;|\; a \in B \text{ or } a \in A \}</span></p>
+<h3 id="intersection">Intersection</h3>
+<p><span class="math display">A \cap B = \{a \;|\; a \in B \text{ and } a \in A \}</span></p>
+<h3 id="difference">Difference</h3>
+<p><span class="math display">A \setminus B = \{a \;|\; a \notin B \text{ and } a \in A \}</span></p>
+<h3 id="symmetrical-difference">Symmetrical difference</h3>
+<p><span class="math display">A \triangle B = (A \cup B) \setminus (A \cap B)</span></p>
+<h2 id="size-of-union-of-sets">Size of union of sets</h2>
+<p><span class="math display">|A \cup B| \overset{?}{=} |A| + |B|</span></p>
+<h4 id="disjoint-set">Disjoint set:</h4>
+<p><span class="math inline">A</span> and <span class="math inline">B</span> are <em>disjoint sets</em> if <span class="math inline">A \cap B = \emptyset</span>.</p>
+<p>If <span class="math inline">A</span> and <span class="math inline">B</span> are disjoint sets, then:</p>
+<p><span class="math display">|A \cup B| = |A| + |B|</span></p>
+<p>In general:</p>
+<p><span class="math display">|A \cup B| = |A| + |B|- |A \cap B|</span></p>
+<h3 id="magnitude-of-union-between-three-sets">Magnitude of union between three sets</h3>
+<p><span class="math display">|A \cup B \cup C| = |A| + |B| + |C|</span></p>
+<p>When <span class="math inline">A, B, C</span> are <em>pairwise disjointed</em>.</p>
+<h3 id="algebraic-properties">Algebraic properties</h3>
+<p><span class="math display">
+\begin{gathered}
+    \text{Commutative property:} \\
+    A \cup B = B \cup A \\
+    A \cap B = B \cap B \\
+    \text{Associative property:} \\
+    (A \cup B) \cup C = A \cup (B \cup C) \\
+    (A \cap B) \cap C = A \cap (B \cap C) \\
+    \text{Distributive property:} \\
+    A \cup (B \cap C) = (A \cup B) \cap (A \cup C) \\
+    A \cap (B \cup C) = (A \cap B) \cup (A \cap C) \\
+\end{gathered}
+</span></p>
+<p>Given the sets <span class="math inline">A_1, A_2. \mathellipsis, A_n</span>: <span class="math display">[n] = \{1,2,3, \mathellipsis, n\}, n \in \mathbb{N},\quad |[n]|=n</span> <span class="math display">\bigcup_{i=1}^{n}A_i=A_1\cup A_2 \cup \mathellipsis \cup A_n = \{ x \;|\; \exists \; i \in [n] : x \in A_i \} </span> <span class="math display">\bigcap_{i=1}^{n}A_i=A_1\cap A_2 \cap \mathellipsis \cap A_n = \{ x \;|\; \forall \; i \in [n] : x \in A_i \} </span></p>
+<h3 id="complement">Complement</h3>
+<p>For set <span class="math inline">U</span> where <span class="math inline">A \subseteq U</span>: <span class="math display">A^c = U \setminus A</span></p>
+<h3 id="de-morgans-laws">De Morgan’s laws:</h3>
+<p>Given sets <span class="math inline">A,B</span>: <span class="math display">(A \cup B)^c=A^c \cap B^c</span> <span class="math display">(A \cap B)^c=A^c \cup B^c</span></p>
+<h1 id="logic">Logic</h1>
+<h4 id="statement">Statement:</h4>
+<p>Every claim is either <em>true</em> and <em>false</em>: <span class="math inline">\{T,F\}</span></p>
+<p><span class="math display">
+\begin{gathered}
+    1+1=2 \to T \\
+    1+1=0 \to F
+\end{gathered}
+</span></p>
+<h2 id="logical-relations">Logical relations</h2>
+<h3 id="unary-operations">Unary Operations</h3>
+<h4 id="negation">Negation:</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">P</span></th>
+<th style="text-align: center;"><span class="math inline">\neg P</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+</tr>
+</tbody>
+</table>
+<h3 id="binary-operations">Binary Operations</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">P</span></th>
+<th style="text-align: center;"><span class="math inline">Q</span></th>
+<th style="text-align: center;"><span class="math inline">P \lor Q</span></th>
+<th style="text-align: center;"><span class="math inline">P \land Q</span></th>
+<th style="text-align: center;"><span class="math inline">P \to Q</span></th>
+<th style="text-align: center;"><span class="math inline">P\leftrightarrow Q</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+</tr>
+</tbody>
+</table>
+<h3 id="complex-statements">Complex statements</h3>
+<p>Combination of logical relations in one statement.</p>
+<h4 id="example-3">Example:</h4>
+<p><span class="math display">\neg p \to Q</span></p>
+<h3 id="relation-between-cup-cap-and-lor-land">Relation between <span class="math inline">\cup, \cap</span> and <span class="math inline">\lor \land</span></h3>
+<p><span class="math display">P : x \in A \quad Q: x \in B</span> <span class="math display">
+\begin{gathered}
+    P \lor Q : x \in A \cup B \\
+    P \land Q: x \in A \cap B
+\end{gathered}
+</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">P</span></th>
+<th style="text-align: center;"><span class="math inline">Q</span></th>
+<th style="text-align: center;"><span class="math inline">\neg P</span></th>
+<th style="text-align: center;"><span class="math inline">\neg P \to Q</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+</tr>
+</tbody>
+</table>
+<p>If two complex statements are made up of the same statements, then they are <em>logically equivalent</em>. (<span class="math inline">\iff</span>)</p>
+<h4 id="example-4">Example:</h4>
+<p><span class="math display">\neg (P \lor Q) \iff (\neg P) \land (\neg Q)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">P</span></th>
+<th style="text-align: center;"><span class="math inline">Q</span></th>
+<th style="text-align: center;"><span class="math inline">P \lor Q</span></th>
+<th style="text-align: center;"><span class="math inline">\neg(P \lor Q)</span></th>
+<th style="text-align: center;"><span class="math inline">\neg P</span></th>
+<th style="text-align: center;"><span class="math inline">\neg Q</span></th>
+<th style="text-align: center;"><span class="math inline">(\neg P) \land (\neg Q)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">P \to Q \iff \neg P \lor Q</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">P</span></th>
+<th style="text-align: center;"><span class="math inline">Q</span></th>
+<th style="text-align: center;"><span class="math inline">P \to Q</span></th>
+<th style="text-align: center;"><span class="math inline">\neg P</span></th>
+<th style="text-align: center;"><span class="math inline">\neg P \lor Q</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">P \to Q \iff \neg Q \to \neg P</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">P</span></th>
+<th style="text-align: center;"><span class="math inline">Q</span></th>
+<th style="text-align: center;"><span class="math inline">P \to Q</span></th>
+<th style="text-align: center;"><span class="math inline">\neg P</span></th>
+<th style="text-align: center;"><span class="math inline">\neg Q</span></th>
+<th style="text-align: center;"><span class="math inline">\neg Q \to \neg P</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">F</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+<td style="text-align: center;">T</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">
+\begin{gathered}
+    x \in \emptyset \to x \in A \\
+    \iff \\
+    \neg (x \in A) \to \neg (x \in \emptyset) \\
+    x \notin A \to x \notin \emptyset
+\end{gathered}
+</span></p>
+<p><span class="math display">
+\begin{gathered}
+    1&lt;2 \quad x&lt;2 \\
+    \text{We&#39;ll symbolize the statement $P$ with the variable $x$ for $P(x)$} \\
+    \text{Example: }P: (\forall \; x \in \mathbb{N} \quad x&lt;2)
+\end{gathered}
+</span></p>
+<p><span class="math display">\forall \; x \in A \quad P(x)</span></p>
+<p>Is true if every <span class="math inline">P(x)</span> is true, and will be false if even one <span class="math inline">P(x)</span> is false.</p>
+<p><span class="math display">\exists \; x \in A \quad P(x)</span></p>
+<p>Will be true if even one <span class="math inline">P(x)</span> is true, and will be false if all <span class="math inline">P(x)</span> is false.</p>
+<p>Given <span class="math inline">P(x), Q(x)</span>:</p>
+<p>The following logical statements can be constructed: <span class="math display">
+\begin{gathered}
+    \forall \; x \in A \quad \forall \; y \in B \quad P(x) \land Q(y) \\
+    \exists \; x \in A \quad \exists \; y \in B \quad P(x) \land Q(y) \\
+    \exists \; x \in A \quad \forall \; y \in B \quad P(x) \land Q(y) \\
+    \forall \; x \in A \quad \exists \; y \in B \quad P(x) \land Q(y) \\
+\end{gathered}
+</span></p>
+<h2 id="series">Series</h2>
+<h3 id="cartesian-multiplication">Cartesian multiplication:</h3>
+<h4 id="definition">Definition:</h4>
+<p>Given two sets <span class="math inline">A,B</span>:</p>
+<p><span class="math display">A \times B = \{(a,b) \mid a \in A, b \in B\}</span></p>
+<p><em>Note:</em> The order of <span class="math inline">A, B</span> <em>does</em> matter.</p>
+<p>If <span class="math inline">A, B</span> are <em>finite</em>:</p>
+<p><span class="math display">|A \times B| = |A| \cdot |B|</span></p>
+<h4 id="the-plane">The plane:</h4>
+<p><span class="math display">\mathbb{R} \times \mathbb{R} = \mathbb{R}^2 = \{(x,y) \mid x, y \in \mathbb{R}\}</span></p>
+<p>If <span class="math inline">A_1, \mathellipsis, A_n</span> are sets:</p>
+<p><span class="math display">X_{i=1}^{n} = A_1 \times \mathellipsis \times A_n = \{(a_1, \mathellipsis,
+a_n) \mid \forall \; i \in [n], a_i \in A_i\}</span></p>
+<p>If <span class="math inline">A_1, \ldots A_n</span> are finite:</p>
+<p><span class="math display">|X_{i=1}^n A_i| = \prod_{i=1}^n |A_i|</span></p>
+<h4 id="notes">Notes:</h4>
+<p><span class="math display">
+\begin{gathered}
+    A \times \emptyset = \emptyset \\
+    A \times A = A^2 \\
+    \underbrace{A_1 \times \ldots \times A_n}_{n\text{ times}} = A^n
+\end{gathered}
+</span></p>
+<h3 id="functions">Functions:</h3>
+<p>Given two sets <span class="math inline">A, B</span>, function <span class="math inline">f: A \mapsto B</span>, there <span class="math inline">\forall \; a in A</span> that maps to <span class="math inline">b \in B</span>.</p>
+<p><span class="math inline">A</span> is called the <em>domain</em> and <span class="math inline">B</span> is called the <em>range</em>.</p>
+<p><span class="math display">f(a)=b</span></p>
+<p><span class="math inline">a</span> is <em>a source</em> of <span class="math inline">b</span>, and <span class="math inline">b</span> is <em>the image</em> of <span class="math inline">a</span>.</p>
+<p>For <span class="math inline">c \subset a</span>, the image of <span class="math inline">c</span> is:</p>
+<p><span class="math display">f(C) = \left\{b \in B \mid a \in C : f(a) = b \right\} \subseteq B</span> <span class="math display">=\{f(a) \mid a \in C\}</span></p>
+<h4 id="example-5">Example:</h4>
+<p>Given <span class="math inline">f: A \mapsto B</span>:</p>
+<p><span class="math display">\text{Im}f = f(A) \subseteq B</span></p>
+<p>Given <span class="math inline">D \subseteq B</span>, the source of <span class="math inline">D</span>:</p>
+<p><span class="math display"> f^{-1}(D) = \{a \in A \mid f(a) \in D\}</span></p>
+<ol type="1">
+<li><span class="math display">A \subseteq U</span> <span class="math display">\mathbb{1}: U \mapsto \{0,1\} (\chi)</span></li>
+</ol>
+<p><span class="math display">\forall \; a \in U, \mathbb{1}_A(a) = \begin{cases}
+    1 \quad a \in A \\
+    0 \quad a \notin A
+\end{cases}</span></p>
+<ol start="2" type="1">
+<li><p><span class="math display">
+\begin{gathered}
+  A = \mathbb{Z}^k \quad B = \mathbb{Z} \\
+  f((a_1, \ldots, a_n)) = a_3
+\end{gathered}
+</span></p></li>
+<li><p><span class="math display">
+\begin{gathered}
+ \text{Given: }\{(a_1, \ldots, a_n)\} \subseteq \mathbb{Z}^k \\
+ f: \underbrace{[n]}_{\{1,2,\ldots,n\}} \mapsto \mathbb{Z} \\
+ \forall \; i \in [n] : f(i)= a_i
+\end{gathered}
+</span></p></li>
+</ol>
+<h3 id="claim">Claim:</h3>
+<p>Given: <span class="math inline">f: A \mapsto B</span>, <span class="math inline">D_1, D_2 \subseteq B</span>:</p>
+<p><span class="math display">f^{-1}(D_1 \cap D_2) = f^{-1}(D_1) \cap f^{-1}(D_2)</span> <span class="math display">a \in f^{-1}(D_1 \cap D_2) \iff f(a) \in D_1 \cap D_2</span></p>
+<p>Given: <span class="math inline">C_1, C_2 \subseteq A</span>:</p>
+<p><span class="math display">f(C_1 \cap C_2) \neq f(C_1) \cap f(C_2)</span></p>
+<h3 id="characteristics-of-functions"><a href="https://en.wikipedia.org/wiki/Bijection,_injection_and_surjection">Characteristics of functions</a></h3>
+<p>Given <span class="math inline">f: A \mapsto B</span>:</p>
+<p><span class="math inline">f</span> is <em>injective</em> (one-to-one) if:</p>
+<p><span class="math display">\forall \; a_1,a_2 \in A : a_1 \neq a_2 \; \exists \; f(a_1) \neq f(a_2)</span> <span class="math display">\forall \; a_1,a_2 \in A \quad f(a_1) = f(a_2) \implies a_1 = a_2</span></p>
+<p><span class="math inline">f</span> is <em>surjective</em> (onto) if:</p>
+<p><span class="math display">\text{Im}f = B</span></p>
+<p>If <em>f</em> is injective: <span class="math inline">|A| \leq |B|</span>.</p>
+<p>If <em>f</em> is surjective: <span class="math inline">|A| \geq |B|</span>.</p>
+<p>If <em>f</em> is both injective and surjective, it is <em>bijective</em> (invertible) and: <span class="math inline">|A| = |B|</span>.</p>
+<!-- <a class="return" href="index.html">Return to Table of Contents</a>
+ -->
+
+<a class="return" href="./">Return to Discrete Mathematics</a>
+
+<img src="../divider.svg" class="break"/>
+
+</article>
+</body>
+</html>

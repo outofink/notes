@@ -84,9 +84,9 @@ $endif$
 
 $if(custom-toc)$
 $elseif(category)$
-<a href="./">Return to $category$</a>
+<a class="return" href="./">Return to $category$</a>
 $else$
-<a href="../">Return to Table of Contents</a>
+<a class="return" href="../">Return to Table of Contents</a>
 $endif$
 
 $--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< END IF: title
@@ -108,14 +108,14 @@ $endfor$
 $-------------------------------------------------------------------------------
 <!-- $if(custom-toc)$
 $else$
-<a href="index.html">Return to Table of Contents</a>
+<a class="return" href="index.html">Return to Table of Contents</a>
 $endif$ -->
 
 $if(custom-toc)$
 $elseif(category)$
-<a href="./">Return to $category$</a>
+<a class="return" href="./">Return to $category$</a>
 $else$
-<a href="../">Return to Table of Contents</a>
+<a class="return" href="../">Return to Table of Contents</a>
 $endif$
 
 $if(custom-toc)$

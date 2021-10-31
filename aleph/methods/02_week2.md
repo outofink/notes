@@ -317,7 +317,8 @@ $$
 \end{gathered}
 $$
 
-![](fig2.png)
+![Graphs](fig2.png){ width=50% }
+
 $$
 \begin{gathered}
     \text{Red: } z^2-y^2-x^2=4 \\

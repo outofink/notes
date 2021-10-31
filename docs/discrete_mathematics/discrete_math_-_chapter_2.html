@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.5, user-scalable=yes" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gelasio&display=swap" rel="stylesheet">
+  <meta name="author" content="Moshe Krumbein" />
+  <title>Discrete Math - Chapter 2</title>
+
+<link rel="icon" type="image/png" href="../favicon.png"/>
+<link rel="stylesheet" href="../style.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  
+</head>
+<body>
+<article class="markdown-body">
+<h1 class="title">Discrete Math - Chapter 2</h1>
+
+<img src="../divider.svg" class="break"/>
+
+<a class="return" href="./">Return to Discrete Mathematics</a>
+
+<!--  -->
+<p>If we have two finite groups <span class="math inline">A, B</span>, function <span class="math inline">f: A \mapsto B</span>, and <span class="math inline">C \subseteq A, D \subseteq B</span>:</p>
+<ol type="1">
+<li><span class="math inline">|f(c)| \leq |C|</span></li>
+<li><span class="math inline">f</span> is injective:
+<ol type="a">
+<li><span class="math inline">|f(C)|= |C|</span></li>
+<li><span class="math inline">|f^{-1}(D)| = |D|</span></li>
+</ol></li>
+<li><span class="math inline">f</span> is surjective:
+<ol type="a">
+<li><span class="math inline">|f^{-1}(D)| \geq |D|</span></li>
+</ol></li>
+<li>If <span class="math inline">f</span> is injective and <span class="math inline">|A|=|B|</span>, then it is also surjective</li>
+<li>If <span class="math inline">f</span> is surjective and <span class="math inline">|A|=|B|</span>, then we’ve learned nothing new</li>
+</ol>
+<h2 id="composing-functions">Composing Functions</h2>
+<p>Given groups <span class="math inline">A, B, C</span>:</p>
+<p><span class="math display">f: A \mapsto B, \quad g: B \mapsto C</span> <span class="math display">g \circ f: A \mapsto C: \forall \; a \in A:</span> <span class="math display">(g \circ f)(a) = g(f(a))</span></p>
+<h2 id="identity-function">Identity function</h2>
+<p><span class="math display">\mathrm{Id}_A: A \mapsto A</span> <span class="math display">f \circ \mathrm{Id}_A: A \mapsto B</span> <span class="math display">f \circ \mathrm{Id}_A: f</span> <span class="math display">\mathrm{Id}_B \circ f: A \mapsto B</span> <span class="math display">\mathrm{Id}_B \circ f: f</span></p>
+<h2 id="inverse-function">Inverse function</h2>
+<p>Given <span class="math inline">f: A \mapsto B, g: B \mapsto C</span>:</p>
+<p><span class="math inline">g</span> is the inverse of <span class="math inline">f</span> if:</p>
+<p><span class="math display">g \circ f = \mathrm{Id}_A</span> <span class="math display">f \circ g = \mathrm{Id}_B</span></p>
+<p>If the previous is true, then <span class="math inline">g = f^{-1}</span></p>
+<p><span class="math inline">n \in \mathbb{N}, [n] = \{1,2,\ldots, n\}</span></p>
+<h1 id="permutations">Permutations</h1>
+<p>A <em>permutation</em> is a (possible) rearrangement of objects. For example, there are 6 permutations of the letters <span class="math inline">a, b, c</span>:</p>
+<p><span class="math display">abc, acb, bac, bca, cab, cba</span></p>
+<p>Permutation on <span class="math inline">[n]</span> is <span class="math inline">f: [n] \mapsto [n]</span>, for example <span class="math inline">\mathrm{Id}_{[n]}</span></p>
+<p><span class="math inline">f: A \mapsto A</span> <span class="math display">f^2 = f \circ f: A \mapsto A</span> <span class="math display">f^m = \underbrace{f \circ f \circ f \ldots}_{m \text{ times}}</span></p>
+<p>If <span class="math inline">f \circ g</span> is bijective, it is a permutation.</p>
+<p><span class="math display">\sigma^6 = \mathrm{Id}_{\sigma}</span> <span class="math display">\sigma^{100} = \mathrm{Id}_{\sigma}</span></p>
+<h1 id="exercise">Exercise</h1>
+<h2 id="question-1">Question 1</h2>
+<p>Given <span class="math inline">f:A \mapsto B</span>, <span class="math inline">C_1, C_2 \subseteq A</span></p>
+<ol type="1">
+<li>If <span class="math inline">C_1 \subseteq C_2</span>, then <span class="math inline">f(C_1) \subseteq f(C_2)</span>.</li>
+</ol>
+<p>Yes.</p>
+<p>Suppose <span class="math inline">a \in f(C_1) \implies b \in C_1</span> such that <span class="math inline">f(b)=a</span>. Since we also know <span class="math inline">b \in C_2</span>, therefore <span class="math inline">f(b) \subseteq f(C_2) \implies f(C_1) \subseteq f(C_2)</span>.</p>
+<ol start="2" type="1">
+<li>If <span class="math inline">f(C_1) \subseteq f(C_2)</span>, then <span class="math inline">f(C_1) \subseteq f(C_2)</span>.</li>
+</ol>
+<p>No.</p>
+<p>We define <span class="math inline">A=\{1,2\}, B=\{u\}</span>, <span class="math inline">f(1)=f(2)=a</span>.</p>
+<ol start="3" type="1">
+<li>If <span class="math inline">f</span> is injective, and <span class="math inline">f(C_1) \subseteq f(C_2)</span> ,then <span class="math inline">C_1 \subseteq C_2</span>.</li>
+</ol>
+<p>Suppose <span class="math inline">c \in C_1, c \notin C_2</span>.</p>
+<p><span class="math inline">f(c) \notin f(C_2)</span></p>
+<h2 id="question-2">Question 2</h2>
+<p>Let <span class="math inline">f: A \mapsto B, g: B \mapsto C</span>. Prove that if <span class="math inline">g \circ f</span> is injective then <span class="math inline">f</span> is also injective.</p>
+<p>Suppose <span class="math inline">a_1, a_2 \in A, a_1 \neq a_2</span>.</p>
+<p><span class="math display">g \circ f(a_1) \neq g \circ f(a_2)</span> <span class="math display">f(a_1) \neq f(a_2)</span></p>
+<h2 id="question-3">Question 3</h2>
+<p>Let <span class="math inline">f: A \mapsto B, g: B \mapsto A, h: B \mapsto A</span></p>
+<ol type="1">
+<li><span class="math inline">g \circ f = \mathrm{Id}_A</span> and <span class="math inline">h \circ f = \mathrm{Id}_A</span>, then <span class="math inline">g=h</span>.</li>
+</ol>
+<p>False</p>
+<ol start="2" type="1">
+<li><span class="math inline">f \circ g = \mathrm{Id}_B</span> and <span class="math inline">h \circ f = \mathrm{Id}_A</span>, then <span class="math inline">g=h</span>.</li>
+</ol>
+<p>True</p>
+<!-- <a class="return" href="index.html">Return to Table of Contents</a>
+ -->
+
+<a class="return" href="./">Return to Discrete Mathematics</a>
+
+<img src="../divider.svg" class="break"/>
+
+</article>
+</body>
+</html>

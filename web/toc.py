@@ -1,48 +1,56 @@
 from os import walk, system, makedirs
 import shutil
 
-def genSubjectHtml(folder, outputDir):
+def genSubjectHtml(folder, title, outputDir):
+    title_safe = title.lower().replace(" ", "_").replace("'", "")
 
-    makedirs(f"../{outputDir}/{folder}", exist_ok=True)
+    makedirs(f"../{outputDir}/{title_safe}", exist_ok=True)
 
     _, _, filenames = next(walk(f'../{folder}'))
 
     filenames_md  = [filename for filename in filenames if filename.endswith(".md")]
-    filenames_svg = [filename for filename in filenames if filename.endswith(".svg")]
+    filenames_svg = [filename for filename in filenames if filename.endswith(".svg") or filename.endswith(".png")]
     filenames_md.sort()
 
-    output = f"---\ntitle: {folder.title()}\n---\n\n"
+    output = f"---\ntitle: {title}\n---\n\n"
 
     for filename in filenames_md:
         with open(f"../{folder}/{filename}", "r") as f:
             if "toc" in filename:
                 continue
-            title = f.readlines()[1].strip().split(": ")[1]
-            title_safe = title.lower().replace(" ", "_").replace("'", "")
-            output += f"[{title}]({title_safe}.html)\n"
-            system(f"pandoc ../{folder}/{filename} -M category={folder.title()} --template=template.template -s --katex -o ../{outputDir}/{folder}/{title_safe}.html")
+            file_title = f.readlines()[1].strip().split(": ")[1]
+            file_title_safe = file_title.lower().replace(" ", "_").replace("'", "")
+            output += f"[{file_title}]({file_title_safe}.html)\n"
+            system(f"pandoc ../{folder}/{filename} -M category='{title}' --template=template.template -s --katex -o ../{outputDir}/{title_safe}/{file_title_safe}.html")
 
-    system(f"pandoc --template=template.template -s -o ../{outputDir}/{folder}/index.html <<< \"{output}\"")
+    system(f"pandoc --template=template.template -s -o ../{outputDir}/{title_safe}/index.html <<< \"{output}\"")
 
     for filename in filenames_svg:
         shutil.copyfile(f"../{folder}/{filename}",
-                        f"../{outputDir}/{folder}/{filename}")
+                        f"../{outputDir}/{title_safe}/{filename}")
 
 def genMainTOC(subjects, outputDir):
     output = f"---\ntitle: Table of Contents\n---\n\n"
-    for subject in subjects:
-        output += f"[{subject.title()}]({subject})\n"
+    for subject, title in subjects.items():
+        title_safe = title.lower().replace(" ", "_").replace("'", "")
+        output += f"[{title}]({title_safe})\n"
 
     system(f"pandoc --template=template.template -M custom-toc=yes -s -o ../{outputDir}/index.html <<< \"{output}\"")
 
 def main():
-    folders = ['math']
+    folders = {
+        'math': 'Calculus',
+        'aleph/linear': 'Linear Algebra',
+        'aleph/discrete': 'Discrete Mathematics',
+        'aleph/methods': 'Mathematical Methods'
+    }
+
     outputDir = 'docs'
 
     system(f"rm -rf ../{outputDir}/*")
 
-    for folder in folders:
-        genSubjectHtml(folder, outputDir)
+    for folder, title in folders.items():
+        genSubjectHtml(folder, title, outputDir)
 
     genMainTOC(folders, outputDir)
 

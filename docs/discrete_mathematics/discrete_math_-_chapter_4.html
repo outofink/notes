@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.5, user-scalable=yes" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gelasio&display=swap" rel="stylesheet">
+  <meta name="author" content="Moshe Krumbein" />
+  <title>Discrete Math - Chapter 4</title>
+
+<link rel="icon" type="image/png" href="../favicon.png"/>
+<link rel="stylesheet" href="../style.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+   var mathElements = document.getElementsByClassName("math");
+   var macros = [];
+   for (var i = 0; i < mathElements.length; i++) {
+    var texText = mathElements[i].firstChild;
+    if (mathElements[i].tagName == "SPAN") {
+     katex.render(texText.data, mathElements[i], {
+      displayMode: mathElements[i].classList.contains('display'),
+      throwOnError: false,
+      macros: macros,
+      fleqn: false
+     });
+  }}});
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  
+</head>
+<body>
+<article class="markdown-body">
+<h1 class="title">Discrete Math - Chapter 4</h1>
+
+<img src="../divider.svg" class="break"/>
+
+<a class="return" href="./">Return to Discrete Mathematics</a>
+
+<!--  -->
+<h1 id="binary-relations">Binary Relations</h1>
+<p><em>Definition:</em> <span class="math inline">R \subseteq A \times A</span></p>
+<p><em>Relations</em> are made up of pair from set <span class="math inline">A</span> that fulfill certain parameters.</p>
+<p><em>Equivalence Relation</em>: A binary relation that is <em>reflexive</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, <em>symmetric</em><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, and <em>transitive</em><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<h4 id="example">Example:</h4>
+<p><span class="math display">A = \mathbb{Z} \times \mathbb{Z} \backslash \{0\}</span> <span class="math display">R=\{(m_1,n_1),(m_2,n_2) \mid m_1n_2=m_2n_1\}</span></p>
+<p>To prove that this relation is an equivalence relation, we have to prove that it is reflexive, symmetric and transitive.</p>
+<h1 id="partial-ordered-relations"><a href="https://en.wikipedia.org/wiki/Partially_ordered_set#Partial_order_relation">Partial Ordered Relations</a></h1>
+<p>Given relation <span class="math inline">R</span> on a set, then we say the <span class="math inline">R</span> is a partial ordered relation is <span class="math inline">R</span> is <em>reflexive</em>, <em>antisymmetric</em><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, and <em>transitive</em>. In this case we say that <span class="math inline">A</span> is a <em>partial ordered set</em>.</p>
+<h4 id="definition">Definition:</h4>
+<p>Partial Ordered relation exists for all <span class="math inline">\forall \: x,y \in R \;\exists\; (x,y) \in R</span> or <span class="math inline">(y,x) \in R</span> is called a <em>linear order</em>.</p>
+<p>Suppose that <span class="math inline">R</span> is a partial ordered relation on <span class="math inline">A</span>:</p>
+<p><span class="math display">(a,b) \in R \quad a \leq_R b</span></p>
+<p><span class="math inline">x \in A</span> is called the <em>maximum</em> if <span class="math inline">\forall \; y \in A</span> , if <span class="math inline">(x,y) \in R</span>, then <span class="math inline">x=y</span>. (<span class="math inline">x</span> has no arrows going out of it except for to itself).</p>
+<p><span class="math inline">x \in A</span> is called the <em>minimum</em> if <span class="math inline">\forall \; y \in A</span> , if <span class="math inline">(y,x) \in R</span>, then <span class="math inline">x=y</span>. (<span class="math inline">x</span> has no arrows going to it except for to itself).</p>
+<h2 id="hasse-diagram"><a href="https://en.wikipedia.org/wiki/Hasse_diagram">Hasse Diagram</a></h2>
+<p>We’ll say that pair <span class="math inline">(x,y) \in R</span> is “required” in a Hasse diagram if <span class="math inline">x \neq y</span>, and therefore:</p>
+<p><span class="math display">\forall z \in A (x,z),(z,y) \in R \implies z=x \text{ or } z=y</span></p>
+<p>Essentially, we can get rid of all arrows that represent transitive and reflexively because they are assumed.</p>
+<h4 id="claim">Claim:</h4>
+<p>If <span class="math inline">R</span> is a linear ordered relation on <span class="math inline">A</span> then there exists in <span class="math inline">A</span> only one maximum and minimum.</p>
+<h4 id="proof">Proof:</h4>
+<p>Using proof by contradiction, if <span class="math inline">x,y \in A</span> minimums such that <span class="math inline">x \neq y</span> …</p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><span class="math inline">R</span> is <em>reflexive</em> if <span class="math inline">\forall \; a \in A: (a,a) \in R</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><span class="math inline">R</span> is <em>symmetric</em> if <span class="math inline">\forall \; a,b \in A: (a,b) \in R \implies (b,a) \in R</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><span class="math inline">R</span> is <em>transitive</em> if <span class="math inline">\forall \; a,b,c \in A: (a,b), (b,c) \in R \implies (a,c) \in R</span><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p><span class="math inline">R</span> is <em>antisymmetric</em> if <span class="math inline">\forall \; a,b \in A: (a,b), (b,a) \in R \implies  a=b</span><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+<!-- <a class="return" href="index.html">Return to Table of Contents</a>
+ -->
+
+<a class="return" href="./">Return to Discrete Mathematics</a>
+
+<img src="../divider.svg" class="break"/>
+
+</article>
+</body>
+</html>
