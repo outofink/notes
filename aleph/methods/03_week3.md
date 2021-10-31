@@ -125,14 +125,14 @@ $$
 \end{gathered}
 $$
 
-## Euler's Symbol
+## Euler's formula
 
 $$
 \begin{gathered}
     e^{i \theta} = \cos \theta + i \sin \theta \\
     e^{-i \theta} = \cos  \theta - i \sin \theta \\
-    \cos \theta = \frac{1}{2}(e^{i \theta}+e^{-i \theta})
-    \quad \sin \theta = \frac{1}{2i}(e^{i \theta} - e^{-i \theta})
+    \cos \theta = \frac{1}{2}\left(e^{i \theta}+e^{-i \theta}\right)
+    \quad \sin \theta = \frac{1}{2i}\left(e^{i \theta} - e^{-i \theta}\right)
 \end{gathered}
 $$
 
