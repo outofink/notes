@@ -1,0 +1,104 @@
+\documentclass[00_complete]{subfiles}
+
+%\input{../preamble}
+
+\title{Mathematical Methods}
+\author{Moshe Krumbein}
+\date{Fall 2021}
+
+\begin{document}
+\setcounter{chapter}{7}
+
+\chapter{Definite Integrals}
+\subtitle{\theauthor~- \thedate}
+
+\section{Introduction}
+
+We define $\int_{a}^{b}f(x)\dd{x}$ to be the area underneath the graph of
+$f(x)$, above the $x$-axis on the interval $[a,b]$.
+
+\section{The Fundamental Theorem of Calculus}
+\begin{definition}[First Fundamental Theorem of Calculus]
+    Under certain conditions:
+    $$\dv{x}\underbrace{\left(\int_{a}^{x}f(t)\dd{t}\right)}_{F(x)} = f(x)$$
+    \begin{proof}
+        $$
+        \begin{gathered}
+            F'(x)= \lim\limits_{h \to 0} \frac{f(x+h)-F(x)}{h} \\
+            = \lim\limits_{h \to 0} \frac{\int_{x}^{x+h}f(t)\dd{t}}{h} =
+            \frac{h\cdot f(x) + \text{negligible}}{h} = f(x)
+        \end{gathered}
+        $$
+    \end{proof}
+\end{definition}
+\begin{example}
+    $$
+        \dv{x}\left(\int_{1}^{x}\frac{\sin t}{t}\dd{t}\right) = \frac{\sin x}{x}
+    $$
+\end{example}
+\begin{example}
+    $$
+        \dv{x}\left(\int_{1}^{x^2}\frac{\sin t}{t}\dd{t}\right) = \frac{\sin
+        (x^2)}{x^2}\cdot 2x
+    $$
+\end{example}
+\begin{example}
+    $$
+        \dv{x}\left(\int_{5x}^{e^x} e^{-t^2}\dd{t}\right) =
+        \dv{x}\left(\int_{0}^{e^x}e^{-t^2}\dd{t}-\int_{0}^{5x}e^{-t^2}\dd{t}\right)
+        = e^{-(e^x)^2}\cdot e^x - e^{-(5x)^2}\cdot 5
+    $$
+\end{example}
+\begin{definition}[Upgraded Theorem]
+    $$\dv{c}\left(\int_{g(x)}^{h(x)}f(t)\dd{t}\right)=f(h)\cdot h'-f(g)\cdot g'$$
+\end{definition}
+\begin{definition}[Second Fundamental Theorem of Calculus]
+    Also known as the \emph{Newton-Leibniz axiom.}
+
+    If $f$ is continuous and $F$ is an anti derivative of $f$, then:
+    $$\int_{a}^{b}f(x)\dd{x}=F(b)-F(a)$$
+    \begin{proof}
+        According to the first theorem:
+        $$\int_{a}^{x}f(t)\dd{t}=F(x)+c$$
+        If we set $x=a$:
+        $$0=\int_{a}^{a}f(t)\dd{t}=F(a)+c \implies C = -F(a)$$
+    \end{proof}
+\end{definition}
+Essentially, there are a few things to keep in mind:
+\begin{itemize}
+    \item When doing substitution, it is important to also adjust the limits of
+        the integral accordingly (this only works in the substitution is
+        \emph{one-to-one}.)
+    \item Often we can solve definite integrals simply by seeing if we
+        substitute the limits of the integral are equal to each other, which
+        means the integral is equal to zero, without having to work out the
+        anti derivative at all.
+\end{itemize}
+\section{Improper Integrals}
+There two types of improper integrals:
+\begin{enumerate}
+    \item Divergent improper integrals, e.g.:
+        $$\int_{3}^{\infty}x\dd{x}=\infty \qquad
+        \int_{0}^{1}\frac{1}{x}\dd{x}=\infty$$
+    \item Convergent improper integrals, e.g.:
+        $$\int_{3}^{\infty}\frac{1}{x^2}\dd{x}=\frac{1}{3}$$
+\end{enumerate}
+\begin{note}
+    $$\int_{-1}^{1}\frac{\sin x}{x}\dd{x}$$
+    This is a \emph{proper integral} because the function is \emph{bounded} on
+    the interval even though there is an undefined point at $x=0$.
+\end{note}
+\begin{theorem}
+$$\int_{1}^{\infty}\frac{1}{x^a}\dd{x}$$
+If $a>1$, the integral \emph{converges}, and if $a\leq 1$, the integral
+\emph{diverges}.
+
+However:
+$$\int_{0}^{1}\frac{1}{x^a}\dd{x}$$
+If $a<1$, the integral \emph{converges}, and if $a\geq 1$, the integral
+\emph{diverges}.
+$$\int_{c}^{d}\frac{1}{(x-x_0)^a}\dd{x}, \quad c \leq x_0\leq d$$
+If $a<1$, the integral \emph{converges}, and if $a\geq 1$, the integral
+\emph{diverges}.
+\end{theorem}
+\end{document}

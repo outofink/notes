@@ -1,0 +1,319 @@
+\documentclass[00_complete]{subfiles}
+
+%\input{../preamble}
+\title{Discrete Mathematics}
+\author{Moshe Krumbein}
+\date{Fall 2021}
+
+\begin{document}
+\setcounter{chapter}{0}
+
+\chapter{Introduction to Set Theory and Logic}
+\subtitle{\theauthor~- \thedate}
+
+\section{Sets}
+\begin{definition}[Discrete Sets]
+A \emph{discrete set} is a \emph{set} that has a distinct, individualized parts.
+
+Discrete sets may be finite or infinite (countable).
+\end{definition}
+
+\begin{definition}[Sets]
+A \emph{set} is a collection of objects.
+
+A set of objects of does not have to contain objects of only one type.
+
+A property of sets is that a set $A$ has a \emph{binary relation} between between
+itself and an object $o$. Either $A$ contains or does not contain $o$.
+\end{definition}
+
+\begin{example}
+$$
+\begin{gathered}
+    A=\{1,4,7,8\} \\
+    B=\{a,b,c,d\} \\
+    C=\{x,y,z\} \\
+    \\
+    1 \in A \\
+    2 \notin A
+\end{gathered}
+$$
+\end{example}
+
+Additionally, a set that has multiple members of the same element is
+equivalent to a set that has one one of the element, due to the property of
+\emph{binary relation}.
+
+$$A = \{1,4,7,8\} = \{1,1,4,4,4,7,8\}$$
+
+\begin{definition}[Size of a Sets]
+    Number of (by definition, distinct) elements in a set.
+    $$|A| = 4$$
+\end{definition}
+
+\begin{definition}[Conditional Set]
+$$\{ x \;|\; \text{such that } x \}$$
+$$B = \{a \in A \;|\; a < 5 \}$$
+\begin{example}
+All of the whole numbers from 1 to 1000.
+$$\{x \;|\; 1<x<1000, \text{ such that $x$ is whole }\}$$
+\end{example}
+
+Although the following set is small in size, it is easier to express it in
+the following fashion instead of explicitly:
+$$\{x \;|\; x^5-4x^3+7x^2-11x+\sqrt 2=0\}$$
+\end{definition}
+
+\begin{symbols}[Quantifiers]
+$$
+\begin{gathered}
+    \forall = \text{for all} \\
+    \exists = \text{exists}
+\end{gathered}
+$$
+\end{symbols}
+
+\subsection{Containment (Subset)}
+\begin{definition}[Containment]
+$B$ contains $A$ when all elements in $B$ are also in $A$.
+$$B \subseteq A$$
+Specifically if $A$ and $B$ are distinct:
+$$B \subsetneq A$$
+If two sets are \emph{equivalent}: ($A \subseteq B, B \subseteq A$)
+$$A=B$$
+\end{definition}
+
+\begin{example}
+$$
+\begin{gathered}
+    A = \{1,3,4, \{1\}, \{1,2\}\} \\
+    |A| = 5 \\
+    1 \in A \\
+    \{1\} \in A \\
+    \{1\} \subseteq A \\
+    \text{ (because of the first element)} \\
+    \{\{1\}\} \subseteq A \\
+    \text{(because of the forth element)} \\
+    \{1,2\} \in A \\
+    \{1,2\} \nsubseteq A \\
+    \{1\} \subseteq A \\
+    \{1\} \subsetneq A \\
+\end{gathered}
+$$
+\end{example}
+
+\begin{note}
+$A \in B$: the \emph{element} $A$ is in \emph{set} $B$.
+$A \subseteq B$: the contents of \emph{set} $A$ are all in \emph{set} $B$.
+\end{note}
+
+\subsection{Special Sets}
+
+\begin{align}
+    \emptyset  =& \{\} \tag{\text{empty set}} \\
+    \mathbb{N} =& \{1,2,3,\mathellipsis\} \tag{\text{natural numbers}} \\
+    \mathbb{Z} =& \{\mathellipsis,-2,-1,0,1,2,3,\mathellipsis\}
+    \tag{\text{whole numbers}} \\
+    \mathbb{Q} =& \left\{ \frac{m}{n} \;|\; m,n \in \mathbb{Z}, n \neq 0
+    \right\}\tag{\text{rational numbers}} \\
+        \mathbb{R} \quad& \tag{\text{real numbers}}
+\end{align}
+$$
+    \emptyset \subsetneq
+    \mathbb{N} \subsetneq
+    \mathbb{Z} \subsetneq
+    \mathbb{Q} \subsetneq
+    \mathbb{R}
+$$
+
+\subsection{Binary operations on sets}
+\begin{align}
+    A \cup B =& \{a \;|\; a \in B \text{ or } a \in A \} \tag{\text{Union}} \\
+    A \cap B =& \{a \;|\; a \in B \text{ and } a \in A \}
+    \tag{\text{Intersection}} \\
+    A \setminus B =& \{a \;|\; a \notin B \text{ and } a \in A \}
+    \tag{\text{Difference}} \\
+    A \triangle B =& (A \cup B) \setminus (A \cap B) \tag{\text{Symmetrical
+    Difference}}
+\end{align}
+
+\subsection{Size of union of sets}
+
+$$|A \cup B| \overset{?}{=} |A| + |B|$$
+
+\begin{definition}[Disjoint Sets]
+$A$ and $B$ are \emph{disjoint sets} if $A \cap B = \emptyset$.
+
+If $A$ and $B$ are disjoint sets, then:
+$$|A \cup B| = |A| + |B|$$
+\end{definition}
+In general:
+
+$$|A \cup B| = |A| + |B|- |A \cap B|$$
+
+When $A, B, C$ are \emph{pairwise disjointed}:
+$$|A \cup B \cup C| = |A| + |B| + |C|$$
+
+\subsection{Algebraic Properties}
+
+$$
+\begin{gathered}
+    \text{Commutative property:} \\
+    A \cup B = B \cup A \\
+    A \cap B = B \cap B \\
+    \text{Associative property:} \\
+    (A \cup B) \cup C = A \cup (B \cup C) \\
+    (A \cap B) \cap C = A \cap (B \cap C) \\
+    \text{Distributive property:} \\
+    A \cup (B \cap C) = (A \cup B) \cap (A \cup C) \\
+    A \cap (B \cup C) = (A \cap B) \cup (A \cap C) \\
+\end{gathered}
+$$
+
+Given the sets $A_1, A_2. \mathellipsis, A_n$:
+$$[n] = \{1,2,3, \mathellipsis, n\}, n \in \mathbb{N},\quad |[n]|=n$$
+$$\bigcup_{i=1}^{n}A_i=A_1\cup A_2 \cup \mathellipsis \cup A_n = \{ x \;|\; \exists \; i \in [n] : x \in A_i \} $$
+$$\bigcap_{i=1}^{n}A_i=A_1\cap A_2 \cap \mathellipsis \cap A_n = \{ x \;|\; \forall \; i \in [n] : x \in A_i \} $$
+
+\begin{definition}[Compliment]
+For set $U$ where $A \subseteq U$:
+$$A^c = U \setminus A$$
+\end{definition}
+
+\begin{definition}[De Morgan's Laws]
+Given sets $A,B$:
+$$(A \cup B)^c=A^c \cap B^c$$
+$$(A \cap B)^c=A^c \cup B^c$$
+\end{definition}
+
+\section{Logic and Logical Relations}
+
+\begin{axiom}
+Every claim is either \emph{true} and \emph{false}: $\{T,F\}$
+$$
+\begin{gathered}
+    1+1=2 \to T \\
+    1+1=0 \to F
+\end{gathered}
+$$
+\end{axiom}
+
+\subsection{Unary Operations - Negation}
+
+\begin{table}[h!]
+\centering
+{
+\begin{tabular}{cc}
+ \hline
+ $P$ & $\neg P$ \\
+ \hline
+ T & F \\
+ F & T \\
+ \hline
+\end{tabular}}
+\caption{Negation}
+\end{table}
+
+\subsection{Binary Operations}
+
+\begin{table}[ht!]
+\centering
+{
+\begin{tabular}{cc|cccc}
+ \hline
+ $P$ & $Q$ & $P \lor Q$ & $P \land Q$ & $P \to Q$ & $P\leftrightarrow Q$ \\
+ \hline
+ T & T & T & T & T & T\\
+ T & F & T & F & F & F\\
+ F & T & T & F & T & F\\
+ F & F & F & F & T & T\\
+ \hline
+\end{tabular}}
+\caption{Binary Operations}
+\end{table}
+
+\begin{definition}[Complex Statements]
+Combination of logical relations in one statement.
+\begin{example}
+    $$\neg p \to Q$$
+\end{example}
+\end{definition}
+
+\subsubsection{Relation between $\cup, \cap$ and $\lor \land$}
+$$P : x \in A \quad Q: x \in B$$
+$$
+\begin{gathered}
+    P \lor Q : x \in A \cup B \\
+    P \land Q: x \in A \cap B
+\end{gathered}
+$$
+
+\begin{definition}[Logical Equivalency]
+If two complex statements are made up of the same statements, then they are
+\emph{logically equivalent}. ($\iff$)
+\end{definition}
+
+$$
+\begin{gathered}
+    1<2 \quad x<2 \\
+    \text{We'll symbolize the statement $P$ with the variable $x$ for $P(x)$} \\
+    \text{Example: }P: (\forall \; x \in \mathbb{N} \quad x<2)
+\end{gathered}
+$$
+
+$$\forall \; x \in A \quad P(x)$$
+
+Is true if every $P(x)$ is true, and will be false if even one $P(x)$ is false.
+
+$$\exists \; x \in A \quad P(x)$$
+
+Will be true if even one $P(x)$ is true, and will be false if all $P(x)$ is false.
+
+Given $P(x), Q(x)$:
+
+The following logical statements can be constructed:
+$$
+\begin{gathered}
+    \forall \; x \in A \quad \forall \; y \in B \quad P(x) \land Q(y) \\
+    \exists \; x \in A \quad \exists \; y \in B \quad P(x) \land Q(y) \\
+    \exists \; x \in A \quad \forall \; y \in B \quad P(x) \land Q(y) \\
+    \forall \; x \in A \quad \exists \; y \in B \quad P(x) \land Q(y) \\
+\end{gathered}
+$$
+
+\section{Series}
+
+\begin{definition}
+Given two sets $A,B$:
+$$A \times B = \{(a,b) \mid a \in A, b \in B\}$$
+\begin{note}
+The order of $A, B$ does matter.
+\end{note}
+\end{definition}
+
+If $A, B$ are \emph{finite}:
+
+$$|A \times B| = |A| \cdot |B|$$
+
+\begin{definition}[Plane]
+$$\mathbb{R} \times \mathbb{R} = \mathbb{R}^2 = \{(x,y) \mid x, y \in \mathbb{R}\}$$
+\end{definition}
+
+If $A_1, \mathellipsis, A_n$ are sets:
+
+$$X_{i=1}^{n} = A_1 \times \mathellipsis \times A_n = \{(a_1, \mathellipsis,
+a_n) \mid \forall \; i \in [n], a_i \in A_i\}$$
+
+If $A_1, \ldots A_n$ are finite:
+
+$$|X_{i=1}^n A_i| = \prod_{i=1}^n |A_i|$$
+
+\begin{definition}[Characteristics]
+\begin{gather*}
+    A \times \emptyset = \emptyset \\
+    A \times A = A^2 \\
+    \underbrace{A_1 \times \ldots \times A_n}_{n\text{ times}} = A^n
+\end{gather*}
+\end{definition}
+
+\end{document}

@@ -1,0 +1,303 @@
+\documentclass[00_complete]{subfiles}
+
+%\input{../preamble}
+\title{Discrete Mathematics}
+\author{Moshe Krumbein}
+\date{Fall 2021}
+
+\begin{document}
+\setcounter{chapter}{9}
+
+\chapter{Asymptotic Growth}
+\subtitle{\theauthor~- \thedate}
+
+\section{Big O Notation}
+\begin{definition}
+    The sequence ($a_n$) is almost always positive if there exists $N_0\in
+    \mathbb{N}$ such that $n>N_0$, $a_n>0$
+\end{definition}
+\begin{definition}
+    Given sequences $(a_n)(b_n)$, they are almost always positive itself:
+    $$a_n=O(b_n)$$
+    $((a_n)=O((b_n)))$ if there exists $N \in \mathbb{N}$, $0 <c \in
+    \mathbb{R}$ such that $n \leq N$: $a_n \leq cb_n$.
+\end{definition}
+\begin{example}
+    $$a_n=7n+5 \qquad b_n=n^2$$
+    $$\underbrace{7n+5}_{a_n} \leq 7n+5n = 12n \leq 12n^2$$
+    We define $N=1$, $c=12$. For all $n\geq 1$:
+    $$a_n \leq 12b_n$$
+\end{example}
+\subsection{Characteristics}
+\begin{enumerate}
+    \item If there exists $N \in \mathbb{N}$ such that for all $n \geq N$: $a_n
+        \leq b_n$, then $a_n = O(b_n)$
+    \item If $a_n = O(b_n)$ and $0 < k \in \mathbb{R}$, then $ka_n=O(b_n)$
+    \item If $a_n=O(b_n)$, $a'_n=O(b_n)$, then $a_n+a'_n=O(b_n)$
+    \item If $a_n=o(b_n)$, $b_n=O(d_n)$, then $a_n = O(d_n)$
+\end{enumerate}
+\section{Claims about Asymptotic Growth}
+\begin{claim}
+    Suppose $k,l \in \mathbb{R}, k<n$, then:
+    \begin{enumerate}
+        \item $(n^k) = O(n^l)$
+        \item $(n^l) \neq O(n^k)$
+    \end{enumerate}
+\end{claim}
+\begin{proof}
+    \begin{enumerate}
+        \item For all $n \in \mathbb{N}, n^k \leq n^l$. $\checkmark$
+        \item Suppose $n \geq N$: $n^l \leq cn^k \implies n^{l-k}\leq c$. If we
+            define $n>c^\frac{1}{l-k}$ then:
+            $$c \geq n^{l-k}\geq \left(c^{\frac{1}{l-k}}\right)^{l-k} = c$$
+            Which is a contradiction. $\checkmark$
+    \end{enumerate}
+\end{proof}
+\begin{claim}
+    For $n \in \mathbb{N}$ we define
+    $b_n=\underbrace{n(n-1)\dots(n-k+1)}_{\frac{n!}{(n-k)!}}$:
+    \begin{enumerate}[I.]
+        \item $n^k = O(n_n)$
+        \item $b_n = O(n^k)$
+    \end{enumerate}
+\end{claim}
+\begin{proof}
+    \begin{enumerate}[I.]
+        \item We need to prove $n^k = O(b_n)$:
+            $$
+            \begin{gathered}
+                \frac{n}{2} \leq n-k<n-k+1 \iff \\
+                n\leq 2n-2k \iff \\ \boxed{2k\leq n}
+            \end{gathered} \quad \vline \quad
+            \begin{gathered}
+                n^k=2^k\left(\frac{n}{2}\right)^k \\
+                \frac{n}{2} \leq n-k+1 \\
+                \frac{n}{2}\leq n-k \\ \vdots \\
+                \frac{n}{2} \leq n
+            \end{gathered}
+            $$
+            Therefore:
+            $$n^k\left(\frac{n}{2}\right)^k \leq 2^kn(n-1)\dots(n-k+1) = 2^kb_n$$
+            We choose $c=2^k, N=2k$, and therefore:
+            $$n^k\leq cb_n$$
+        \item $b_n= \underbrace{n(n-1)\dots(n-k+1)}_{k \text{ terms}} \leq n^k$
+
+            ($c=1, N=1 \implies b_n=O(a_n)$)
+    \end{enumerate}
+\end{proof}
+\begin{conclusion}
+    From the claim and the characteristics:
+    $$
+    \begin{gathered}
+        n^k = O\binom{n}{k} \qquad \binom{n}{k} = O(n^k) \\
+        b_n = O\binom{n}{k} \qquad \binom{n}{k} = O(b_n)
+    \end{gathered}
+    $$
+\end{conclusion}
+\begin{claim}
+    Given $k \in \mathbb{N}$:
+\begin{enumerate}[I.]
+    \item $n^k=O(2^k)$
+    \item $2^k \neq O(n^k)$
+\end{enumerate}
+\begin{proof}
+    \begin{enumerate}[I.]
+    \item \begin{gather*}
+        2^n = \binom{n}{0} + \binom{n}{1} + \dots + \binom{n}{n} \implies
+        \forall n \geq k: \binom{n}{k}\leq 2^n \\
+        \implies N=k, c=1: \binom{n}{k}=O(2^n), n^k=O\binom{n}{k}
+    \end{gather*}
+    \begin{conclusion}
+        \begin{gather*}
+            n^k=O(2^n) \tag{\checkmark}
+        \end{gather*}
+    \end{conclusion}
+    \item Proof by contradiction:
+
+    There exists $k_o \in \mathbb{N}$ such that: $2^n = O(n^{k_0})$.
+
+    We already know that $n^{k_0+1}=O(2^n)$. Using the property of
+    transitivity: $n^{k_0+1}=O(n^{k_0})$, but since $k_0+1>k_0$, this
+    contradicts our first claim.
+    \end{enumerate}
+\end{proof}
+\begin{note}
+    We can generalize this for all $\alpha>1$:
+\begin{enumerate}[I.]
+    \item $n^k=O(\alpha^k)$
+    \item $2^k \neq O(\alpha^k)$
+\end{enumerate}
+\end{note}
+\end{claim}
+\section{Big \texorpdfstring{$\Theta$}{Theta} Notation}
+\begin{definition}[Big $\Theta$ Notation]
+   Given sequences $(a_n)(b_n)$, that are almost always positive, we define:
+   $$a_n = \Theta(b_n)$$
+   If:
+   $$a_n=O(b_n) \quad b_n=O(a_n)$$
+\end{definition}
+\begin{example}
+    $$n^k=\Theta\binom{n}{k}$$
+\end{example}
+\begin{claim}
+    $\Theta$ is an equivalence relation of the collection of all of the
+    sequences that are almost always positive.
+    \begin{proof}
+        \begin{enumerate}[I.]
+            \item Reflexivity:
+            \begin{gather*}
+                \forall n \quad a_n \leq a_n \implies a_n = O(a_n) \\
+                a_n = \Theta(a_n) \tag{\checkmark}
+            \end{gather*}
+            \item Symmetry:
+
+                If $a_n \Theta(b_n)$, then $a_n = O(b_n)$ and $b_n=O(a_n)$,
+                which implies that: $b_n = \Theta(a_n)$.
+                \begin{gather*}
+                    \tag{\checkmark}
+                \end{gather*}
+            \item Transitivity:
+
+                Given $a_n=\Theta(b_n)$ and $b_n=\Theta(c_n)$:
+                \begin{align*}
+                    a_n=\Theta(b_n) \to \quad& a_n=O(b_n), a_n=O(a_n) \\
+                    b_n=\Theta(c_n) \to \quad& b_n=O(c_n), c_n=O(b_n)
+                \end{align*}
+                \begin{gather*}
+                    \implies a_n=\Theta(c_n) \tag{\checkmark}
+                \end{gather*}
+        \end{enumerate}
+    \end{proof}
+\end{claim}
+\begin{definition}[Polynomial Growth]
+    Given a sequence $(a_n)$ which is almost always positive, we say that for
+    $(a_n)$ has a \emph{polynomial growth rate} if there exists $k \in
+    \mathbb{N}$ such that $a_n = \Theta(n^k)$.
+
+    In this case we say that $(a_n)$ has polynomial growth of order $k$.
+\end{definition}
+\begin{example}
+    $(2^n)$ does not have a polynomial growth rate.
+\end{example}
+\begin{claim}
+    Given:
+    \[
+        p(n)=n^k + \sum_{i=0}^{k-1}t_in^i
+    \]
+    Therefore $(p(n))$ has a polynomial growth rate of order $k$.
+    \begin{proof}
+        $p_n = O(n^k)$.
+        \begin{gather*}
+            p(n)=n^k + \sum_{i=0}^{k-1}t_in^i \leq \left|n^k +
+            \sum_{i}^{k-1}t_in^i\right| \leq n^k + \sum_{i=0}^{k-1}|t_i|n^i \\
+            \leq n^k + \sum_{i=0}^{k-1}|t_i|n^k =
+            n^k\underbrace{\left(1+\sum_{i=0}^{k-1}|t_i|\right)}_{c}
+        \end{gather*}
+        $p(n) = O(n^k)$.
+
+        Now to prove $n^k = O(p(n))$:
+        \begin{gather*}
+            p(n)=n^k + t_{k-1}n^{k-1}+k_{k-2}n^{k-2}+\dots+t_1n +t_0 \\
+            =n^k\underbrace{\left(1 +
+            \frac{t_{k-1}}{n}+\frac{t_{k-2}}{n^2}+\dots+\frac{t_0}{n^k}\right)}
+            _{k+1 \text{ addends}}
+        \end{gather*}
+        For a large enough $n$, $p(n)>\frac{1}{2}$, and therefore
+        $p(n)>\frac{1}{2}n^k \implies n^k < 2p(n)$.
+
+        Therefore, $n^k=O(p(n)) \implies p(n) = \Theta(n^k)$.
+    \end{proof}
+\end{claim}
+\section{Examples}
+\begin{example}
+    $a_n$ is the number of ways to place 100 distinct balls to $n$ cells.
+    $$a_n=n^{100}$$
+    $a_n$ has polynomial growth rate of order 100.
+\end{example}
+\begin{example}
+    $a_n$ is the number of ways to place 100 distinct balls to $n$ cells such
+    that in each cell there contains at most one ball.
+
+    For all $n \geq 100$, $a_n>0$, and therefore $(a_n)$ is almost always
+    positive.
+    $$a_n=\frac{n!}{(n-100)!}$$
+    $a_n$ has polynomial growth rate of order 100.
+\end{example}
+\begin{example}
+    $a_n$ is the number of ways to place $n$ distinct balls to 100 cells.
+
+    $$a_n=100^n$$
+    $a_n$ does not have an polynomial growth rate.
+\end{example}
+\begin{example}
+    $a_n$ is the number of ways to place $n$ distinct balls to 100 cells such
+    that in each cell there contains at most one ball.
+
+    For all $n > 100$, $a_n=0$, which makes it not a sequence which is
+    almost always positive.
+\end{example}
+\begin{example}
+    $a_n$ is the number of ways to place 100 identical balls to $n$ cells such
+    that in each cell there contains at most one ball.
+
+    For all $n \geq 100$, $a_n>0$, and therefore $(a_n)$ is almost always
+    positive.
+    $$a_n=\binom{n}{100}$$
+    $a_n$ has polynomial growth rate of order 100.
+\end{example}
+\begin{example}
+    $a_n$ is the number of ways to place 100 identical balls to $n$ cells.
+    $$a_n=\binom{n+99}{100}$$
+    $a_n$ has polynomial growth rate of order 100.
+\end{example}
+\begin{example}
+    $a_n$ is the number of ways to place $n$ identical balls to 100 cells.
+    $$a_n=\binom{n+99}{99}$$
+    $a_n$ has polynomial growth rate of order 99.
+\end{example}
+\begin{example}
+    Find the order of polynomial growth $k$ of $a_n$ where $a_n$ is the number of
+    ways to place 100 distinct balls to $n$ cells such that:
+    \begin{enumerate}[a.]
+        \item In the first cell there are exactly 4 balls
+        $$a_n = \binom{100}{4}(n-1)^{96}$$
+        $k=96$.
+        \item In the first cell there is at most 4 balls
+        \begin{gather*}
+            a_n \leq \text{total number of ways to place $100$ balls in $n$
+            cells} = n^{100} \\
+            a_n = O(n^{100}) \tag{I} \\
+            a_n \geq \text{total number of ways to place $100$ balls in $n-1$
+            cells} = (n-1)^{100} \\
+            n^{100} = O(a_n) \tag{II} \\
+            a_n=\Theta(n^{100}), k=100
+        \end{gather*}
+        \item There exists a cell that has exactly 4 balls
+        \begin{gather*}
+        a_n \geq \text{number of ways such that one cell has 4 balls and all other
+        have at least one} \\
+        =\underbrace{\binom{n}{1}\binom{100}{4}(n-1)(n-2)\dots(n-96)}_{\text{polynomial
+        of degree 97}} \implies n^{97} = O(a_n) \tag{I} \\
+        \end{gather*}
+        We define $A_k$ to be the number of ways such that in the $k$-th cell
+        there are exactly 4 balls:
+        \begin{gather*}
+            A_k=\binom{100}{4}(n-1)^{96} \\
+            a_n = \left|\bigcup_{k=1}^{n} A_k \right| \leq
+            \left|\sum_{k=1}^{n}A_k\right| = n\binom{100}{4}(n-1)^{96} \implies
+            a_n =O(n^{97}) \\
+            a_n =\Theta(n^{97}), k=97
+        \end{gather*}
+        \item There exists a cell that has at least 4 balls
+        $$c \leq d \implies n^{97} = O(a_n)$$
+        $A_k$ - all the ways such that in the $k$-th cell there are at least 4
+        balls:
+        \begin{gather*}
+            |A_k|=\binom{100}{4}n^{96} \\
+            a_n=\left|\bigcup_{k=1}^nA_k\right|\leq\sum_{k=1}^{n}|A_k|
+            = n\binom{100}{n}n^{96} \implies a_n = O(n^{97}) \\
+            a_n = \Theta(n^{97}), k=97
+        \end{gather*}
+    \end{enumerate}
+\end{example}
+\end{document}

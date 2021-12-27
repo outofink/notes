@@ -4,14 +4,12 @@
 
 <h1 align="center">notes</h1>
 
-My notes for university, written in Markdown + LaTeX math, rendered for the web.
+My notes for university, written in LaTeX.
 
 So far I have notes for:
 
-- [Calculus](https://outofink.github.io/notes/calulus)
-- [Mathematical Methods](https://outofink.github.io/notes/mathematical_methods)
-- [Linear Algebra](https://outofink.github.io/notes/linear_algebra)
-- [Discrete Mathematics](https://outofink.github.io/notes/discrete_mathematics)
+- [Mathematical Methods I](https://outofink.github.io/notes/mathematical_methods.pdf)
+- [Discrete Mathematics](https://outofink.github.io/notes/discrete_mathematics.pdf)
 
 ---
 

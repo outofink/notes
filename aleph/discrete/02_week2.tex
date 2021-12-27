@@ -1,0 +1,245 @@
+\documentclass[00_complete]{subfiles}
+
+%\input{../preamble}
+\title{Discrete Mathematics}
+\author{Moshe Krumbein}
+\date{Fall 2021}
+
+\begin{document}
+\setcounter{chapter}{1}
+
+\chapter{Functions and Permutations}
+\subtitle{\theauthor~- \thedate}
+
+\section{Functions}
+
+Given two sets $A, B$, function $f: A \mapsto B$, there $\forall a
+\in A$ that maps to $b \in B$.
+
+$A$ is called the \emph{domain} and $B$ is called the \emph{range}.
+
+$$f(a)=b$$
+
+$a$ is \emph{a source} of $b$, and $b$ is \emph{the image} of $a$.
+
+For $c \subset a$, the image of $c$ is:
+
+$$f(C) = \left\{b \in B \mid a \in C : f(a) = b \right\} \subseteq B$$
+$$=\{f(a) \mid a \in C\}$$
+
+\begin{example}
+\begin{enumerate}
+Given $f: A \mapsto B$:
+
+$$\Im f = f(A) \subseteq B$$
+
+Given $D \subseteq B$, the source of $D$:
+
+$$ f^{-1}(D) = \{a \in A \mid f(a) \in D\}$$
+
+\item
+$$A \subseteq U$$
+$$\mathbb{1}: U \mapsto \{0,1\} (\chi)$$
+
+$$\forall \; a \in U, \mathbb{1}_A(a) = \begin{cases}
+    1 \quad a \in A \\
+    0 \quad a \notin A
+\end{cases}$$
+
+\item
+$$
+\begin{gathered}
+    A = \mathbb{Z}^k \quad B = \mathbb{Z} \\
+    f((a_1, \ldots, a_n)) = a_3
+\end{gathered}
+$$
+
+\item
+$$
+\begin{gathered}
+    \text{Given: }\{(a_1, \ldots, a_n)\} \subseteq \mathbb{Z}^k \\
+    f: \underbrace{[n]}_{\{1,2,\ldots,n\}} \mapsto \mathbb{Z} \\
+    \forall \; i \in [n] : f(i)= a_i
+\end{gathered}
+$$
+
+\end{enumerate}
+\end{example}
+
+\begin{claim}
+Given: $f: A \mapsto B$, $D_1, D_2 \subseteq B$:
+$$f^{-1}(D_1 \cap D_2) = f^{-1}(D_1) \cap f^{-1}(D_2)$$
+$$a \in f^{-1}(D_1 \cap D_2) \iff f(a) \in D_1 \cap D_2$$
+Given: $C_1, C_2 \subseteq A$:
+$$f(C_1 \cap C_2) \neq f(C_1) \cap f(C_2)$$
+\end{claim}
+
+\subsubsection{Characteristics of Functions}
+Given $f: A \mapsto B$:
+
+$f$ is \emph{injective} (one-to-one) if:
+
+$$\forall \; a_1,a_2 \in A : a_1 \neq a_2 \; \exists \; f(a_1) \neq f(a_2)$$
+$$\forall \; a_1,a_2 \in A \quad f(a_1) = f(a_2) \implies a_1 = a_2$$
+
+$f$ is \emph{surjective} (onto) if:
+
+$$\Im f = B$$
+
+If $f$ is injective: $|A| \leq |B|$.
+
+If $f$ is surjective: $|A| \geq |B|$.
+
+If $f$ is both injective and surjective, it is \emph{bijective} (invertible) and: $|A| = |B|$.
+If we have two finite groups $A, B$, function $f: A \mapsto B$, and $C
+\subseteq A, D \subseteq B$:
+\begin{enumerate}
+    \item $|f(c)| \leq |C|$
+    \item $f$ is injective:
+     \begin{enumerate}
+        \item $|f(C)|= |C|$
+        \item $|f^{-1}(D)| = |D|$
+     \end{enumerate}
+    \item $f$ is surjective:
+    \begin{enumerate}
+        \item $|f^{-1}(D)| \geq |D|$
+    \end{enumerate}
+    \item If $f$ is injective and $|A|=|B|$, then it is also surjective
+    \item If $f$ is surjective and $|A|=|B|$, then we've learned nothing new
+\end{enumerate}
+
+\subsection{Composing Functions}
+
+Given groups $A, B, C$:
+
+$$f: A \mapsto B, \quad g: B \mapsto C$$
+$$g \circ f: A \mapsto C: \forall \; a \in A:$$
+$$(g \circ f)(a) = g(f(a))$$
+
+\subsection{Identity function}
+
+$$\Id_A: A \mapsto A$$
+$$f \circ \mathrm{Id}_A: A \mapsto B$$
+$$f \circ \mathrm{Id}_A: f$$
+$$\mathrm{Id}_B \circ f: A \mapsto B$$
+$$\mathrm{Id}_B \circ f: f$$
+
+\subsection{Inverse function}
+
+Given $f: A \mapsto B, g: B \mapsto C$:
+
+$g$ is the inverse of $f$ if:
+
+$$g \circ f = \mathrm{Id}_A$$
+$$f \circ g = \mathrm{Id}_B$$
+
+If the previous is true, then $g = f^{-1}$.
+
+$n \in \mathbb{N}, [n] = \{1,2,\ldots, n\}$
+\subsection{Examples}
+\begin{example}
+\begin{enumerate}
+Given $f:A \mapsto B$, $C_1, C_2 \subseteq A$
+\item If $C_1 \subseteq C_2$, then $f(C_1) \subseteq f(C_2)$.
+
+Yes.
+
+Suppose $a \in f(C_1) \implies b \in C_1$ such that $f(b)=a$. Since we also
+know $b \in C_2$, therefore $f(b) \subseteq f(C_2) \implies f(C_1) \subseteq f(C_2)$.
+
+\item If $f(C_1) \subseteq f(C_2)$, then $f(C_1) \subseteq f(C_2)$.
+
+No.
+
+We define $A=\{1,2\}, B=\{u\}$, $f(1)=f(2)=a$.
+
+item If $f$ is injective, and $f(C_1) \subseteq f(C_2)$ ,then $C_1 \subseteq
+C_2$.
+
+Suppose $c \in C_1, c \notin C_2$.
+
+$f(c) \notin f(C_2)$
+\end{enumerate}
+\end{example}
+
+\begin{example}
+    \begin{enumerate}
+Let $f: A \mapsto B, g: B \mapsto C$. Prove that if $g \circ f$ is injective
+then $f$ is also injective.
+
+Suppose $a_1, a_2 \in A, a_1 \neq a_2$.
+
+$$g \circ f(a_1) \neq g \circ f(a_2)$$
+$$f(a_1) \neq f(a_2)$$
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+\begin{enumerate}
+Let $f: A \mapsto B, g: B \mapsto A, h: B \mapsto A$
+
+ \item $g \circ f = \mathrm{Id}_A$ and $h \circ f = \mathrm{Id}_A$, then $g=h$.
+
+False
+
+\item $f \circ g = \mathrm{Id}_B$ and $h \circ f = \mathrm{Id}_A$, then $g=h$.
+
+True
+\end{enumerate}
+\end{example}
+
+\section{Permutations}
+
+A \emph{permutation} is a (possible) rearrangement of objects. For example,
+there are 6 permutations of the letters $a, b, c$:
+
+$$abc, acb, bac, bca, cab, cba$$
+
+Permutation on $[n]$ is $f: [n] \mapsto [n]$, for example $\mathrm{Id}_{[n]}$
+
+$f: A \mapsto A$
+$$f^2 = f \circ f: A \mapsto A$$
+$$f^m = \underbrace{f \circ f \circ f \ldots}_{m \text{ times}}$$
+
+If $f \circ g$ is bijective, it is a permutation.
+
+$$\sigma^6 = \mathrm{Id}_{\sigma}$$
+$$\sigma^{100} = \mathrm{Id}_{\sigma}$$
+
+
+\begin{definition}[Permutation]
+Permutation of $[n]$ is $f: [n] \mapsto [n]$ is surjective and injective.
+
+We symbolize the \emph{collection} of permutations of $[n]$: $S_n$
+
+If $f, g \in S_n$, then $g \circ f: [n] \mapsto [n]$.
+
+If $g \circ f$ is "one-to-one", then we see it's also "onto" $g \circ f \in
+S_n$.
+\end{definition}
+
+\begin{claim}
+If $f: A \to B$ is "one-to-one" and $g: B \to C$ is also "one-to-one", then $g
+\circ f A \to C$ is also "one-to-one".
+\end{claim}
+
+\begin{proof}
+Suppose $a_1, a_2 \in A$ such that $(g \circ f)(a_1)=(g \circ f)(a_2)$ (which
+means $a_1=a_2$).
+
+Given $g(f(a_1))=g(f(a_2))$ is "one-to-one" $\implies f(a_1)=f(a_2)$. $f$ is
+also "one-to-one" $\implies a_1=a_2$.
+\end{proof}
+
+\begin{conclusion}
+Conclusion: $g \circ f$ is "one-to-one".
+\end{conclusion}
+
+\begin{definition}
+Let $f: [n] \to [n]$ be the permutation of $f$, the minimal number of
+permutations $k$ such that $f_k=\Id_{[n]}$.
+
+We see that $k$ is the "lowest common multiple" of the lengths of the
+sub-permutations.
+\end{definition}
+\end{document}

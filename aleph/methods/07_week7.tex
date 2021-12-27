@@ -1,0 +1,388 @@
+\documentclass[00_complete]{subfiles}
+
+\title{Mathematical Methods}
+\author{Moshe Krumbein}
+\date{Fall 2021}
+
+\begin{document}
+\setcounter{chapter}{6}
+
+\chapter{Indefinite Integrals}
+\subtitle{\theauthor~- \thedate}
+
+\section{Introduction}
+
+\begin{definition}
+    We say that $F(x)$ is a \emph{primitive function (anti-derivative)} of
+    $f(x)$ if:
+    $$F'(x)=f(x)$$
+    We also symbolize:
+    $$\boxed{\int f(x)\dd{x} = F(x) + c}$$
+\end{definition}
+
+\begin{theorem}
+    If $F(x)$ is an \emph{anti-derivative} of $f$, then for all $c$, $F(x)+c$ is also
+    a \emph{anti-derivative} of $f$.
+\end{theorem}
+
+\begin{theorem}
+    If $F$ and $G$ are \emph{anti-derivatives} of $f$ for a given interval, then for
+    that same interval $F-G=c$.
+\end{theorem}
+
+\begin{example}
+    $$
+    \begin{gathered}
+        f(x)=\frac{1}{x} \\ \\
+        F(x)=\begin{cases}
+            \ln x & x>0 \\
+            \ln(-x) & x<0
+        \end{cases} \\
+        F(x) \text{ is an anti-derivative of } f(x) \\ \\
+        G(x) = \begin{cases}
+            \ln x + 1 & x>0 \\
+            \ln (-x) + 3 & x<0
+        \end{cases} \\
+        G(x) \text{ is an anti-derivative of } f(x) \\ \\
+    \end{gathered}
+    $$
+    We see here that although $G-F$ isn't always the same constant, it is
+    always a constant.
+    $$\int \frac{1}{x} = \ln |x| + c$$
+\end{example}
+
+\section{Rules of Integration}
+
+Integral of a sum is the same of the integral:
+\begin{equation}
+    \int f + g = \int f + \int g
+\end{equation}
+Integral of composed functions:
+\begin{equation}
+    \int f(g(x))g'(x) = F(g(x)) + c
+\end{equation}
+Integration by parts:
+\begin{equation}
+\begin{gathered}
+    \int u(x)v'(x)\dd{x} = u(x)v(x) - \int u'(x)v(x)\dd{x} \\
+    \text{or more simply:} \\
+    \int uv' = uv - \int u'v
+\end{gathered}
+\end{equation}
+\begin{example}
+    $$
+    \begin{gathered}
+        \int f(ax+b)\dd{x} = \frac{1}{a} \int a\cdot f(ax+b)\dd{x} =
+        \frac{1}{a} \int f(t)\dd{t}
+        \\
+        \frac{1}{a}F(t)+c = \frac{F(ax+b)}{a}+c
+    \end{gathered}
+    $$
+\end{example}
+\section{Examples of Integration by Substitution}
+\setcounter{example}{0}
+\begin{example}
+    $$\int \frac{\dd{x}}{1+(ax)^2}=\frac{\tan^{-1}(ax)}{a}+c$$
+\end{example}
+\begin{example}
+    $$
+    \int \frac{\dd{x}}{a^2+x^2}
+    =\int\frac{1}{a^2}\cdot\frac{\dd{x}}{1+\left(\frac{x}{a}\right)^2}
+    =\frac{1}{a^2}\cdot\frac{\tan^{-1}\left(\frac{x}{a}\right)}{\frac{1}{a}}+c
+    =\frac{\tan^{-1}\left(\frac{x}{a}\right)}{a}+c
+    $$
+\end{example}
+\begin{example}
+    $$
+    \int \frac{\dd{x}}{\sqrt{a^2+x^2}}
+    =\int\frac{1}{\sqrt{a^2}}\cdot\frac{\dd{x}}{\sqrt{1+\left(\frac{x}{a}\right)^2}}
+    =\frac{1}{a}\cdot\frac{\sin^{-1}\left(\frac{x}{a}\right)}{\frac{1}{a}}+c
+    =\sin^{-1}\left(\frac{x}{a}\right)+c
+    $$
+\end{example}
+\begin{example}
+    $$
+    \int \tan x \dd{x}
+    =\int \frac{\sin x}{\cos x}\dd{x}
+    =-\ln|\cos x|+c
+    $$
+\end{example}
+\begin{example}
+    $$
+    \int 5x\cdot e^{x^2}\dd{x}
+    = \frac{5}{2}\int e^t \dd{t}
+    =\frac{5}{2}e^t+c
+    =\frac{5}{2}e^{x^2}+c
+    $$
+\end{example}
+In General:
+\begin{gather}
+    \int f'(x)e^{f(x)}\dd{x}=e^{f(x)}+c \\
+    \int f'(x)\cos(f(x))\dd{x} = \sin(f(x))+c \\
+    \int \frac{f'(x)}{f(x)}\dd{x} = \ln|f(x)|+c
+\end{gather}
+\begin{example}
+    $$
+    \int \frac{2x+1}{x^2+x+17}\dd{x}
+    =\ln\underbrace{(x^2+x+17)}_{\text{always positive}} +\,c
+    $$
+\end{example}
+Completing the square:
+\begin{example}
+    $$
+    \int \frac{8}{x^2+10x}\dd{x}
+    =\int \frac{8}{(x-5)^2-25}\dd{x}
+    =-\frac{8}{5}\tanh^{-1}\left(\frac{x+5}{5}\right)+c
+    $$
+\end{example}
+\begin{example}
+    $$
+    \int \frac{8}{4x^2+4x+7}\dd{x}
+    =\int \frac{8}{(2x+1)^2+6}\dd{x}
+    =\frac{8\tan^{-1}\left(\frac{2x+1}{\sqrt 6}\right)}{2\sqrt 6}+c
+    $$
+\end{example}
+\begin{example}
+    $$
+    \int \frac{e^{\tan^{-1}(x)}}{1+x^2}\dd{x}
+    =\int e^t \dd{t}
+    =e^t+c
+    =e^{\tan^{-1}(x)}+c
+    $$
+\end{example}
+\begin{example}
+    $$
+    \int \frac{\dd{x}}{\sqrt{1-3x-2x^2}}
+    =\frac{1}{\sqrt 2}\int
+    \frac{\dd{x}}{\sqrt{\frac{17}{16}-\left(x+\frac{3}{4}\right)^2}}
+    =\frac{1}{\sqrt
+    2}\sin^{-1}\left(\frac{x+\frac{3}{4}}{\sqrt{\frac{17}{16}}}\right)+c
+    $$
+\end{example}
+\section{Examples for Integration by Parts}
+\setcounter{example}{0}
+\begin{example}
+    $$
+    \int xe^{3x}\dd{x}
+    =\frac{xe^{3x}}{3}-\int \frac{e^{3x}}{3}\dd{x}
+    =\frac{xe^{3x}}{3}-\frac{e^{3x}}{9}+c
+    $$
+\end{example}
+\begin{example}
+    $$
+    \int \ln x \dd{x}
+    =x\ln x - \int \frac{1}{x}\cdot x \dd{x} = x\ln x - x +c
+    $$
+\end{example}
+\begin{example}
+    $$
+    \int \tan^{-1}x\dd{x}
+    =x\tan^{-1}x - \int \frac{x}{1+x^2} \dd{x}
+    =x\tan^{-1}x - \frac{1}{2}\ln(1+x^2)+c
+    $$
+\end{example}
+\setcounter{example}{0}
+Continuing from last week:
+\begin{example}
+    $$
+        \int x^n \ln x \dd{x} =
+        \frac{x^{n+1}}{n+1}\cdot \ln x - \frac{1}{1+n} \int x^n \dd{x} =
+        \frac{x^{n+1}}{n+1}\cdot \ln x - \frac{x^{n+1}}{(1+n)^2} + c
+    $$
+\end{example}
+\begin{example}
+    $$
+    \begin{gathered}
+        \underbrace{\int x^ne^x \dd{x}}_{I_n} = x^ne^x - \underbrace{\int
+        x^{n-1}e^x\dd{x}}_{I_{n-1}} \\
+        I_n = x^ne^x -n\cdot I_{n-1} \quad I_0=e^x+c \\
+        \frac{I_n}{n!}=\frac{x^ne^x}{n!}-\frac{I_{n-1}}{(n-1)!}
+    \end{gathered}
+    $$
+\end{example}
+\begin{example}
+    $$
+        \int (\ln x)^n \dd{x} =
+        x(\ln x)^n - n \int (\ln x)^{n-1} \dd{x}
+    $$
+    And we can continue similar to how we  continued in the previous example
+    using $I_n$ and $I_{n-1}$. Alternatively:
+    $$
+        \int (\ln x)^n \dd{x} =
+        \int t^ne^t\dd{t} \qquad \ln x = t
+    $$
+    Which is identical to our previous example.
+\end{example}
+\begin{example}
+    $$
+    \begin{gathered}
+        I_n=\int (\sin x)^n \dd{x} \\
+        I_n=-(\sin x)^{n-1}\cos x +(n+1) \int (\sin x)^{n-2}(1-\sin^2 x) \dd{x}
+        \\
+        I_n=\frac{n-1}{n}I_{n-2}-\frac{1}{n}(\cos x)(\sin x)^{n-2} \\
+        I_0 = x+c \qquad I_1=-\cos x+c
+    \end{gathered}
+    $$
+    Alternatively, if $n$ is odd:
+    $$
+    \begin{gathered}
+        \int \sin^{11} x \dd{x} = \int \sin x \sin^{10} x \\
+        (t=\cos x, \dd{t}=-\sin x \dd{x}) \\
+        \int (1-t^2)^5 \dd{t}
+    \end{gathered}
+    $$
+    If $n$ is even:
+    $$
+    \begin{gathered}
+        \sin^2 \alpha = \frac{1-\cos 2\alpha}{2}\\
+        \int \sin^6 x \dd{x} = \int (\sin^2 x)^3 \dd{x} =
+        \int \left(\frac{1-\cos 2 x}{x}\right)^3\dd{x} \\
+        = \frac{1}{8} \int (1-3\cos 2x+\underbrace{3\cos^22x}_{\frac{1+\cos
+        4x}{2}}-\underbrace{\cos^32x}_{\text{Like our odd example}}) \dd{x}
+    \end{gathered}
+    $$
+\end{example}
+\begin{example}
+    $$\int \frac{r(t)}{\sqrt{1-t^2}}\dd{t}$$
+    Where $r(t)$ is a \emph{rational function}. With substitution:
+    $$\int r(\sin \theta) \dd{\theta}$$
+    Which is often much easier to solve.
+\end{example}
+\section{Trigonometric Substitutions}
+\subsection{Universal Substitution}
+With integrals of rational polynomials containing $\sin x$ or $\cos x$, i.e.:
+$$\int \frac{1+\cos \theta}{2+\sin \theta}\dd{\theta}\quad \int
+\frac{\cos^3\theta}{1+2\sin \theta} \dd{\theta}$$
+We can use the following \emph{universal substitution}:
+$$
+\begin{gathered}
+    t=\tan \left(\frac{\theta}{2}\right) \to \dd{t} =
+    \frac{1}{2}(1+t^2)\dd{\theta} \\
+    \dd{\theta} = \frac{2}{1+t^2}\dd{t} \quad \tan \theta = \frac{2t}{1-t^2} \\
+    \sin \theta = \frac{2t}{1+t^2} \quad \cos \theta = \frac{1-t^2}{1+t^2}
+\end{gathered}
+$$
+\subsection{Special Case Substitutions}
+\begin{enumerate}
+    \item $f(\pi -\theta) = -f(\theta)$
+
+        We can substitute $t=\sin x$.
+    \item $f(-\theta) = -f(\theta)$
+
+        We can substitute $t=\cos x$.
+    \item $f(\pi+ \theta) = f(\theta)$
+
+        We can substitute $t=\tan x$.
+\end{enumerate}
+\section{Integral of Rational Functions}
+\begin{enumerate}
+    \item Sometimes was divide the polynomials to simplify our integral such
+        that the degree of the polynomial in the numerator is lower than the
+        degree of the polynomial in the denominator.
+    \item
+        $$\int \frac{f'}{f} = \ln |f|+c$$
+    \item
+        $$\int \frac{\dd{x}}{ax+b} = \frac{\ln |ax+b|}{a} + c$$
+        $$\int \frac{\dd{x}}{a^2\pm x} = \begin{cases}
+            \frac{\tan^{-1}\left(\frac{x}{a}\right)}{a} +c\\
+            \frac{\tanh^{-1}\left(\frac{x}{a}\right)}{a} +c\\
+        \end{cases}$$
+        This works for all fraction that you can complete the square.
+    \item Partial Fractions
+        $$\frac{1}{(x-a)(x-b)}=\frac{A}{x-a}+\frac{B}{x-b}$$
+\end{enumerate}
+\paragraph{Important Note:}
+If we have a denominator of the form $(ax+b)^n$, we split into partial
+fractions in the following way:
+$$\frac{p_n(x)}{(ax+b)^n}=\frac{c_1}{ax+b}+\frac{c_2}{(ax+b)^2}+\dots+\frac{c_n}{(ax+b)^n}$$
+\begin{example}
+    $$
+    \begin{gathered}
+        \int \frac{x+5}{x^3-x^2-x+1}\dd{x} \\
+        \int \frac{x+5}{(x-1)^2(x+1)}= \int
+        \left(\frac{A}{x-1}+\frac{B}{(x-1)^2}+\frac{C}{x+1}\right)\dd{x} \\
+        =A\ln|x-1|-\frac{B}{x-1}+C\ln|x+1| + c
+    \end{gathered}
+    $$
+\end{example}
+\section{Integrating Rational Functions Using Complex Numbers}
+\setcounter{example}{0}
+\begin{reminder}[Complex Numbers]
+    $$
+    \begin{gathered}
+        \ln(z) = |z| + \arg(z)i \\
+        z + \overline z = 2\Re(z) \\
+        z - \overline z = 2i\Im(z) \\
+        \tan^{-1}\left(\frac{1}{x}\right) = \frac{\pi}{2}-\tan^{-1}(x)
+    \end{gathered}
+    $$
+\end{reminder}
+\begin{example}
+    $$
+    \begin{gathered}
+        \int \frac{x+1}{x^4+x^2}\dd{x} \\
+        x^4+x^2 = x^2(x^2+1) = x^2(x-i)(x+i) \\
+        \frac{x+1}{x^4+x^2}=\frac{A}{x}+\frac{B}{x^2}+\frac{C}{x+i}+\frac{D}{x-i}
+        \\
+        A=1,\; B=1,\; C=\frac{-1-i}{2},\; D=\frac{-1+i}{2} \\
+        \frac{x+1}{x^4} = \int \left( \frac{1}{x} + \frac{1}{x^2} +
+            \frac{-1-i}{2(x+i)}+\frac{-1+i}{2(x-i)} \right) \dd{x} \\
+            =\ln|x| - \frac{1}{x} +
+            \underbrace{\left(\frac{-1-i}{2}\right)\ln(x+i)}_{z}
+            +\underbrace{\left(\frac{-1+i}{2}\right)\ln(x-i)}_{\overline z}+c
+            \\
+            \ln(x+i) = \ln \sqrt{x^2+1}+\tan^{-1}\left(\frac{1}{x}\right)i \\
+            z+\overline z=2\Re\left(\frac{1}{2}(-1-i)\left(\ln
+                \sqrt{x^2+1}+\tan^{-1}\left(\frac{1}{x}\right)i\right)\right)
+                \\
+            = -\ln \sqrt{x^2+1}+ \tan^{-1}\left(\frac{1}{x}\right)
+            =-\frac{1}{2}\ln(x^2+1)-\tan^{-1}x+\frac{\pi}{2} \\
+            \int \frac{x+1}{x^4+x^2}\dd{x} = \ln|x|-\frac{1}{x} -
+            \frac{1}{2}\ln(x^2+1)-\tan^{-1}x+c
+    \end{gathered}
+    $$
+\end{example}
+\begin{example}
+    $$\int \frac{x+1}{x^4+2x^2+1}\dd{x}$$
+    Using real numbers:
+    $$
+    \begin{gathered}
+        \frac{1}{2} \int \frac{2x}{(x^2+1)^2}\dd{x}+\int
+        \frac{1}{(x^2+1)^2}\dd{x} \\
+        x=\tan t, \quad \dd{x} = \frac{1}{\cos^2t}\dd{t} \\
+        =-\frac{\frac{1}{2}}{(x^2+1)^2}+\int
+        \frac{\frac{1}{\cos^2t}}{\left(\frac{1}{\cos^2t}\right)^2}\dd{t} \\
+        \int \cos^2t\dd{x}=\int \frac{1+\cos 2t}{2}\dd{t} =
+        \frac{1}{2}\underbrace{t}_{\tan^{-1}x}-\frac{1}{4}\underbrace{\sin 2t}_{?}+c\\
+        \dots
+    \end{gathered}
+    $$
+    In essence, using real numbers here is fairly difficult.
+
+    However, using imaginary numbers:
+    $$
+    \begin{gathered}
+        \int \frac{x+1}{(x+i)^2(x-i)^2} \dd{x}=
+        \int \left(\frac{\frac{i}{4}}{x+i}+
+        \frac{\frac{1}{4}(-1+i)}{(x+i)^2}+
+        \frac{-\frac{i}{4}}{x-i}-
+        \frac{\frac{1}{4}(1+i)}{(x-i)^2} \right)\dd{x} \\
+        =\underbrace{\frac{i}{4}\ln(x+i)}_{z}+
+        \underbrace{\left(-\frac{i}{4}\right)\ln(x-i)}_{\overline z}
+        \underbrace{-\frac{\frac{1}{4}(-1+i)}{x+i}}_{+\overline \omega}
+        +\underbrace{\frac{\frac{1}{4}(1+i)}{x-i}}_{\omega}+c \\
+        z+ \overline z =
+        2\Re(z)=\Re\left(\frac{i}{2}\left(\frac{1}{2}\ln(x^2+1)
+        +i\underbrace{\left(-\tan^{-1}x+\frac{\pi}{2}\right)}_{\tan^{-1}\left(\frac{1}{x}\right)}\right)\right)
+        \\
+        =\frac{1}{2}\left(\tan^{-1}x+\frac{\pi}{2}\right) \\
+        \omega + \overline \omega = 2 \Re(\omega) =
+        \Re\left(\frac{\frac{1}{2}(1+i)}{x-i}\right) =
+        \frac{1}{2}\Re\left(\frac{(1+i)(x+i)}{(x-i)(x+i)}\right) =
+        \frac{1}{2}\frac{x-1}{x^2+1} \\
+        \int \frac{x+1}{x^4+2x^2+1}\dd{x} =
+        \frac{1}{2}\tan^{-1}x+\frac{x-1}{2(x^2+1)}+c
+    \end{gathered}
+    $$
+\end{example}
+\end{document}

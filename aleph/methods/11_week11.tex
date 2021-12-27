@@ -1,0 +1,146 @@
+%\documentclass[00_complete]{subfiles}
+
+\input{../preamble}
+
+\title{Mathematical Methods}
+\author{Moshe Krumbein}
+\date{Fall 2021}
+
+\begin{document}
+\setcounter{chapter}{10}
+
+\chapter{Multivariable Functions \texorpdfstring{$\mathbb{R}^{\lowercase{m}}
+\to \mathbb{R}^{\lowercase{n}}$}{Rm to Rn}}
+\subtitle{\theauthor~- \thedate}
+\section{Introduction}
+We will be examining functions of the form:
+\begin{gather*}
+    f(x_1,\dots,x_m)=\begin{pmatrix}
+        f_1(x_1,\dots,x_m) \\ \vdots \\
+        f_n(x_1\cdots,x_m)
+    \end{pmatrix}
+\end{gather*}
+\begin{example}
+    \begin{gather*}
+        f(r,\theta)=\binom{r\cos \theta}{r \sin \theta}
+        \quad \vline \quad
+        f(r, \theta, \phi)=\begin{pmatrix}
+            r \cos \theta \sin \phi \\
+            r \sin \theta \sin \phi \\
+            r \cos \phi
+        \end{pmatrix}
+    \end{gather*}
+\end{example}
+\begin{definition}[Derivative]
+    For the partial derivative:
+    \begin{gather*}
+        \pdv{f}{x_i} = \begin{pmatrix}
+            \pdv{f_1}{x_i} \\ \vdots \\ \pdv{f_n}{x_i}
+        \end{pmatrix}
+    \end{gather*}
+    In general:
+    \begin{gather*}
+        \dd{\underline f}=\begin{pmatrix}
+            \dd{f_1} \\ \vdots \\ \dd{f_n}
+        \end{pmatrix} = \begin{pmatrix}
+            \pdv{f_1}{x_1}\dd{x_1} +  \pdv{f_1}{x_2}\dd{x_2} +\dots+
+            \pdv{f_1}{x_m}\dd{x_m} \\
+            \vdots \\
+            \pdv{f_n}{x_1}\dd{x_1} +  \pdv{f_n}{x_2}\dd{x_2} +\dots+
+            \pdv{f_n}{x_m}\dd{x_m} \\
+        \end{pmatrix} = \pdv{\underline f}{x_1}\dd{x_1}+\dots+\pdv{\underline
+        f}{x_m}\dd{x_m} \\
+    D\underline f = \begin{pmatrix}
+    \pdv{f_1}{x_1}&\dots&\pdv{f_1}{x_m} \\
+    \vdots && \vdots \\
+    \pdv{f_n}{x_1}&\dots&\pdv{f_n}{x_m}
+    \end{pmatrix} \quad
+    D \underline f \cdot \begin{pmatrix}
+    \dd{x_1} \\ \vdots \\ \dd{x_m}
+    \end{pmatrix} = \dd{\underline f}
+    \end{gather*}
+\end{definition}
+\begin{example}
+    \begin{gather*}
+        \underline f (r \theta)= \binom{r \cos \theta}{r \sin \theta} \quad
+        \pdv{\underline f}{r} = \binom{\cos \theta}{\sin \theta} \quad
+        \pdv{\underline f}{\theta}=\binom{-r\sin \theta}{r \cos \theta} \\
+        \dd{\underline f} =\pdv{\underline f}{r}\dd{r}+\pdv{\underline
+        f}{\theta}\dd{\theta} =
+        \binom{\cos \theta}{\sin \theta}\dd{r}+
+        \binom{-r\sin \theta}{r\cos \theta}\dd{\theta} \\
+        D\underline f= \begin{pmatrix}
+            \cos \theta & -r\sin \theta \\
+            \sin \theta & r \cos \theta
+        \end{pmatrix} \\
+    \end{gather*}
+\end{example}
+\begin{example} We will consider the following cases
+    \begin{enumerate}
+        \item $m=1$
+            $$f: \mathbb{R} \to \mathbb{R}^n$$
+        Describes a path in $\mathbb{R}^n$ (Chapter 9).
+        \item $n=1$
+            $$f: \mathbb{R}^m \to \mathbb{R}$$
+        What we did in Chapter 10.
+        \item $m=n$ ($2$ or $3$)
+
+            There are two different ways to examine these functions:
+            \begin{enumerate}
+                \item Substitution: $f(r,\theta)=\binom{r\cos\theta}{r\sin\theta}$
+                \item Using \emph{vector fields}: each point in
+                    $\mathbb{R}^n$ can be represented as an $n$-dimensional
+                    vector.
+            \end{enumerate}
+        \item $m=2,n=3$
+
+        Parameterization of a \emph{surface} in $\mathbb{R}^3$
+        \begin{example}
+            \begin{gather*}
+           f:\mathbb{R}^2\to R: \qquad\qquad f:\mathbb{R}^2\to \mathbb{R}^3: \\
+            \begin{gathered}
+                f(x,y)=x^2+y^2
+            \end{gathered} \quad \vline \quad \begin{gathered}
+                f(x,y)=\begin{pmatrix}
+                    x\\y\\x^2+y^2
+                \end{pmatrix} \\
+                f(\rho,\theta) =\begin{pmatrix}
+                    \rho\cos\theta\\\rho\sin\theta\\\rho^2
+                \end{pmatrix}
+            \end{gathered}
+            \end{gather*}
+        \end{example}
+    \end{enumerate}
+\end{example}
+\section{Surfaces in \texorpdfstring{$\mathbb{R}^3$}{R3}}
+Or in other words, the \emph{image} of functions $f: \mathbb{R}^2\to
+\mathbb{R}^3$.
+\begin{example}[Paraboloid]
+    \begin{gather*}
+        f(\rho,\theta)=\begin{pmatrix}
+            \rho\cos\theta\\\rho\sin\theta\\\rho^2
+        \end{pmatrix} \quad
+        f_{\rho}=\begin{pmatrix}
+            \cos\theta\\\sin\theta\\ 2\rho
+        \end{pmatrix} \quad f_{\theta}=\begin{pmatrix}
+            -\rho\sin\theta\\\rho\cos\theta\\ 0
+        \end{pmatrix} \\
+        D \underline f = \begin{pmatrix}
+            \cos\theta &-\rho\sin\theta \\
+            \sin\theta &\rho\cos\theta \\
+            2\rho & 0
+        \end{pmatrix} \\
+        \dd{\underline f} = f_{\rho}\dd{\rho} + f_{\theta}\dd{\theta} =
+        \begin{pmatrix}
+            \cos\theta\\\sin\theta\\ 2\rho
+        \end{pmatrix}\dd{\rho} + \begin{pmatrix}
+            -\rho\sin\theta \\ \rho\cos\theta\\ 0
+        \end{pmatrix}\dd{\theta}
+    \end{gather*}
+    $\dd{\underline f}$ is how much $\underline f$ changes when there is a
+    small change in $\rho$ or $\theta$. We want to find the \emph{area} of
+    $\dd{\underline f}$:
+    $$\|f_\rho\times f_\theta\|hk$$
+\end{example}
+
+\end{document}

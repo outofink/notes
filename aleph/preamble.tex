@@ -1,0 +1,73 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm,gensymb,parskip,graphicx,footmisc,csquotes,enumerate}
+\usepackage[]{libertinus}
+\usepackage[breaklinks]{hyperref}
+\hypersetup{
+  pdfauthor={Moshe Krumbein},
+  colorlinks=true,
+  linkcolor={black},
+  filecolor={black},
+  citecolor={black}, %blue
+  urlcolor={black}, %blue
+}
+\usepackage[top=30mm,bottom=30mm,left=30mm,right=30mm]{geometry}
+%\setlength{\emergencystretch}{2em} % prevent overfull lines
+\providecommand{\tightlist}{%
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{axiom}{Axiom}
+\newtheorem*{lemma}{Lemma}
+
+\theoremstyle{remark}
+\newtheorem*{note}{Note}
+\newtheorem*{symbols}{Symbol}
+\newtheorem{example}{Example}[section]
+\newtheorem*{claim}{Claim}
+\newtheorem*{conclusion}{Conclusion}
+\newtheorem*{reminder}{Reminder}
+
+\usepackage{fancyhdr}
+\usepackage[italicdiff]{physics}
+\MakeOuterQuote{"}
+
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+
+\pagestyle{fancy}
+
+\setlength{\headheight}{14.5pt}
+\addtolength{\topmargin}{-2.5pt}
+
+\fancyhf{}
+\rhead{Moshe Krumbein}
+\lhead{\chaptermark}
+\cfoot{\thepage}
+\fancyhead[R]{\chaptername~\thechapter}
+\fancyhead[L]{\mbox{\leftmark}}
+
+\usepackage[Rejne]{fncychap}
+\usepackage{titling}
+\ChTitleVar{\Huge\centering\rm}
+
+\makeatletter
+\renewcommand{\@chapapp}{\vspace*{-100pt}\huge\thetitle}
+\makeatother
+
+\makeatletter
+\newcommand{\subtitle}[1]{%
+  {\center\vspace*{-60pt}%
+  \linespread{1.1}\Large\scshape#1%
+  \par\nobreak\vspace*{35pt}}
+}
+\makeatother
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\cis}{cis}
+
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\st}[0]{\;\mathrm{s.t.}\;}

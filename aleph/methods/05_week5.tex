@@ -1,0 +1,162 @@
+\documentclass[00_complete]{subfiles}
+
+\title{Mathematical Methods}
+\author{Moshe Krumbein}
+\date{Fall 2021}
+
+\begin{document}
+\setcounter{chapter}{4}
+
+
+\chapter{Derivatives and Integrals}
+\subtitle{\theauthor~ - \thedate}
+
+\section{Introduction}
+
+The \emph{integral} is the area under the curve of a graph and the
+\emph{derivative} is the slope of the function. A \emph{definite integral} is
+also known as the \emph{antiderivative}.
+
+\section{Derivative}
+
+\begin{definition}[Derivative]
+\[
+    \frac{\Delta s}{\Delta t} = \frac{s(t_0+\Delta t)-s(t_0)}{\Delta t}
+    \quad \Delta t \to 0
+\]
+$$\lim\limits_{h \to 0} \frac{f(x+h)-f(x)}{h}$$
+\end{definition}
+
+
+\begin{symbols}[Derivative]
+    $$\frac{ds}{dt}, \dot s(t), s'(t)$$
+\end{symbols}
+
+\subsection{Geometric significance of derivatives}
+
+A function is differential at the point $x_0$ when there are no "sharp edges"
+or jumps at $x_0$.
+
+\subsection{Linear approximation}
+
+If $x$ is close to $x_0$, then:
+$$f(x) \approx f(x_0)+f'(x_0)(x-x_0)$$
+
+\section{Integral}
+
+The area under the graph is the approximation: (\emph{Riemann Sum})
+$$\sum_{i=1}^{n}f(t_i)(\overbrace{t_i-t_{i-1}}^{\Delta t_i})$$
+$$\sum_{k=1}^{n}f\left(\frac{k}{n}\right)\cdot \frac{1}{n} \to
+\int_{0}^{1}f(x)dx$$
+
+If there does exist an approximation for this sum (that is not dependent on
+specific division), then we say that $f$ is \emph{integratable} on $[a,b]$:
+
+$$\int_{a}^{b}f(t)dt$$
+
+\section{Fundamental Theorem of Calculus}
+
+Integration and differentiation are inverse functions of each other (under
+certain conditions)
+
+\section{Operations between derivatives}
+
+\begin{note}
+        Differentiability $\implies$ continuity
+        (continuity $\nRightarrow$ differentiability)
+\end{note}
+
+\begin{gather}
+    (f \pm g)' = f' \pm g' \\
+    (fg)' = f'g+fg' \\
+    \left(\frac{f}{g}\right)' = \frac{f'g-fg'}{g^2} \\
+    (g \circ f)' = f' \cdot g'(f)
+\end{gather}
+
+\section{Derivative of the inverse function}
+
+Given function $f$ differentiable at the point $a$:
+\[
+    f^{-1}(x) \cdot f(x) = x
+\]
+Differentiate in terms of $x$:
+\[
+\begin{gathered}
+    (f^{-1}(f(x)))'\cdot f'(x) = 1 \\
+    (f^{-1}(f(x)))' = \frac{1}{f'(x)} \\
+\end{gathered}
+\]
+
+\section{Differentiating implicit functions}
+
+\begin{example}
+    $x^2+y^2-1=0$
+\end{example}
+
+We differentiate both sides in terms of $x$ and attempt to isolate $\frac{dy}{dx}$.
+
+\[
+    \begin{gathered}
+        x^y-\ln y = 2x \implies x^{f(x)} - \ln(f(x))=2x \\
+        x^{f(x)}\left(\ln(x)\cdot f'(x)+\frac{1}{x}f(x)\right) - \frac{f'(x)}{f(x)}=2
+    \end{gathered}
+\]
+
+\section{Linear Approximation}
+
+\begin{reminder}
+    If $f$ is differentiable at the point $a$, then near $a$ exists:
+    $$f(x) \approx f(a)+f'(a)(x-a)$$
+\end{reminder}
+
+\begin{example}
+    $$
+    \begin{gathered}
+        \tan^{-1}(1.05) \\ \\
+        \tan^{-1}(1) = \frac{\pi}{4} \to \quad \begin{gathered}
+            a = 1 \\ x = 1.05 \\ f(x) = \tan^{-1}x \\ f'(x) = \frac{1}{1+x^2}
+        \end{gathered} \\
+        f(1.05) \approx \overbrace{f(1)}^{\frac{\pi}{4}} +
+        \overbrace{f'(1)}^{\frac{1}{2}}(0.05) \\
+        \tan^{-1}(1.05) \approx \frac{\pi}{4} + 0.025
+    \end{gathered}
+    $$
+\end{example}
+
+\section{Differential}
+
+\begin{definition}
+    The \emph{differential} is the \emph{linear approximation} of the change of
+    a function.
+\end{definition}
+
+If $y$ is a function of $x$:
+\[
+    \Delta y \approx \frac{dy}{dx} \Delta x \implies
+    dy = \frac{dy}{dx}dx
+\]
+
+\begin{example}
+    $$
+    \begin{gathered}
+        y = x^2 \quad z = \tan^{-1}(y) \\
+        \text{Calculate the relation between $dx, dy, dz$ around the points:}
+        \\
+        x=1,\;y=1,\;z=\frac{\pi}{4} \\ \\
+        \frac{dy}{dx} =2x \implies \frac{dy}{dx} = 2 \\
+        dy = 2dx \quad dz = \frac{1}{2}dy
+    \end{gathered}
+    $$
+\end{example}
+
+\section{Lagrange's Mean Value Theorem}
+
+\begin{definition}
+    If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then there
+    exists $a<c<b$ such that:
+    \[
+        f'(c) = \frac{f(b)-f(a)}{b-a}
+    \]
+\end{definition}
+
+\end{document}

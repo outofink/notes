@@ -1,0 +1,61 @@
+\documentclass[00_complete]{subfiles}
+
+%\input{../preamble}
+\title{Discrete Mathematics}
+\author{Moshe Krumbein}
+\date{Fall 2021}
+
+\begin{document}
+\setcounter{chapter}{3}
+
+\chapter{Partial Ordered Relations}
+\subtitle{\theauthor~- \thedate}
+\section{\href{https://en.wikipedia.org/wiki/Partially_ordered_set\#Partial_order_relation}{Partial Ordered Relations}}
+
+Given relation \(R\) on a set, then we say the \(R\) is a partial
+ordered relation is \(R\) is \emph{reflexive},
+\emph{antisymmetric}\footnote{\(R\) is \emph{antisymmetric} if
+  \(\forall \; a,b \in A: (a,b), (b,a) \in R \implies  a=b\)}, and
+  \emph{transitive}. In this case we say that \(A\) is a \emph{partial
+ordered set}.
+
+\begin{definition}
+Partial ordered relation exists for all
+\(\forall \: x,y \in R \;\exists\; (x,y) \in R\) or \((y,x) \in R\) is
+called a \emph{linear order}.
+\end{definition}
+
+Suppose that \(R\) is a partial ordered relation on \(A\):
+
+\[(a,b) \in R \quad a \leq_R b\]
+
+\(x \in A\) is called the \emph{maximum} if \(\forall \; y \in A\) , if
+\((x,y) \in R\), then \(x=y\). (\(x\) has no arrows going out of it
+except for to itself).
+
+\(x \in A\) is called the \emph{minimum} if \(\forall \; y \in A\) , if
+\((y,x) \in R\), then \(x=y\). (\(x\) has no arrows going to it except
+for to itself).
+
+\section{\href{https://en.wikipedia.org/wiki/Hasse_diagram}{Hasse
+Diagram}}
+
+We'll say that pair \((x,y) \in R\) is ``required'' in a Hasse diagram
+if \(x \neq y\), and therefore:
+
+\[\forall z \in A (x,z),(z,y) \in R \implies z=x \text{ or } z=y\]
+
+Essentially, we can get rid of all arrows that represent transitivity and
+reflexivity because they are assumed.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{w4-hesse}
+    \caption{Example of a Hesse diagram}
+\end{figure}
+
+\begin{claim}
+If \(R\) is a linear ordered relation on \(A\) then there exists in
+\(A\) only one maximum and minimum.
+\end{claim}
+\end{document}

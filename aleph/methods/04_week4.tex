@@ -1,0 +1,174 @@
+\documentclass[00_complete]{subfiles}
+
+\title{Mathematical Methods}
+\author{Moshe Krumbein}
+\date{Fall 2021}
+
+\begin{document}
+\setcounter{chapter}{3}
+
+\chapter{Single Variable Functions}
+\subtitle{\theauthor~- \thedate}
+\section{Functions}
+
+\begin{definition}
+For all inputs $x$ into a function $f(x)$, return a single output $y$.
+
+\emph{Graph:} collection of all the points in the form $(x,f(x))$.
+
+\emph{Image:} collection of all possible $y$ values.
+
+\emph{Note:} A \emph{graph} of a function is not necessarily the \emph{image} of a function.
+\end{definition}
+
+\subsection{Hyperbolic Functions}
+
+$$
+\begin{gathered}
+    \cosh(x)=\frac{1}{2}\left(e^x+e^{-x}\right) \text{ (even)} \\
+    \sinh(x)=\frac{1}{2}\left(e^x-e^{-x}\right) \text{ (odd)} \\
+    \sinh^2(x)-\cosh^2(x) = 1\\
+    \tanh(x) = \frac{\sinh(x)}{\cosh(x)}
+\end{gathered}
+$$
+
+The hyperbolic functions maintain many of the same identities of the
+trigonometric functions.
+
+The area between the \emph{ray} to $(\cosh(t), \sinh(t))$ and the hyperbolic
+function $x^2-y^2 = 1$ is exactly equal to $\frac{t}{2}$.
+
+$$
+\begin{gathered}
+    \sinh: \mathbb{R} \to \mathbb{R} \\
+    \cosh: \mathbb{R} \to [1, \infty) \\
+    \sinh^{-1}: \mathbb{R} \to \mathbb{R} \\
+    \cosh^{-1}: [1, \infty) \to [0, \infty)
+\end{gathered}
+$$
+
+Formula for $\cosh^{-1}x$:
+
+$$
+\begin{gathered}
+    u = \cosh^{-1}x \\
+    \Updownarrow \\
+    \cosh(x) = x \\ \Updownarrow \\
+    e^u + e^{-u} =2x \; \backslash : e^u\\
+    e^{2u} + 1 - 2xe^u = 0 \\
+    e^u = x \pm \sqrt{x^2-1} \\
+    u = \ln(x\pm\sqrt{x^2-1}) \\
+\end{gathered}
+$$
+
+We found 2 values for $u$ who are opposite from one either, so we define $u$ to
+be the greater one:
+
+$$\boxed{\cosh^{-1}x = \ln{x+\sqrt{x^2-1}}}$$
+
+\section{Exponential Functions}
+
+$$f(x) = x^n, \quad n \in \mathbb{R}$$
+
+\subsection{With Natural Exponents}
+
+If $n$ is odd then $f(x)=x^n$ is odd.
+
+If $n$ is even then $f(x)=x^n$ is even.
+
+\subsection{With Reciprocal Natural Exponents}
+
+$$
+\begin{gathered}
+    f(x)= x^{\frac{1}{n}} = \sqrt[n]{x}
+\end{gathered}
+$$
+
+This function is the inverse of $x^n$.
+
+If $n$ is odd then $f(x)=x^n$ is odd.
+
+If $n$ is even then $f(x)=x^n$ is even.
+
+\subsection{With Rational Exponents}
+
+$$
+\begin{gathered}
+    f(x) = x^{\frac{m}{n}} = \sqrt[n]{x^m}
+\end{gathered}
+$$
+
+If $n$ is odd: $x^{\frac{m}{n}}$ is defined for all $x$.
+
+If $m$ is even the function is even and if $m$ is odd then the function is odd.
+
+If $\frac{m}{n} > 1$ the function is \emph{convex} (up) and if $\frac{m}{n} < 1$ the
+function is \emph{concave} (down).
+
+If $n$ is even (therefore $m$ is odd) $x^{\frac{m}{n}}$ is defined $x \in [0, \infty)$.
+
+If $\frac{m}{n} > 1$ the function is \emph{convex} (up) and if $\frac{m}{n} < 1$ the
+function is \emph{concave} (down).
+
+\subsection{With Negative Rational Exponents}
+
+$$
+    f(x)=x^{-\frac{m}{n}} \\
+$$
+
+The right side of the function always looks like $\frac{1}{x}$
+
+Just the right side of the function: $n$ is even.
+
+Odd function that looks like $\frac{1}{x}$: $n,m$ are odd.
+
+Even function that looks like $\frac{1}{x}$: $n$ is odd and $m$ is even.
+
+\subsection{With Real Exponents}
+
+$$\begin{gathered}
+    x^\alpha : \alpha \in \mathbb{R} \backslash \mathbb{Q} \\
+    x^\alpha := e^{\alpha \ln x} \quad (x > 0)
+\end{gathered}
+$$
+
+\section{Composing Functions}
+
+$$
+\begin{gathered}
+    g \circ f(x) = g(f(x)) \\
+\end{gathered}
+$$
+
+\begin{note}
+$$
+\sin x  = \frac{1}{i}\sinh x
+$$
+\end{note}
+
+\subsection{Graphing functions with Square Roots}
+
+$$f(x)=\sqrt{(1-x)(2-x)(3-x)}$$
+
+First we graph what's under the square root, then we see where the function is
+defined with a square root and how it affects the slope of the function (if the
+power is greater than or less than $1$).
+
+\section{Continuous Functions}
+
+$f$ is \emph{continuous} at point $a$ if $x \to a: f(x) \to f(a)$.
+
+$f$ is a \emph{continuous function} if for all $a$ in the \emph{domain} of $f$ fulfills: $x \to a: f(x) \to f(a)$.
+
+\subsection{Continuity of Functions on a Closed Interval}
+
+\begin{theorem}[Intermediate value theorem]
+If the function $f$ is continuous on $[a,b]$ and $c$ is between $f(b)$ and
+$f(a)$ then there exists $x \in [a,b]$ such that $f(x) = c$.
+\end{theorem}
+
+\begin{theorem}[Intermediate value theorem]
+If $f$ is continuous on $[a,b]$ then $f$ has a \emph{minimum} and
+\emph{maximum} on $[a,b]$.
+\end{theorem}
+\end{document}

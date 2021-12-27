@@ -1,0 +1,399 @@
+\documentclass[00_complete]{subfiles}
+
+%\input{../preamble}
+\title{Discrete Mathematics}
+\author{Moshe Krumbein}
+\date{Fall 2021}
+
+\begin{document}
+\setcounter{chapter}{10}
+
+\chapter{Graph Theory}
+\subtitle{\theauthor~- \thedate}
+
+\section{Introduction}
+\begin{definition}[(Undirected) Graph]
+    Is a order pair $G=(V,E)$ such that:
+    \begin{enumerate}
+        \item[$V$ -] Set of vertices - finite and not empty.
+        \item[$E$ -] Set of edges - collection of the unordered pairs of
+            distinct elements of $V$.
+    \end{enumerate}
+    Given $u,v \in V$, if $\{u,v\} \in E$ we can also write $(u,v) \in E$ (even
+    though in general we reserve parentheses for ordered pairs).
+\end{definition}
+\begin{example}
+    \label{one}
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.33\textwidth]{w11_1}
+        \caption{Example \ref{one}}
+    \end{figure}
+    \begin{gather*}
+        V= \{1,2,3,4,5\} \\
+        E=\{(1,3),(3,5),(5,2),(2,4),(4,1)\}
+    \end{gather*}
+    \begin{table}[ht!]
+    \centering
+    {\renewcommand{\arraystretch}{1.2}% for the vertical padding
+    \begin{tabular}{c|ccccc}
+    & 1 & 2 & 3 & 4 & 5 \\
+    \hline
+        1 &0&0&1&1&0 \\
+        2 &0&0&0&1&1 \\
+        3 &1&0&0&0&1 \\
+        4 &1&1&0&0&0 \\
+        5 &0&1&1&0&0 \\
+\end{tabular}}
+\caption{Example \ref{one}}
+\end{table}
+\end{example}
+\section{Special Graphs}
+\begin{definition}[Empty/Null Graph ($N_n$)]
+    $$|V|=n \quad E=\emptyset$$
+\end{definition}
+\begin{definition}[Complete Graph ($K_n$)]
+    $$|V|=n \quad E=\{(i,j) \mid 1 \leq i < j \leq n\}$$
+    $$|E|=\binom{n}{2}$$
+\end{definition}
+How may different graphs are there with $n$ vertices?
+
+Every subset of the complete graph produces a different graph:
+$$2^{\binom{n}{2}}$$
+\begin{definition}[Circle Graph ($C_n$)]
+    $$|V|=n \quad E=\{(1,2),(2,3),\dots,(n-1,n),(n,1)\}$$
+    $$|E|=n$$
+\end{definition}
+\begin{definition}[Neighbors]
+    Given $u,v \in V$ $u$ and $v$ are \emph{neighbors} if $(u,v) \in E$.
+\end{definition}
+\begin{definition}[Degree of a Vertex]
+    The \emph{degree} of a vertex $u \in V$ is the number of \emph{neighbors}
+    of $u$.
+    $$\deg(u) = |\{v \in V \mid (u,v) \in E\}|$$
+\end{definition}
+\begin{claim}
+    The sum of the degrees of all the vertices in a graph is equal to $2|E|$.
+    In other words:
+    $$\sum_{v \in V}\deg(v) = 2|E|$$
+\end{claim}
+\begin{proof}
+    We will symbolize for all $v \in V$, $e \in E$:
+    $$T(e,v) = \begin{cases}
+        1 & v \in e \\
+        0 & v \notin e
+    \end{cases}$$
+    \begin{gather*}
+        \sum^{v \in V}\deg(v) = \sum_{v \in V}\sum_{e \in E} T(e,v)= \sum_{e
+        \in E}\underbrace{\sum_{v \in V} T(e,v)}_{2}=\sum_{e \in E}2=2|E|
+    \end{gather*}
+\end{proof}
+\begin{conclusion}
+    The number of vertices that have have an odd degrees is even.
+\end{conclusion}
+\begin{definition}[Path]
+    A \emph{path} in graph $G=(V,E)$ is a sequence of vertices $(v_0,v_1,
+    \dots, v_n)$ such that for all $0 \leq i \leq n-1$: $(v_i,v_{i+1}) \in E$,
+    which has a length of $n$.
+\end{definition}
+\begin{definition}[Connectivity]
+    Graph $G=(V,E)$ is \emph{connected} if for all $u,v \in V$ there exists a
+    \emph{path} $(v_0,v_1,\dots,v_n)$ such that $v_0=u$ and $v_n=v$.
+\end{definition}
+\begin{definition}[Components]
+    We define relation $R$ on $V$:
+
+    $(u,v) \in R \iff$ there exists a path $(v_0,\dots,v_n)$ in the graph such
+    that $v_0=u$ and $v_n=v$.
+    \begin{note}
+    For all $v \in V$: $(v)$ is a path.
+\end{note}
+\begin{claim}
+    This relation is an equivalence relation of $V$.
+\end{claim}
+\end{definition}
+These equivalence classes are called \emph{connected components} of $G$.
+\begin{claim}
+    If $G$ is \emph{connected}, then the relation on $V$ is the full/complete
+    relation (in other words, for all $u,v \in V, (u,v) \in R$), and therefore
+    we get one \emph{connected component}.
+
+    For the empty graph $N_n$, we get $n$ \emph{components}.
+\end{claim}
+\begin{claim}
+    The number of components in a graph $G=(V,E)$ is greater or equal to
+    $|V|-|E|$.
+\end{claim}
+\begin{proof}
+    Induction of the number of edges.
+    \begin{enumerate}[I.]
+        \item $|E|=0$: Number of components $=n=|V|-|E|$
+        \item We assume induction for $|E|=k$ and we'll prove for $|E|=k+1$:
+        Our graph is $G=(E,v)$, $|V|=n$ and $|E|=k+1$. We'll pick $e \in E$ and
+        we'll define $G_0=(V,E\setminus\{e\})$, which is a graph with $n$
+        vertices and $k$ edges.
+
+        From the initial assumption, the number of components in $G_0 \geq
+        n-k$.
+
+        Suppose $e=(u,v)$. If in $G_0$, $u$ and $v$ belong to the same
+        component, then the number of components in $G =$ the number of
+        components in $G_0 \geq n-k > n-k-1$.
+
+        If $u$ and $v$ are not in the same component in $G_0$, then the number
+        of components in $G =$ number of components in $G_0-1 \geq n-k-1 =
+        n-(k+1)$.
+    \end{enumerate}
+\end{proof}
+\begin{definition}[Simple Path]
+     A path $(v_0,\dots,v_n)$ is called a \emph{simple path} if all the
+     vertices $v_0,\dots,v_n$ are different from each other.
+\end{definition}
+\begin{definition}[Simple Circuit]
+    A path $(v_0,\dots,v_n)$ is called a \emph{simple circuit} if
+    $v_1,\dots,v_n$ are all different and $v_1=v_n$ (where $n\geq3$).
+\end{definition}
+
+\section{Trees}
+\begin{definition}[Tree]
+    A connected graph without any \emph{simple circuits} is called a
+    \emph{tree}.
+
+    $v$ is a \emph{leaf} (external vertex) if $\deg(v)=1$.
+\end{definition}
+\begin{lemma}
+    Any \emph{tree} that has more than one \emph{vertex} has at least one
+    \emph{leaf}.
+\end{lemma}
+\begin{proof}
+    Given a tree $G=(V,E)$ and $v_0 \in V$. $\deg(v_0) \neq 0$, because that
+    would with violate the requirement that trees are \emph{connected} or the
+    condition of having more than one vertex of the initial claim.
+
+    If $\deg(v_0)=1$, we found a \emph{leaf}.
+
+    If $\deg(v_0)>1$ than it has part of a path that has an end vertex $v_n$
+    such that $\deg(v_n)=1$ (because there are no circuits in trees).
+\end{proof}
+\begin{claim}
+    If $G=(V,E)$ is a tree, then $|V|-|E|=1$.
+\end{claim}
+\begin{proof}
+   Proof by induction on the number of vertices in the graph:
+   \begin{enumerate}[I.]
+       \item $|V|=0$, and therefore $E = \emptyset$, and therefore
+           $|V|-|E|=1-0=1$.
+       \item We assume $|V|=n$ works, and we proof $|V|=n+1$ also works:
+
+        As per the aforementioned lemma, there exists a leaf $v \in V$.
+
+        Let there be $e \in E$ such that $v\in e$. We then define
+        $G'=(V\setminus\{v\},E\setminus \{e\})$. We see that $G'$ is a tree
+        because it doesn't contain any \emph{simple circuits} and is
+        \emph{connected}, because we removed only a \emph{leaf} and its edge.
+
+        In addition, $G'$ has $n=|V|-1$ vertices and $|E|-1$ edges. Therefore, $G'$
+        fulfills the assumption of induction and therefore:
+        $$|V|-|E|=(|V|-1)-(|E|-1)=|V\setminus\{v\}|-|E\setminus\{e\}|=1$$
+   \end{enumerate}
+\end{proof}
+\begin{claim}
+    Given graph $G=(V,E)$ without \emph{simple circuits} such that
+    $|V|-|E|=1$, then $G$ is \emph{connected}.
+\end{claim}
+\begin{proof}
+    $V_1,V_2,\dots V_l$ are \emph{connected components} of G.
+
+    For all $1 \leq i \leq l$:
+    $$E_i=\{\{u,w\}\in E \mid u,w \in V_i\}$$
+    Because \emph{components} are \emph{equivalence classes}, we know that
+    $E_i\cap E_j=\emptyset$ and $E_1\cap E_2 \cap \dots \cap E_l=E$. From here
+    we see that $|E_1|+|E_2|+\dots+|E_l|=|E|$.
+
+    In addition, for all $1 \leq i \leq l$, the graph $G_i=(V_i,E_i)$ is a tree
+    because it is \emph{connected} and doesn't have any \emph{simple circuits}.
+    Therefore, as per the previous claim, $|V_i|-|E_i|=1$.
+    \begin{gather*}
+    1=|V|-|E|=(|V_1|+\dots+|V_l|)-(|E_1|+\dots+|E_l|)=(|V_1|-|E_1|)+\dots+(|V_l|-|E_l|)
+    \\
+    =\underbrace{1+1+\dots+1}_{l \text{ times}}=l \implies l=1
+    \end{gather*}
+    Therefore, $G$ has only one \emph{connected component}, meaning $G$ is
+    \emph{connected}.
+\end{proof}
+\begin{claim}
+    If $G=(V,E)$ is a \emph{connected} graph and $(v_0,\dots,v_n)$ is a
+    simple circuit in $G$, then $G'=(V,E\setminus\{(v_0,v_1)\})$ is also
+    \emph{connected}.
+\end{claim}
+\begin{proof}
+    Given $u,w \in V$. Given that $G$ is \emph{connnected}, there is a
+    \emph{path} $(u=w_0,w_1,\dots,w_k=w)$.
+
+    If for all $1\leq i \leq k$: $(w_{i-1},w_i)\neq (v_0,v_1)$, then this path is
+    in $G'$ and therefore $u,w$ are connected in $G'$.
+
+    If there does exist $1 \leq i \leq k$: $(w_{i-1},w_1)=(v_0,v_1)$, then
+    either $w_{i-1}=v_0,w_i=v_1$ or $w_{i-1}=v_1,w_i=v_0$.
+
+    In the first case:
+    $$(u=w_0,w_1,\dots,w_{i-1}=v_n,v_{n-1},\dots,v_2,v_1=w_i,w_{i+1},\dots,w_k=w)$$
+    Is a path in $G'$ that connects $u$ and $w$.
+
+    In the second case:
+    $$(u=w_0,w_1,\dots,w_{i-1}=v_1,v_2,\dots,v_{n-1},v_n=v_0=w_i,w_{i+1},\dots,w_k=w)$$
+    Is a path in $G'$ that connects $u$ and $w$.
+
+    In all cases $u$ and $w$ are connected in $G'$, which means $G'$ is
+    \emph{connected}.
+\end{proof}
+\begin{claim}
+    If $G=(V,E)$ is a \emph{connected graph} such that $|V|-|E|=1$, then $G$
+    does not have any \emph{simple circuits}.
+\end{claim}
+\begin{reminder}
+    The number of \emph{components} in any graph $G=(V,E)$ is greater than or equal
+    to $|V|-|E|$.
+\end{reminder}
+\begin{proof}
+    We will prove by contradiction that $G$ contains a \emph{simple circuit}
+    $(v_0,v_1,\dots,v_n)$.
+
+    Per our previous claim, the graph $G=(V,E\setminus\{(v_0,v_1)\})$ is also
+    connected, and $|E\setminus\{(v_0,v_1)\}|=|E|-1$. Per the reminder about
+    the relationship between the number of components in a graph and the
+    number of vertices and edges it has, the number of components in $G'$ is at
+    least:
+    $$|V|-|E\setminus\{(v_0,v_1)\}|=|V|-(|E|-1)=(|V|-|E|)+1=1+1=2$$
+    which means that $G'$ is not \emph{connected}, which is a contradiction.
+\end{proof}
+\begin{theorem}[Trees]
+    Let $G=(V,E)$ be a graph.
+
+    Any two of these conditions implies the third one to also be true:
+    \begin{enumerate} \tightlist
+        \item $G$ is \emph{connected}
+        \item $G$ does not contain any \emph{simple circuits}
+        \item $|V|-|E|=1$
+    \end{enumerate}
+\end{theorem}
+\section{Bigraphs}
+
+\begin{definition}[Two-sided (Bipartite) Graph]
+    Graph $G=(V,E)$ is a \emph{bigraph} if we can express $V$ as a
+    \emph{disjoint union} $V_1 \cup V_2$ such that for all $e \in E$ joins a
+    vertex from $V_1$ with a vertex from $V_2$. In such a can we symbolize
+    $G=(V_1,V_2,E)$.
+    \begin{note}
+        There may be more than one way to define $V_1$ and $V_2$.
+    \end{note}
+\end{definition}
+\begin{example}
+    \label{bigraph}
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.66\textwidth]{w12_bigraph}
+        \caption{Example \ref{bigraph} of a two ways to express a
+            \emph{bigraph}}
+    \end{figure}
+\end{example}
+\begin{definition}[Cubic Graph ($Q_3$)]
+    \begin{gather*}
+    V=\{0,1\}^3 \quad |V|=8 \\
+    E=\{(a_1,b_1,c_1),(a_2,b_2,c_2) \mid |a_1-a_2|+|b_1-b_2|+|c_1-c_2|=1\}
+    \end{gather*}
+    How we define the two parts of the bigraph:
+    \begin{gather*}
+        V_1=\{(a,b,c) \mid a+b+c \text{ is even}\} \\
+        V_2=\{(a,b,c) \mid a+b+c \text{ is odd}\}
+    \end{gather*}
+        \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.33\textwidth]{w12_cubic}
+        \caption{Example of a cubic graph}
+    \end{figure}
+\end{definition}
+\begin{definition}[Complete Bigraph ($K_{n,m}$)]
+    \begin{gather*}
+    |V_1|=m,|V_2|=n \quad V_1 \cap V_2 = \emptyset \\
+    E = \{\{v,u\} \mid v \in V_1, u \in V_2\} \\
+    |V|=m+n \quad |E|=mn
+    \end{gather*}
+\end{definition}
+\begin{claim}
+    In a \emph{bigraph} the number of vertices in a \emph{simple circuit} is
+    always even.
+\end{claim}
+\begin{definition}[Regular Graph]
+    A graph $G=(V,E)$ is \emph{$d$-regular} if from all $v \in V$, $\deg(v)=d$.
+
+    For example, $Q_3$ is $3$-regular.
+\end{definition}
+\begin{claim}
+    For a \emph{regular} bigraph, $|V_1|=|V_2|$.
+\end{claim}
+\begin{proof}
+    $$|E|=d\cdot |V_1|=d\cdot |V_2| \implies |V_1|=|V_2|$$
+\end{proof}
+\section{Special Circuits}
+\subsection{Hamiltonian Circuits}
+
+\begin{definition}[Hamiltonian Circuit]
+    A \emph{simple circuit} is called a \emph{Hamiltonian circuit} if it passes
+    through each vertex of a graph exactly once.
+
+    In other words, $(v_0,v_1,\dots,v_n=v_0)$ is a \emph{Hamiltonian circuit} if
+    for all $v \in V$ there exists $1\leq i \leq n$ such that $v_i=v$.
+\end{definition}
+\begin{claim}
+    If $G=(V_1\cup V_2,E)$ is a \emph{bigraph} and $G$ contains a
+    \emph{Hamiltonian circuit}, then $|V_1|=|V_2|$.
+\end{claim}
+\begin{proof}
+    We suppose $(v_0,v_1,\dots,v_n=v_0)$ is a \emph{Hamiltonian circuit} where:
+    $$v_0 \in V_1 \to v_1 \in V_2 \to v_2 \in V_1 \to v_3 \in V_2 \to\dots$$
+    From this we see that $n$ is even and that $|V_1|=|V_2|$.
+\end{proof}
+\begin{claim}
+    For all $n\geq 2$, the graph $Q_n$ contains a \emph{Hamiltonian circuit}.
+\end{claim}
+\begin{definition}[Hypercube Graph ($Q_n$)]
+    \begin{gather*}
+    V=\{0,1\}^n \quad |V|=2^n \\
+    E=\left\{(a_1,\dots,a_n),(b_1,\dots,b_n) \;\middle|\; \sum_{i=1}^{n}|a_i-b_i|=1\right\}
+    \end{gather*}
+\end{definition}
+\begin{proof}
+    We will use proof by induction:
+    \begin{enumerate}[I.]
+        \item $n=2$
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.2\textwidth]{w12_q2}
+        \caption{\emph{Hamiltonian} graph of $Q_2$}
+    \end{figure}
+        \item We assume correctness on $Q_{n-1}$ and will prove for $Q_n$:
+    \begin{gather*}
+        A=\{(a_1,a_2,\dots, a_{n-1},0) \mid \forall i \in [n-1], a_i \in\{0,1\}\} \\
+        B=\{(a_1,a_2,\dots, a_{n-1},1) \mid \forall i \in [n-1], a_i \in\{0,1\}\} \\
+        V=A \cup B
+    \end{gather*}
+        \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.33\textwidth]{w12_q3}
+        \caption{\emph{Hamiltonian} graph of $Q_3$}
+    \end{figure}
+    Based on our assumption, $A$ contains the following \emph{Hamiltonian
+    circuit}:
+    $$(v_0,v_1,\dots,v_{2^{n-1}}=v_0) \quad v_0=(0,0,\dots,0)$$
+    And $B$ contains the following \emph{Hamiltonian circuit}:
+    $$(u_0,u_1,\dots,u_{2^{n-1}}=u_0) \quad u_0=(0,0,\dots,1)$$
+    \begin{note}
+        We can go from $v_i$ to $u_i$ by changing the last number from $0$ to $1$.
+    \end{note}
+    Therefore, we can create the following \emph{Hamiltonian circuit}:
+    $$(v_0,v_1,\dots,v_{2^{n-1}-2},v_{2^{n-1}-1},u_{2^{n-1}-1},u_{2^{n-1}-2},\dots,u_2,u_1,u_0,v_0)$$
+    Which is a \emph{Hamiltonian circuit} in $Q_n$.
+    \end{enumerate}
+\end{proof}
+\end{document}

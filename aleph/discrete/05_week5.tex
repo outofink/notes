@@ -1,0 +1,162 @@
+\documentclass[00_complete]{subfiles}
+
+%\input{../preamble}
+\title{Discrete Mathematics}
+\author{Moshe Krumbein}
+\date{Fall 2021}
+
+\begin{document}
+\setcounter{chapter}{4}
+\chapter{Counting Problems}
+
+\section{Introduction}
+
+Essentially, there are four basic counting problems:
+\begin{table}[ht]
+\centering
+{\renewcommand{\arraystretch}{1.2}% for the vertical padding
+\begin{tabular}{ccc}
+ \hline
+& Repeats & No Repeats \\
+ \hline
+    Order is important & ?&? \\
+    Order is unimportant & ?&? \\
+ \hline
+\end{tabular}}
+\caption{Types of counting problems}
+\end{table}
+
+\section{Order is important}
+\subsection{Repeats}
+When order is important, but there are repeats, we can simply express the
+number of ways to place $n$ different balls in $k$ places as:
+$$n^k$$
+\subsection{No Repeats}
+
+If $n=k$, we get the number of permutations on $[n]$, which is $n!$.
+
+$$
+\begin{gathered}
+    D=\{f:[k]\to[n] \mid f \text{ is injective}, \forall i \in [k]: f(i)=n\} (n
+    \notin Imf) \\
+    |D|= \frac{(n-1)!}{(n-1-k)!}
+\end{gathered}
+$$
+$$
+\begin{gathered}
+    E=\{f:[k]\to[n] \mid f \text{ is injective}, \exists! i \in [k]: f(i)=n\}
+    \\
+    \forall i \in[k]: E_i = \{f \in E \mid f(i) = n \} \\
+    |E_i| =\frac{(n-1)!}{n-1-(k-1)} = \frac{(n-1)!}{(n-k)!} \implies |E| = \frac{k(n-1)!}{(n-k)!}
+    = \frac{n!}{(n-k)!} - \frac{(n-1)!}{(n-1-k)!}
+\end{gathered}
+$$
+
+Simply put, the number of ways to place $n$ distinct balls in $k$ places
+without repeats is:
+$$\frac{n!}{(n-k)!}$$
+\section{Order is unimportant, without repeats}
+
+Instead of dealing with sequences, we're dealing with sets.
+
+In essence, when order is unimportant, we just divide the answer where order is
+important by $k!$:
+$$
+    \frac{n!}{k!(n-k)!}
+$$
+
+This is also known as the \emph{binomial coefficient}, symbolized as:
+$$
+    \binom{n}{k}
+$$
+
+\subsection{Characteristics of binomial coefficients}
+\begin{enumerate}
+    \item $\displaystyle \binom{n}{0} = 1, \binom{n}{n} = 1, \binom{n}{1} = n = \binom{n}{n-1}$
+    \item $\displaystyle \binom{n}{k} \in \mathbb{N} \quad (n \in \mathbb{N}\cup\{0\}, 0 \leq k \leq
+   n)$
+    \item Symmetry: $\displaystyle \binom{n}{k} = \binom{n}{n-k}$
+\end{enumerate}
+
+\begin{symbols}
+$$[n] = \{1,2, \dots, n\},
+\binom{[n]}{k} = \{A \subseteq [n] \mid |A| = k \}$$
+$$\left|\binom{[n]}{k}\right| = \binom{n}{k}$$
+\end{symbols}
+
+\begin{proof}
+$$
+\begin{gathered}
+    f : \binom{[n]}{k} \to \binom{[n]}{n-k} \\
+    A \in \binom{[n]}{k}, \quad f(A)=([n]\setminus A) \in \binom{[n]}{n-k} \\
+    f(f(A)) = A \quad B \in \binom{[n]}{n-k}, f(f(B))=B
+\end{gathered}
+$$
+\end{proof}
+
+\begin{conclusion}
+$f$ is \emph{invertible}: therefore:
+\end{conclusion}
+algebraically:
+
+$$\binom{n}{n-k} = \frac{n!}{(n-k)!(n-(n-k))!} = \frac{n!}{k!(n-k)!} =
+\binom{n}{k}$$
+$$\binom{n}{k}=\binom{n}{n-k}$$
+
+
+Back to characteristics:
+\begin{enumerate}
+    \item[4.] Pascal's rule:
+$$\binom{n-1}{k} + \binom{n-1}{k-1} = \binom{n}{k}$$
+\end{enumerate}
+
+\section{Order is unimportant, with repeats}
+
+\subsection{Multinomial Coefficients}
+
+If we had to order $k_1$ balls of the color $1$, $k_2$ balls of color $2$,
+$\dots k_m$ balls of color $m$, how many ways can we sort them (where the order
+of balls of the same color does not matter).
+$$
+    n = \sum_{i=1}^m k_i, \quad \frac{n!}{k_1!k_2!\dots k_m!}
+    = \binom{n}{k_1,k_2,\dots,k_m} -
+    \text{\emph{multinomial coefficient}}
+$$
+
+As a generalization:
+$$\frac{(a+b+c)!}{a!\;b!\;c!} =\binom{a+b+c}{a,b,c} = \binom{a+b+c}{c}\cdot\binom{a+b}{b}\cdot\binom{a}{a}$$
+
+If we apply Pascal's rule to multinomial coefficients, we receive the following
+generalization:
+$$\binom{a+b+c}{a,b,c} = \binom{(a+b+c)-1}{a-1,b,c}+\binom{(a+b+c)-1}{a,b-1,c}+\binom{(a+b+c)-1}{a,b,c-1}$$
+
+\subsection{The Question}
+
+\begin{enumerate}
+\item How many ways can we distribute $k$ items to $n$ people?
+\item How many ways can we pick $k$ items from $n$ different piles?
+\item How many solutions (whole, positive) to the following equation:
+$$x_1+x_2+\dots+x_n=k$$
+\end{enumerate}
+
+A helpful way to view this problem is by asking how many ways can we place
+$n-1$ dividers among between $k$ places? (which really means if dividers take
+up space then how many ways to place $n-1$ items over $k + (n-1)$ places?)
+$$\binom{k+(n-1)}{n-1} = \boxed{\binom{n+k-1}{k}}$$
+
+\section{Conclusion}
+
+\begin{table}[ht]
+\centering
+{\renewcommand{\arraystretch}{1.2}% for the vertical padding
+\begin{tabular}{ccc}
+ \hline
+& Repeats & No Repeats \\
+ \hline
+ Order is important & $n^k$ & $\dfrac{n!}{(n-k)!}$ \\
+ Order is unimportant & $\displaystyle\binom{n+k-1}{k}$ & $\displaystyle\binom{n}{k}=\frac{n!}{k!(n-k)!}$ \\
+ \hline
+\end{tabular}}
+\caption{Our final table}
+\end{table}
+\end{document}
