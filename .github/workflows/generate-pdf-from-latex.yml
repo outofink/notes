@@ -11,14 +11,14 @@ jobs:
         with:
           root_file: 00_complete.tex
           working_directory: aleph/discrete
-          post_compile: "mv 00_complete.pdf web/discrete_mathematics.pdf"
+          post_compile: "mv aleph/discrete/00_complete.pdf web/discrete_mathematics.pdf"
 
       - name: Generate "Mathematical Methods I" PDF
         uses: xu-cheng/latex-action@v2
         with:
           root_file: 00_complete.tex
           working_directory: aleph/methods
-          post_compile: "mv 00_complete.pdf web/mathematical_methods.pdf"
+          post_compile: "mv aleph/methods/00_complete.pdf web/mathematical_methods.pdf"
 
       - name: Deploy to GitHub Pages
         if: success()
