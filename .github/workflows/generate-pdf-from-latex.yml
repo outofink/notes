@@ -1,9 +1,7 @@
 name: generate-pdf-from-latex
-
-on: push
-
+on: [push]
 jobs:
-  publish:
+  build-latex:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
