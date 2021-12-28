@@ -4,11 +4,11 @@
 !.github/workflows/generate-pdf-from-latex.yml
 !web/*
 !aleph/preamble.tex
-!aleph/discrete/*.png
 !aleph/discrete/*.tex
-!aleph/discrete/*.svg
-!aleph/discrete/*.pdf*
-!aleph/methods/*.png
+!aleph/discrete/images/*.png
+!aleph/discrete/images/*.svg
+!aleph/discrete/images/*.pdf*
 !aleph/methods/*.tex
-!aleph/methods/*.svg
-!aleph/methods/*.pdf*
+!aleph/methods/images/*.png
+!aleph/methods/images/*.svg
+!aleph/methods/images/*.pdf*
