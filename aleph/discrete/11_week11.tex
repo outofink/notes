@@ -396,4 +396,185 @@ These equivalence classes are called \emph{connected components} of $G$.
     Which is a \emph{Hamiltonian circuit} in $Q_n$.
     \end{enumerate}
 \end{proof}
+\subsection{Eulerian Circuits}
+\begin{definition}[Eulerian Circuit]
+   Given connected graph $G$, a \emph{circuit} (not necessarily \emph{simple})
+   $(v_0,v_1,\dots,v_n=v_0)$ is called an \emph{Eulerian circuit} if for all $e
+   \in E$ there exists a single $1\leq i \leq n$ such that $e=\{v_i,v_{i+1}\}$.
+
+   In other words, an \emph{Eulerian circuit} is circuit that visits each edge
+   exactly once.
+\end{definition}
+\begin{example}[Seven Bridges of K\"onigsberg]
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.33\textwidth]{w12_konigsberg}
+        \caption{Map of K\"onigsberg in Euler's time}
+    \end{figure}
+    The problem was to devise a \emph{circuit} such that one could cross every
+    bridge exactly once. Euler proved this to be impossible.
+\end{example}
+\begin{theorem}
+    Given a connected graph $G=(V,E)$, there exists an \emph{Eulerian circuit}
+    if and only if for all $v \in V$, $\deg(v)$ is even.
+\end{theorem}
+\begin{proof}
+    Being that we have to prove that this is $\iff$, we must prove both directions:
+    \begin{enumerate}
+        \item[$\Leftarrow$] Given an \emph{Eulerian circuit}, each visit to a
+            vertex adds $2$ to its degree. (This is also true for the vertex
+            that we started from because we initially leave from it and must
+            return to it in the end)
+
+        \item[$\Rightarrow$] We will prove by induction on the number of edges
+            $|E|=m$.
+            \begin{enumerate}[I.]
+               \item $m=0$ $\checkmark$
+               \item We assume the statement holds for less than $m$ edges:
+
+            $G$ is connected, and for all $v \in V$, $\deg(v)$
+            is even. Therefore, $G$ does not have any \emph{leaves}, and is
+            therefore not a \emph{tree}. And since $G$ is connected but isn't a
+            \emph{tree}, we know that it then must contain a \emph{simple
+            circuit} $(v_0,v_1,\dots,v_n=v_0)$.
+
+            We define $G'=(V,E')$ as $G$ without all the edges in its
+            \emph{simple circuit}. In other words:
+            $$E'=E \setminus \{\{v_i,v_{i+1}\} \mid 0 \leq i \leq n-1\}$$
+            In $G'$, the degree of each vertex is even. However $G'$ is not
+            necessarily connected. We will define $G'$'s \emph{components} as
+            $V_1,V_2,\dots,V_l$, where for all $1 \leq i \leq l$: $G_i=(V_i,E_i)$.
+
+            For all $G_i$ the number of edges is less than $m$. Therefore based
+            on the assumption of induction, $G_i$ contains a \emph{Eulerian
+            circuit}.
+
+            We see that for all $i$: $V_i\cap\{v_0,v_1,\dots,v_{n-1}\}\neq
+            \emptyset$. In other words, for each \emph{component} $V_i$, there
+            is a representative from the original circuit.
+
+            Given $u \in V_i$, knowing that $G$ is connected, there exists a
+            \emph{path} in $G$ between $v_0$ and $u$.
+            $$(w_0=v_0,w_1,w_2,\dots,w_n=u)$$
+            $$j=\max\{i\mid w_i \in \{v_0,v_1,\dots,v_{n-1}\}\}$$
+            We get that all the vertices $w_j,\dots,w_k$ are all in $V_i$, and
+            therefore $w_j$ is part of the circuit and it is the representative
+            of the circuit in \emph{component} $V_i$.
+            We see that we can chose a set of representatives from all of the
+            \emph{components} that are all in the set $\{v_0,\dots,v_{n-1}\}$.
+
+            We will now build an \emph{Eulerian circuit} for the graph $G$:
+            $$\forall \; 1 \leq i \leq l: f(i)=\min\{i \mid v_i \in V_i\}$$
+            We will begin with $v_0$. If there exists an $i$ such that $v_0=f(i)$,
+            then we will cover \emph{component} $V_i$ by an \emph{Eulerian
+            circuit} that we got from our induction assumption. We now continue
+            to $v_1$. If there exists an $i$ such that $v_1=f(i)$ we will cover
+            $V_i$ until we come back to $v_1$. Then we can continue to $v_2$
+            and so on until $v_n=v_0$.
+            \end{enumerate}
+    \end{enumerate}
+\end{proof}
+\section{Ramsey Theory}
+
+Coloring of graph $G=(V,E)$ with $k$ colors $\{c_1,c_2,\dots,c_k\}$ is
+essentially a function:
+$$C: E \to \{c_1,c_2,\dots,c_k\}$$
+We will specifically we working with coloring graphs with two different colors,
+namely \textcolor{red}{red} and \textcolor{blue}{blue}.
+
+\begin{claim}
+    In coloring $K_6$ (the complete graph with six vertices), with two colors
+    \textcolor{red}{red} and \textcolor{blue}{blue}, we will be able to find a
+    \textcolor{red}{red $K_3$} or a \textcolor{blue}{blue $K_3$} (or both).
+\end{claim}
+
+\begin{proof}
+    Suppose $v_0 \in V$. Given that our graph is complete, $\deg(v_0)=5$. By
+    the \emph{pigeonhole principle}, there are at least \textcolor{red}{three red
+    edges} or \textcolor{blue}{three blue edges} emanating from $v_0$.
+
+    If $v_0$ emits \textcolor{red}{three red edges} we will label the vertices
+    they connect to $u_1,u_2,u_3$. If there is $1 \leq i < j \leq 3$ such that
+    $(u_i,u_j)$ is \textcolor{red}{red} then $v_0,u_i,u_j$ forms a
+    \textcolor{red}{red $K_3$}. If there aren't any, then we know that
+    $u_1,u_2,u_3$ forms a \textcolor{blue}{blue $K_3$}.
+
+    Likewise, if $v_0$ emits \textcolor{blue}{three blue edges}, the same can
+    be said in reverse.
+\end{proof}
+
+\begin{definition}[Ramsey's theorem]
+    Given $s,t \in \mathbb{N}$, $R(s,t)$ is the smallest $n$ such that when
+    coloring $K_n$ in \textcolor{red}{red} or \textcolor{blue}{blue}, at least
+    on of the following cases is true:
+    \begin{enumerate}[a.] \tightlist
+        \item There is $S \subset V$, $|S|=s$ such that all edges between the
+            vertices in $S$ are \textcolor{red}{red}.
+        \item There is $T \subset V$, $|T|=t$ such that all edges between the
+            vertices in $T$ are \textcolor{blue}{blue}.
+    \end{enumerate}
+    In other words there is guaranteed to be a \textcolor{red}{red $K_s$} or a
+    \textcolor{blue}{blue $K_t$} (or both).
+\end{definition}
+From our previous claim, $R(\textcolor{red}{3},\textcolor{blue}{3}) \leq 6$.
+How can we prove that $R(\textcolor{red}{3},\textcolor{blue}{3})= 6$?
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=0.33\textwidth]{w12_k5}
+        \caption{A coloring of $K_5$ with no monochromatic $K_3$}
+    \end{figure}
+
+Since $R(\textcolor{red}{3},\textcolor{blue}{3}) \neq 5$,
+$R(\textcolor{red}{3},\textcolor{blue}{3}) = 6$.
+
+For all $s,t$:
+\begin{itemize} \tightlist
+    \item $R(1,t) = 1$
+    \item $R(s,1) = 1$
+    \item $R(2,t) = t$
+    \item $R(s,2) = s$
+    \item $R(4,4) = 18$
+    \item $R(5,5) = \text{still unknown!}$
+\end{itemize}
+\begin{lemma}
+    For all $m,n \in \mathbb{N}$:
+    $$R(n,m)\leq \underbrace{R(n-1,m)}_{a}+\underbrace{R(n,m-1)}_{b}$$
+\end{lemma}
+\begin{proof}
+    For all colorings of $K_{a+b}$ in \textcolor{red}{red} or
+    \textcolor{blue}{blue} we are guaranteed that there will be either a
+    \textcolor{red}{red $K_n$} or a \textcolor{blue}{blue $K_m$}.
+
+    Suppose $v \in V$. $v$ emits $a+b-1$ edges. We are guaranteed one of the
+    following cases:
+    \begin{enumerate}[a.] \tightlist
+        \item From $v$ emanates \textcolor{red}{$a$ red edges}.
+        \item From $v$ emanates \textcolor{blue}{$b$ blue edges}.
+    \end{enumerate}
+    Suppose that case "a" is true:
+
+    We look at the $a$ neighbors that are connected to $v$ by
+    \textcolor{red}{red edges}. We are guaranteed that between then there
+    exists either a \textcolor{red}{red $K_{n-1}$} or a \textcolor{blue}{blue
+    $K_m$}. If there's a \textcolor{blue}{blue $K_m$}, we're done. Otherwise
+    there's a \textcolor{red}{red $K_{n-1}$} and we'll join $v$ to them to
+    create a \textcolor{red}{red $K_{n}$}.
+
+    If case "b" is true:
+
+    We look at the $a$ neighbors that are connected to $v$ by
+    \textcolor{blue}{blue edges}. We are guaranteed that between then there
+    exists either a \textcolor{red}{red $K_{n}$} or a \textcolor{blue}{blue
+    $K_{m-1}$}. If there's a \textcolor{red}{red $K_n$}, we're done. Otherwise
+    there's a \textcolor{blue}{blue $K_{m-1}$} and we'll join $v$ to them to
+    create a \textcolor{blue}{blue $K_{m}$}.
+\end{proof}
+\begin{example}
+    $$R(3,4) \leq 10$$
+    From our lemma:
+    $$R(3,4) \leq R(2,4)+R(3,3) = 4+6=10$$
+\end{example}
+\begin{theorem}
+    $$R(n,m) \leq \binom{n+m-2}{m-1}$$
+\end{theorem}
 \end{document}
