@@ -22,9 +22,9 @@ jobs:
       - run: touch web/.nojekyll
       - name: Deploy to GitHub Pages
         if: success()
-        uses: crazy-max/ghaction-github-pages@v2
+        uses: JamesIves/github-pages-deploy-action@4.1.8
         with:
-          target_branch: gh-pages
-          build_dir: web
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: web
+          ssh-key: ${{ secrets.Actions }}
+          single-commit: true
