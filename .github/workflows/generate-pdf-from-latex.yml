@@ -19,7 +19,7 @@ jobs:
           root_file: 00_complete.tex
           working_directory: aleph/methods
           post_compile: "mv 00_complete.pdf ../../web/mathematical_methods.pdf"
-
+      - run: touch web/.nojekyll
       - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
