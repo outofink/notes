@@ -52,7 +52,6 @@
 
 \usepackage[Rejne]{fncychap}
 \usepackage{titling}
-\ChTitleVar{\Huge\centering\rm}
 
 \makeatletter
 \renewcommand{\@chapapp}{\vspace*{-100pt}\huge\thetitle}
@@ -65,6 +64,14 @@
   \par\nobreak\vspace*{35pt}}
 }
 \makeatother
+
+\newcommand{\Chapter}[2]{
+    \def\n{#2}
+    \setcounter{chapter}{\the\numexpr\n-1}
+    \chapter{#1}
+    \subtitle{\theauthor~- \thedate}
+}
+
 \DeclareMathOperator{\Ima}{Im}
 \DeclareMathOperator{\Id}{Id}
 \DeclareMathOperator{\cis}{cis}
