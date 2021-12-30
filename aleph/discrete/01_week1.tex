@@ -10,9 +10,9 @@
 
 \section{Sets}
 \begin{definition}[Discrete Sets]
-A \emph{discrete set} is a \emph{set} that has a distinct, individualized parts.
+A \emph{discrete set} is a set that has a distinct, individualized parts.
 
-Discrete sets may be finite or infinite (countable).
+Discrete sets may be finite or infinite (but countable).
 \end{definition}
 
 \begin{definition}[Sets]
@@ -20,7 +20,7 @@ A \emph{set} is a collection of objects.
 
 A set of objects of does not have to contain objects of only one type.
 
-A property of sets is that a set $A$ has a \emph{binary relation} between between
+A property of sets is that a set $A$ has a \emph{binary relation} between
 itself and an object $o$. Either $A$ contains or does not contain $o$.
 \end{definition}
 
@@ -236,7 +236,7 @@ Combination of logical relations in one statement.
 \end{example}
 \end{definition}
 
-\subsubsection{Relation between $\cup, \cap$ and $\lor \land$}
+\subsubsection{Relation between $\cup, \cap$ and $\lor, \land$}
 $$P : x \in A \quad Q: x \in B$$
 $$
 \begin{gathered}
@@ -259,16 +259,12 @@ $$
 $$
 
 $$\forall \; x \in A \quad P(x)$$
-
-Is true if every $P(x)$ is true, and will be false if even one $P(x)$ is false.
+is true if every $P(x)$ is true, and will be false if even one $P(x)$ is false.
 
 $$\exists \; x \in A \quad P(x)$$
+will be true if even one $P(x)$ is true, and will be false if all $P(x)$ is false.
 
-Will be true if even one $P(x)$ is true, and will be false if all $P(x)$ is false.
-
-Given $P(x), Q(x)$:
-
-The following logical statements can be constructed:
+Given $P(x), Q(x)$, the following logical statements can be constructed:
 $$
 \begin{gathered}
     \forall \; x \in A \quad \forall \; y \in B \quad P(x) \land Q(y) \\
@@ -298,12 +294,12 @@ $$\mathbb{R} \times \mathbb{R} = \mathbb{R}^2 = \{(x,y) \mid x, y \in \mathbb{R}
 
 If $A_1, \mathellipsis, A_n$ are sets:
 
-$$X_{i=1}^{n} = A_1 \times \mathellipsis \times A_n = \{(a_1, \mathellipsis,
+$$\mathlarger{X}_{i=1}^{n} = A_1 \times \mathellipsis \times A_n = \{(a_1, \mathellipsis,
 a_n) \mid \forall \; i \in [n], a_i \in A_i\}$$
 
 If $A_1, \ldots A_n$ are finite:
 
-$$|X_{i=1}^n A_i| = \prod_{i=1}^n |A_i|$$
+$$\left|\mathlarger{X}_{i=1}^n A_i\right| = \prod_{i=1}^n |A_i|$$
 
 \begin{definition}[Characteristics]
 \begin{gather*}

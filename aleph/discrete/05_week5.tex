@@ -93,11 +93,7 @@ $$
 $$
 \end{proof}
 
-\begin{conclusion}
-$f$ is \emph{invertible}: therefore:
-\end{conclusion}
-algebraically:
-
+Algebraically:
 $$\binom{n}{n-k} = \frac{n!}{(n-k)!(n-(n-k))!} = \frac{n!}{k!(n-k)!} =
 \binom{n}{k}$$
 $$\binom{n}{k}=\binom{n}{n-k}$$
@@ -115,7 +111,7 @@ $$\binom{n-1}{k} + \binom{n-1}{k-1} = \binom{n}{k}$$
 
 If we had to order $k_1$ balls of the color $1$, $k_2$ balls of color $2$,
 $\dots k_m$ balls of color $m$, how many ways can we sort them (where the order
-of balls of the same color does not matter).
+of balls of the same color does not matter)?
 $$
     n = \sum_{i=1}^m k_i, \quad \frac{n!}{k_1!k_2!\dots k_m!}
     = \binom{n}{k_1,k_2,\dots,k_m} -
@@ -129,7 +125,7 @@ If we apply Pascal's rule to multinomial coefficients, we receive the following
 generalization:
 $$\binom{a+b+c}{a,b,c} = \binom{(a+b+c)-1}{a-1,b,c}+\binom{(a+b+c)-1}{a,b-1,c}+\binom{(a+b+c)-1}{a,b,c-1}$$
 
-\subsection{The Question}
+\subsection{Different ways to ask the same question}
 
 \begin{enumerate}
 \item How many ways can we distribute $k$ items to $n$ people?

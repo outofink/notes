@@ -12,7 +12,7 @@
 
 \begin{theorem}
     If $A_1,\dots,A_n$ are \emph{pairwise disjointed}, then:
-    $$\left|\bigcup_{i=1}^n\right| = \sum_{i=1}^{n}|A_i|$$
+    $$\left|\bigcup_{i=1}^nA_i\right| = \sum_{i=1}^{n}|A_i|$$
     However, there are $\binom{n}{2}$ conditions to check:
     $$\forall a,j \in [n]: A_i \cap A_j = \emptyset$$
 \end{theorem}
@@ -43,7 +43,7 @@ C| \\&+ |A \cap B \cap C|
 
 \begin{theorem}[Inclusion-Exclusion Formula]
     $$\begin{gathered}
-        |\bigcup_{i=1}^nA_i| = \underbrace{|A_1|+|A_2|+\dots+|A_n|}_{\binom{n}{1}}
+        \left|\bigcup_{i=1}^nA_i\right| = \underbrace{|A_1|+|A_2|+\dots+|A_n|}_{\binom{n}{1}}
     - \underbrace{|A_1\cap A_2|}_{\binom{n}{2}} \\\dots +(-1)^{n+1}|A_1\cap A_2
     \cap \dots \cap A_n|\\
     =\sum_{j=1}^{n}\sum_{\begin{subarray}{l} k \subseteq N \\ |k| =

@@ -10,11 +10,9 @@
 
 \section{Functions}
 
-Given two sets $A, B$, function $f: A \mapsto B$, there $\forall a
-\in A$ that maps to $b \in B$.
+Given two sets $A, B$, function $f: A \mapsto B$, all $a \in A$ maps to $b \in B$.
 
 $A$ is called the \emph{domain} and $B$ is called the \emph{range}.
-
 $$f(a)=b$$
 
 $a$ is \emph{a source} of $b$, and $b$ is \emph{the image} of $a$.
@@ -36,9 +34,9 @@ $$ f^{-1}(D) = \{a \in A \mid f(a) \in D\}$$
 
 \item
 $$A \subseteq U$$
-$$\mathbb{1}: U \mapsto \{0,1\} (\chi)$$
+$$\mathds{1}: U \mapsto \{0,1\} (\chi)$$
 
-$$\forall \; a \in U, \mathbb{1}_A(a) = \begin{cases}
+$$\forall \; a \in U, \mathds{1}_A(a) = \begin{cases}
     1 \quad a \in A \\
     0 \quad a \notin A
 \end{cases}$$
@@ -88,7 +86,7 @@ If $f$ is injective: $|A| \leq |B|$.
 If $f$ is surjective: $|A| \geq |B|$.
 
 If $f$ is both injective and surjective, it is \emph{bijective} (invertible) and: $|A| = |B|$.
-If we have two finite groups $A, B$, function $f: A \mapsto B$, and $C
+If we have two finite sets $A, B$, function $f: A \mapsto B$, and $C
 \subseteq A, D \subseteq B$:
 \begin{enumerate}
     \item $|f(c)| \leq |C|$
@@ -101,13 +99,13 @@ If we have two finite groups $A, B$, function $f: A \mapsto B$, and $C
     \begin{enumerate}
         \item $|f^{-1}(D)| \geq |D|$
     \end{enumerate}
-    \item If $f$ is injective and $|A|=|B|$, then it is also surjective
-    \item If $f$ is surjective and $|A|=|B|$, then we've learned nothing new
+    \item If $f$ is injective and $|A|=|B|$, then it is also surjective.
+    \item If $f$ is surjective and $|A|=|B|$, then we've learned nothing new.
 \end{enumerate}
 
 \subsection{Composing Functions}
 
-Given groups $A, B, C$:
+Given sets $A, B, C$:
 
 $$f: A \mapsto B, \quad g: B \mapsto C$$
 $$g \circ f: A \mapsto C: \forall \; a \in A:$$
@@ -211,32 +209,33 @@ We symbolize the \emph{collection} of permutations of $[n]$: $S_n$
 
 If $f, g \in S_n$, then $g \circ f: [n] \mapsto [n]$.
 
-If $g \circ f$ is "one-to-one", then we see it's also "onto" $g \circ f \in
-S_n$.
+If $g \circ f$ is \emph{one-to-one}, then we see it's also \emph{onto} $g \circ
+f \in S_n$.
+
 \end{definition}
 
 \begin{claim}
-If $f: A \to B$ is "one-to-one" and $g: B \to C$ is also "one-to-one", then $g
-\circ f A \to C$ is also "one-to-one".
+If $f: A \to B$ is \emph{one-to-one} and $g: B \to C$ is also
+\emph{one-to-one}, then $g \circ f A \to C$ is also \emph{one-to-one}.
 \end{claim}
 
 \begin{proof}
 Suppose $a_1, a_2 \in A$ such that $(g \circ f)(a_1)=(g \circ f)(a_2)$ (which
 means $a_1=a_2$).
 
-Given $g(f(a_1))=g(f(a_2))$ is "one-to-one" $\implies f(a_1)=f(a_2)$. $f$ is
-also "one-to-one" $\implies a_1=a_2$.
+Given $g(f(a_1))=g(f(a_2))$ is \emph{one-to-one} $\implies f(a_1)=f(a_2)$. $f$
+is also \emph{one-to-one} $\implies a_1=a_2$.
 \end{proof}
 
 \begin{conclusion}
-Conclusion: $g \circ f$ is "one-to-one".
+Conclusion: $g \circ f$ is \emph{one-to-one}.
 \end{conclusion}
 
 \begin{definition}
 Let $f: [n] \to [n]$ be the permutation of $f$, the minimal number of
 permutations $k$ such that $f_k=\Id_{[n]}$.
 
-We see that $k$ is the "lowest common multiple" of the lengths of the
+We see that $k$ is the \emph{lowest common multiple} of the lengths of the
 sub-permutations.
 \end{definition}
 \end{document}
