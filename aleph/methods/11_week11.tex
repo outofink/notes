@@ -1,6 +1,6 @@
-%\documentclass[00_complete]{subfiles}
+\documentclass[00_complete]{subfiles}
 
-\input{../preamble}
+%\input{../preamble}
 
 \title{Mathematical Methods}
 \author{Moshe Krumbein}
@@ -138,7 +138,286 @@ Or in other words, the \emph{image} of functions $f: \mathbb{R}^2\to
     $\dd{\underline f}$ is how much $\underline f$ changes when there is a
     small change in $\rho$ or $\theta$. We want to find the \emph{area} of
     $\dd{\underline f}$:
-    $$\|f_\rho\times f_\theta\|hk$$
+    $$\|h f_\rho \times k f_\theta\|=hk\|f_\rho\times f_\theta\|$$
 \end{example}
+Basically we see for small unit on the plane $u,v$ that the area is surface is
+approximately the area on the plane $uv$ times $\|f_u \times f_v\|$.
+\begin{definition}
+    A point such that $f_u \parallel f_v$ is called a \emph{singular point}.
+\end{definition}
+\section{Tangent plane on the surface \texorpdfstring{$f(u,v)$}{f(u,v)}}
 
+It's easy to see that $f_u,f_v$ span the plane and therefore the \emph{normal}
+of the plane is:
+$$N=f_u \times f_v \quad \hat N = \frac{f_u \times f_v}{\|f_u \times f_v\|}$$
+\begin{note}
+    There are many parameterizations for each plane, for example:
+    $$f(u,v)=\begin{pmatrix}
+        u\\v\\u^2+v^2
+    \end{pmatrix} \qquad g(u,v) = \begin{pmatrix}
+        u\cos v \\ u \sin v \\ u^2
+    \end{pmatrix}$$
+\end{note}
+\section{Change of Coordinates and Jacobian}
+\begin{reminder}
+    $f: \mathbb{R}^m \to \mathbb{R}n$:
+    \begin{itemize} \tightlist
+        \item Paths ($m=1$)
+        \item $f: \mathbb{R}^2 \to R$ (all of Chapter 10)
+        \item Surfaces ($m=2,n=3$)
+        \item $m=n$
+
+            Either changing coordinates or \emph{vector fields}
+    \end{itemize}
+\end{reminder}
+Suppose $f(x,y)$ is differentiable and:
+$$f(x,y)=\binom{u(x,y)}{v(x,y)}$$
+To find the area of a small section from $x,y$, we see that we can approximate
+with the area of the parallelogram of the vectors $u,v$, which we know can
+calculated by the \emph{determinant}:
+$$\begin{vmatrix}
+    hu_x&ku_y \\ hv_x&kv_y
+\end{vmatrix}$$
+\begin{note}
+    This matrix is the derivative $Df$ of $f$.
+\end{note}
+\begin{definition}[Jacobian]
+    This determinant is called the \emph{Jacobian} symbolized by
+    $\displaystyle \pdv{(u,v)}{(x,y)}$.
+\end{definition}
+We see that the area on the plane  $u,v$ is approximately the area on the plane
+$x,y$ times $\displaystyle\left|\pdv{(u,v)}{(x,y)}\right|$.
+\begin{example}
+    \begin{gather*}
+    f(r,\theta)=\binom{r\cos \theta}{r\sin\theta} \\ \\
+    J = \left|\pdv{(x,y)}{(r,\theta)}\right|=\begin{vmatrix}
+        \cos\theta &-r\sin\theta \\
+        \sin\theta &r\cos\theta
+    \end{vmatrix} = r(\cos^2\theta+\sin^2\theta)=r
+    \end{gather*}
+\end{example}
+\begin{note}
+    This is the same for working in three dimensions.
+\end{note}
+\begin{example}
+   \begin{gather*}
+       f(r,\theta,\phi) = \begin{pmatrix}
+           r\cos\theta\sin\phi \\
+           r\sin\theta\sin\phi \\
+           r\cos\phi
+       \end{pmatrix} \\ \\
+       \left|\pdv{(x,y,z)}{(r,\theta,\phi)}\right|=\left|\begin{pmatrix}
+           \vline & \vline & \vline \\
+           f_r & f_\theta & f_\phi \\
+           \vline & \vline & \vline
+       \end{pmatrix} \right| = r^2\sin\phi
+   \end{gather*}
+\end{example}
+\section{Operations on Vector and scalar Fields}
+Suppose we have a \emph{scalar field} $\phi:\mathbb{R}^n \to \mathbb{R}$ and
+a \emph{vector field} $f:\mathbb{R}^n\to \mathbb{R}^n$.
+\begin{enumerate}
+    \item Gradient:
+        $$\grad \phi = \begin{pmatrix}
+        \phi_x \\ \phi_y \\ \phi_z
+    \end{pmatrix}$$
+    \item Divergence:
+        $$\Div f = \div f= \pdv{f_1}{x_1}+\pdv{f_2}{x_2} + \dots + \pdv{f_n}{x_n}$$
+    \item Curl:
+
+        If $f$ is a \emph{vector field} in $\mathbb{R}^3$ then:
+        $$\Curl f = \curl f = \begin{vmatrix}
+            i & \pdv{x} & f_x \\
+            j & \pdv{y} & f_y \\
+            k & \pdv{z} & f_z
+        \end{vmatrix}$$
+\end{enumerate}
+\begin{example}
+    $$\phi(x,y,z)=x^2e^{2x+3z}$$
+    \begin{gather*}
+        \Grad \phi = \grad \phi = \begin{pmatrix}
+        2xy + 2e^{2x+3z} \\
+        x^2 \\
+        3e^{2x+3z}
+        \end{pmatrix}
+    \end{gather*}
+\end{example}
+\begin{example}
+    $$f(x,y,z)=\begin{pmatrix}
+        x^2y \\ yz \\ z
+    \end{pmatrix}$$
+    \begin{gather*}
+        \Div f = \div f = 2xy + z + 1 \\
+        \Curl f = \begin{vmatrix}
+            i & \pdv{x} & x^2y \\
+            j & \pdv{y} & yz \\
+            k & \pdv{z} & z
+        \end{vmatrix} = \begin{pmatrix}
+            -y \\ 0 \\ -x^2
+        \end{pmatrix}
+    \end{gather*}
+\end{example}
+\subsection{Characteristics of \texorpdfstring{$\Div$, $\Grad$, and
+$\Curl$}{div, grad, and curl}}
+\begin{enumerate}
+    \item $\grad \cdot (\curl A) = 0$
+
+        $\Div(\Curl A)=0$
+\end{enumerate}
+\section{Integrating a Scalar Field Along a Curve}
+Let $f: \mathbb{R}^2 \to \mathbb{R}$ be a \emph{vector field} and $\underline
+r: [a,b] \to \mathbb{R}^2$ be the \emph{curve} $C$.
+\begin{gather*}
+\int\limits_cf(x,y)\underbrace{\dd{s}}_{\text{small section of } C} \qquad
+\dd{s} = \|\underline{r}'(t)\|\dd{t} \\
+\int\limits_cf\dd{s}=\int_a^b f(\underline{r}(t))\|\underline{r}'(t)\|\dd{t}
+\end{gather*}
+\begin{example}
+    $$f(x,y)=y, \quad C= \text{ the upper half of the unit circle}$$
+    \begin{gather*}
+        r(t)=\binom{\cos t}{\sin t}_{0 \leq t \leq \pi} \quad
+        r'(t) = \binom{-\sin t}{\cos t}_{0 \leq t \leq \pi} \quad \|r'(t)\|=1 \\
+        \int\limits_cy\dd{s} = \int_0^\pi \sin t \cdot 1 \dd{t} = (-\cos
+        t)\Bigr|_0^\pi = 2
+    \end{gather*}
+\end{example}
+\section{Integrating a Vector Field Along a Curve}
+Given a \emph{vector field} (power field) $\underline f$ and \emph{curve} $C$.
+The work done by $F$ on $C$ is:
+$$\int\underline f \cdot \dd{\underline S}$$
+\begin{example}
+    $$f(x,y)=\binom{x^2y}{y-2x}$$
+    With the \emph{curve} $C$ on the section from $(1,1)$ to $(3,7)$.
+    \begin{gather*}
+        r(t)=\binom{1+2t}{1+6t} \\
+        \int\limits_c \underline f \cdot \dd{\underline S} = \int_a^b f(r(t)) \cdot
+        r'(t)\dd{t} \\
+        = \int_0^1\binom{(1+2t)^2(1+6t)}{1+6t-2(t+2t)}\cdot\binom{2}{6}\dd{t}
+        = \int_0^1 2(t+2t)^2(1+6t)+6(1+6t-2(1+2t))\dd{t}
+    \end{gather*}
+\end{example}
+Another form:
+\begin{gather*}
+    f(x,y)=\binom{f_1(x,y)}{f_2(x,y)} \quad r(t)=\binom{x(t)}{y(t)} \\
+    \int\limits_c \underline f \cdot \dd{\underline s} =
+    \int\limits_c\binom{f_1}{f_2} \cdot \binom{x'(t)}{y'(t)}\dd{t} =
+    \int\limits_c f_1 \underbrace{x'(t)\dd{t}}_{\dd{x}} + f_2\underbrace{y'(t)\dd{t}}_{\dd{y}}
+\end{gather*}
+\begin{theorem}
+    If $\phi$ is a \emph{scalar vector}, then:
+    $$\int\limits_c\grad \phi \cdot \dd{\underline S} = \phi(B)-\phi(A)$$
+    Regardless of the path.
+\end{theorem}
+\section{Examples}
+
+\begin{example}
+    $$f(u,v)=\begin{pmatrix}
+        uv \\ u + v \\ u^2 + v^2
+    \end{pmatrix}$$
+    For the point $(u,v) = (1,2)$
+    \begin{enumerate}
+        \item Normal:
+            \begin{gather*}
+                N=f_u \times f_v \\
+                N = \begin{pmatrix}
+                    v \\ 1 \\ 2u
+                \end{pmatrix} \times \begin{pmatrix}
+                    u \\ 1 \\ 2v
+                \end{pmatrix} = \begin{pmatrix}
+                    2v -2u \\ 2u^2-2v^2 \\ v-u
+                \end{pmatrix}
+            \end{gather*}
+            Substituting in our point:
+            \begin{gather*}
+                N= \begin{pmatrix}
+                    2\\1\\2
+                \end{pmatrix} \times \begin{pmatrix}
+                    1\\1\\4
+                \end{pmatrix} = \begin{pmatrix}
+                    2 \\-6\\1
+                \end{pmatrix} \\
+                \hat N = \frac{1}{\sqrt{41}}\begin{pmatrix}
+                    2\\-6\\1
+                \end{pmatrix}
+            \end{gather*}
+        \item Tangent plane:
+            \begin{gather*}
+                a(x-x_0)+b(y-y_0)+c(z-z_0)=0 \\
+                2(x-2)-6(y-3)+1(z-5)=0 \\
+            \end{gather*}
+        \item Linear approximation:
+            \begin{gather*}
+                \dd{f}=f_u\dd{u}+ f_v\dd{v} = \begin{pmatrix}
+                    2\\1\\2
+                \end{pmatrix}(u-1) + \begin{pmatrix}
+                    1\\1\\4
+                \end{pmatrix}(v-2) \\
+                f(u,v) \approx f_0 + \dd{f} = \begin{pmatrix}
+                    2\\3\\5
+                \end{pmatrix}+\begin{pmatrix}
+                    2\\1\\2
+                \end{pmatrix}(u-1)+\begin{pmatrix}
+                    1\\1\\4
+                \end{pmatrix}(v-2)
+            \end{gather*}
+    \end{enumerate}
+\end{example}
+\begin{example}
+    Find the \emph{Jacobean} of:
+    $$\binom{uv}{\frac{u}{v}}$$
+    \begin{gather*}
+        J=\begin{vmatrix}
+            f_{1u} & f_{1v} \\ f_{2u} & f_{2v}
+        \end{vmatrix} = \begin{vmatrix}
+            v & u \\ \frac{1}{v} & -\frac{u}{v^2}
+        \end{vmatrix} = -2\frac{u}{v}
+    \end{gather*}
+\end{example}
+\begin{example}
+    $\int\limits_cxy\dd{s}$, on the upper half a circle with the radius of $2$
+    centered at the origin.
+    \begin{gather*}
+        r(t) = \binom{2\cos t}{2\sin t}_{0 \leq t \leq \pi} \\
+        \int_{0}^{\pi}2\cos t \cdot 2 \sin t \cdot \underbrace{\left\|\binom{-2\sin
+        t}{2\cos t}\right\|}_{2}\dd{t} = 8 \int_{0}^{\pi}\sin t \cos t \dd{t}=0
+    \end{gather*}
+\end{example}
+\begin{example}
+    $\int\limits_cx^2\dd{y}+y\dd{x}$, on the fourth quadrant on a circle of radius $3$
+    centered at the origin, going clockwise.
+    \begin{gather*}
+        r(t)=\binom{3\sin t}{3\cos t}_{\frac{\pi}{2} \leq t \leq \pi} \left(\text{or }
+        r(t)=\binom{3\cos(-t)}{3\sin(-t)}_{0\leq t\leq \frac{\pi}{2}}\right) \\
+        \int_{\frac{\pi}{2}}^{\pi}(
+            \underbrace{(3\sin t)^2}_{x^2}
+            \underbrace{(-3\sin t)}_{y'(t)}+
+            \underbrace{(3\cos t)}_{y}
+            \underbrace{(3\cos t)}_{x'(t)}
+        )\dd{t}
+    \end{gather*}
+\end{example}
+\begin{example}
+        $\int\limits_c\begin{pmatrix}
+            \cos z \\ z \\y-x\sin z
+        \end{pmatrix}\dd{\underline r}$ on the curve $(2\cos t,t^2,\cos(2t))$,
+        $0 \leq t \leq \pi$.
+        \begin{gather*}
+            \int_{0}^{\pi}\begin{pmatrix}
+                \cos(\cos 2t) \\ \cos 2t \\ t^2-2\cos \sin(\cos 2t)
+            \end{pmatrix} \begin{pmatrix}
+                -2\sin t \\ 2t \\-2\sin 2t
+            \end{pmatrix}\dd{t}
+        \end{gather*}
+        This integral is difficult to do, so instead we will look for a
+        \emph{potential} function $\phi(x,y,z)$ such that:
+        \begin{align*}
+            \phi_x= \cos z &\implies \phi=\int \cos z \dd{x} = x\cos z + c(y,z) \\
+            \phi_y= z &\implies \phi = \int z \dd{y} = zx + c(x,z)\\
+            \phi_z= y-x\sin z & \implies \boxed{\phi = \int (y-x\sin z)\dd{z} = yz +
+            x \cos z + c(x,y)} \\
+        \end{align*}
+        $$\int\limits_c \grad\underbrace{(yz+x\cos z)}_{\phi} \dd{r} =
+        \phi(B)-\phi(A) = \phi(-2,\pi^2,1)-\phi(2,0,1)$$
+\end{example}
 \end{document}
+
