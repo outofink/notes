@@ -1,0 +1,50 @@
+%\documentclass[00_complete]{subfiles}
+
+\input{../preamble}
+
+\title{Mathematical Methods}
+\author{Moshe Krumbein}
+\date{Fall 2021}
+
+\begin{document}
+\Chapter{Double Integrals}{12}
+
+\section{Introduction}
+Given the function $z=f(x,y)$ and the domain $D$ on the plane. We want to find:
+$$\iint\limits_Df(x,y)=\iint f(x,y)\dd{y}\dd{x}$$
+Which is essentially the volume of the domain between $D$ and $f$.
+\begin{definition}[Fubini's theorem]
+    If $D=[a,b]\times[c,d]$:
+    $$\iint\limits_D f \dd{A}= \int_{a}^{b}\int_{c}^{d}
+    f(x,y)\dd{y}\dd{x}=\int_{c}^{d}\int_{a}^{b} f(x,y)\dd{x}\dd{y}$$
+\end{definition}
+\begin{example}
+    \begin{gather*}
+        f(x,y)=x^2+3y^2+xy \quad D=[1,2]\times[0,1] \\
+        \iint\limits_D f\dd{A} =
+        \int_{0}^{1}\left(\int_{1}^{2}(x^2+3y^2+xy)\dd{x}\right)\dd{y} =
+        \int_{0}^{1}\left(\frac{x^3}{3}+3xy^2+\frac{x^2}{2}y\right)\Biggr|_{x=1}^2\dd{y}
+        \\
+        \int_{0}^{1}\left(\frac{7}{3}+3y^2+\frac{3}{2}y\right)\dd{y}
+        =\frac{49}{12}
+    \end{gather*}
+\end{example}
+\begin{note}
+    If $f(x,y)=g(x)h(y)$ and $D=[a,b]\times[c,d]$:
+    $$\iint\limits_Df(x,y)=\int_{a}^{b}\left(\int_{c}^{d}g(x)h(y)\dd{y}\right)\dd{x}
+    \int_{a}^{b}g(x)\int_{c}^{b}h(y)\dd{y}\dd{x} =
+    \int_{a}^{b}g(x)\dd{x}\cdot\int_{c}^{d}h(y)\dd{y}
+    $$
+\end{note}
+\section{Non-rectangular Domains}
+\emph{Simple Vertical Domain}:
+\begin{gather*}
+    a \leq x \leq b \quad g(x) \leq y \leq h(x) \\
+    \iint\limits_D f= \int_{a}^{b}\int_{g(x)}^{h(x)}f(x,y)\dd{y}\dd{x}
+\end{gather*}
+\emph{Simple Vertical Domain}:
+\begin{gather*}
+    c \leq y \leq d \quad g(y) \leq x \leq h(y) \\
+    \iint\limits_D f= \int_{c}^{d}\int_{g(y)}^{h(y)}f(x,y)\dd{x}\dd{y}
+\end{gather*}
+\end{document}
