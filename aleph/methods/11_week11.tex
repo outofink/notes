@@ -419,5 +419,65 @@ Another form:
         $$\int\limits_c \grad\underbrace{(yz+x\cos z)}_{\phi} \dd{r} =
         \phi(B)-\phi(A) = \phi(-2,\pi^2,1)-\phi(2,0,1)$$
 \end{example}
-\end{document}
+\section{Conservative Vector Field}
+\begin{definition}[Conservative Vector Field]
+    A \emph{conservative vector field} is a field $F$ such that for all closed
+    curves $C$ on the \emph{domain} $D$:
+    $$\oint\limits_C f\dd{\underline r}=0$$
+    $\iff$ for an open curve $C$, $\int\limits_cf\dd{r}$ is only dependent
+    the initial and final points of $C$.
 
+    $\iff$ $f$ is a \emph{gradient} of a scalar function $\phi$.
+\end{definition}
+\begin{example}
+    \begin{gather*}
+    \underline f = -\frac{\underline r}{r^3} \quad r(x,y,z)=\begin{pmatrix}
+        x\\y\\z
+    \end{pmatrix} \quad r = |\underline r| = \sqrt{x^2+y^2+z^2} \\
+    \underline f = -\frac{1}{\left(\sqrt{x^2+y^2+z^2}\right)^3}\begin{pmatrix}
+        x\\y\\z
+    \end{pmatrix}
+    \end{gather*}
+    We can see if $\underline \phi = \frac{1}{r}$, then $\grad \phi = f$.
+\end{example}
+\begin{reminder}
+    If $\phi$ is a \emph{scalar function}, then $\Curl(\grad\phi)=\underline
+    0$. ($\curl \grad \phi$)
+\end{reminder}
+\begin{conclusion}
+    If $f$ is a \emph{conservative field}, then $\Curl \underline f = 0$.
+
+    However, if $\Curl \underline f = 0$, we can't necessarily be sure $f$ is a
+    \emph{conservative field}.
+\end{conclusion}
+\begin{example}
+    \begin{gather*}
+        \underline f (x,y,z)=\left(\frac{y}{x^2+y^2},-\frac{x}{x^2+y^2},0\right)
+    \end{gather*}
+    We see that $\Curl f = \underline 0$.
+
+    Let $C$ be the unit circle:
+    \begin{gather*}
+        r(t)=\begin{pmatrix}
+            \cos t \\ \sin t \\ 0
+        \end{pmatrix}_{0 \leq t \leq 2\pi} \quad
+        r'(t)=\begin{pmatrix}
+            -\sin t \\ \cos t \\ 0
+        \end{pmatrix}_{0 \leq t \leq 2\pi} \\
+        \oint\limits_C f \cdot \dd{r} = \int_{0}^{2\pi}\begin{pmatrix}
+            \sin t \\ -\cos t \\ 0
+        \end{pmatrix}\cdot \begin{pmatrix}
+            -\sin t \\ \cos t \\ 0
+        \end{pmatrix} \dd{t} = -1\int_{0}^{2\pi}\dd{t}=-2\pi \neq 0
+    \end{gather*}
+    Which means despite the fact that $\Curl f = \underline 0$, $f$ is not a
+    \emph{conservative field}.
+\end{example}
+If $\Curl \underline f = \underline 0$ on a \emph{simply connected} domain $D$,
+then $\underline f$ is \emph{conservative}.
+\begin{definition}[Simply Connected Space]
+    If we imagine our curve as a physical string, if it is able to be pulled
+    through without getting "stuck" on a "hole" in the domain, then the domain
+    is \emph{simply connected}.
+\end{definition}
+\end{document}
