@@ -190,7 +190,7 @@ These equivalence classes are called \emph{connected components} of $G$.
         \emph{connected}, because we removed only a \emph{leaf} and its edge.
 
         In addition, $G'$ has $n=|V|-1$ vertices and $|E|-1$ edges. Therefore, $G'$
-        fulfills the assumption of induction and therefore:
+        fulfills our induction hypothesis and therefore:
         $$|V|-|E|=(|V|-1)-(|E|-1)=|V\setminus\{v\}|-|E\setminus\{e\}|=1$$
    \end{enumerate}
 \end{proof}
@@ -443,7 +443,7 @@ These equivalence classes are called \emph{connected components} of $G$.
             $V_1,V_2,\dots,V_l$, where for all $1 \leq i \leq l$: $G_i=(V_i,E_i)$.
 
             For all $G_i$ the number of edges is less than $m$. Therefore based
-            on the assumption of induction, $G_i$ contains a \emph{Eulerian
+            on our induction hypothesis, $G_i$ contains a \emph{Eulerian
             circuit}.
 
             We see that for all $i$: $V_i\cap\{v_0,v_1,\dots,v_{n-1}\}\neq
@@ -464,7 +464,7 @@ These equivalence classes are called \emph{connected components} of $G$.
             $$\forall \; 1 \leq i \leq l: f(i)=\min\{i \mid v_i \in V_i\}$$
             We will begin with $v_0$. If there exists an $i$ such that $v_0=f(i)$,
             then we will cover \emph{component} $V_i$ by an \emph{Eulerian
-            circuit} that we got from our induction assumption. We now continue
+            circuit} that we got from our induction hypothesis. We now continue
             to $v_1$. If there exists an $i$ such that $v_1=f(i)$ we will cover
             $V_i$ until we come back to $v_1$. Then we can continue to $v_2$
             and so on until $v_n=v_0$.
