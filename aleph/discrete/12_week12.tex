@@ -1,0 +1,73 @@
+\documentclass[00_complete]{subfiles}
+
+%\input{../preamble}
+\title{Discrete Mathematics}
+\author{Moshe Krumbein}
+\date{Fall 2021}
+
+\begin{document}
+\Chapter{Cardinality}{12}
+
+\section{Introduction}
+\begin{reminder}
+    For \emph{finite} sets, $A,B$:
+    $$|A|=|B| \iff \exists f:A\to B \text{ that is \emph{bijective}}$$
+\end{reminder}
+\begin{definition}[Equinumerosity]
+    $A, B$ have the same \emph{cardinality} (\emph{equinumerous}) if there
+    exists an $f:A\to B$ that is \emph{bijective}. We symbolize this as $A\sim
+    B$.
+\end{definition}
+\section{Characteristics}
+\begin{enumerate}
+    \item For all $A$: $A \sim A$
+    $$\Id_A:A\to A \text{ is \emph{bijective}}$$
+
+    \item For all $A,B$, if $A \sim B \to B \sim A$.
+    $$f:A \to B \quad f^{-1}: B \to A$$
+\begin{claim}
+    Given sets $A,B,C$, $f:A\to B, g:B \to C$:
+    \begin{itemize}
+        \item If $f,g$ are \emph{injective}, then $g \circ f: A \to C$ is
+            \emph{injective}
+        \item If $f,g$ are \emph{surjective}, then $g \circ f:A \to C$ is
+            \emph{surjective}
+    \end{itemize}
+\end{claim}
+    \item Given sets $A,B,C$:
+        $$A \sim B, B \sim C \implies A \sim C$$
+\end{enumerate}
+\section{Countable Sets}
+\begin{definition}[Countable Sets]
+    A set $A$ is called \emph{countable} if $\mathbb{N} \sim A$. In other
+    words, there exists a function $f: \mathbb{N} \to A$ that is
+    \emph{bijective}. In this case we symbolize $|A|=\aleph_0$.
+\end{definition}
+\begin{note}
+    $A$ is \emph{countable} if there is a \emph{sequence} which contains all
+    the elements of $A$ exactly once.
+\end{note}
+\subsection{Hilbert's Hotel}
+    There are a countably infinite number of rooms such that each room is
+    labeled with a natural number.
+
+    Suppose all the rooms in Hilbert's hotel are full.
+
+    A new guest arrives and wants a room. To accommodate for him, we can move
+    each occupant to the room immediately to his right and put our new guest in
+    first room which is unoccupied.
+
+    Suppose a bus arrives containing an countably infinite number of guests. To
+    accommodate for them, we can move each occupant to his room number times
+    two, and place all the new guests in the now unoccupied odd-numbered rooms.
+
+    Suppose $\aleph_0$ buses arrive with $\aleph_0$ guests each. To accommodate
+    for all the new guests we can move each occupant in room $i$ to the room
+    $2^i$. For the first bus, we can send the $i$-th person the $3^i$-th room.
+    For each subsequent bus $j$ we send guest $i$ to room number $j$-th prime number to
+    the $i$-th power.
+
+    Finally, a single bus arrives with all the numbers between $0$ and $1$.
+    Unfortunately, given that there are an uncountably infinite number of new
+    guest, we will not able about to make enough room for them.
+\end{document}
