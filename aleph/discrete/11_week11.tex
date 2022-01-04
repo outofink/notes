@@ -665,7 +665,7 @@ the edges is $2^{903}$ (!!!).
                         such that $|\Gamma(K)|=|K|=k < n$.
 
                         We define $L=\Gamma(k)$, where $|L|=k$. We consider
-                        the \emph{bigraph} $G''=(K\cup L,E'')$. $|K|=|L|=k<n$.
+                        the \emph{bi graph} $G''=(K\cup L,E'')$. $|K|=|L|=k<n$.
                         We notice that for all $u \in K$ if $(u,v) \in E$, then
                         $(u,v) \in E''$, and therefore \emph{Hall's condition}
                         is maintained in $G''$. From our induction hypothesis,
@@ -692,5 +692,86 @@ the edges is $2^{903}$ (!!!).
             \end{enumerate}
     \end{enumerate}
 \end{proof}
+\begin{example}
+    Consider the set $A=\{1,2,3,\dots,n\}$. Given $n$ subsets
+    $A_1,A_2,\dots,A_n \subseteq A$, and union of any $k$ sets $A_1,\dots,A_n$
+    contain at least $k$ elements of $A$. Show that there exists
+    $f:A\to\{A_1,\dots,A_n\}$ such that for all $i \in A$, $i \in f(i)$.
 
+    We will define a graph $G=(V_1\cup V_2, E)$ in the following way:
+    \begin{gather*}
+        V_1=\{A_1,\dots,A_n\} \quad V_2=A=\{1,\dots,n\} \\
+        |V_1|=|V_2|=n \\
+        E=\{(A_j,i) \mid i \in A_j \}
+    \end{gather*}
+    For all $K \subseteq \{A_1,\dots,A_n\}$:
+    $$\left|\bigcup_{i\in K}A_i\right|\geq|K|\implies |\Gamma(K)|\geq|K|$$
+    And therefore \emph{Hall's condition} holds and therefore there is
+    \emph{perfect matching} in the graph. In other words there exists
+    $f:\{A_1,\dots,A_n\}\to\{1,\dots,n\}$ \emph{one-to-one} and \emph{onto}
+    such that for all $j \in [n]$: $f(j) \in A_j$.
+\end{example}
+\begin{example}
+    We distribute cards from a legal deck (52 cards) randomly into 13 piles of
+    4 cards each. Is it possible to pick a representative from each pile such
+    that each representative will be a different value card $\{1, \dots, 13\}$?
+
+    We define:
+    \begin{gather*}
+        V_1=\{1,\dots,13\} \quad V_2=\{q_1,\dots,q_{13}\} \\
+        E=\{\{i, q_j\} \mid \text{the number $i$ is in the pile $q_j$}\}
+    \end{gather*}
+    We notice that for all $k$ numbers in $V_1$ there are $4k$ cards that show
+    them, and therefore they are distributed among at lest $k$ piles.
+    \emph{Hall's condition} holds and therefore there is \emph{perfect
+    matching}.
+\end{example}
+\begin{reminder}
+    $G$ is a \emph{$d$-regular} graph if for all $v \in V$, $\deg(v)=d$.
+
+    $G$ is a \emph{regular} graph if there exists $d$ such that $G$ is
+    \emph{$d$-regular}.
+\end{reminder}
+\begin{claim}
+    On a \emph{$d$-regular bigraph}, there exists \emph{complete matching}.
+\end{claim}
+\begin{reminder}
+    On a \emph{regular bigraph}, $|V_1|=|V_2|$.
+\end{reminder}
+\begin{proof}
+    Let $G=(V_1\cup V_2,E)$ be a \emph{regular bigraph}. We can derive that
+    $|V_1|=|V_2|$ and we will prove that \emph{Hall's condition} holds.
+
+    Let $S \subseteq V_1$, $|S|=s$. All $ds$ edges exit from $S$ are all in
+    $\Gamma(S)$, and from $\Gamma(S)$ exit a total of $d|\Gamma(S)|$ edges.
+    Therefore we get:
+    $$d|\Gamma(S)|\geq ds \implies |\Gamma(S)|\geq s = |S|$$
+    \emph{Hall's condition} holds and therefore there exists \emph{complete
+    matching}.
+\end{proof}
+\section{Latin Rectangle}
+\begin{definition}[Latin Rectangle]
+    A \emph{Latin Rectangle} is a matrix $k\times n$ such that in every row and
+    column there appears $\{1,\dots,n\}$ distinctly. ($k \leq n$)
+\end{definition}
+\begin{claim}
+    Given a \emph{Latin rectangle} $k\times n$, we can expand it to a
+    \emph{Latin rectangle} $(k+1)\times n$.
+\end{claim}
+\begin{proof}
+    We consider a \emph{bigraph} such that its vertices are the columns
+    $c_1,\dots c_n$ and the set of edges being:
+    $$E=\{\{i,c_j\}\mid \text{ the number $i$ is not in $c_j$}\}$$
+    where the numbers are $\{1,\dots,n\}$.
+
+    All $1 \leq i \leq n$, $i$ appears in all $k$ rows and doesn't appear in
+    the column more than once. Therefore $i$ appear exactly in $k$ columns
+    $\implies \deg(i)=n-k$.
+
+    In each column $c_j$ there are $k$ distinct numbers $\implies
+    \deg(c_j)=n-k$.
+
+    \emph{Hall's condition} holds and therefore there is \emph{perfect
+    matching}, which exactly constitutes row $k+1$.
+\end{proof}
 \end{document}
