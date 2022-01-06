@@ -7,9 +7,9 @@
 \date{Fall 2021}
 
 \begin{document}
-\Chapter{Double Integrals}{12}
+\Chapter{Integration of Multivariable Functions}{12}
 
-\section{Introduction}
+\section{Double Integrals}
 Given the function $z=f(x,y)$ and the domain $D$ on the plane. We want to find:
 $$\iint\limits_Df(x,y)=\iint f(x,y)\dd{y}\dd{x}$$
 Which is essentially the volume of the domain between $D$ and $f$.
@@ -36,7 +36,7 @@ Which is essentially the volume of the domain between $D$ and $f$.
     \int_{a}^{b}g(x)\dd{x}\cdot\int_{c}^{d}h(y)\dd{y}
     $$
 \end{note}
-\section{Non-rectangular Domains}
+\section{Double Integrals of Non-rectangular Domains}
 \emph{Simple Vertical Domain}:
 \begin{gather*}
     a \leq x \leq b \quad g(x) \leq y \leq h(x) \\
@@ -47,4 +47,77 @@ Which is essentially the volume of the domain between $D$ and $f$.
     c \leq y \leq d \quad g(y) \leq x \leq h(y) \\
     \iint\limits_D f= \int_{c}^{d}\int_{g(y)}^{h(y)}f(x,y)\dd{x}\dd{y}
 \end{gather*}
+\section{Uses of Double Integrals}
+
+\subsection{Volume of Solids of Revolution}
+
+In essence, to find the area of a solid of revolution, we consider the volume
+to be the sum of thin disks with the radius on $f(x)$:
+$$\lim \sum_{k=1}^{\infty} \underbrace{\pi(f(x))^2}_{\text{area of the
+circle}}\Delta x_k=\pi\int_{a}^{b}(f(x))^2\dd{x}$$
+    \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.66\textwidth]{w12_solid}
+    \caption{Volume of Solids of Revolution}
+    \end{figure}
+\subsection{Center of Gravity}
+
+\begin{gather*}
+    \text{Mass: } \iint\limits_D f(x,y)\dd{x}\dd{y} \\
+    \text{Center of Mass:} \\
+    \overline x = \frac{\iint x\cdot f(x,y)\dd{x}\dd{y}}{\text{mass}} \\
+    \overline y = \frac{\iint y\cdot f(x,y)\dd{x}\dd{y}}{\text{mass}}
+\end{gather*}
+\subsection{Useful Formulas}
+\begin{gather*}
+    \int_{a}^{b}1\dd{x}=\underbrace{b-a}_{\text{length}} \\
+    \iint\limits_D 1\dd{x}\dd{y}=\text{ Area of $D$} \\
+\end{gather*}
+\begin{example}
+    $$\int_{-6}^{6}\int_{0}^{\sqrt{26-x^2}}1\dd{x}\dd{y}$$
+    This may be solved in the conventional way, though it'll take some time.
+    However we can just consider the area of the domain which is the upper
+    half of a circle with a radius of $3$, giving us:
+    $$\frac{1}{2}\pi 6^2 = 18\pi$$
+\end{example}
+\section{Triple Integrals}
+$$D \subseteq \mathbb{R}^3 \quad \iiint\limits_Df(x,y,z)\dd{v}$$
+What does it represent?
+
+If $f(x,y,z)$ is the density, then the integral is the mass.
+
+If $f(x,y,z)\equiv 1$, then the integral is the volume of the domain.
+\begin{example}
+    \begin{gather*}
+        f(x,y,z)=x+yz \quad D=[1,3]\times [0,1]\times[-2,6] \\
+        \int_{1}^{3}\int_{-2}^{6}\int_{0}^{1} (x+yz)\dd{y}\dd{z}\dd{x} =
+        \int_{1}^{3}\int_{-2}^{6}\underbrace{[xy+\frac{y^2a}{2}]\Bigr|_{y=0}^{1}}_{x+\frac{z}{2}}\dd{z}\dd{x}
+        \\ \vdots
+    \end{gather*}
+\end{example}
+\begin{example}
+    \begin{gather*}
+        \iiint\limits_D xyz \dd{v} \quad D: x=0,y=0,z=0, x+2y+z=1 \\
+        0 \leq z \leq 2-x-2y \quad 0 \leq y \leq \frac{1}{2}-\frac{1}{2}x \quad
+        0 \leq x \leq 1 \\
+        \int_{0}^{1}\int_{0}^{\frac{1}{2}-\frac{1}{2}x}\int_{0}^{2-x-2y}xyz\dd{z}\dd{y}\dd{x}
+        \\ \vdots
+    \end{gather*}
+\end{example}
+\section{Change of Coordinates in Integrals}
+Similar to finding the area of a function after changing coordinates using the
+\emph{Jacobean}, when we change coordinates on a double (or triple) integral:
+$$\dd{x}\dd{y}=|J|\dd{u}\dd{v}$$
+\begin{example}
+    \begin{gather*}
+        f(x,y)=x+1 \quad D: y<x, x<\sqrt{1-y^2} \\
+        \iint\limits_D(x+1)\dd{x}\dd{y}
+    \end{gather*}
+    Let's convert this to the polar coordinate system:
+    \begin{gather*}
+        0 \leq r \leq 1 \quad 0 \leq \theta \leq \frac{\pi}{4} \\
+        \int_{0}^{1}\int_{0}^{\frac{\pi}{4}}(1+r\cos\theta)r\dd{r}\dd{\theta}
+    \end{gather*}
+\end{example}
+
 \end{document}

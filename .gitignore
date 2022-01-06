@@ -6,9 +6,11 @@
 !aleph/preamble.tex
 !aleph/discrete/*.tex
 !aleph/discrete/images/*.png
+!aleph/discrete/images/*.jpg
 !aleph/discrete/images/*.svg
 !aleph/discrete/images/*.pdf*
 !aleph/methods/*.tex
 !aleph/methods/images/*.png
+!aleph/methods/images/*.jpg
 !aleph/methods/images/*.svg
 !aleph/methods/images/*.pdf*
