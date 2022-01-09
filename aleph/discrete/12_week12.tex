@@ -69,5 +69,148 @@
 
     Finally, a single bus arrives with all the numbers between $0$ and $1$.
     Unfortunately, given that there are an uncountably infinite number of new
-    guest, we will not able about to make enough room for them.
+    guests, we will not able about to make enough room for them.
+\subsection{Examples}
+
+Let us explore using more mathematical notion:
+\begin{example}
+    \begin{gather*}
+    A=\mathbb{N}\cup \{0\} \\
+    f:\mathbb{N}\to A, \forall n \in \mathbb{N}: f(n)=n-1 \\
+    A \sim \mathbb{N} \implies |A|=\aleph_0
+    \end{gather*}
+\end{example}
+\begin{example}
+    \begin{gather*}
+        A=\mathbb{N}\times\{0\} \quad f:\mathbb{N} \to A\\
+        f(n) = \begin{cases}
+            (\frac{n}{2},1) & \text{$n$ is even} \\
+            (\frac{n+1}{2},0) & \text{$n$ is odd}
+        \end{cases}
+    \end{gather*}
+\end{example}
+\begin{example}
+    \begin{gather*}
+        A=\mathbb{Z} \quad f:\mathbb{N}\to\mathbb{Z} \\
+        f(n) = \begin{cases}
+            \frac{n}{2} & \text{$n$ is even} \\
+            -\frac{n-1}{2} & \text{$n$ is odd}
+        \end{cases}
+    \end{gather*}
+\end{example}
+\begin{claim}
+    IF $A$ is \emph{countably infinite} and $B \subseteq A$, then $B$
+    is either \emph{finite} or \emph{countably infinite}.
+\end{claim}
+\begin{proof}
+    Since we know that $A$ is \emph{countably infinite}, there exists
+    $f:\mathbb{N}\to A$ that is \emph{bijective}. If $B$ is not \emph{finite},
+    we will prove that $B$ is \emph{countably infinite}.
+
+    We define $g:\mathbb{N}\to B$:
+    $$g(n)=f(\min\{m\in\mathbb{N} \mid f(m) \in B, \forall i\in [n-1]: g(i)\neq
+    f(m)\})$$
+    In other words we can write $A$ as $f(1),f(2),f(3),\dots$ and $B$ as
+    $f(2),f(4),f(5),\dots$, and therefore:
+    \begin{gather*}
+        g(1)=f(2) \\ g(2)=f(4) \\ g(3)=f(5) \\ \vdots \\
+        g \text{ is \emph{bijective}} \implies \mathbb{N} \sim B \implies
+        |B|=\aleph_0
+    \end{gather*}
+\begin{note}
+    We can only define $g(n)$ after we define $g(1),g(2),\dots,g(n-1)$.
+\end{note}
+\end{proof}
+\begin{claim}
+    If $A$ is \emph{countably infinite} and $B$ is \emph{finite}, then $A\cup
+    B$ is \emph{countably infinite}.
+\end{claim}
+\begin{note}
+    In \emph{Hilbert's hotel} if $k$ new guests arrive we can move all currents
+    guests $k$ rooms to the right, thus freeing up rooms $1$ through $k$.
+\end{note}
+\begin{proof}
+    We will split into two cases:
+    \begin{enumerate}
+        \item Suppose $A\cap B = \emptyset$, and $|B|=k$.
+
+        There exists $f:\mathbb{N}\to A, g:[k]\to B$ that are both
+        \emph{bijective}.
+
+        We define $h:\mathbb{N}\to A \cup B$:
+        $$h(n)=\begin{cases}
+            g(n)   & n \in [k] \\
+            f(n-k) & n > k
+        \end{cases}$$
+        $h$ is \emph{surjective} and \emph{injective} (because $A\cup B =
+        \emptyset$).
+        \item In general:
+
+        \begin{gather*}
+            A \cup B = (A \setminus B) \cup B
+        \end{gather*}
+        $B$ is \emph{finite} and $A \setminus B \subseteq A$.
+
+        $A \setminus B$ is not \emph{finite} because otherwise $A=(A\setminus
+        B)\cup(A\cap B)$ would be a \emph{union} of \emph{finite} sets which is
+        \emph{finite}, by contraction (since we know $A$ is \emph{countably
+        infinite}).
+
+        Therefore, $A \setminus B$ is \emph{countably infinite} and we can
+        finish with case $1$.
+    \end{enumerate}
+\end{proof}
+\begin{claim}
+    If $A,B$ are \emph{countably infinite}, then $A \cup B$ is \emph{countably
+    infinite}.
+\end{claim}
+\begin{proof}
+    Here too we will consider two different cases:
+    \begin{enumerate}
+        \item $A \cap B = \emptyset$:
+
+        There exists $f:\mathbb{N}\to A,g:\mathbb{N}\to B$ which are
+        \emph{bijective}. We can define $h: \mathbb{N} \to A \cup B$:
+        \begin{gather*}
+        h(n)=\begin{cases}
+            g(\frac{n}{2}) & \text{$n$ is even} \\
+            f(\frac{n+1}{2}) & \text{$n$ is odd} \\
+        \end{cases} \implies A \cup B \sim \mathbb{N} \implies |A\cup B| =
+        \aleph_0
+        \end{gather*}
+        \item In general:
+        $$A \cup B = (A \setminus B) \cup B$$
+        If $A \setminus B$ is \emph{finite} we can use the previous claim to
+        finish the proof.
+
+        If $A \setminus B$ is \emph{countably infinite}, since $(A \setminus B)
+        \cap B = \emptyset$, we can use the first case to finish the proof.
+    \end{enumerate}
+\end{proof}
+\begin{conclusion}
+    There are two conclusions that can be drawn from the aforementioned claims:
+    \begin{enumerate}
+       \item If sets $A_1,\dots A_n$ are \emph{countably infinite}, then
+           $\bigcup_{i=1}^nA_i$ is also \emph{countably infinite}.
+       \item If $A_1,\dots A_n$ are sets such that for all $1 \leq i \leq n$:
+           $A_i$ is either \emph{finite} or \emph{countably infinite}, then
+           $\bigcup_{i=1}^kA_i$ is either \emph{finite} or \emph{countably
+           infinite}.
+    \end{enumerate}
+\end{conclusion}
+    What we take an infinite number \emph{countably infinite} sets, such as the
+    \emph{sequence} $A_1,A_2,\dots$ such that for all $i \in \mathbb{N}$: $A_i$
+    is \emph{countably infinite}? Is $\bigcup_{i=1}^{\infty}A_i$
+    \emph{countably infinite}?
+\begin{claim}
+    $\mathbb{N}\times\mathbb{N}$ is \emph{countably infinite}.
+\end{claim}
+\begin{proof}
+    \begin{gather*}
+        f:\mathbb{N}\times\mathbb{N}\to\mathbb{N} \\
+        f(m,n)=(1+2+3+\dots+(m+n-2)) + n \\
+        \implies \mathbb{N} \sim \mathbb{N}\times\mathbb{N} \implies
+        |\mathbb{N}\times\mathbb{N}|=\aleph_0
+    \end{gather*}
+\end{proof}
 \end{document}
