@@ -1,0 +1,157 @@
+\documentclass[00_complete]{sub files}
+
+%\input{../preamble}
+
+\title{Mathematical Methods}
+\author{Moshe Krumbein}
+\date{Fall 2021}
+
+\begin{document}
+\Chapter{Integration on Surfaces}{13}
+\section{Introduction}
+
+\begin{reminder}
+    A \emph{surface} on $\mathbb{R}^3$ is the \emph{image} of a function:
+        $$\underline r: D\to \mathbb{R}^3 \qquad r(u,v)=\begin{pmatrix}
+            x(u,v) \\ y(u,v) \\ z(u,v)
+        \end{pmatrix}$$
+    The symbolize the surface as $\Sigma$ ($\Sigma = \Im \underline r$).
+\end{reminder}
+\begin{example}
+    A sphere with a radius of $3$:
+    $$\underline r (u,v) = \begin{pmatrix}
+        3 \sin v \cos u \\ 3 \sin v \sin u \\ 3 \cos v
+    \end{pmatrix} \quad D: 0 \leq u \leq 2\pi, 0 \leq v \leq \pi$$
+    A small rectangle whose area is $\delta_u \cdot \delta_v$ becomes similar
+    to a parallelogram on $\Sigma$:
+    $$\underbrace{\|\underline r_u \times \underline r_v\|}_{\|\underline N\|}\delta_u\delta_v$$
+\end{example}
+\begin{symbols}
+    \begin{align*}
+        \dd{S}&=\|\underline r_u \times \underline r_v\|\dd{u}\dd{v} \\
+        \dd{\underline S} &= (\underline r_u \times \underline r_v)\dd{u}\dd{v}
+        \\
+        \underline N &= \underline r_u \times \underline r_v \\
+        \underline{\hat N} &= \frac{\underline r_u \times \underline
+        r_v}{\|\underline r_u \times \underline r_v\|} \\
+    \end{align*}
+\end{symbols}
+\begin{example}[Half Torus]
+    \begin{gather*}
+        r(u,v)=\begin{pmatrix}
+            (2+\cos u) \cos v \\
+            (2+\cos u) \sin v \\
+            \sin u
+        \end{pmatrix} \quad D: 0 \leq u \leq \pi, 0 \leq v \leq 2\pi \\
+        \underline r_u=\begin{pmatrix}
+            -\sin u \cos v \\ -\sin u \sin v \\ \cos u
+        \end{pmatrix} \quad \underline r_v = \begin{pmatrix}
+            -(2+\cos u)\sin v \\ (2+\cos u)\cos v \\ 0
+        \end{pmatrix} \\
+        \underline N = \underline r_u \times \underline r_v = (2+\cos u) \cdot \underline r_u
+        \times \begin{pmatrix}
+            -\sin v \\ \cos v \\ 0
+        \end{pmatrix} = (2+\cos u )\begin{pmatrix}
+            -\cos u \cos v \\ - \cos u \sin v \\ -\sin u
+        \end{pmatrix} \\
+        \|\underline N\|=\|\underline r_u \times \underline r_v\| = (2+\cos
+        u)\sqrt{(-\cos u \cos v)^2 + (-\cos u \sin v)^2+(-\sin u)^2} \\
+        =2+\cos u \\
+        \underline{\hat N} = \frac{\underline N}{\|\underline N\|} =
+        -\begin{pmatrix}
+            \cos u \cos v \\ \cos u \sin v \\ \sin u
+        \end{pmatrix} \\
+        \dd{S} = \|\underline r_u \times\underline r_v\|\dd{u}\dd{v}=(2+\cos
+        u)\dd{u}\dd{v} \\
+        \dd{\underline S}= (\underline r_u \times \underline r_v)\dd{u}\dd{v} =
+        -(2+\cos u)\begin{pmatrix}
+            \cos u \cos v \\ \cos u \sin v \\ \sin u
+        \end{pmatrix} \dd{u}\dd{v}
+    \end{gather*}
+\end{example}
+\section{Integration on Surfaces}
+\begin{reminder}
+    We learned how to do integration on a curve:
+    $$\underline r: \mathbb{R} \to \mathbb{R}^3$$
+    and integration on a \emph{scalar field} $\phi$:
+    \begin{gather*}
+    \int\limits_C\phi\dd{s}=\int_{a}^{b}\phi(r(t))\|r'(t)\|\dd{t} \\
+    \text{\small (which represents either \emph{mass} or \emph{area})}
+    \end{gather*}
+    and integration on a \emph{vector field} $\underline f$:
+    \begin{gather*}
+    \int\limits_Cf\cdot \dd{S}=\int_{a}^{b}f(\underline r(t))\cdot r'(t)\dd{t}
+    \\
+    \text{\small (which represents \emph{work})}
+    \end{gather*}
+\end{reminder}
+Integration on a \emph{scalar field} $\phi$:
+\begin{gather*}
+\iint\limits_\Sigma \phi \dd{S} = \iint\limits_D \phi(r(u,v))\|r\underline
+r_u \times \underline r_v\|\dd{u}\dd{v} \\
+\text{\small (which represents \emph{mass})}
+\end{gather*}
+\begin{note}
+    If the \emph{density} $\phi=1$, then the integral represents the
+    \emph{surface area}.
+\end{note}
+Integration on a \emph{vector field} $\underline f$:
+\begin{gather*}
+\iint\limits_\Sigma f \cdot \dd{\underline S} = \iint\limits_D f(\underline
+r(u,v))\cdot (\underline r_u \times \underline r_v)\dd{u}\dd{v} \\
+\text{\small (which represents \emph{flux})}
+\end{gather*}
+\begin{example}
+    Find the \emph{surface area} of our half-torus:
+
+    We will take $\phi=1$ and calculate:
+    $$\iint\limits_\Sigma 1 \cdot \dd{S}=\int_{0}^{2\pi}\int_{0}^{\pi}(2+\cos
+    u)\dd{u}\dd{v}=2\pi[2u+\sin u]\Bigr|_0^\pi=4\pi^2$$
+\end{example}
+\begin{example}
+    Integrate:
+    \begin{gather*}
+    \iint\limits_\Sigma \underline r \cdot \dd{\underline
+    S}=\int_{0}^{2\pi}\int_{0}^{\pi}
+    \underbrace{
+    \begin{pmatrix}
+        (2+\cos u) \cos v \\ (2+\cos u) \sin v \\ \sin u
+    \end{pmatrix}}_{\underline r} \cdot \underbrace{-(2+\cos u)\begin{pmatrix}
+        \cos u \cos v \\ \cos u \sin v \\ \sin u
+    \end{pmatrix} \dd{u}\dd{v}}_{\dd{\underline S}} \\
+    =\int_{0}^{2\pi}\int_{0}^{\pi}(2+\cos u)((2+\cos u)\cdot (-\cos u
+    \cos^2v-\cos u \sin^2 v)-\sin^2 u) \dd{u}\dd{v} \\
+    =\int_{0}^{2\pi}\int_{0}^{\pi}(2+\cos u)((2+\cos u)(-\cos u)-\sin^2
+    u)\dd{u} \dd{v} \\
+    =-\int_{0}^{2\pi}\int_{0}^{\pi}(2+\cos u)(2\cos u +1)
+    \dd{u}\dd{v}=-2\pi\int_{0}^{\pi}(2\cos^2u +5\cos u + 2)\dd{u} \\
+    =-6\pi^2
+    \end{gather*}
+\begin{note}
+    Here, the \emph{normal} is facing "inwards," into the
+    half-torus, and which mean the volume of liquid that
+    \emph{enters} the half-torus is $6\pi^2$.
+\end{note}
+\end{example}
+\begin{note}
+    If the \emph{vector field} $\underline f$ is a \emph{constant unit vector},
+    then:
+    $$\iint\limits_\Sigma \underline f \cdot \dd{\underline S}$$
+    represents the area of the \emph{projection} of $\Sigma$ on the plane
+    perpendicular to $\underline f$.
+\end{note}
+\begin{example}
+    Calculate the projection of a half-plane onto the $xy$ plane:
+    \begin{gather*}
+    \iint\limits_\Sigma\begin{pmatrix}
+        0 \\ 0 \\ 1
+    \end{pmatrix} \cdot \dd{\underline S} = \int_{0}^{2\pi}\int_{0}^{\pi} \begin{pmatrix}
+        0 \\ 0 \\ 1
+    \end{pmatrix} \cdot -(2+\cos u)\begin{pmatrix}
+        \cos u \cos v \\ \cos u \sin v \\ \sin u
+    \end{pmatrix} \dd{u}\dd{v} \\
+    =\int_{0}^{2\pi}\int_{0}^{\pi}(2+\cos u)(-\sin u)\dd{u}\dd{v} =
+    2\pi\int_{0}^{\pi} (-2\sin u -\sin u \cos u)\dd{u} = |-8\pi| \\=8\pi
+    \end{gather*}
+\end{example}
+\end{document}
