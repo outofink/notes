@@ -99,7 +99,7 @@ Let us explore using more mathematical notion:
     \end{gather*}
 \end{example}
 \begin{claim}
-    IF $A$ is \emph{countably infinite} and $B \subseteq A$, then $B$
+    If $A$ is \emph{countably infinite} and $B \subseteq A$, then $B$
     is either \emph{finite} or \emph{countably infinite}.
 \end{claim}
 \begin{proof}
@@ -153,7 +153,7 @@ Let us explore using more mathematical notion:
 
         $A \setminus B$ is not \emph{finite} because otherwise $A=(A\setminus
         B)\cup(A\cap B)$ would be a \emph{union} of \emph{finite} sets which is
-        \emph{finite}, by contraction (since we know $A$ is \emph{countably
+        \emph{finite}, by contradiction (since we know $A$ is \emph{countably
         infinite}).
 
         Therefore, $A \setminus B$ is \emph{countably infinite} and we can
@@ -198,7 +198,7 @@ Let us explore using more mathematical notion:
            infinite}.
     \end{enumerate}
 \end{conclusion}
-    What we take an infinite number \emph{countably infinite} sets, such as the
+    What if we take a \emph{countably infinite} number of \emph{countably infinite} sets, such as the
     \emph{sequence} $A_1,A_2,\dots$ such that for all $i \in \mathbb{N}$: $A_i$
     is \emph{countably infinite}? Is $\bigcup_{i=1}^{\infty}A_i$
     \emph{countably infinite}?
@@ -212,5 +212,141 @@ Let us explore using more mathematical notion:
         \implies \mathbb{N} \sim \mathbb{N}\times\mathbb{N} \implies
         |\mathbb{N}\times\mathbb{N}|=\aleph_0
     \end{gather*}
+\end{proof}
+\begin{claim}
+    Given sets $A_1, A_2,\dots$ such that for all $i$: $A_i$ is either
+    \emph{finite} or \emph{countably infinite}, then $\bigcup_{i=1}^\infty A_i$
+    is \emph{finite} or \emph{countably infinite}.
+\end{claim}
+\begin{proof}
+    We see that $\bigcup_{i=1}^\infty A_i$ is \emph{equinumerous} to a subset of
+    $\mathbb{N}\times\mathbb{N}$.
+
+    Given that all $A_n$ is either \emph{finite} or \emph{countably infinite},
+    there exists a function $f_n: \mathbb{N} \to A_n$ that is \emph{bijective}
+    or $f_n:[m_n]\to A_n$ that is \emph{bijective} in the case that
+    $|A_n|=m_n$.
+
+    Now, we will define for all $n$: $g_n=(f_n)^{-1}$ and $h:
+    \bigcup_{i=1}^\infty A_i \to \mathbb{N}\times\mathbb{N}$.
+
+    For all $x \in \bigcup_{i=1}^\infty A_i$, there exists $n \in \mathbb{N}$
+    such that $x \in A_n$. We therefore define $h(x)=(n,g_n(x))$. Now all we
+    have to do is prove that $h$ is \emph{injective} and \emph{bijective}.
+
+    $h$ is \emph{injective}: If $h(x)=h(y)$, then we can symbolize:
+    $$h(x)=(n_1,g_{n_1}(x)) \qquad h(y)=(n_2,g_{n_2}(y))$$
+    Therefore, we see that $n_1=n_2$ and $g_{n_1}(x)=g_{n_1}(y)$, but since we
+    know that $g_{n_1}$ is \emph{injective} $\implies x=y$.
+
+    We notice that $h:\bigcup_{i=1}^\infty A_1 \to \Im(h)$ is \emph{bijective}
+    and therefore $\bigcup A_i \sim \Im(h)$. However, we know that
+    $\Im(h)\subseteq \mathbb{N}\times\mathbb{N}$, and that
+    $\mathbb{N}\times\mathbb{N}$ is \emph{countably infinite}, and therefore
+    $\Im(h)$ is either \emph{finite} or \emph{countably infinite} $\implies
+    \bigcup_{i=1}^\infty A_i$ is \emph{finite} or \emph{countably infinite}.
+\end{proof}
+\begin{note}
+    If all $A_i$ are \emph{countably infinite}, then $\bigcup_{i=1}^\infty A_i$
+    is also \emph{countably infinite}.
+\end{note}
+Alternatively, if one of the sets$A_j \in \{A_1,A_2,\dots\}$ is \emph{countably infinite}:
+$$A_j \subseteq \bigcup_{i=1}^\infty A_i \implies \bigcup_{i=1}^\infty A_i \sim
+\aleph_0$$
+\subsection{Cardinality of the Rational Numbers \texorpdfstring{($\mathbb{Q}$)}{}}
+\begin{claim}
+    $\mathbb{Q}$ is \emph{countably infinite}.
+\end{claim}
+\begin{proof}
+    \begin{gather*}
+    \mathbb{Q}=\left\{\frac{m}{n} \;\middle|\; m \in \mathbb{Z}, n \in
+    \mathbb{N}\right\} \\
+    Q_n=\left\{\frac{m}{n} \;\middle|\; m \in \mathbb{Z}\right\}
+    \end{gather*}
+    For all $n$, $Q_n$ is \emph{countably infinite} since there exists $f_n:
+    \mathbb{Z} \to Q_n$ which is \emph{bijective}:
+    $$\forall m \in \mathbb{Z}: f_n(m)=\frac{m}{n}$$
+    $$\mathbb{Q}=\bigcup_{n \in \mathbb{N}}Q_n \implies \mathbb{Q} \sim
+    \aleph_0$$
+\end{proof}
+\section{Uncountable Sets}
+Is the set of all the numbers between $0$ and $1$ \emph{countable}?
+\begin{definition}[Weak Inequality]
+    $|A|\leq|B|$ if there exists:
+    $$f:A \to B$$
+    that is \emph{injective}.
+\end{definition}
+\begin{definition}[Strong Inequality]
+    $|A|<|B|$ if $|A|\leq|B|$ and there does not exist:
+    $$g: A \to B$$
+    that is \emph{surjective}.
+\end{definition}
+\begin{claim}
+    $|\mathbb{N}|<|(0,1)|$
+\end{claim}
+\begin{proof}
+    This proof is famously known as \emph{Cantor's diagonal argument}.
+
+    We define $f: \mathbb{N} \to (0,1)$:
+    $$\forall n \in N: f(n)=\frac{1}{n}\implies f \text{ is
+    \emph{injective}}\implies |\mathbb{N}|\leq|(0,1)|$$
+    Now, we will prove by contradiction, supposing there does exist $g:
+    \mathbb{N} \to (0,1)$ that is \emph{injective}.
+
+    We suppose that every number $(0,1)$ has a unique expression as a
+    decimal fraction.
+
+    We define:
+    \begin{gather*}
+        g(1)=0.a_{11}a_{12}a_{13}a_{14}\dots \\
+        g(2)=0.a_{21}a_{22}a_{23}a_{24}\dots \\
+        g(3)=0.a_{31}a_{32}a_{33}a_{34}\dots \\
+        \vdots
+    \end{gather*}
+    We want to show that there exists $b=0.b_1b_2b_3b_4\dots \in (0,1)$, such
+    that $b \notin \Im (g)$. We define for all $i \in \mathbb{N}$:
+    $$b_i=\begin{cases}
+        4 & a_{ii}=3 \\
+        3 & a_{ii}\neq 3
+    \end{cases}$$
+    where for all $i \in \mathbb{N}$: $b_i \neq a_{ii}$, and therefore, $b\neq
+    g(i)$. In other words, $b$ does not have a source from the domain of $g$,
+    which is contrary to the fact that $g$ is \emph{injective}.
+\end{proof}
+We need a new \emph{equivalence class} for $(0,1)$.
+\begin{symbols}
+    $$|(0,1)|=\aleph_1$$
+\end{symbols}
+\begin{itemize}
+    \item For all $a<b$: $(a,b)$:
+    $$f(x):(0,1)\to (a,b) \qquad f(x)=(b-a)x+a$$
+    \item $\mathbb{R}$:
+    $$f(x):(0,1)\to \mathbb{R} \qquad f(x)=\frac{1-2x}{x(1-x)}$$
+    \item $(0, \infty)$:
+    $$f(x):\mathbb{R}\to (0,\infty) \qquad f(x)=e^x$$
+    \item $|(0,\infty)|=|(1,\infty)|$:
+    $$f(x):(0,\infty)\to (1,\infty) \qquad f(x)=x+1$$
+    \item $|(1,\infty)|=|(0,1)|$:
+    $$f(x):(1,\infty)\to (0,1) \qquad f(x)=\frac{1}{x}$$
+\end{itemize}
+$$\implies |0,1| = |(1,\infty)|=|\mathbb{R}| = \aleph_1$$
+\begin{claim}[Continuum Hypnosis]
+    There is no set $A$, such that:
+    $$\aleph_0 =|\mathbb{N}|<|A|<|\mathbb{R}|=\aleph_1$$
+\end{claim}
+\begin{theorem}[Cantor's Theorem]
+    For any set $A$: $|A|<\underbrace{|P(A)|}_{2^A}$
+\end{theorem}
+\begin{proof}
+    We define $f:A \to P(A)$: $f(a)=\{a\}$. We can say that there is no
+    function $g: A \to P(A)$ that is \emph{injective}. We suppose by
+    contradiction that there exists such a function $g$. We define:
+    $$B=\{a \in A \mid a \notin g(a)\} \subseteq A$$
+    There exists $b \in A$: $g(b)=B$, since $g$ is \emph{injective}:
+    \begin{gather*}
+        b \in B \implies b \in g(b) \implies b \notin B \\
+        b \notin B \implies b \in g(b) \implies b \in B
+    \end{gather*}
+    Which is a contradiction.
 \end{proof}
 \end{document}
