@@ -9,10 +9,15 @@
 
 \section{Introduction}
 
-The \emph{integral} is the area under the curve of a graph and the
-\emph{derivative} is the slope of the function. A \emph{definite integral} is
-also known as the \emph{antiderivative}.
+The \emph{integral} of a function is the area under the curve of a graph and the
+\emph{derivative} is the slope of the function.
 
+\begin{definition}[Fundamental Theorem of Calculus]
+\emph{Integration} and \emph{differentiation} are inverse functions of each other (under
+certain conditions).
+
+A \emph{definite integral} is also known as the \emph{antiderivative}.
+\end{definition}
 \section{Derivative}
 
 \begin{definition}[Derivative]
@@ -28,12 +33,12 @@ $$\lim\limits_{h \to 0} \frac{f(x+h)-f(x)}{h}$$
     $$\frac{ds}{dt}, \dot s(t), s'(t)$$
 \end{symbols}
 
-\subsection{Geometric significance of derivatives}
+\subsection{Geometric Significance of Derivatives}
 
-A function is differential at the point $x_0$ when there are no "sharp edges"
+A function is \emph{differential} at the point $x_0$ when there are no "sharp edges"
 or jumps at $x_0$.
 
-\subsection{Linear approximation}
+\subsection{Linear Approximation}
 
 If $x$ is close to $x_0$, then:
 $$f(x) \approx f(x_0)+f'(x_0)(x-x_0)$$
@@ -50,12 +55,8 @@ specific division), then we say that $f$ is \emph{integratable} on $[a,b]$:
 
 $$\int_{a}^{b}f(t)dt$$
 
-\section{Fundamental Theorem of Calculus}
 
-Integration and differentiation are inverse functions of each other (under
-certain conditions)
-
-\section{Operations between derivatives}
+\section{Operations Between Derivatives}
 
 \begin{note}
         Differentiability $\implies$ continuity
@@ -69,7 +70,7 @@ certain conditions)
     (g \circ f)' = f' \cdot g'(f)
 \end{gather}
 
-\section{Derivative of the inverse function}
+\section{Derivative of an Inverse Function}
 
 Given function $f$ differentiable at the point $a$:
 \[
@@ -83,7 +84,7 @@ Differentiate in terms of $x$:
 \end{gathered}
 \]
 
-\section{Differentiating implicit functions}
+\section{Differentiating Implicit Functions}
 
 \begin{example}
     $x^2+y^2-1=0$
