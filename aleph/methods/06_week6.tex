@@ -137,7 +137,7 @@ $$
 \section{Three Questions on Taylor Polynomials}
 
 \begin{enumerate}
-  \item For any $x$, does the taylor polynomial converge?
+  \item For any $x$, does the Taylor polynomial converge?
   \item If it does converge is it converging to the value of the function it's
       approximating?
   \item If it does converge towards the value it's trying to approximate, what
@@ -279,21 +279,13 @@ We check which is the smallest $k$ (lowest derivative) such that $f^{(k)}(a)
     $f^{(k)}(x) \neq 0$. If $k$ is odd, then $a$ is an \emph{inflection point}.
 \end{note}
 
-\section{Summary}
-\begin{enumerate}
-\item Taylor and Maclaurin polynomials
-\item Maclaurin series of certain functions (and their domains)
-\item Approximation of $f(x)$ until ... (Lagrange Remainder, Liebniz Series)
-\item Leading and sub-leading terms (Big $O$ and little $o$ notation)
-\item Investigating functions
+\section{Asymptotes}
+The line $y=ax+b$ is an \emph{asymptote} at $\infty$ if:
+$$\lim\limits_{x \to \infty} (f(x)-(ax+b)) = 0$$
 
-    The line $y=ax+b$ is an \emph{asymptote} at $\infty$ if:
-    $$\lim\limits_{x \to \infty} (f(x)-(ax+b)) = 0$$
-
-    Another way of calculating $a$ and $b$ (besides for polynomial division):
-    $$a=\lim\limits_{x \to \infty} \frac{f(x)}{x} \quad \quad
-    b = \lim\limits_{x \to \infty} (f(x)-ax)$$
-\end{enumerate}
+Another way of calculating $a$ and $b$ (besides for polynomial division):
+$$a=\lim\limits_{x \to \infty} \frac{f(x)}{x} \quad \quad
+b = \lim\limits_{x \to \infty} (f(x)-ax)$$
 
 \begin{definition}[Big $O$ notation]
     We say that $f(x)=O(g(x))$ if for some $A \in \mathbb{R}:$ $f(x) \leq
@@ -307,12 +299,15 @@ We check which is the smallest $k$ (lowest derivative) such that $f^{(k)}(a)
     $$f \approx O((x-a)^k)$$
     and that $f$ zeros at $a$ of the $k$-th order.
 \end{definition}
-\begin{definition}[little $o$ notation]
+\begin{definition}[Little $o$ notation]
         $$f \approx o(g(x)) \quad f \ll g(x)$$
 \end{definition}
 \begin{example}[Big $O$ and little $o$ notation]
     $$x^6+1 = O(x^6) \quad \quad x^6+1 = o(x^7)$$
 \end{example}
+
+\section{Additional Theorems}
+
 \begin{definition}[L'H\^{o}pital's rule]
 
     L'H\^{o}pital's rule helps us calculate limits of the form: "$\frac{0}{0}$"
