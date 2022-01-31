@@ -28,9 +28,10 @@
 \end{example}
 \begin{symbols}
     \begin{align*}
-        \dd{S}&=\|\underline r_u \times \underline r_v\|\dd{u}\dd{v} \\
-        \dd{\underline S} &= (\underline r_u \times \underline r_v)\dd{u}\dd{v}
-        \\
+        \dd{S}&=\overbrace{\|\underline r_u \times \underline
+        r_v\|}^{\text{scalar}}\dd{u}\dd{v} \\
+        \dd{\underline S} &= \overbrace{(\underline r_u \times \underline
+        r_v)}^{\text{vector}}\dd{u}\dd{v} \\
         \underline N &= \underline r_u \times \underline r_v \\
         \underline{\hat N} &= \frac{\underline r_u \times \underline
         r_v}{\|\underline r_u \times \underline r_v\|} \\
@@ -87,7 +88,7 @@
 \end{reminder}
 Integration on a \emph{scalar field} $\phi$:
 \begin{gather*}
-\iint\limits_\Sigma \phi \dd{S} = \iint\limits_D \phi(r(u,v))\|r\underline
+\iint\limits_\Sigma \phi \dd{S} = \iint\limits_D \phi(r(u,v))\|\underline
 r_u \times \underline r_v\|\dd{u}\dd{v} \\
 \text{\small (which represents \emph{mass})}
 \end{gather*}
