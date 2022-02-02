@@ -50,19 +50,24 @@
     $$|V|=n \quad E=\emptyset$$
 \end{definition}
 \begin{definition}[Complete Graph ($K_n$)]
-    $$|V|=n \quad E=\{(i,j) \mid 1 \leq i < j \leq n\}$$
-    $$|E|=\binom{n}{2}$$
+    \begin{gather*}
+    |V|=n \quad E=\{(i,j) \mid 1 \leq i < j \leq n\} \\
+    |E|=\binom{n}{2}
+    \end{gather*}
 \end{definition}
 How may different graphs are there with $n$ vertices?
 
 Every subset of the complete graph produces a different graph:
 $$2^{\binom{n}{2}}$$
+
 \begin{definition}[Circle Graph ($C_n$)]
-    $$|V|=n \quad E=\{(1,2),(2,3),\dots,(n-1,n),(n,1)\}$$
-    $$|E|=n$$
+    \begin{gather*}
+    |V|=n \quad E=\{(1,2),(2,3),\dots,(n-1,n),(n,1)\} \\
+    |E|=n
+    \end{gather*}
 \end{definition}
 \begin{definition}[Neighbors]
-    Given $u,v \in V$ $u$ and $v$ are \emph{neighbors} if $(u,v) \in E$.
+    Given $u,v \in V$, $u$ and $v$ are \emph{neighbors} if $(u,v) \in E$.
 \end{definition}
 \begin{definition}[Degree of a Vertex]
     The \emph{degree} of a vertex $u \in V$ is the number of \emph{neighbors}
@@ -363,7 +368,7 @@ These equivalence classes are called \emph{connected components} of $G$.
 \begin{proof}
     We will use proof by induction:
     \begin{enumerate}[I.]
-        \item $n=2$
+        \item $n=2 \;\checkmark$
     \begin{figure}[ht]
         \centering
         \includegraphics[width=0.2\textwidth]{w12_q2}
@@ -749,7 +754,7 @@ the edges is $2^{903}$ (!!!).
     \emph{Hall's condition} holds and therefore there exists \emph{complete
     matching}.
 \end{proof}
-\section{Latin Rectangle}
+\subsection{Latin Rectangle}
 \begin{definition}[Latin Rectangle]
     A \emph{Latin Rectangle} is a matrix $k\times n$ such that in every row and
     column there appears $\{1,\dots,n\}$ distinctly. ($k \leq n$)

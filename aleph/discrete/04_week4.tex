@@ -8,14 +8,12 @@
 \begin{document}
 \Chapter{Partial Ordered Relations}{4}
 
-\section{\href{https://en.wikipedia.org/wiki/Partially_ordered_set\#Partial_order_relation}{Partial Ordered Relations}}
+\section{Partial Ordered Relations}
 
-Given relation \(R\) on a set, then we say the \(R\) is a partial
-ordered relation if \(R\) is \emph{reflexive},
-\emph{antisymmetric}\footnote{\(R\) is \emph{antisymmetric} if
-  \(\forall \; a,b \in A: (a,b), (b,a) \in R \implies  a=b\)}, and
-  \emph{transitive}. In this case we say that \(A\) is a \emph{partial
-ordered set}.
+Given relation \(R\) on a set, then we say the \(R\) is a partial ordered
+relation if \(R\) is \emph{reflexive}, \emph{antisymmetric}, and
+\emph{transitive}. In this case we say that \(A\) is a \emph{partial ordered
+set}.
 
 \begin{definition}
 A partial ordered relation that exists for all
@@ -24,14 +22,13 @@ called a \emph{linear order}.
 \end{definition}
 
 Suppose that \(R\) is a partial ordered relation on \(A\):
-
 \[(a,b) \in R \quad a \leq_R b\]
 
-\(x \in A\) is called the \emph{maximum} if \(\forall \; y \in A\) , if
+\(x \in A\) is called the \emph{maximum} if \(\forall \; y \in A\), if
 \((x,y) \in R\), then \(x=y\). (\(x\) has no arrows going out of it
 except for to itself).
 
-\(x \in A\) is called the \emph{minimum} if \(\forall \; y \in A\) , if
+\(x \in A\) is called the \emph{minimum} if \(\forall \; y \in A\), if
 \((y,x) \in R\), then \(x=y\). (\(x\) has no arrows going to it except
 for to itself).
 
@@ -40,13 +37,12 @@ Diagram}}
 
 We'll say that pair \((x,y) \in R\) is "required" in a Hasse diagram
 if \(x \neq y\), and therefore:
-
 \[\forall z \in A (x,z),(z,y) \in R \implies z=x \text{ or } z=y\]
 
 Essentially, we can get rid of all arrows that represent transitivity and
 reflexivity because they are assumed.
 
-\begin{figure}[ht]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.5\textwidth]{w4-hesse}
     \caption{Example of a Hesse diagram}

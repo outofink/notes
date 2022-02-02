@@ -27,47 +27,39 @@ Essentially, there are four basic counting problems:
 
 \section{Order is important}
 \subsection{Repeats}
-When order is important, but there are repeats, we can simply express the
+When order is important but there are repeats, we can simply express the
 number of ways to place $n$ different balls in $k$ places as:
 $$n^k$$
 \subsection{No Repeats}
 
 If $n=k$, we get the number of permutations on $[n]$, which is $n!$.
-
-$$
-\begin{gathered}
+\begin{gather*}
     D=\{f:[k]\to[n] \mid f \text{ is injective}, \forall i \in [k]: f(i)=n\} (n
     \notin Imf) \\
     |D|= \frac{(n-1)!}{(n-1-k)!}
-\end{gathered}
-$$
-$$
-\begin{gathered}
+\end{gather*}
+\begin{gather*}
     E=\{f:[k]\to[n] \mid f \text{ is injective}, \exists! i \in [k]: f(i)=n\}
     \\
     \forall i \in[k]: E_i = \{f \in E \mid f(i) = n \} \\
     |E_i| =\frac{(n-1)!}{n-1-(k-1)} = \frac{(n-1)!}{(n-k)!} \implies |E| = \frac{k(n-1)!}{(n-k)!}
     = \frac{n!}{(n-k)!} - \frac{(n-1)!}{(n-1-k)!}
-\end{gathered}
-$$
+\end{gather*}
 
 Simply put, the number of ways to place $n$ distinct balls in $k$ places
 without repeats is:
 $$\frac{n!}{(n-k)!}$$
+
 \section{Order is unimportant, without repeats}
 
 Instead of dealing with sequences, we're dealing with sets.
 
 In essence, when order is unimportant, we just divide the answer where order is
 important by $k!$:
-$$
-    \frac{n!}{k!(n-k)!}
-$$
+$$\frac{n!}{k!(n-k)!}$$
 
 This is also known as the \emph{binomial coefficient}, symbolized as:
-$$
-    \binom{n}{k}
-$$
+$$\binom{n}{k}$$
 
 \subsection{Characteristics of binomial coefficients}
 \begin{enumerate}
@@ -75,33 +67,31 @@ $$
     \item $\displaystyle \binom{n}{k} \in \mathbb{N} \quad (n \in \mathbb{N}\cup\{0\}, 0 \leq k \leq
    n)$
     \item Symmetry: $\displaystyle \binom{n}{k} = \binom{n}{n-k}$
-\end{enumerate}
 
 \begin{symbols}
-$$[n] = \{1,2, \dots, n\},
-\binom{[n]}{k} = \{A \subseteq [n] \mid |A| = k \}$$
-$$\left|\binom{[n]}{k}\right| = \binom{n}{k}$$
+\begin{gather*}
+[n] = \{1,2, \dots, n\}, \binom{[n]}{k} = \{A \subseteq [n] \mid |A| = k \} \\
+\left|\binom{[n]}{k}\right| = \binom{n}{k}
+\end{gather*}
 \end{symbols}
 
 \begin{proof}
-$$
-\begin{gathered}
+\begin{gather*}
     f : \binom{[n]}{k} \to \binom{[n]}{n-k} \\
     A \in \binom{[n]}{k}, \quad f(A)=([n]\setminus A) \in \binom{[n]}{n-k} \\
     f(f(A)) = A \quad B \in \binom{[n]}{n-k}, f(f(B))=B
-\end{gathered}
-$$
+\end{gather*}
 \end{proof}
 
 Algebraically:
-$$\binom{n}{n-k} = \frac{n!}{(n-k)!(n-(n-k))!} = \frac{n!}{k!(n-k)!} =
-\binom{n}{k}$$
-$$\binom{n}{k}=\binom{n}{n-k}$$
+\begin{gather*}
+\binom{n}{n-k} = \frac{n!}{(n-k)!(n-(n-k))!} = \frac{n!}{k!(n-k)!} = \binom{n}{k} \\
+\binom{n}{k}=\binom{n}{n-k}
+\end{gather*}
 
 
 Back to characteristics:
-\begin{enumerate}
-    \item[4.] Pascal's rule:
+\item Pascal's rule:
 $$\binom{n-1}{k} + \binom{n-1}{k-1} = \binom{n}{k}$$
 \end{enumerate}
 

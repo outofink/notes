@@ -8,7 +8,7 @@
 \begin{document}
 \Chapter{Asymptotic Growth}{10}
 
-\section{Big O Notation}
+\section{Big \texorpdfstring{$O$}{O} Notation}
 \begin{definition}
     The sequence ($a_n$) is almost always positive if there exists $N_0\in
     \mathbb{N}$ such that $n>N_0$, $a_n>0$
@@ -20,8 +20,10 @@
     \mathbb{R}$ such that $n \leq N$: $a_n \leq cb_n$.
 \end{definition}
 \begin{example}
-    $$a_n=7n+5 \qquad b_n=n^2$$
-    $$\underbrace{7n+5}_{a_n} \leq 7n+5n = 12n \leq 12n^2$$
+    \begin{gather*}
+    a_n=7n+5 \qquad b_n=n^2 \\
+    \underbrace{7n+5}_{a_n} \leq 7n+5n = 12n \leq 12n^2
+    \end{gather*}
     We define $N=1$, $c=12$. For all $n\geq 1$:
     $$a_n \leq 12b_n$$
 \end{example}
@@ -31,7 +33,7 @@
         \leq b_n$, then $a_n = O(b_n)$
     \item If $a_n = O(b_n)$ and $0 < k \in \mathbb{R}$, then $ka_n=O(b_n)$
     \item If $a_n=O(b_n)$, $a'_n=O(b_n)$, then $a_n+a'_n=O(b_n)$
-    \item If $a_n=o(b_n)$, $b_n=O(d_n)$, then $a_n = O(d_n)$
+    \item If $a_n=O(b_n)$, $b_n=O(d_n)$, then $a_n = O(d_n)$
 \end{enumerate}
 \section{Claims about Asymptotic Growth}
 \begin{claim}
@@ -84,12 +86,10 @@
 \end{proof}
 \begin{conclusion}
     From the claim and the characteristics:
-    $$
-    \begin{gathered}
+    \begin{gather*}
         n^k = O\binom{n}{k} \qquad \binom{n}{k} = O(n^k) \\
         b_n = O\binom{n}{k} \qquad \binom{n}{k} = O(b_n)
-    \end{gathered}
-    $$
+    \end{gather*}
 \end{conclusion}
 \begin{claim}
     Given $k \in \mathbb{N}$:
@@ -178,9 +178,8 @@
 \end{example}
 \begin{claim}
     Given:
-    \[
-        p(n)=n^k + \sum_{i=0}^{k-1}t_in^i
-    \]
+    $$p(n)=n^k + \sum_{i=0}^{k-1}t_in^i$$
+
     Therefore $(p(n))$ has a polynomial growth rate of order $k$.
     \begin{proof}
         $p_n = O(n^k)$.

@@ -32,13 +32,11 @@ Within $l$ balls, $k-1$ within those have to ``divide'' $k$ of those balls. Ther
 are $l-(k-1)$ white balls remaining, which have to ``fill'' $k+1$ spaces.
 
 This is similar to our fourth problem, which can also take the form:
-$$
-\begin{gathered}
+\begin{gather*}
     x_1+x_2, \dots x_{k+1} = l-k+1 \\
     \Downarrow \\
     \binom{(k+1)+(l-k+1)-1}{(k+1)-1} = \binom{l+1}{k}
-\end{gathered}
-$$
+\end{gather*}
 
 In other words, for all ($k$) black balls, we're going to ``reserve'' that many
 ($k-1$) white balls (enough to fill in the gaps). With the remaining white balls, we can
@@ -77,34 +75,33 @@ $$\binom{l+1}{k}$$
     \item $\forall \; n \in \mathbb{N}: \binom{n}{0} = \binom{n}{n} = 1$
     \item $\forall \; n \in \mathbb{N}, 0 \leq k \leq n: \binom{n}{k} = \binom{n}{n-k}$
     \item \emph{Unimodality}:
-$$
-\begin{gathered}
+\begin{gather*}
  \binom{n}{k+1} \geq \binom{n}{k} \iff \frac{n!}{(k+1)!(n-k-1)!} \geq \frac{n!}{k!(n-k)!} \\
  \Updownarrow \\
  \frac{n-1}{2} \geq k
-\end{gathered}
-$$
+\end{gather*}
+
 In other words, the middle column of Pascal's Triangle always contains the
 highest value in its row and the values decrease going left and going right.
 
  \item The sum of row $n$ is equal to $2^n$
-$$
-\begin{gathered}
+\begin{gather*}
     P([n]) \equiv \{A \mid A \subseteq [n]\} \\
     | 2^{[n]}| = |P([n])| = \;?
-\end{gathered}
-$$
+\end{gather*}
 \end{itemize}
 
 \begin{claim}
 $|P([n])|=2^n$
 
 Given $S \subseteq A$:
-$$\chi_s: A \to \{0,1\}$$
-$$\chi_s(a) = \begin{cases}
+\begin{gather*}
+\chi_s: A \to \{0,1\} \\
+\chi_s(a) = \begin{cases}
     1 \quad a \in S \\
     0 \quad a \notin S
-\end{cases}$$
+\end{cases}
+\end{gather*}
 
 We want to find a set $B$ such that $|B|=2^n$ so that there exists a function
 $f: P([n]) \to B$ which is both \emph{injective} and \emph{surjective}.
@@ -114,15 +111,13 @@ $f: P([n]) \to B$ which is both \emph{injective} and \emph{surjective}.
 We define $B = \{f:[n] \to \{0,1\}\}$, and we know that $|B|=2^n$.
 
 We define the function $T: P([n]) \to B$:
-$$
-\begin{gathered}
+\begin{gather*}
     \forall A \subseteq P([n]): A \in P([n]) \\
     T(A) = \chi_A = \begin{cases}
         1 \quad a \in A \\
         0 \quad a \notin A \\
     \end{cases}
-\end{gathered}
-$$
+\end{gather*}
 
 $T$ is \emph{one-to-one} and \emph{onto}:
 $$f \in B \quad T^{-1}(f) = \{k \in [n] \mid f(k) = 1\}$$
@@ -133,8 +128,7 @@ $$|P([n])|=|B|=2^n$$
 \end{proof}
 \section{Newton's Generalized Binomial Theorem}
 
-$$
-\begin{gathered}
+\begin{gather*}
 (a+b)^n \\ \\
 \begin{aligned}
     (a+b)^1 &= a+b \\
@@ -143,22 +137,19 @@ $$
     (a+b)^n &= \sum_{k=0}^n \binom{n}{k} a^{k}b^{n-k}
 \end{aligned} \\ \\
 2^n = (1+1)^n= \sum_{k=0}^n \binom{n}{k}1^k1^{n-k} = \sum_{k=0}^{n} \binom{n}{k}
-\end{gathered}
-$$
+\end{gather*}
 
-Let's play which some more values for $a$ and $b$:
-$$
-\begin{gathered}
+Let's play with some more values for $a$ and $b$:
+\begin{gather*}
     (-1+1)^n=\sum_{k=0}^{n} \binom{n}{k}(-1)^k1^{n-k} =
-    \sum_{k-0}^{n}\binom{n}{k}(-1)^k = 0 \\
+    \sum_{k=0}^{n}\binom{n}{k}(-1)^k = 0 \\
     \Downarrow \\
     \binom{n}{0} - \binom{n}{1} + \binom{n}{2} - \binom{n}{3} + \dots +
     (-1)^k\binom{n}{n}=0 \\
     \Downarrow \\
     \binom{n}{0} + \binom{n}{2} + \binom{n}{4} + \dots = \binom{n}{1} + \binom{n}{3} +
     \binom{n}{5} + \dots
-\end{gathered}
-$$
+\end{gather*}
 
 \begin{conclusion}
 In other words, the number of subsets of $[n]$ of even size is equal to the
@@ -171,10 +162,8 @@ equivalent term.
 
 \paragraph{Another proof}
 
-Let there be $A\neq \emptyset$ of the size $n$ and $a \in A$.
-
-$$
-\begin{gathered}
+Let there be $A$ be a set with the size $n \in \mathbb{N}$ and $a \in A$.
+\begin{gather*}
     F_1=\{ B \subseteq A \mid |B| \text{ is even}\} \\
     F_2=\{ B \subseteq A \mid |B| \text{ is odd}\} \\
     \\
@@ -183,8 +172,8 @@ $$
         B \setminus \{a\} \quad a \in B \\
         B \cup \{a\} \quad a \notin B
     \end{cases}
-\end{gathered}
-$$
+\end{gather*}
+
 We see that if $|B|$ is even, then $|f(B)|$ is odd and $f(f(B))=B$. We also see
 that $f$ is \emph{invertible} as it's \emph{one-to-one} and \emph{onto}, and therefore we see
 that $|F_1|=|F_2|$.
@@ -192,9 +181,8 @@ that $|F_1|=|F_2|$.
 \subsection{Generalizing the Binomial Theorem}
 
 \begin{example}
-$$
-    (a+b+c)^{17}
-$$
+$$(a+b+c)^{17}$$
+
 First, we know that for each term, the sum of powers of $a,b$ and $c$ will be
 $17$. In regards to each term's coefficient, we can express it in the following
 way:
@@ -208,8 +196,7 @@ $$\binom{17}{3,6,8} = \frac{17!}{3!6!8!}$$
 
 \subsection{Multinomial Theorem}
 
-$$
-\begin{gathered}
+\begin{gather*}
     m \in \mathbb{N} \quad (x_1+x_2+x_3+ \dots + x_n)^m \\
     = \sum_{\begin{subarray}{l}
         k_1,k_2,\dots,k_n \in \mathbb{N} \cup \{0\} \\
@@ -217,27 +204,29 @@ $$
     \end{subarray}}^n
     \binom{m}{k_1,k_2,\dots,k_n}
     x_1^{k_1}x_2^{k_2}x_3^{k_3}\dots x_n^{k_n}
-\end{gathered}
-$$
+\end{gather*}
 
 \section{Paths on a Grid}
 \begin{example}
 There are two delegates: $A$ and $B$, with $2k$ ballots ($k$ that have $A$ and
 $k$ ballots have $B$). How many ways can we order the $2k$ ballots such that
-there are never more ballots for $A$ than $B$? ($\# B \geq \# A$)
+there are never more ballots for $A$ than $B$? ($B \geq A$)
 
-Similar problems include the ``line for the movies'' problem and ``number of
-balanced series of $n$ parentheses'' (computer science).
+Similar problems include the "line for the movies" problem and "number of
+balanced series of $n$ parentheses" (computer science).
 $$\underbrace{()(())}_{\text{balanced}} \quad
 \underbrace{())(()}_{\text{unbalanced}}$$
 
 \end{example}
 Algebraic expression:
-$$A = \left\{a \in \{-1,1\}^{2n}\ \mid \sum_{i=1}^{2n} a_i = 0\right\} \quad |A|=\binom{2n}{n}$$
-$$B=\left\{a \in A \mid \forall k \in [2n]: \sum_{i=1}^k a_i \leq 0\right\}
-\quad |B|=\;?$$
+\begin{gather*}
+A = \left\{a \in \{-1,1\}^{2n}\ \mid \sum_{i=1}^{2n} a_i = 0\right\} \quad
+|A|=\binom{2n}{n} \\
+B=\left\{a \in A \mid \forall k \in [2n]: \sum_{i=1}^k a_i \leq 0\right\}
+\quad |B|=\;?
+\end{gather*}
 
-\begin{figure}[ht]
+\begin{figure}[ht!]
   \centering
     \includegraphics[width=0.25\textwidth]{w6-grid}
     \caption{Grid expression where $k=5$}
@@ -248,12 +237,10 @@ $$B=\left\{a \in A \mid \forall k \in [2n]: \sum_{i=1}^k a_i \leq 0\right\}
     \item[A -] Total number of paths from $(0,0)$ to $(n,n)$ where $|A| = \binom{2n}{n}$
     \item[B -] Paths in A that do not go above the main diagonal
     \item[C -] Paths that go above the main diagonal
-    $$
-    \begin{gathered}
+    \begin{gather*}
         B = A \setminus C \\
-        |C| = |A| - |C| \Leftarrow C \subseteq A
-    \end{gathered}
-    $$
+        |B| = |A| - |C| \Leftarrow C \subseteq A
+    \end{gather*}
     \item[D -]Total number of paths from $(0,0)$ to $(n-1,n+1)$ where $|D|=\binom{2n}{n-1}$
 \end{itemize}
 \begin{claim}
@@ -267,33 +254,31 @@ $$|B| = |A| - |C| \underset{|C|=|D|}{=} |A| - |D| = \binom{2n}{n}-\binom{2n}{n+1
 
 We define $f: C \to D$:
 
-Given $a \in C$, we symbolize $a=(a_1,a_2,\dots,a_n)$
-
+Given $a \in C$, we symbolize $a=(a_1,a_2,\dots,a_n)$:
 $$A = \left\{a \in \{-1,1\}^n \mid \sum a_i = 0 \right\}$$
+
 Where $-1$ is a step right and $1$ is a step up.
 
 Where we need this to be true:
-$$\sum_{i=1}^{k}a_i>0$$
-
-$$k=\min\left\{1 \leq k\leq 2n \mid \sum_{i=1}^{k}a_i>0\right\}$$
-
-$$(f(a))_i = \begin{cases}
+\begin{gather*}
+\sum_{i=1}^{k}a_i>0 \\
+k=\min\left\{1 \leq k\leq 2n \mid \sum_{i=1}^{k}a_i>0\right\} \\
+(f(a))_i = \begin{cases}
     a_i & 1 \leq i \leq k \\
     -a_i & k < i
-\end{cases}$$
+\end{cases}
+\end{gather*}
 We notice that for $f(a)$:
 $$\sum_{i=1}^{2n}(f(a))_i = 2$$
 Therefore we see that $f$ expresses the path between $(0,0)$ to $(n-1,n+1)$.
 Notice that for  all $a \in C$:
 $$f(f(a))=a \implies f \circ f |_C = \Id_C$$
 \begin{proof}
-$$
-\begin{gathered}
+\begin{gather*}
     \implies f \text{ is \emph{invertible}} \\
     \implies |C| = |D| \\
     \implies |B| = C_n = \binom{2n}{n} - \binom{2n}{n+1}
-\end{gathered}
-$$
+\end{gather*}
 \end{proof}
 
 \end{document}

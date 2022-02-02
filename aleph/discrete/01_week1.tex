@@ -25,16 +25,14 @@ itself and an object $o$. Either $A$ contains or does not contain $o$.
 \end{definition}
 
 \begin{example}
-$$
-\begin{gathered}
+\begin{gather*}
     A=\{1,4,7,8\} \\
     B=\{a,b,c,d\} \\
     C=\{x,y,z\} \\
     \\
     1 \in A \\
     2 \notin A
-\end{gathered}
-$$
+\end{gather*}
 \end{example}
 
 Additionally, a set that has multiple members of the same element is
@@ -62,12 +60,11 @@ $$\{x \;|\; x^5-4x^3+7x^2-11x+\sqrt 2=0\}$$
 \end{definition}
 
 \begin{symbols}[Quantifiers]
-$$
-\begin{gathered}
+\begin{gather*}
     \forall = \text{for all} \\
     \exists = \text{exists}
-\end{gathered}
-$$
+\end{gather*}
+
 \end{symbols}
 
 \subsection{Containment (Subset)}
@@ -81,8 +78,7 @@ $$A=B$$
 \end{definition}
 
 \begin{example}
-$$
-\begin{gathered}
+\begin{gather*}
     A = \{1,3,4, \{1\}, \{1,2\}\} \\
     |A| = 5 \\
     1 \in A \\
@@ -95,8 +91,7 @@ $$
     \{1,2\} \nsubseteq A \\
     \{1\} \subseteq A \\
     \{1\} \subsetneq A \\
-\end{gathered}
-$$
+\end{gather*}
 \end{example}
 
 \begin{note}
@@ -145,7 +140,6 @@ If $A$ and $B$ are disjoint sets, then:
 $$|A \cup B| = |A| + |B|$$
 \end{definition}
 In general:
-
 $$|A \cup B| = |A| + |B|- |A \cap B|$$
 
 When $A, B, C$ are \emph{pairwise disjointed}:
@@ -153,24 +147,26 @@ $$|A \cup B \cup C| = |A| + |B| + |C|$$
 
 \subsection{Algebraic Properties}
 
-$$
-\begin{gathered}
+\begin{gather*}
     \text{Commutative property:} \\
     A \cup B = B \cup A \\
-    A \cap B = B \cap B \\
+    A \cap B = B \cap A \\
     \text{Associative property:} \\
     (A \cup B) \cup C = A \cup (B \cup C) \\
     (A \cap B) \cap C = A \cap (B \cap C) \\
     \text{Distributive property:} \\
     A \cup (B \cap C) = (A \cup B) \cap (A \cup C) \\
     A \cap (B \cup C) = (A \cap B) \cup (A \cap C) \\
-\end{gathered}
-$$
+\end{gather*}
 
 Given the sets $A_1, A_2. \mathellipsis, A_n$:
-$$[n] = \{1,2,3, \mathellipsis, n\}, n \in \mathbb{N},\quad |[n]|=n$$
-$$\bigcup_{i=1}^{n}A_i=A_1\cup A_2 \cup \mathellipsis \cup A_n = \{ x \;|\; \exists \; i \in [n] : x \in A_i \} $$
-$$\bigcap_{i=1}^{n}A_i=A_1\cap A_2 \cap \mathellipsis \cap A_n = \{ x \;|\; \forall \; i \in [n] : x \in A_i \} $$
+\begin{gather*}
+    [n] = \{1,2,3, \mathellipsis, n\}, n \in \mathbb{N},\quad |[n]|=n \\
+    \bigcup_{i=1}^{n}A_i=A_1\cup A_2 \cup \mathellipsis \cup A_n = \{ x \;|\;
+    \exists \; i \in [n] : x \in A_i \} \\
+    \bigcap_{i=1}^{n}A_i=A_1\cap A_2 \cap \mathellipsis \cap A_n = \{ x \;|\;
+    \forall \; i \in [n] : x \in A_i \}
+\end{gather*}
 
 \begin{definition}[Compliment]
 For set $U$ where $A \subseteq U$:
@@ -179,20 +175,20 @@ $$A^c = U \setminus A$$
 
 \begin{definition}[De Morgan's Laws]
 Given sets $A,B$:
-$$(A \cup B)^c=A^c \cap B^c$$
-$$(A \cap B)^c=A^c \cup B^c$$
+\begin{gather*}
+(A \cup B)^c=A^c \cap B^c \\
+(A \cap B)^c=A^c \cup B^c
+\end{gather*}
 \end{definition}
 
 \section{Logic and Logical Relations}
 
 \begin{axiom}
 Every claim is either \emph{true} and \emph{false}: $\{T,F\}$
-$$
-\begin{gathered}
+\begin{gather*}
     1+1=2 \to T \\
     1+1=0 \to F
-\end{gathered}
-$$
+\end{gather*}
 \end{axiom}
 
 \subsection{Unary Operations - Negation}
@@ -232,31 +228,27 @@ $$
 \begin{definition}[Complex Statements]
 Combination of logical relations in one statement.
 \begin{example}
-    $$\neg p \to Q$$
+    $$\neg P \to Q$$
 \end{example}
 \end{definition}
 
 \subsubsection{Relation between $\cup, \cap$ and $\lor, \land$}
-$$P : x \in A \quad Q: x \in B$$
-$$
-\begin{gathered}
+\begin{gather*}
+    P : x \in A \quad Q: x \in B \\
     P \lor Q : x \in A \cup B \\
     P \land Q: x \in A \cap B
-\end{gathered}
-$$
+\end{gather*}
 
 \begin{definition}[Logical Equivalency]
 If two complex statements are made up of the same statements, then they are
 \emph{logically equivalent}. ($\iff$)
 \end{definition}
 
-$$
-\begin{gathered}
+\begin{gather*}
     1<2 \quad x<2 \\
     \text{We'll symbolize the statement $P$ with the variable $x$ for $P(x)$} \\
     \text{Example: }P: (\forall \; x \in \mathbb{N} \quad x<2)
-\end{gathered}
-$$
+\end{gather*}
 
 $$\forall \; x \in A \quad P(x)$$
 is true if every $P(x)$ is true, and will be false if even one $P(x)$ is false.
@@ -265,14 +257,12 @@ $$\exists \; x \in A \quad P(x)$$
 will be true if even one $P(x)$ is true, and will be false if all $P(x)$ is false.
 
 Given $P(x), Q(x)$, the following logical statements can be constructed:
-$$
-\begin{gathered}
+\begin{gather*}
     \forall \; x \in A \quad \forall \; y \in B \quad P(x) \land Q(y) \\
     \exists \; x \in A \quad \exists \; y \in B \quad P(x) \land Q(y) \\
     \exists \; x \in A \quad \forall \; y \in B \quad P(x) \land Q(y) \\
     \forall \; x \in A \quad \exists \; y \in B \quad P(x) \land Q(y) \\
-\end{gathered}
-$$
+\end{gather*}
 
 \section{Series}
 

@@ -35,9 +35,11 @@ $$R=\{(2,4), (2,8),(2,12),(2,2),(3,3),(3,12),\ldots \}$$
 \emph{Full (universal) relation}: $R = A \times A$
 \end{definition}
 \begin{definition}[Power Set]
-Given set $A$, we'll define the \emph{power set} as being all the subsets of $A$:
-$$2^A = P(A) = \{B \mid B \subseteq A \}$$
-$$|P(A)| = 2^{|A|}$$
+Given set $A$, we define the \emph{power set} as being all the subsets of $A$:
+\begin{gather*}
+2^A = P(A) = \{B \mid B \subseteq A \} \\
+|P(A)| = 2^{|A|}
+\end{gather*}
 \end{definition}
 \begin{example}
 $B = P(\{1,2,3\})$:
@@ -57,69 +59,50 @@ $$R=\{(A_1,A_2) \mid A_1, A_2 \in B, A_1 \subseteq A_2 \}$$
 $A \neq \emptyset$ and not limited in size can have a relation that is
 reflexive, symmetric and antisymmetric: $R =\{(a,a) \mid a \in A \}$.
 \begin{example}
-$$
-\begin{gathered}
+\begin{gather*}
     A \in \mathbb{Z} \\
     a|x-y \iff xRy \\
     (x,y), (y,z) \in R \implies (x,z) \in R \\
     (x,y) \in R \implies \exists t_1 \in \mathbb{Z}, x-y=2t_1 \\
     (y,z) \in R \implies \exists t_2 \in \mathbb{Z}, y-z=2t_2 \\
     x-z = x-y + y-z = 2t_1 + 2t_2 = 2(t_1 + t_2) \implies (x,z) \in R
-\end{gathered}
-$$
+\end{gather*}
 \end{example}
-\section{Equivalence relations}
+\section{Equivalence Relations}
 \begin{definition}
 $R$ is a \emph{equivalence relation} on $A$ if $R$ is \emph{reflexive}, \emph{symmetric}, and
 \emph{transitive}.
 \end{definition}
 
-\begin{example}
-$$A = \{1,2,3,4,5\}$$
-\begin{enumerate}
-    \item $R = \{(a,a) \mid a \in A \}$ - Identity relation
-    \item Everything is related to itself, and $1, 2$ relate to each other
-    \item Everything is related to itself, and $1, 2, 3$ relate to each other
-\end{enumerate}
-
-We can see that there are closed sets (\emph{closures}) within each of the relations: 1 has
-five closed sets, 2 has four, and 3 has three.
-\end{example}
-
 \begin{symbols}
 If $R$ is a equivalence relation on $A$ we sometimes symbolize $(x,y) \in R$ or
-$x \sim y$
+$x \sim y$.
 \end{symbols}
 
 \begin{definition}
-If $R$ is a equivalence relation on $A$ then for all $a \in A$ we will define
-\emph{equivalence closure}:
-
+If $R$ is a equivalence relation on $A$ then for all $a \in A$ we define a
+\emph{equivalence closure} to be:
 $$[a]_R = \{b \in A \mid (a,b) \in R$$
 
 Given set $A$ the closure of $A$ is the collection $\{A_i\}_{i \in I}$:
 \begin{enumerate}
-\item $\forall i \in I, A_i \neq \emptyset$
-\item $\forall i,j \in I, A_i \neq A_j \implies A_i \cap A_j = \emptyset$
-\item $\displaystyle \bigcup_{i \in I}A_i=A$
+    \item $\forall i \in I, A_i \neq \emptyset$
+    \item $\forall i,j \in I, A_i \neq A_j \implies A_i \cap A_j = \emptyset$
+    \item $\displaystyle \bigcup_{i \in I}A_i=A$
 \end{enumerate}
 \end{definition}
 
 \begin{example}
-$$
-\begin{gathered}
+\begin{gather*}
     A = \mathbb{R} = \{(-\infty, -1), [-1,1], (1,\infty)\} \\
     B = \mathbb{N} = \{\{1,3,5,7,\ldots\},\{2,4,6,8,\ldots\}\}
-\end{gathered}
-$$
+\end{gather*}
 \end{example}
 
 \begin{claim}
 If $R$ is a equivalence relation on $A$ then the collection of all the
 equivalence closures:
-
 $$\{[a]_R \mid a \in A \}$$
-
 is a \emph{partition} of $A$.
 \end{claim}
 
@@ -132,26 +115,21 @@ $$\forall a \in A: |D \cap [a]_R| = 1$$
 \end{symbols}
 
 \begin{example}[Identity relation]
-$$
-\begin{gathered}
+\begin{gather*}
     \forall a \in A: [a]_R = \{a\} \\
     A/R=\{\{a\}\}_{a \in A} \\
     D=A
-\end{gathered}
-$$
+\end{gather*}
 \end{example}
 \begin{example}[Universal Relation]
-$$
-\begin{gathered}
+\begin{gather*}
     R = A \times A \\
     A/R = \{A\} \\
     \forall a \in A: D = \{a\}
-\end{gathered}
-$$
+\end{gather*}
 \end{example}
 \begin{example}
-$$
-\begin{gathered}
+\begin{gather*}
     A  = \mathbb{Z} \\
     R = \{(x,y) \mid x,y \in A, 2 | x-y \} \\
     [0]_R = \{-4,-2,0,2,4,6,\ldots\} \\
@@ -159,35 +137,24 @@ $$
     A/R = \{[0]_R, [1]_R \} \\
     D = \{0,1\} \\
     \text{ (or any two even/odd numbers)}
-\end{gathered}
-$$
+\end{gather*}
 \end{example}
-\section{Binary Relations}
 
+\section{Binary Relations}
 \begin{definition}
 \(R \subseteq A \times A\)
 
-\emph{Relations} are made up of pair from set \(A\) that fulfill certain
+\emph{Binary relations} are made up of pair from set \(A\) that fulfill certain
 parameters.
-
-\emph{Equivalence Relation}: A binary relation that is
-\emph{reflexive}
-\footnote{\(R\) is \emph{reflexive} if \(\forall \; a \in A: (a,a) \in
-R\)\label{reflexive}},
-\emph{symmetric}
-\footnote{\(R\) is \emph{symmetric} if \(\forall \; a,b \in A: (a,b) \in R
-\implies (b,a) \in R\)\label{symmetric}},
-and \emph{transitive}
-\footnote{\(R\) is \emph{transitive} if \(\forall \; a,b,c \in A: (a,b), (b,c)
-\in R \implies (a,c) \in R\) \label{transitive}}.
 
 \end{definition}
 \begin{example}
-\[A = \mathbb{Z} \times \mathbb{Z} \setminus \{0\}\]
-\[R=\{(m_1,n_1),(m_2,n_2) \mid m_1n_2=m_2n_1\}\]
-\end{example}
+\begin{gather*}
+A = \mathbb{Z} \times \mathbb{Z} \setminus \{0\} \\
+R=\{(m_1,n_1),(m_2,n_2) \mid m_1n_2=m_2n_1\}
+\end{gather*}
 
 To prove that this relation is an equivalence relation, we have to prove
 that it is \emph{reflexive}, \emph{symmetric} and \emph{transitive}.
-
+\end{example}
 \end{document}

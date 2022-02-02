@@ -10,8 +10,8 @@
 
 \section{Recurrence Relation}
 \begin{definition}[Recursion]
-    Sequence $a_n$ is defined as \emph{recursive} if there exists function $f$
-    such that for all $2 \leq n \leq \mathbb{N}$:
+    Sequence $a_n$ is defined as \emph{recursive} if there exists a function $f$
+    such that for all $2 \leq n \in \mathbb{N}$:
     $$a_n=\underbrace{f(a_1,a_2,\dots, a_{n-1})}_{\text{recurrence relation}}$$
 \end{definition}
 \begin{definition}[Recurrence Relation]
@@ -20,22 +20,18 @@
     $$a_n=f(a_{n-1},a_{n-2,\dots,a_{n-k}})$$
 \end{definition}
 \begin{example}[Arithmetic Progression]
-$$
-\begin{gathered}
+\begin{gather*}
     a_1=a \\
     \forall n \geq 2 \quad a_n = a_{n-1}+d,d \in \mathbb{R} \\
     a_n = a+ (n-1)d
-\end{gathered}
-$$
+\end{gather*}
 \end{example}
 \begin{example}[Geometric Progression]
-$$
-\begin{gathered}
+\begin{gather*}
     a_1=a \\
     \forall n \geq 2 \quad a_n = a_{n-1} \cdot q \\
     a_n = aq^{n-1}
-\end{gathered}
-$$
+\end{gather*}
 \end{example}
 \begin{example}[Tower of Hanoi]
     What are the minimum number of a steps to move a tower of height $n$ to the rightmost
@@ -47,7 +43,7 @@ $$
     \caption{Tower of Hanoi}
 \end{figure}
 
-    Base case: $a_1=1$
+    Base case: $a_1=1$.
 
     In order to move the $n$th ring, we first have to move $n-1$ rings to the
     middle, move the $n$th ring, and then to move back all then $n-1$ rings.
@@ -74,11 +70,9 @@ $$
             bunnies
         \item Rabbits do not die.
 \end{itemize}
-$$
-\begin{gathered}
+\begin{gather*}
     f(0)=1, f(1)=1, f(2)=2, f(3)=3
-\end{gathered}
-$$
+\end{gather*}
 Recurrence sequence (of order $2$):
 $$f(n)=\underbrace{f(n-2)}_{\text{just born}}+\underbrace{f(n-1)}_{\text{old
 rabbits}}$$
@@ -89,12 +83,10 @@ rabbits}}$$
 \end{symbols}
 \begin{claim}
     For all $n \in \mathbb{R}\cup\{0\}$:
-    $$
-    \begin{gathered}
+    \begin{gather*}
         f(n)=\frac{1}{\sqrt 5}\left(\varphi^{n+1}-\overline \varphi^{n+1}\right)
         =\frac{1}{\sqrt 5}\left(\left(\frac{1+\sqrt 5}{2}\right)^{n+1}-\left(\frac{1-\sqrt 5}{2}\right)^{n+1}\right)
-    \end{gathered}
-    $$
+    \end{gather*}
 \end{claim}
 \begin{proof}
     Using induction:
@@ -118,15 +110,15 @@ rabbits}}$$
 \end{example}
 \begin{example}
         We have a ladder with $n$ rungs. In every step we can go up one
-            or two rungs.
+        or two rungs.
 
         $J(n)$ is the number of ways to up a ladder with $n$ rungs.
-        $$J(1)=1, \quad J(2)=2, \quad J(3)=3$$
-        $$
+        \begin{gather*}
+        J(1)=1, \quad J(2)=2, \quad J(3)=3 \\
         J(n) =
         \underbrace{J(n-1)}_{\text{the last step is to go up one rung}}+
         \underbrace{J(n-2)}_{\text{the last step is to go up two rungs}}
-        $$
+        \end{gather*}
         Which is a \emph{Fibonacci sequence} with the initial values of
         $J(1)=1, J(2)=2$.
 \end{example}
@@ -170,11 +162,8 @@ How many ways are there to "third" a given polygon?
 
 We symbolize with $a_n$ the number of ways we can divide a polygon with
 $n+2$ sides into three parts.
-$$
-\begin{gathered}
-    a_1=1 \qquad a_2=2
-\end{gathered}
-$$
+$$a_1=1 \qquad a_2=2$$
+
 We define $A$ to be all of the ways we can divide the polygon into thirds:
 
 \begin{itemize}
@@ -201,20 +190,16 @@ polygon $\underbrace{\{k,k+1,\dots,n+1\}}_{\text{number of thirds}-a_{n-k}}$.
 
 $$|A_k|=a_{k-1}a_{n-k}$$
 \begin{conclusion}
-    $$
-    \begin{gathered}
+    \begin{gather*}
         a_n=\sum_{k=1}^{n}|A_k|=\sum_{k=1}^{n}a_{k-1}a_{n-k} \\
         a_1 = 1 \qquad a_0 = 1
-    \end{gathered}
-    $$
+    \end{gather*}
     We see that this is exactly like the Catalan numbers:
-    $$
-    \begin{gathered}
+    \begin{gather*}
         a_1=c(1) \qquad a_0=c(0) \\
         a_n=c(n) \\
         \boxed{a_n=\frac{1}{n+1}\binom{2n}{n}}
-    \end{gathered}
-    $$
+    \end{gather*}
 \end{conclusion}
 \end{example}
 \end{document}

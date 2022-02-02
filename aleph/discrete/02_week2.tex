@@ -23,7 +23,6 @@ $$f(C) = \left\{b \in B \mid a \in C : f(a) = b \right\} \subseteq B$$
 $$=\{f(a) \mid a \in C\}$$
 
 \begin{example}
-\begin{enumerate}
 Given $f: A \mapsto B$:
 
 $$\Im f = f(A) \subseteq B$$
@@ -32,53 +31,53 @@ Given $D \subseteq B$, the source of $D$:
 
 $$ f^{-1}(D) = \{a \in A \mid f(a) \in D\}$$
 
+\begin{enumerate}
 \item
-$$A \subseteq U$$
-$$\mathds{1}: U \mapsto \{0,1\} (\chi)$$
-
-$$\forall \; a \in U, \mathds{1}_A(a) = \begin{cases}
+\begin{gather*}
+A \subseteq U \\
+\mathds{1}: U \mapsto \{0,1\} (\chi) \\
+\forall \; a \in U, \mathds{1}_A(a) = \begin{cases}
     1 \quad a \in A \\
     0 \quad a \notin A
-\end{cases}$$
+\end{cases}
+\end{gather*}
 
 \item
-$$
-\begin{gathered}
+\begin{gather*}
     A = \mathbb{Z}^k \quad B = \mathbb{Z} \\
     f((a_1, \ldots, a_n)) = a_3
-\end{gathered}
-$$
+\end{gather*}
 
 \item
-$$
-\begin{gathered}
+\begin{gather*}
     \text{Given: }\{(a_1, \ldots, a_n)\} \subseteq \mathbb{Z}^k \\
     f: \underbrace{[n]}_{\{1,2,\ldots,n\}} \mapsto \mathbb{Z} \\
     \forall \; i \in [n] : f(i)= a_i
-\end{gathered}
-$$
+\end{gather*}
 
 \end{enumerate}
 \end{example}
 
 \begin{claim}
 Given: $f: A \mapsto B$, $D_1, D_2 \subseteq B$:
-$$f^{-1}(D_1 \cap D_2) = f^{-1}(D_1) \cap f^{-1}(D_2)$$
-$$a \in f^{-1}(D_1 \cap D_2) \iff f(a) \in D_1 \cap D_2$$
+\begin{gather*}
+f^{-1}(D_1 \cap D_2) = f^{-1}(D_1) \cap f^{-1}(D_2) \\
+a \in f^{-1}(D_1 \cap D_2) \iff f(a) \in D_1 \cap D_2
+\end{gather*}
 Given: $C_1, C_2 \subseteq A$:
 $$f(C_1 \cap C_2) \neq f(C_1) \cap f(C_2)$$
 \end{claim}
 
-\subsubsection{Characteristics of Functions}
+\subsection{Characteristics of Functions}
 Given $f: A \mapsto B$:
 
 $f$ is \emph{injective} (one-to-one) if:
-
-$$\forall \; a_1,a_2 \in A : a_1 \neq a_2 \; \exists \; f(a_1) \neq f(a_2)$$
-$$\forall \; a_1,a_2 \in A \quad f(a_1) = f(a_2) \implies a_1 = a_2$$
+\begin{gather*}
+\forall \; a_1,a_2 \in A : a_1 \neq a_2 \; \exists \; f(a_1) \neq f(a_2) \\
+\forall \; a_1,a_2 \in A \quad f(a_1) = f(a_2) \implies a_1 = a_2
+\end{gather*}
 
 $f$ is \emph{surjective} (onto) if:
-
 $$\Im f = B$$
 
 If $f$ is injective: $|A| \leq |B|$.
@@ -86,8 +85,7 @@ If $f$ is injective: $|A| \leq |B|$.
 If $f$ is surjective: $|A| \geq |B|$.
 
 If $f$ is both injective and surjective, it is \emph{bijective} (invertible) and: $|A| = |B|$.
-If we have two finite sets $A, B$, function $f: A \mapsto B$, and $C
-\subseteq A, D \subseteq B$:
+If we have two finite sets $A, B$, function $f: A \mapsto B$, and $C \subseteq A, D \subseteq B$:
 \begin{enumerate}
     \item $|f(c)| \leq |C|$
     \item $f$ is injective:
@@ -106,35 +104,39 @@ If we have two finite sets $A, B$, function $f: A \mapsto B$, and $C
 \subsection{Composing Functions}
 
 Given sets $A, B, C$:
-
-$$f: A \mapsto B, \quad g: B \mapsto C$$
-$$g \circ f: A \mapsto C: \forall \; a \in A:$$
-$$(g \circ f)(a) = g(f(a))$$
+\begin{gather*}
+f: A \mapsto B, \quad g: B \mapsto C \\
+g \circ f: A \mapsto C: \forall \; a \in A: \\
+(g \circ f)(a) = g(f(a))
+\end{gather*}
 
 \subsection{Identity function}
 
-$$\Id_A: A \mapsto A$$
-$$f \circ \mathrm{Id}_A: A \mapsto B$$
-$$f \circ \mathrm{Id}_A: f$$
-$$\mathrm{Id}_B \circ f: A \mapsto B$$
-$$\mathrm{Id}_B \circ f: f$$
+\begin{gather*}
+\Id_A: A \mapsto A \\
+f \circ \mathrm{Id}_A: A \mapsto B \\
+f \circ \mathrm{Id}_A: f \\
+\mathrm{Id}_B \circ f: A \mapsto B \\
+\mathrm{Id}_B \circ f: f
+\end{gather*}
 
 \subsection{Inverse function}
 
 Given $f: A \mapsto B, g: B \mapsto C$:
 
 $g$ is the inverse of $f$ if:
-
-$$g \circ f = \mathrm{Id}_A$$
-$$f \circ g = \mathrm{Id}_B$$
+\begin{gather*}
+g \circ f = \mathrm{Id}_A \\
+f \circ g = \mathrm{Id}_B
+\end{gather*}
 
 If the previous is true, then $g = f^{-1}$.
 
-$n \in \mathbb{N}, [n] = \{1,2,\ldots, n\}$
 \subsection{Examples}
 \begin{example}
+
+Given $f:A \mapsto B$, $C_1, C_2 \subseteq A$:
 \begin{enumerate}
-Given $f:A \mapsto B$, $C_1, C_2 \subseteq A$
 \item If $C_1 \subseteq C_2$, then $f(C_1) \subseteq f(C_2)$.
 
 Yes.
@@ -158,25 +160,23 @@ $f(c) \notin f(C_2)$
 \end{example}
 
 \begin{example}
-    \begin{enumerate}
 Let $f: A \mapsto B, g: B \mapsto C$. Prove that if $g \circ f$ is injective
 then $f$ is also injective.
 
 Suppose $a_1, a_2 \in A, a_1 \neq a_2$.
-
-$$g \circ f(a_1) \neq g \circ f(a_2)$$
-$$f(a_1) \neq f(a_2)$$
-    \end{enumerate}
+\begin{gather*}
+g \circ f(a_1) \neq g \circ f(a_2) \\
+f(a_1) \neq f(a_2)
+\end{gather*}
 \end{example}
 
 \begin{example}
-\begin{enumerate}
-Let $f: A \mapsto B, g: B \mapsto A, h: B \mapsto A$
+Let $f: A \mapsto B, g: B \mapsto A, h: B \mapsto A$:
 
- \item $g \circ f = \mathrm{Id}_A$ and $h \circ f = \mathrm{Id}_A$, then $g=h$.
+\begin{enumerate}
+\item $g \circ f = \mathrm{Id}_A$ and $h \circ f = \mathrm{Id}_A$, then $g=h$.
 
 False
-
 \item $f \circ g = \mathrm{Id}_B$ and $h \circ f = \mathrm{Id}_A$, then $g=h$.
 
 True
@@ -187,20 +187,20 @@ True
 
 A \emph{permutation} is a (possible) rearrangement of objects. For example,
 there are 6 permutations of the letters $a, b, c$:
-
 $$abc, acb, bac, bca, cab, cba$$
 
-Permutation on $[n]$ is $f: [n] \mapsto [n]$, for example $\mathrm{Id}_{[n]}$
-
-$f: A \mapsto A$
-$$f^2 = f \circ f: A \mapsto A$$
-$$f^m = \underbrace{f \circ f \circ f \ldots}_{m \text{ times}}$$
+Permutation on $[n]$ is $f: [n] \mapsto [n]$. For example $\mathrm{Id}_{[n]}$:
+\begin{gather*}
+    f: A \mapsto A \\
+    f^2 = f \circ f: A \mapsto A \\
+    f^m = \underbrace{f \circ f \circ f \ldots}_{m \text{ times}}
+\end{gather*}
 
 If $f \circ g$ is bijective, it is a permutation.
-
-$$\sigma^6 = \mathrm{Id}_{\sigma}$$
-$$\sigma^{100} = \mathrm{Id}_{\sigma}$$
-
+\begin{gather*}
+\sigma^6 = \mathrm{Id}_{\sigma} \\
+\sigma^{100} = \mathrm{Id}_{\sigma}
+\end{gather*}
 
 \begin{definition}[Permutation]
 Permutation of $[n]$ is $f: [n] \mapsto [n]$ is surjective and injective.
@@ -228,7 +228,7 @@ is also \emph{one-to-one} $\implies a_1=a_2$.
 \end{proof}
 
 \begin{conclusion}
-Conclusion: $g \circ f$ is \emph{one-to-one}.
+$g \circ f$ is \emph{one-to-one}.
 \end{conclusion}
 
 \begin{definition}

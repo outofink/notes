@@ -19,12 +19,11 @@
 
 \subsubsection{In General}
 
-$$
-\begin{aligned}
+\begin{align*}
     n=2:& \quad|A \cup B| = |A| + |B| - |A \cap B| \\
     n=3:& \quad|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap
 C| \\&+ |A \cap B \cap C|
-\end{aligned}$$
+\end{align*}
 
 \begin{figure}[ht]
   \centering
@@ -33,50 +32,26 @@ C| \\&+ |A \cap B \cap C|
 \end{figure}
 
 \begin{symbols}
-    $x$ is a finite set, and $A_1,\dots A_n$ are subsets of $x$.
+    $X$ is a finite set, and $A_1,\dots A_n$ are subsets of $X$.
 
     We symbolize $N=\{1,2,\dots,n\}$ for all $\emptyset \neq k \subseteq N$.
     $$A(k) = \bigcap_{i \in k}A_i$$
-    \emph{For example}:
+    For example:
     $$k = \{1,4,5,8\} \implies A(k) = A_1 \cap A_4 \cap A_5 \cap A_8$$
 \end{symbols}
 
 \begin{theorem}[Inclusion-Exclusion Formula]
-    $$\begin{gathered}
+    \begin{gather*}
         \left|\bigcup_{i=1}^nA_i\right| = \underbrace{|A_1|+|A_2|+\dots+|A_n|}_{\binom{n}{1}}
     - \underbrace{|A_1\cap A_2|}_{\binom{n}{2}} \\\dots +(-1)^{n+1}|A_1\cap A_2
     \cap \dots \cap A_n|\\
     =\sum_{j=1}^{n}\sum_{\begin{subarray}{l} k \subseteq N \\ |k| =
     j\end{subarray}} (-1)^{j-1}|A(k)| \\
-    = \sum_{k \subseteq N, k \neq \emptyset} (-1)^{|k|+1}|A(k)|
-    \end{gathered}
-    $$
-    $$\boxed{\sum_{j=0}^n\sum_{\begin{subarray}{l}k \subseteq N \\ |k|= j\end{subarray}}
-    (-1)^j|A(k)|}$$
+    = \sum_{k \subseteq N, k \neq \emptyset} (-1)^{|k|+1}|A(k)| \\
+    \boxed{\sum_{j=0}^n\sum_{\begin{subarray}{l}k \subseteq N \\ |k|= j\end{subarray}}
+    (-1)^j|A(k)|}
+    \end{gather*}
 \end{theorem}
-
-\section{Review}
-
-$X$ is a finite set. Sets $A_1, A_2, \dots, A_n \subseteq X$ (and are therefore
-also finite).
-
-We would like to find the size of $X \setminus (\bigcup_{i=0}^nA_i)$.
-
-$N=\{1,2,\dots, n\} \forall k \subseteq N \neq \emptyset$:
-$A(k)=\bigcap_{i\in k} A_i$, $A(\emptyset)=X$
-
-Therefore:
-$$
-\begin{gathered}
-\left|X \setminus (\bigcup_{i=0}^nA_i)\right|=|X|
--|A_1|-|A_2|-\dots-|A_n|
-+\sum_{1\leq i < j \leq n}|A_i\cap A_j|\\
--\sum_{1 \leq i<j<k \leq n}|A_i\cap A_j \cap A_k|+\dots\\
-=\sum_{j=0}^n\sum_{\begin{subarray}{1}k\subseteq
-N\\|k|=j\end{subarray}}(-1)^j|A(k)|=
-\sum_{k \subseteq N} (-1)^{|k|}|A(k)|
-\end{gathered}
-$$
 
 \section{First Use}
 
@@ -87,8 +62,7 @@ Given $S_n$ as permutations on $[n]$, and $\sigma \in S_n: 1\leq i \leq n$ is a
 $x$ exist that do not contain a \emph{fixed point}?
 
 \paragraph{Solution:}
-$$
-\begin{gathered}
+\begin{gather*}
     x=S_n \quad |x|=n!\\
     \forall 1\leq i \leq n: A_i = \{\sigma \in S_n \mid \sigma(i)=i\}\\
     \bigcup_{i=1}^nA_i - \text{all of the permutations that contain at least one
@@ -102,41 +76,36 @@ N\\|k|=j\end{subarray}}(-1)^j\underbrace{(n-j)!}_{|A(k)|}}_{\text{constant for
 all $|k|=j$}} = \sum_{j=0}^{n}\binom{n}{j}(n-j)!(-1)^j \\
 =n!\sum_{j=0}^n\frac{(-1)^j}{j!} \;\overrightarrow{\quad n \to \infty \quad}\;
 n!\cdot\boxed{\frac{1}{e}}
-\end{gathered}
-$$
+\end{gather*}
 
 \section{Second Use}
 Given finite sets $D,R: |D|=d, |R|=r$.
-$$
-    |A|=|\{f:D\to R \mid f \text{ is onto } (\Ima f=R) \}|=?
-$$
+$$|A|=|\{f:D\to R \mid f \text{ is onto } (\Ima f=R) \}|=\; ?$$
 If $d<r$, then $|A|=0$, and if $d=r$, then $|A|=r!$.
 
 We're going to subtract from the total number of functions, all of the
 functions that are not \emph{onto}.
 
 \paragraph{Solution}
-$$
+\begin{gather*}
 \begin{gathered}
     X=\{f:D\to R\} \quad |X|=r^d\\
     \forall 1\leq i \leq r: A_i = \{f \in X \mid i \notin \Ima f\} \\
     \bigcup_{i=1}^rA_i - \text{All of the functions that are not onto.} \\
     A = X \setminus \bigcup_{i=1}^rA_i\\
-\end{gathered}
-$$
-$$\begin{aligned}
+\end{gathered} \\
+\begin{aligned}
     \forall 1 \leq i \leq r \quad &|A_i|&=(r-1)^d \\
     \forall 1 \leq i<j \leq r \quad &|A_i\cup A_j|&=(r-2)^d \\
     \forall k \subseteq R, |k|=j \quad &|A(k)|&=(r-j)^d
-\end{aligned}$$
-$$
+\end{aligned} \\
 \begin{gathered}
     \left|X \setminus \bigcup_{i=1}^rA_i\right| =
     \sum_{j=0}^{r}\sum_{\begin{subarray}{c}k \subseteq \{1,\dots
     r\}\\|k|=j\end{subarray}}(-1)^j|A(k)| =
     \sum_{j=0}^{r}\binom{r}{j}(-1)^j(r-j)^d
 \end{gathered}
-$$
+\end{gather*}
 
 \section{Third Use}
 
@@ -166,12 +135,10 @@ $$
 
 If we symbolize $l=\lfloor\frac{n}{k}\rfloor$, $l$ is the largest integer such
 that $l \leq \frac{n}{k}$.
-$$
-\begin{gathered}
+\begin{gather*}
     A=\{k,2k,3k,\dots,lk\} \quad lk \leq \frac{n}{k}k=n \\
     |A|=l=\left\lfloor\frac{n}{k}\right\rfloor
-\end{gathered}
-$$
+\end{gather*}
 
 \paragraph{Question}
 
@@ -201,26 +168,21 @@ $n$?
     exists some $1\leq i \leq t$ such that $p_i|m$.
 
     We define $x=[n]$.
-    $$
-    \begin{aligned}
+    \begin{align*}
         \forall i: 1 \leq i \leq n:
         \quad &A_i = \{x \in [n] \mid p_i|x \} \quad&|A_i|=\frac{n}{p_i} \\
         1 \leq i<j\leq n:
         \quad &A_i\cap A_j = \{x \in [n] \mid p_i|x, p_j|x \}  \quad &|A_i \cap A_j| =\frac{n}{p_ip_j} \\
-    \end{aligned}
-    $$
+    \end{align*}
     And in general:
-    $$
-    \begin{gathered}
+    \begin{gather*}
         k \subseteq \{1,\dots,t\} \\
         A(k)=\bigcap_{i \in k}A_i = \{x \in [n] \mid \forall i \in k: p_i|x\}
         = \left\{x \in [n] \;\middle|\; \prod_{i \in k}p_i|x\right\} \\
         |A(k)| = \frac{n}{\prod_{i \in k}p_i}
-    \end{gathered}
-    $$
+    \end{gather*}
     Based on our definition:
-    $$
-    \begin{gathered}
+    \begin{gather*}
         \varphi(n) = \left|X \setminus \bigcup_{i=1}^tA_i\right|
         = \underbrace{n}_{|X|}-\sum_{i=1}^{t}\frac{n}{p_i}+\sum_{1\leq i<j\leq
         n}\frac{n}{p_ip_j}-\sum_{1\leq i<j<j\leq n}\frac{n}{p_ip_jp_k}+\dots\\
@@ -228,8 +190,7 @@ $n$?
         \{1,\dots,t\}\\|k|=j\end{subarray}}\frac{n}{\prod_{i \in k}p_i}\\
         =n\sum_{j=0}^{n}(-1)^j\sum_{\begin{subarray}{c}k \subseteq
         \{1,\dots,t\}\\|k|=j\end{subarray}}\frac{1}{\prod_{i \in k}p_i}
-    \end{gathered}
-    $$
+    \end{gather*}
     With a little algebraic manipulation, we can see that our conclusion is
     indeed equal to:
     $$n\prod_{i=1}^t\left(1-\frac{1}{p_i}\right)$$

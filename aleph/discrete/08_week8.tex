@@ -11,10 +11,10 @@
 \section{The Pigeonhole Principle}
 \subsection{Definition and Examples}
 \begin{definition}[The Pigeonhole Principle]
-    Given $m, n \in \mathbb{N}, m>n$, then if we distribute $m$ pigeons between
+    Given $m, n \in \mathbb{N}, m>n$, if we distribute $m$ pigeons between
     $n$ pigeonholes, then at least one hole with have at least two pigeons.
 
-    In other words, if $m>n$, then there does not exist $f: [m] \to [n]$ that
+    In other words, if $m>n$, then there does not exist $f: [m] \to [n]$ such that
     will be \emph{injective}.
 \end{definition}
 
@@ -61,12 +61,10 @@
                 $$\bigcup_{j \in \{1,3,5,\dots,199\}}B_j=[200]$$
             \item If $k,l \in B_j$ then we are guaranteed that one will divide
                 another: (without loss of generality: $n_1 < n_2$)
-                $$
-                \begin{gathered}
+                \begin{gather*}
                     k=2^{n_1}\cdot j \quad l=2^{n_2} \cdot j \\
                     2^{n_1}j|2^{n_2}j \implies k|l
-                \end{gathered}
-                $$
+                \end{gather*}
         \end{enumerate}
 \end{proof}
 
@@ -103,7 +101,7 @@
     \leq a_n$ or $a_1 \geq a_2 \geq \dots \geq a_n$
 
     Given sequence $A=(a_1,a_2,\dots,a_n)$, if $1 \leq i_1 \leq i_2 \leq \dots
-    leq i_k \leq k$ of $k$ natural numbers, then $(a_{i_1}, a_{i_2}, \dots
+    \leq i_k \leq k$ of $k$ natural numbers, then $(a_{i_1}, a_{i_2}, \dots
     a_{i_k})$ is a \emph{subsequence} of length $k$ of $A$.
 
     Given series of $nm+1$ distinct numbers then there exists a subsequence
@@ -111,13 +109,11 @@
     length $m+1$.
 \end{definition}
 \begin{example}[Erd\H{o}s–Szekeres theorem]
-    $$
-    \begin{gathered}
+    \begin{gather*}
         (1,5,0,3,2) \\
         \text{Length of: } 2 \cdot 2 + 1 \\
         \text{There is a decreasing subsequence of length: } 2+1
-    \end{gathered}
-    $$
+    \end{gather*}
 \end{example}
 \begin{conclusion}
     For every sequence of the length $1\cdot 11 + 1 = 12$ we can find a
@@ -126,26 +122,23 @@
 \end{conclusion}
 \begin{proof}
     We define of all $i: 1 \leq i \leq nm+1$:
-
-    $p_1$ - length of increasing subsequence with maximum length beginning with
-    $a_i$.
-
-    $q_1$ - length of decreasing subsequence with maximum length beginning with
-    $a_i$.
-
-    \emph{Proof by contradiction}: there does not exist a subsequence with length
-    $m+1$, then for all $i: 1 \leq p_i \leq m$.
-
-    If there also isn't a decreasing subsequence with a length $n+1$ then for
+    \begin{enumerate}
+        \item[$p_1$] - length of increasing subsequence with maximum length
+            beginning with $a_i$.
+        \item[$q_1$] - length of decreasing subsequence with maximum length
+            beginning with $a_i$.
+    \end{enumerate}
+    \emph{Proof by contradiction}:
+    \begin{itemize} \tightlist
+    \item If there does not exist a subsequence with length $m+1$, then for all $i: 1 \leq p_i \leq m$.
+    \item If there also isn't a decreasing subsequence with a length $n+1$, then for
     all $i: 1 \leq q_i \leq n$.
-
+    \end{itemize}
     Therefore, for all $1 \leq i \leq nm+1$:
-    $$
-    \begin{gathered}
+    \begin{gather*}
         (p_i,q_i) \in [m] \times [n] \\
         |[m] \times [n]| = mn
-    \end{gathered}
-    $$
+    \end{gather*}
     We have $nm+1$ ordered pairs that are each part of a set with the size
     $nm$.
 
@@ -190,7 +183,7 @@ least $b+1$ pigeons.
     containing 3 people.
 
     If $|A|\geq 3$, if among set $A$ there are at least 2 people who know each other, then along
-    with \emph{Dana}, we will find 3 people in the group who know one
+    with \emph{Dani}, we will find 3 people in the group who know one
     another. If there aren't, then we know there are 3 people in set $A$ who do
     not know one another.
 
@@ -203,7 +196,7 @@ least $b+1$ pigeons.
 \begin{example}
     A plane is colored with the colors green and white. Is is guaranteed that
     we will be able to find two \emph{monochromatic} (the same color) points
-    such that the distance between them is exactly $1$m?
+    such that the distance between them is exactly $1$?
     \begin{proof}
     Consider the vertices of an equilateral triangle of side length 1 on the
     plane. Per the \emph{pigeonhole principle} at least two of the vertices
@@ -218,7 +211,7 @@ least $b+1$ pigeons.
 \section{Induction}
 
 \subsection{What is induction?}
-A proof technique regarding the natural numbers.
+\emph{Induction} is proof technique regarding the natural numbers.
 
 \begin{axiom}[Axiom of Induction]
     For all $\emptyset \neq A \subseteq \mathbb{N}$, there exists a \emph{minimum
@@ -238,12 +231,12 @@ Method of proving $p(n)$ using induction over the real numbers:
     Posits that if $p(k)$ is true ($p \in \mathbb{N}$), then $p(k+1)$ will also
     be true.
 \end{enumerate}
-If both steps are true, we can deduce that for $n in \mathbb{N}$, $p(n)$ is true.
+If both steps are true, we can deduce that for $n \in \mathbb{N}$, $p(n)$ is true.
 \begin{proof}
     We will assume by counterexample that the two steps are true but not for
     all $n \in \mathbb{N}$, $p(n)$ is true.
 
-    We define $A =\{n \mid p(n) \text{ is false}\} \subseteq \mathbb{N}$, and
+    We define $A =\{n \mid p(n) \text{ is false}\} \subseteq \mathbb{N}$.
     According to our assumption, $A \neq \emptyset$. As per the \emph{axiom of
     induction}, there exists $n_0 = \min{A}$. We know that $1 \notin A$ and
     therefore $n_0>1$, $n_0-1 \notin A$, $n_0-1 \in \mathbb{N}$ and therefore
@@ -251,10 +244,10 @@ If both steps are true, we can deduce that for $n in \mathbb{N}$, $p(n)$ is true
     is a contradiction.
 \end{proof}
 \subsection{Examples}
-\setcounter{example}{0}
 \begin{example}
     $$1+3+5+\dots+(2n+1)= \sum_{k=1}^{n}(2k-1)=n^2$$
 \begin{proof}
+    By induction:
     \begin{enumerate}[I.]
         \item $p(1)$:
         \begin{equation}
@@ -275,6 +268,7 @@ If both steps are true, we can deduce that for $n in \mathbb{N}$, $p(n)$ is true
 \begin{example}
     For all $n \in \mathbb{N}$, $3|4^n-1$.
     \begin{proof}
+    By induction:
     \begin{enumerate}[I.]
         \item
             \begin{equation}
@@ -300,6 +294,7 @@ If both steps are true, we can deduce that for $n in \mathbb{N}$, $p(n)$ is true
     \caption{"L" tile}
 \end{figure}
 \begin{proof}
+    By induction:
     \begin{enumerate}[I.]
         \item
         \begin{equation}
@@ -336,6 +331,7 @@ If both steps are true, we can deduce that for $n in \mathbb{N}$, $p(n)$ is true
     For all $n \in \mathbb{N}$, $n$ can be expressed as a product of prime
     numbers.
     \begin{proof}
+    By induction:
         \begin{enumerate}[I.]
             \item $p(1)$: $1$ is a multiple of $0$ primes.
             \item Assuming $p(1), p(2), \dots, p(k)$:
@@ -353,6 +349,7 @@ If both steps are true, we can deduce that for $n in \mathbb{N}$, $p(n)$ is true
 \begin{example}
     For all $n \in \mathbb{N}$, there are $n$ prime numbers.
     \begin{proof}
+        By induction:
         \begin{enumerate}[I.]
             \item \begin{equation}
                 n=1 \tag{\checkmark}
