@@ -4,6 +4,7 @@
 !.github/workflows/generate-pdf-from-latex.yml
 !web/*
 !aleph/preamble.tex
+!aleph/title.tex
 !aleph/discrete/*.tex
 !aleph/discrete/images/*.png
 !aleph/discrete/images/*.jpg
