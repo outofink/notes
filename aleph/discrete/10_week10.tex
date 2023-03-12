@@ -56,7 +56,7 @@
     For $n \in \mathbb{N}$ we define
     $b_n=\underbrace{n(n-1)\dots(n-k+1)}_{\frac{n!}{(n-k)!}}$:
     \begin{enumerate}[I.]
-        \item $n^k = O(n_n)$
+        \item $n^k = O(b_n)$
         \item $b_n = O(n^k)$
     \end{enumerate}
 \end{claim}
@@ -65,8 +65,11 @@
         \item We need to prove $n^k = O(b_n)$:
             $$
             \begin{gathered}
-                \frac{n}{2} \leq n-k<n-k+1 \iff \\
-                n\leq 2n-2k \iff \\ \boxed{2k\leq n}
+                \frac{n}{2} \leq n-k<n-k+1 \\
+                \Updownarrow \\
+                n\leq 2n-2k \\
+                \Updownarrow \\
+                \boxed{2k\leq n}
             \end{gathered} \quad \vline \quad
             \begin{gathered}
                 n^k=2^k\left(\frac{n}{2}\right)^k \\
@@ -255,10 +258,10 @@
     Find the order of polynomial growth $k$ of $a_n$ where $a_n$ is the number of
     ways to place 100 distinct balls to $n$ cells such that:
     \begin{enumerate}[a.]
-        \item In the first cell there are exactly 4 balls
+        \item In the first cell there are exactly 4 balls:
         $$a_n = \binom{100}{4}(n-1)^{96}$$
         $k=96$.
-        \item In the first cell there is at most 4 balls
+        \item In the first cell there is at most 4 balls:
         \begin{gather*}
             a_n \leq \text{total number of ways to place $100$ balls in $n$
             cells} = n^{100} \\
@@ -268,7 +271,7 @@
             n^{100} = O(a_n) \tag{II} \\
             a_n=\Theta(n^{100}), k=100
         \end{gather*}
-        \item There exists a cell that has exactly 4 balls
+        \item There exists a cell that has exactly 4 balls:
         \begin{gather*}
         a_n \geq \text{number of ways such that one cell has 4 balls and all other
         have at least one} \\

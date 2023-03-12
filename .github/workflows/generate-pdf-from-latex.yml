@@ -19,6 +19,18 @@ jobs:
           root_file: 00_complete.tex
           working_directory: aleph/methods
           post_compile: "mv 00_complete.pdf ../../web/mathematical_methods.pdf"
+      - name: Generate "Mathematical Methods II" PDF
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: 00_complete.tex
+          working_directory: aleph/methods2
+          post_compile: "mv 00_complete.pdf ../../web/mathematical_methods_2.pdf"
+      - name: Generate "Calculus" PDF
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: 00_complete.tex
+          working_directory: aleph/elec
+          post_compile: "mv 00_complete.pdf ../../web/electricity_and_magnetism.pdf"
       - run: touch web/.nojekyll
       - name: Deploy to GitHub Pages
         if: success()

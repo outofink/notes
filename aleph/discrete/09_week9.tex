@@ -48,7 +48,7 @@
     In order to move the $n$th ring, we first have to move $n-1$ rings to the
     middle, move the $n$th ring, and then to move back all then $n-1$ rings.
     $$a_n=2a_{n-1}+1$$
-    We see that $a_2=3$ and $a_3=7$. Maybe $a_n = 2^n+1$?
+    We see that $a_2=3$ and $a_3=7$. Maybe $a_n = 2^n-1$?
     \begin{proof}
     Let us check using induction:
     \begin{enumerate}[I.]
@@ -156,7 +156,7 @@ $$C(n) = \sum_{i=1}^{n}C(i-1)\cdot C(n-i)$$
 
 \begin{example}
 Thirding a polygon is done by going over all the diagonals that don't
-cross over each other
+cross over each other.
 
 How many ways are there to "third" a given polygon?
 

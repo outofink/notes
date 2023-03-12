@@ -1,0 +1,277 @@
+\documentclass[00_complete]{subfiles}
+
+%\input{../preamble}
+\title{Electricity and Magnetism}
+\author{Moshe Krumbein}
+\date{Spring 2022}
+
+\begin{document}
+\Chapter{Introduction}{1}
+
+\begin{definition}[Operator]
+An \emph{operator} is an mathematical object which takes a \emph{function} and
+returns a \emph{function}.
+
+For example, the \emph{derivative}: $\frac{\dd{f}}{\dd{x}}$.
+\begin{note}
+    This is not a fraction!
+\end{note}
+\end{definition}
+The most common \emph{operator} is electromagnatism is the \emph{nabla}
+($\grad$):
+$$\vec \grad =\frac{\partial}{\partial x} \hat \imath + \frac{\partial}{\partial
+y} \hat \jmath + \frac{\partial}{\partial z} \hat k$$
+\section{Gradient}
+
+$$\vec f(x,y,z)= \grad \phi = \pdv{\phi}{x}\hat \imath + \pdv{\phi}{y}\hat
+\jmath + \pdv{\phi}{z} \hat k = \Grad(\phi)$$
+
+What can we use the \emph{gradient} for?
+
+\subsection{Directional derivative}
+The \emph{derivative} of the function in the certain direction.
+$$\pdv{\phi}{\hat n}=\grad \phi \cdot \hat n$$
+Where $\hat n$ is the unit vector in the desired direction.
+\subsubsection{Conservative Fields}
+$$\phi(\vec r_2)-\phi(\vec r_1)=\int_\gamma \grad \phi \cdot \dd{\vec r}$$
+
+\section{Divergence}
+$$\vec f(x,y,z)=f_x(x,y,z)\hat \imath + f_y(x,y,z)\hat \jmath+f_z(x,y,z)\hat k$$
+$$\Div(\vec f)= \div \vec f =
+\frac{\dd{f_x}}{\dd{x}}+\frac{\dd{f_y}}{\dd{y}}+\frac{\dd{f_z}}{\dd{z}}$$
+It's much easier to work in cases that are symmetrical (cylinders and infinite
+planes).
+$$\vec f(x,y,z)=xy\hat x + yz\hat y + xz\hat z \quad \div \vec f = y+z+x$$
+\subsubsection{Integration on Surfaces}
+
+Suppose we have a vector field $\vec f (x,y,z)$ and a surface defined by
+$s(x,y,z)=c$ (a sphere).
+$$\iint\limits_S \vec f(x,y,z)\dd{\vec s} \quad \dd{\vec s}=\dd{s} \cdot \hat n$$
+\begin{note}
+    We define the direction to be \emph{outward}.
+\end{note}
+$$\dd{s}=R^2\sin(\theta)\dd{\theta}\dd{\phi}\hat r \quad 0 \leq \theta \leq
+\pi, \quad 0 \leq \phi \leq 2\pi$$
+$$\vec f (\vec r)=\vec r$$
+$$\int \vec f (\vec r)\dd{\vec r} = \oiint \hat r R^2 \sin
+(\theta)\dd{\phi}\dd{\theta}\cdot \hat r = R^2
+\oiint\sin(\theta)\dd{\phi}\dd{\theta}= 4 \pi R^2$$
+\subsection{Gauss's Law}
+$$\oiint\limits_{S(V)}\vec f \cdot \dd{\vec s}= \iiint\limits_V(\div \vec
+f) \cdot \dd{V}$$
+Where $S(V)$ is the area which encloses the $V$.
+\section{Curl}
+\begin{gather*}
+    f(x,y,z)=f_x\hat x + f_y \hat y + f_z\hat z \\
+    \Curl(f)=\curl f = \left(\pdv{f_z}{y}-\pdv{f_y}{z}\right)\hat x
+    + \left(\pdv{f_x}{z}-\pdv{f_z}{x}\right)\hat y
+    + \left(\pdv{f_y}{x}-\pdv{f_x}{y}\right)\hat z
+\end{gather*}
+\subsection{Stokes' Law}
+$$\oint\limits_{l(A)}\vec f \cdot \dd{\vec l} = \int\limits_A(\curl \vec
+f)\dd{\vec s} \quad \dd{\vec s}=\dd{s}\cdot \hat n$$
+\begin{note}
+    We define the direction using the \emph{right hand rule}.
+\end{note}
+\section{What is electricity?}
+$$e=1.602\cdot 10^{-19}\;\mathrm{C}$$
+There exists \emph{conservation of charge}.
+\subsection{Coulomb's Law}
+\begin{definition}[Coulomb's Law]
+    \emph{Coulomb's Law} defines the vector (magnitude and direction) of the
+    force between two charges in space given charges $q_1, q_2$ at distances
+    $r_1, r_2$ respectively.
+    \begin{gather*}
+        \vec r_{1,2}=\vec r_1 - \vec r_2 \quad \hat r_{1,2}=\frac{\vec r_1 -
+        \vec r_2}{\|\vec r_1 - \vec r_2\|} \\
+        \vec F_{1,2}= \frac{kq_1q_2}{\|\vec r_{1,2}\|^2}\hat r_{1,2}
+    \end{gather*}
+    Where $k=8.99\cdot 10^9 \frac{\mathrm{N}\cdot \mathrm{m}^2}{\mathrm{C}^2}$.
+    Sometimes we define $k$ in terms of $\varepsilon_0$ (dielectric constant in a
+    vacuum):
+    $$k=\frac{1}{4\pi\varepsilon_0} \quad \varepsilon_0=8.8542\cdot
+    10^{12}\frac{\mathrm{C}^2}{\mathrm{N}\cdot\mathrm{m}^2}$$
+    More simply, we say:
+    $$\vec F = \frac{kq_1q_2}{r^2}\hat r$$
+\end{definition}
+\section{Superposition Principle}
+
+\begin{definition}[Superposition Principle]
+    Given a system of charges, the force on a single particle is the
+    \emph{vector sum} of all of the forces in the system on that particle.
+\end{definition}
+In order to more simple use the superposition principle, we can use:
+$$\frac{\hat r_{1,2}}{\|\vec r_{1,2}\|^2}=\frac{\vec r_{1,2}}{\|\vec r_{1,2}\|^3}$$
+$$\vec F_i=\sum_{i\neq j}\frac{kq_iq_j}{\|\vec r_i-\vec r_j\|}(\vec r_i - \vec
+r_j)$$
+\subsection{Work and Energy}
+\begin{gather*}
+    \vec F_{2,1}=k\frac{q_1q_2}{|r'_2-r_1|^2}\hat r'_{2,1} \\
+W = - \int_\infty^{r_2} \vec F_{2,1}\cdot \dd{r'_2}
+\end{gather*}
+\begin{note}
+    The work being done is \emph{conservative}, which means it is not dependent
+    on the path taken.
+\end{note}
+Doing a change a variables:
+\begin{gather*}
+    \overline r' = \overline r'_2 - \overline r_1 \\
+    |\overline r_2' - \overline r_1| = |r'| \\
+    \dd{r'}=\dd{r_2'}
+\end{gather*}
+Back to finding the work:
+\begin{gather*}
+    W = -\int_{\infty}^{\overline r_2 - \overline
+    r_1}k\frac{q_1q_2}{|r'|^2}\dd{r'}  =
+    k\frac{q_1q_2}{|r'|}\Bigr|_{\infty}^{\overline r_2-\overline r_1} =
+    \frac{kq_1q_2}{|\overline r_2 - \overline r_1|}
+\end{gather*}
+The about of work required to bring $q_2$ from infinity to distance $r$ from
+$r_1$ is equal to the amount of work $q_1$ needs to push $q_2$ from $r$ to
+infinity.
+
+If we wanted to bring in a third particle $q_3$:
+\begin{gather*}
+    U_{1,2,3}= \frac{kq_1q_2}{|\overline r_2 -\overline r_1|} +
+    \frac{kq_1q_3}{|\overline r_3 - \overline r_1|} + \frac{kq_2q_3}{|\overline
+    r_3 - \overline r_2|} \\
+    U=\sum_{i}\sum_{j<i}\frac{kq_iq_j}{|\overline r_i-\overline r_j|} =
+    \frac{1}{2}\sum_i\sum_{i \neq j}\frac{kq_iq_j}{|\overline r_i - \overline
+    r_j|}
+\end{gather*}
+\section{Electric Fields}
+
+Given a fixed charge $q_0$ and a free charge $q_1$:
+\begin{gather*}
+    \overline F_{0,1}=k\frac{q_0q_1}{|\vec r_0-\vec r_1|^2}\hat r_{0,1} \\
+    \vec E(\vec r_0)=\frac{\vec F(\vec r_0)}{q_0}=k\frac{q_1}{|\vec r_0 - \vec
+    r_1|^2}\hat r_{0,1} \left[\frac{\mathrm N}{\mathrm C}\right]
+\end{gather*}
+Where $\vec E$ represents the electric field and $\vec r_0$ is the location at
+which we are measuring the field.
+
+For an arbitrary number of points in the field:
+\begin{gather*}
+    \vec E(\vec r_0)=\sum_i\frac{kq_i}{|\vec r_0-\vec r_i|^2}\hat r_{0,i}
+\end{gather*}
+And assuming there's one large charge $Q$:
+\begin{gather*}
+    \vec E(\vec r)=k\frac{Q}{r^2}\hat r
+\end{gather*}
+\subsection{Characteristics}
+\begin{itemize}
+    \item $\oint \vec E \cdot \dd{ \vec \ell} = 0$
+    \item $\curl \vec E = 0$
+\end{itemize}
+\section{Flux}
+\begin{definition}[Flux]
+\begin{gather*}
+    \phi = EA
+\end{gather*}
+Where $\phi$ is \emph{flux}, $E$ is the electric field, and $A$ is the area.
+\end{definition}
+If the field and the area are perpendicular, then we can say:
+\begin{gather*}
+    \phi = \vec E \cdot \vec A = |E||A|\cos\theta \\
+    \phi = \int \vec E \cdot \dd{\vec s}
+\end{gather*}
+\section{Charge Densities}
+\begin{definition}[Volume Charge Density]
+\begin{gather*}
+    \rho \left[\frac{\mathrm{C}}{\mathrm{m^3}}\right] \implies q = \int_V \rho
+    \dd{V}
+\end{gather*}
+\end{definition}
+\begin{definition}[Surface Charge Density]
+\begin{gather*}
+    \sigma \left[\frac{\mathrm{C}}{\mathrm{m^2}}\right] \implies q = \int_S
+    \sigma \dd{S}
+\end{gather*}
+\end{definition}
+\begin{definition}[Linear Charge Density]
+\begin{gather*}
+    \lambda \left[\frac{\mathrm{C}}{\mathrm{m}}\right] \implies q = \int_\ell
+    \lambda \dd{\ell}
+\end{gather*}
+\end{definition}
+\section{Electric Field}
+Per \emph{Coulomb's Law}, we can build a "force field" by a single charge $q_1$:
+$$\vec F(\vec r_0)= \frac{kq_0q_1}{|\vec r_0-\vec r_1|^2}\hat r_{0,1}$$
+Where $q_0$ is a \emph{test charge} at any point in space.
+From this, we can build an \emph{electric field}:
+$$\vec E(\vec r_0) =\frac{\vec F(\vec r_0)}{q_0}= \frac{kq_1}{|\vec r_0-\vec r_1|^2}\hat r_{0,1}$$
+Or in general:
+$$\vec E(\vec r_0) =\frac{\vec F(\vec r_0)}{q_0}= \sum_i\frac{kq_i}{|\vec r_0-\vec
+r_i|^2}\hat r_{0,i}$$
+\begin{example}
+    Suppose we have a charged two-dimensional disk on the $xy$-plane with
+    radius $r$ and \emph{charge density} $\sigma$ (constant). What in the
+    \emph{electric field} on the $z$-axis?
+    \begin{gather*}
+        \vec E(z)=\int\frac{k\sigma \dd{s'}}{|\vec r - \vec r'|^2}\hat r_{0,'}
+        \quad \hat r_{0,'} = \frac{\vec r -\vec r'}{|\vec r - \vec r'|} \implies \\
+        \vec E(z)=\int k\frac{\sigma(\vec r- \vec r')\dd{s'}}{|\vec r -\vec r'|^3}
+        \\
+        \vec r (0,0,z) \quad \vec r' (r'\cos(\phi'),r'\sin(\phi'),0) \\
+        0 \leq  r' \leq R \quad 0 > \phi' \leq 2 \pi \\
+        \vec r -\vec r' = (-r'\cos(\phi'),-r'\sin(\phi'),z) \\
+        |\vec r- \vec r'|^3=(r'^2+z^2)^\frac{3}{2} \\
+        \dd{s'}=r'\dd{r'}\dd{\phi'} \\
+        \vec E(z)=\int_0^{2\pi}\int_{0}^{R} \frac{k\sigma}
+        {(r'^2+z^2)^\frac{3}{2}}\cdot(-r'\cos{\phi'},-r'\sin{\phi'},z)\cdot
+        r' \dd{r'}\dd{\phi'} \\
+        =2 \pi k \sigma z \int_{0}^{R}\frac{r' \dd{r'}}{(r'^2+z^2)^\frac{3}{2}}
+        \\
+        \vec E(z)=2 \pi k \sigma z \hat z \cdot
+        \frac{-1}{\sqrt{r'^2+z^2}}\biggr|_0^R = \left(2\pi k\sigma -
+        \frac{2\pi k \sigma z}{\sqrt{R^2+z^2}}\right)\hat z \\
+        \boxed{\vec E (z \to 0)=2\pi k \sigma \hat z}
+    \end{gather*}
+    Which is the \emph{electric field} for an infinite plane.
+    \begin{gather*}
+        z\gg R \\
+        \vec E(z) \approx 2 \pi k \sigma \left( 1
+        \left(-\frac{R^2}{2z^2}\right)\right)\hat z = \frac{\pi
+        R^2k\sigma}{z^2}\hat z = \frac{kq}{z^2}\hat z
+    \end{gather*}
+    Which is reminiscent of \emph{Coulomb's law}, which makes sense
+    intuitively, for something with a finite radius from very far away appears
+    and behaves point-like.
+\end{example}
+\section{Gauss's Law}
+Where $\Phi$ is the \emph{electric flux} through a closed surface $S$:
+\begin{gather*}
+    \Phi = \oint \vec E \cdot \dd{\vec S} = \frac{q}{\varepsilon_0} = 4 \pi k
+    \cdot q
+\end{gather*}
+This expresses that in order to find the \emph{flux} on a closed surface,
+we only need to know how much charge in within the surface, regardless of the
+shape of the surface and the charges outside the surface.
+$$\boxed{\oint \vec E \dd{\vec S} = \frac{q}{\varepsilon_0}} \quad \text{(Integral
+Form)}$$
+
+\emph{Gauss's law} is useful because it allows us to choose whatever surface
+we would like, namely a sphere, and to take advantage of its symmetries, in
+order to simplify our calculations.
+
+\subsection{Charged sphere without thickness of radius a}
+\begin{gather*}
+    \vec E(r) = \begin{cases}
+        0 & r < a \\
+        \frac{kq}{r^2}\hat r & a > a \quad q = 4 \pi a^2 \sigma
+    \end{cases}
+\end{gather*}
+
+\subsection{Differential form of Gauss's Law}
+
+\begin{gather*}\oiint \vec E \dd{\vec S} = \frac{q}{\varepsilon_0} =
+    \frac{1}{\varepsilon_0}\iiint \rho \dd{V}
+\end{gather*}
+We can used \emph{Gauss's theorem} (\emph{divergence theorem}), which states:
+$$\oiint_{S(\sigma)} \vec E \dd{s} =\iiint_\sigma \div \vec E \dd{V}$$
+which provides:
+\begin{gather*}
+    \int \div \vec E \dd{V} = \int \frac{\rho}{\varepsilon_0} \dd{V} \\
+    \implies \boxed{\div \vec E = \frac{\rho}{\varepsilon_0}}
+\end{gather*}
+\end{document}

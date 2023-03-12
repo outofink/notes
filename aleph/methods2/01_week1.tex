@@ -1,0 +1,208 @@
+\documentclass[00_complete]{subfiles}
+
+%\input{../preamble}
+\title{Mathematical Methods II}
+\author{Moshe Krumbein}
+\date{Spring 2022}
+
+\begin{document}
+\Chapter{Vector Analysis}{1}
+
+\section{Review}
+$$\int_{a}^{b}f'=[f]_a^b$$
+
+Given an $n$\textsuperscript{th} dimensional function ($n=2,3$):
+
+\begin{itemize}
+    \item Scalar Field:
+        $$f: \underbrace{D}_{\subset \mathbb{R}^n} \to \mathbb{R}$$
+    \item Vector Field:
+        $$\underline f: D \to \mathbb{R}^n$$
+\end{itemize}
+
+$$(D_{\underline x}\underline f)(\dd{\underline x})=(\dd{\underline
+f(\underline x)})$$
+
+\begin{gather*}
+    f: \mathbb{R}^2 \to \mathbb{R} \quad f(x,y) \\
+    \underline D = \begin{pmatrix}
+        \pdv{f}{x} & \pdv{f}{y}
+    \end{pmatrix} \\
+    \underline \grad D = \begin{pmatrix}
+        \pdv{f}{x} \\ \pdv{f}{y}
+    \end{pmatrix}
+\end{gather*}
+\begin{gather*}
+    f: \mathbb{R}^3 \to \mathbb{R} \quad f(x,y,z) \\
+    (\underline D f)^T = \underline \grad f = \begin{pmatrix}
+        \pdv{f}{x} \\ \pdv{f}{y} \\ \pdv{f}{z}
+    \end{pmatrix}
+\end{gather*}
+
+\subsection{Three Dimensional Vector Field}
+\begin{gather*}
+    \underline f: \mathbb{R}^3 \to \mathbb{R}^3 \\
+    \underline D f = \begin{pmatrix}
+        \pdv{f_1}{x} & \pdv{f_2}{x} & \pdv{f_3}{x} \\
+        \pdv{f_1}{y} & \pdv{f_2}{y} & \pdv{f_3}{y} \\
+        \pdv{f_1}{z} & \pdv{f_2}{z} & \pdv{f_3}{z} \\
+    \end{pmatrix} \\
+    \Div \underline f = \div \underline f = \pdv{f_1}{x} +
+    \pdv{f_2}{y} + \pdv{f_3}{z} \\
+    \Curl \underline f = \curl \underline f = \begin{pmatrix}
+        \pdv{f_3}{y} - \pdv{f_2}{z} \\
+        \pdv{f_1}{z} - \pdv{f_3}{x} \\
+        \pdv{f_2}{x} - \pdv{f_1}{y}
+    \end{pmatrix}
+\end{gather*}
+
+\begin{gather*}
+    \int_{a}^{b}f(x)\dd{x} \\
+    \sum_{r=1}^{N}f(x_r)(x_r-x_{r-1})
+\end{gather*}
+\begin{gather*}
+    \iint_Df \dd{A} \\
+    \sum_{\text{parts}}\underline f \cdot \dd{r} \\
+    \int_{a}^{b}\underline f (\underline r(t)) \cdot \underline r(t) \dd{t}
+\end{gather*}
+\begin{gather*}
+    \iint_\Sigma = \iint_D \underline f(x(u,v),y(u,v),z(u,v)) \cdot
+    \left(\pdv{f}{u} \times \pdv{f}{v}\right) \dd{u}\dd{v}
+\end{gather*}
+\begin{gather*}
+    \iiint_R f \dd{V} \\
+    \dd{S} = \|\pdv{f}{u}\times\pdv{f}{v}\|\dd{u}\dd{v} \\
+    \underline{\hat N} = \frac{\pdv{f}{u}\times\pdv{f}{v}}{\|\pdv{f}{u}\times\pdv{f}{v}\|}
+\end{gather*}
+\begin{example}
+\begin{gather*}
+    \underline f(x,y) = \binom{y}{x} \quad \underline r(t)= \binom{t^2}{t^3}
+    \quad 0 \leq t \leq 1 \\
+    \int_c \underline f \cdot \dd{\underline r} =
+    \int_{0}^{1}\binom{t^3}{t^2}\cdot\binom{2t}{3t^2}\dd{t}=
+    \int_{0}^{1}5t^3\dd{t} = \left[t^3\right]_0^1=1 \\
+    \int_cy\dd{x}+x\dd{y} = \int_cf_1\dd{x} + f_2\dd{y} =
+    \int_c\dd(xy)=\left[xy\right]_A^B=1
+\end{gather*}
+\end{example}
+\section{Meaning of \texorpdfstring{$\Grad$,$\;\Div$,$\;\Curl$}{grad, div, curl}}
+\subsection{\texorpdfstring{$\Grad$}{grad}}
+$$\grad f = \binom{\pdv{f}{x}}{\pdv{f}{y}}$$
+\subsection{\texorpdfstring{$\Curl$}{curl}}
+Essentially the "angular velocity".
+$$\underline v = \underline \omega \times \underline r$$
+\section{Integral Theorems}
+\subsection{One Dimensional}
+$$[\phi]_a^b=\int_{a}^{b}\phi'$$
+\subsection{Two Dimensional}
+$$[\phi]_A^B=\int_c\grad\phi \cdot \dd{r}$$
+\subsubsection{Green's Theorem}
+$$\oint_{\partial D}\dd{x}+Q\dd{y}=\iint_D\left(\pdv{Q}{x}-\pdv{P}{y}\right)\dd{x}\dd{y}$$
+
+\subsection{Three Dimensional}
+$$[\phi]_A^B=\int_c\grad\phi \cdot \dd{r}$$
+
+\subsubsection{Stokes' Theorem}
+$$\oint_{\partial \Sigma}\underline f \dd{s}=\iint_\Sigma(\curl \underline
+f)\dd{S}$$
+
+\subsubsection{Gauss's Theorem}
+$$\oiint_{\partial R} \underline f \dd{\underline S} = \iiint_R (\div
+\underline f)\dd{V}$$
+\subsection{First Type}
+\subsubsection{One Dimensional}
+$$[f]_a^b=\int_{a}^{b}f'$$
+\subsubsection{n-Dimensional}
+$$[\phi]_A^B=\int_c\grad\phi\cdot \dd{r}$$
+Suppose $\underline r = \underline r(t)$:
+\begin{gather*}
+    \int_c\grad \phi \cdot \dd{r} = \int_{a}^{b}\underbrace{(\grad
+    \phi)(\underline r(t))}_{\grad phi}\cdot\underbrace{\underline{\dot
+r}(t)\dd{t}}_{\dd{\underline r}} \\
+= \int_{a}^{b}\frac{\dd}{\dd{t}}(\phi(\underline r(t)))\dd{t} =
+[\phi(\underline r (t))]_a^b = \phi((\underline r(b))-\phi(\underline r(a))) \\
+=\phi(B)-\phi(A)=[\phi]_A^B
+\end{gather*}
+\subsection{Second Type}
+\subsubsection{Green's Theorem}
+Where the edge is $\partial D$ and it is a closed path and with a
+anticlockwise orientation:
+$$\boxed{\oint_{\partial D}P\dd{x}+Q\dd{y} = \iint_D
+\left(\pdv{Q}{x}-\pdv{P}{y}\right)\dd{A}}$$
+\begin{proof}
+    It's enough to prove:
+    \begin{gather*}
+        \oint_{\partial D}P \dd{x} \iint_D-\pdv{P}{y}\dd{A} \\
+        \oint_{\partial D}Q \dd{y}= \iint_D\pdv{Q}{x}\dd{A}
+    \end{gather*}
+When $D$ is a \emph{simple region}:
+$$D=\{a\leq x \leq b, c(x) \leq y \leq d(x)\}$$
+\begin{gather*}
+    \gamma_1:\underline r(t)=\binom{t}{c(t)}_{a \leq t \leq b} \\
+    \gamma_2:\underline r(t)=\binom{t}{d(t)}_{a \leq t \leq b} \\
+    \partial D = \gamma_1 \cup (-\gamma_2)
+\end{gather*}
+\begin{gather*}
+    \oint_{\partial D}P \dd{x}=
+    \int_{\gamma_1}P\underbrace{\dd{x}}_{\binom{P}{0}\dd{\underline r}} -
+    \int_{\gamma_2}P\dd{x} \\
+    =\int_{a}^{b}P(t,c(t))\dd{t}-\int_{a}^{b}P(t,d(t))\dd{t} \\
+    \vdots
+\end{gather*}
+Where $D$ is not a \emph{simple region} it can be split into \emph{simple
+regions}.
+\end{proof}
+Essentially, we see that Stokes', Green's and Gauss's theorems are all just
+implementations of the first fundamental theorem of calculus.
+
+$$\oint_{\partial D}\binom{P}{Q}\cdot \dd{\underline r}$$
+
+is the \emph{circulation} of $\binom{P}{Q}$ on $\partial D$.
+$$\frac{\oint_{\partial D}\binom{P}{Q}\cdot \dd{\underline r}}{\text{area over
+$D$}} = \frac{\iint_D\pdv{Q}{x}-\pdv{P}{y}\dd{A}}{\text{area over
+$D$}}=\text{average of $\pdv{Q}{x}-\pdv{P}{y}$ over $D$}$$
+In other words, this is the 2D rotor (curl) over $D$.
+$$\frac{1}{2}\oint_{\partial D}x\dd{y}-y\dd{x}=\text{area of $D$}$$
+
+\section{Scalar and Vector Potential}
+
+Suppose that $\ul f$ is an $n$-th dimensional vector field ($n=2,3$).
+$$\ul f: D \to \mathbb{R}^n$$
+Scalar potential is a function $V$ on $D$, such that:
+$$\grad V =-\ul f$$
+If $\ul f$ is a \emph{conservative} field ($\iff$):
+\begin{itemize}
+    \item $\int_\gamma \ul f \cdot \dd{\ul r}$ is not dependent on $\gamma$
+    \item $\oint_\gamma \ul f \cdot \dd{\ul r}=0$
+\end{itemize}
+$$\curl \ul f = \ul 0 \Leftarrow \text{$\ul f$ is a \emph{conservative
+field} ($n=3$)} \iff \oint_\gamma \ul f \cdot \dd{\ul r} =0$$
+\begin{note}
+    If we know that $D$ is \emph{simply connected} then we know that:
+    $$\curl \ul f = \ul 0 \iff \ul f \text{ is a \emph{conservative field}}$$
+\end{note}
+\section{Finding Scalar Potential from a Vector Field \texorpdfstring{\ul f}{f}}
+\begin{gather*}
+    \int_\gamma - \grad V \cdot \dd{\ul r} = V(A)-V(B) \\
+    \ul f = V (\ul r_0) - V(\ul r) \\
+    \implies \boxed{V(\ul r)= \underbrace{V(\ul r_0)}_{\text{constant}}- \int_\gamma \ul f \cdot \dd{\ul r}}
+\end{gather*}
+\begin{note}
+    If $V$ is a scalar potential of $\ul f$, then $V+c$ is also a scalar
+    potential of $\ul f$.
+\end{note}
+
+If $\ul f$ is a vector field, $D=\mathbb{R}^3$, $\curl \ul f= \ul 0$ $\implies$
+there exists a scalar potential for $\ul f$:
+$$V=-\int_{0}^{x}f_1(t,0,0)\dd{t}-\int_{0}^{y}f_2(x,t,0)\dd{t}-\int_{0}^{z}f_3(x,y,t)\dd{t}$$
+\begin{note}
+    Finding a scalar potential for $f$ is equivalent to writing the
+    differential as an \emph{exact differential}.
+    \begin{gather*}
+        f=\begin{pmatrix}
+            f_1 \\f_2 \\f_3
+        \end{pmatrix} \quad f_1\dd{x}+f_2\dd{y}+f_3\dd{z} \\
+        \dd{V} = \pdv{V}{x}\dd{x} + \pdv{V}{y}\dd{y} + \pdv{V}{z}\dd{z}
+    \end{gather*}
+\end{note}
+\end{document}
