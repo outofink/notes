@@ -12,7 +12,8 @@ So far I have notes for:
 - [Mathematical Methods II (Incomplete)](https://outofink.github.io/notes/mathematical_methods_2.pdf)
 - [Discrete Mathematics](https://outofink.github.io/notes/discrete_mathematics.pdf)
 - [Electricity and Magnetism (Incomplete)](https://outofink.github.io/notes/electricity_and_magnetism.pdf)
-
+- [Introduction to Electrical Engineering (Incomplete)](https://outofink.github.io/notes/electrical_engineering.pdf)
+- [Introduction to Probability (Incomplete)](https://outofink.github.io/notes/probability.pdf)
 ---
 
 https://outofink.github.io/notes/

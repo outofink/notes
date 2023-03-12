@@ -1,0 +1,152 @@
+\documentclass[00_complete]{subfiles}
+
+%\input{../preamble}
+\title{Introduction to Electrical Engineering}
+\author{Moshe Krumbein}
+\date{Fall 2022}
+
+\begin{document}
+\Chapter{Lumped Elements (Circuits)}{1}
+
+For example, if we attach a 1.5V with 2 wires to a light bulb, what is the
+current (amps) are running through the wires?
+$$I = \frac{V}{R}$$
+This is a major abstraction and is not always true!
+
+We do know that Maxwell's Laws are always true:
+\begin{enumerate}
+    \item $\vec \grad \cdot \vec E = 4 \pi \rho$
+    \item $\vec \grad \cdot \vec B = 0$
+    \item $\vec \grad \times \vec E = -\frac{1}{c}\pdv{\vec B}{t}$
+    \item $\vec \grad \times \vec B = \frac{1}{c}\left(4 \pi \vec j
+        + \pdv{\vec E}{t}\right)$
+\end{enumerate}
+
+When we can we use abstraction?
+
+We can change an component and use its Volt-Current Relation (V-I).
+This can only be done if the voltage and current to be defined (injective).
+
+\begin{reminder}
+    Review from electromagnetism:
+   \begin{enumerate}
+       \item \underline{Current:} $I$ which passes through area $A$ which is
+           defined to be the amount of charge that passes through $A$ per time
+           unit.
+           $$I \equiv \frac{dq}{dt}$$
+   \end{enumerate}
+\end{reminder}
+Let's relate these equations:
+\[
+    I = \iint_A \vec j (\vec  r ) \dd{s}
+\]
+\begin{reminder}
+    Review from electromagnetism:
+   \begin{enumerate}
+       \item[2.] \underline{Voltage:} Difference in electric potentials between
+           between two points (symbolized by $V$, $V_{ab}$, $V_{12}$) \\
+           Voltage is a measure of the required energy/work needed in order to
+           to move a charge from point $a$ to point $b$. \\
+           (Voltage is a amount of energy accumulated/flowing) in a component.)
+           \[
+               \text{(Volt)} =\frac{\text{(Joule)}}{\text{(Col)}}
+               \left(\frac{\text{(Energy)}}{\text{(Charge)}}\right)
+           \]
+   \end{enumerate}
+\end{reminder}
+\[
+    W = \int_{r_1}^{r_2} \vec F (\vec r) \dd{\vec r} = \int_{r_1}^{r_2} q \vec
+    E (\vec r) \dd{\vec r}
+\]
+Only if $\vec \grad \times \vec E = 0$:
+\[
+    W = q(\varphi(\vec r_1) - \varphi (\vec r_2)) = q(V_2-V_1)=qV_{12}
+\]
+In other words, only when there is no change in the magnetic field (Maxwell's
+4th law), or at the very least \emph{quasistatic} (changes at an incredibly
+slow rate).
+
+Requirements for the \emph{lumped elements model}:
+\begin{enumerate}
+    \item $\pdv{B}{t} \approx 0$ outside of the components (required to define
+        electric potential/voltage)
+\end{enumerate}
+\begin{reminder}
+    Review from electromagnetism:
+   \begin{enumerate}
+       \item[3.] \underline{Power:} Energy per unit of time (Watt):
+           \[
+               P(t) \equiv \frac{\dd{W}}{\dd{t}}
+               = \frac{\dd{W}}{\dd{q}} \cdot \frac{\dd{q}}{\dd{t}}
+               = V(t) \cdot I(t)
+           \]
+           We "agree":
+           \begin{itemize}
+                \item $P > 0$ - power is used in a component (resistor)
+                \item $P \leq 0$ - power is provided by a component
+           \end{itemize}
+        \item[4.] \underline{Direction and Signs:}
+            \[
+                B \to A \implies V = V_A-V_B
+            \]
+            $I > 0$ - The positive particles "move" from left to right
+
+            The current is \emph{positive} if the current is in the direction
+            of the arrow.
+            \begin{note}
+            It's easiest to define the direction of the positive current from
+            the head of the electrical potential arrow to its tail.
+            \end{note}
+   \end{enumerate}
+\end{reminder}
+Back to our requirements:
+\begin{enumerate}
+    \item[2.] Current over components in series do not change:
+        \begin{gather*}
+            I_A=I_B \\ I_A=I_B=0 \\
+            \frac{\dd{Q_{in}}}{\dd{t}}-\frac{\dd{Q_{out}}}{\dd{t}} = 0 \\
+            \frac{\dd}{\dd{t}}(Q_{in}-Q_{out}) = 0 \\
+        \frac{\dd}{\dd{t}}\left(\sum
+        _{\substack{\text{between} \\ A \text{ and } B}} Q\right) = 0
+        \end{gather*}
+        In other words charge is not created.
+    \item[3.] $V_{AB}=V_{CD} \leftarrow l \ll ct$ \\
+        In other words, we must only work with components/circuits that there
+        size is are small enough in relation to measurement time.
+\end{enumerate}
+\begin{gather*}
+    2\pi f_o\Delta t \ll 2\pi \\
+    \Delta t \ll \frac{1}{f_0} = T \\\\
+    l \ll \frac{c}{f_0}
+\end{gather*}
+\section{Tricks to Solve Circuits}
+Ways to solve circuits:
+\begin{enumerate}
+    \item By hand
+    \item Linear Algebra
+    \item "current-loop"
+    \item Simplification
+\end{enumerate}
+\subsection{Node Analysis}
+\begin{enumerate}
+    \item Select one node as the ground reference. The choice does not affect
+        the element voltages (but it does affect the nodal voltages) and is
+        just a matter of convention. Choosing the node with the most
+        connections can simplify the analysis. For a circuit of N nodes the
+        number of nodal equations is $N-1$.
+    \item Assign a variable for each node whose voltage is unknown. If the
+        voltage is already known, it is not necessary to assign a variable.
+    \item For each unknown voltage, form an equation based on Kirchhoff's
+        Current Law (i.e. add together all currents leaving from the node and
+        mark the sum equal to zero). The current between two nodes is equal to
+        the voltage of the node where the current exits minus the voltage of
+        the node where the current enters the node, both divided by the
+        resistance between the two nodes.
+    \item If there are voltage sources between two unknown voltages, join the
+        two nodes as a supernode. The currents of the two nodes are combined in
+        a single equation, and a new equation for the voltages is formed.
+    \item Solve the system of simultaneous equations for each unknown voltage.
+\end{enumerate}
+If there are only sources of current and resistors, the circuit can be plugged
+in directly into the matrix.
+\end{document}

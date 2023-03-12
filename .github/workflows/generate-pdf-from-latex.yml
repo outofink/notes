@@ -31,6 +31,18 @@ jobs:
           root_file: 00_complete.tex
           working_directory: aleph/elec
           post_compile: "mv 00_complete.pdf ../../web/electricity_and_magnetism.pdf"
+      - name: Generate "Introduction to Electrical Engineering" PDF
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: 00_complete.tex
+          working_directory: bet/ee
+          post_compile: "mv 00_complete.pdf ../../web/electrical_engineering.pdf"
+      - name: Generate "Introduction to Probability" PDF
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: 00_complete.tex
+          working_directory: bet/prob
+          post_compile: "mv 00_complete.pdf ../../web/probability.pdf"
       - run: touch web/.nojekyll
       - name: Deploy to GitHub Pages
         if: success()
