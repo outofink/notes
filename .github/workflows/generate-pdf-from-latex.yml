@@ -43,6 +43,30 @@ jobs:
           root_file: 00_complete.tex
           working_directory: bet/prob
           post_compile: "mv 00_complete.pdf ../../web/probability.pdf"
+      - name: Generate "Complex Variables and Applications" PDF
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: 00_complete.tex
+          working_directory: bet/prob
+          post_compile: "mv 00_complete.pdf ../../web/complex.pdf"
+      - name: Generate "Algorithms" PDF
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: 00_complete.tex
+          working_directory: bet/prob
+          post_compile: "mv 00_complete.pdf ../../web/algorithms.pdf"
+      - name: Generate "Signal Processing" PDF
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: 00_complete.tex
+          working_directory: bet/prob
+          post_compile: "mv 00_complete.pdf ../../web/signal.pdf"
+      - name: Generate "Computer Architecture" PDF
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: 00_complete.tex
+          working_directory: bet/prob
+          post_compile: "mv 00_complete.pdf ../../web/computer_architecture.pdf"
       - run: touch web/.nojekyll
       - name: Deploy to GitHub Pages
         if: success()
