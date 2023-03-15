@@ -7,7 +7,7 @@
 
 \begin{document}
 \Chapter{Introduction}{1}
-\section{What's is an Algorithm?}
+\section{What is an Algorithm?}
 An \textit{algorithm} is a formal description of an effective method of solving
 a well-defined set of problems, while using limited resources (namely, time and
 space).
@@ -41,4 +41,107 @@ In 1928, Hilbert and Ackermann proposed the \textit{Entscheidungsproblem}
 (decision problem), which asks if a problem can, by way of an algorithm, can be
 answered "Yes" or "No" in according to whether the input, a statement, is
 universally valid. 
+\section{Matroids}
+
+Given a finite non-directed connected graph $ G=(V,E) $ and a weight
+function $ w $ on the edges $ w: E \to \mathbb{N} $. We are searching for a
+\textit{spanning tree} such that that sum of the weights of the edges on the
+tree are \textit{minimal}.
+
+A \textit{tree} is a connected acyclic graph. A tree \textit{spans}
+$ G $ if and only if it contains all on the nodes of $ G $.
+
+\begin{definition}[Kruskal's Algorithm]
+    We sort the edges in non-decreasing order of weight. We then traverse all
+    the edges in order and add each edge that does not close a cycle with
+    edges that we have already added.
+\end{definition}
+
+In general we symbolize $ |V|=n, |E|=m $.
+
+Instead of $ w(E) $ we will use $ W- w(e) $ where $ W> \max_e w(e) $. In this
+way we transform Kruskal's algorithm to find a maximum spanning tree instead
+of a minimum spanning tree.
+\begin{definition}[Matroid]
+    Given a finite set $ E $ and a collection $ I $ of subsets of $ E $, the
+    ordered pair $ (E,I) $ is called a \textit{matroid} if and only if:
+    \begin{enumerate}
+        \item \textbf{Inheritance}: If $ A \in I $ and $ B \subseteq I $, then
+            $ B \in I $
+        \item \textbf{Extension}: If $ A,B \in I $ and $ |B|<|A| $, then there
+            exists $ c \in A \setminus B $ such that $ B \cup \{e\} \in I $
+    \end{enumerate}
+\end{definition}
+The sets in $ I $ are called \textit{independent}. Any set in $ I $ that is
+maximal in relation to inclusion is called a \textit{basis}.
+\begin{claim}
+    In a matroid, all bases are the same size.
+\end{claim}
+\begin{claim}[Exchange]
+    If $ A,B\in I $ are two bases, then for all $ e \in A \setminus B $ there
+    exists $ f \in B \setminus A $ such that $ A \setminus \{e\} \cup \{f\} $ is
+    also a basis.
+\end{claim}
+If $ I $ is the collection of all of the subsets of $ E $ or an empty set, these
+are the trivial matroids.
+
+Given $ n $ vectors over some vector space (for example $ \mathbb{R}^d $) -
+$ E $. The subsets can be in $ I $ if and only if it is linearly independent.
+
+Let $ E $ be a set of non-directed edges of a finite graph $ A \subseteq E $
+that's in $ I $ if and only if $ A $ is acyclic.
+\begin{claim}
+    $ (E,I) $ is a matroid (cyclic matroid of $ G $).
+\end{claim}
+
+Given a finite non-directed graph $ G=(V,E) $, the pair $ (E,I) $ such that
+$ A \in I $ if and only if for every connected component of $ A $ there is at
+most one cycle that is a matroid.
+
+Given matroid $ (E,I) $ and a weight function $ w: E \to \mathbb{N} $, we want
+to find $ A \in I $ such that $ w(A) = \sum_{e \in A}w(e) $ is maximal.
+
+\begin{definition}[Greedy Algorithm]
+    We sort the elements of $ E $ in non-increasing order and we traverse over
+    the elements in that order and add to the solution that keeps it in $ I $.
+\end{definition}
+
+\begin{theorem}[Rado--Edmonds Theorem]
+    Let the system of sets $ (E,I) $ (where $ E $ is finite) that maintains
+    \textit{inheritance} and let $ w: E \to \mathbb{N}$ be a weight function
+    over the elements of $ E $. The \textit{greedy algorithm} finds $ A \in I $
+    with a maximal $ w(A) $ if and only if $ (E, I) $ is a matroid.
+\end{theorem}
+\begin{proof}
+    We with prove both directions:
+    \begin{itemize}
+        \item[$\Rightarrow$] Clearly the result is a basis because every element
+            that we skipped over cannot be added to the to the final result
+            (implied by inheritance).
+
+            To prove that the result is optimal (in our case, maximal), we will
+            prove it using induction over the size of the partial solution which
+            contains a optimal basis.
+
+            Let $ B $ be some optimal basis and $ A $ be $ A $ be the set that
+            the algorithm is using. At the beginning $ A = \emptyset $ so
+            obviously $ A \subseteq B $.
+
+            We will assume that $ A \subseteq B $ and we will consider $ e \in
+            E $. If $ A \cup \{e\} \notin I $ and $ B \cup \{e\} \notin i $,
+            then we're left with $ A \subseteq B $.
+
+            If so, we assume that $ A \cup \{e\} \in I $. If $ e \in B $ then
+            clearly $ A \cup \{e\} \subseteq B$. If so, we're left with the
+            problem that $ e \notin B $. But then, we will extend $ A \cup \{e\}
+            $ to basis $ B' $ such that $ e \in B' \setminus B$, and therefore,
+            there is a $ f \in B \setminus B' $ such that $ B \setminus \{f\}
+            \cup \{e\} $ is a basis, but $ w(f) \leq w(e) $ and therefore $ B
+            \setminus \{f\} \cup \{e\} $ is also an optimal basis. 
+
+
+
+
+    \end{itemize}
+\end{proof}
 \end{document}
