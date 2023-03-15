@@ -6,5 +6,159 @@
 
 \begin{document}
 \Chapter{Introduction}{1}
+\section{Background}
+Signal Processing is found everywhere.
 
+In systems engineering, there are three main areas of signal processing:
+\begin{itemize}
+    \item \textbf{Planning} - how to design a system to meet a given set of requirements 
+    \item \textbf{Analysis} - how to analyze a system to determine its performance
+    \item \textbf{Control} - how to control a system to meet a given set of requirements
+\end{itemize}
+Why don't we just use Deep Neural Networks to process signals?
+
+First, we don't completely know how or why DNNs work. Another reason is that it
+can be tricked. Third, it's a very expensive process. And fourth, they require a
+sample set which we often don't have. 
+
+Instead, we will use a \textit{Fourier transform}.
+\section{Signal}
+A \textit{signal} is a function of independent variable(s).
+
+A signal can be with continuous or discrete time over continuous or discrete
+values.
+
+Digital signals are discrete and analog signals are continuous.
+
+Computers can only work will digital.
+
+\subsection{Converting Analog to Digital}
+
+First we \textit{sample} the signal (measure at discrete points), do
+\textit{digital signal processing}, and then \textit{reconstruction}, which
+converts the digital signal back to analog.
+
+We we loose information during sampling?
+
+\begin{definition}[Nyquist--Shannon sampling theorem]
+    If a signal does not contain frequencies higher than $f_{max}$, then if we
+    sample at $2f_{max}$, we will not lose any information.
+\end{definition}
+
+Every signal can be split into an \textit{even} part and an \textit{odd} part.
+
+\subsection{Energy}
+$$ E[x(t)]  = \int_{-\infty}^{\infty}|x(t)|^2\dd{t}$$
+It has the units of $[x]^2T$.
+\begin{note}
+    There as signals with infinite energy.
+\end{note}
+\subsection{Power}
+$$P[x(t)]=\lim_{T \to \infty}\frac{1}{T}\int_{-\frac{T}{2}}^{\frac{T}{2}}|x(t)|^2\dd{t}$$
+\textit{Power} is the average energy of a signal.
+
+The units are $\frac{E}{T}$.
+\subsection{Delta function}
+$$\int_{-\infty}^{\infty}f(t)\delta(t)\dd{t}=f(0)$$
+$$\int_{-\infty}^{\infty}\delta(t)\dd{t}=1$$
+Shifting:
+$$\int_{-\infty}^{\infty}f(t-T)\delta(t)\dd{t}=f(T)$$
+Derivative of step function:
+$$\frac{d}{dt}u(t)=\delta(t)$$
+Derivative of delta:
+$$\int_{-\infty}^{\infty}f(t)\delta'(t)\dd{t}=-f'(0)$$
+It can be approximated by a rectangle, triangle, Gaussian, etc.
+
+Discrete definition:
+$$\delta[n] = \begin{cases}
+        1 \quad n=0 \\ 0 \quad n \neq 0
+    \end{cases} \quad 
+            u[t] = \begin{cases}
+        1 \quad n \ge 0 \\ 0 \quad n < 0
+    \end{cases}$$
+
+\subsection{Complex Exponential}
+\begin{gather*}
+    s = \sigma + j\omega \\
+    x(t) = e^{st}=e^{(\sigma + j\omega)t}=e^{\sigma t}(cos(\omega t) +
+    j\sin(\omega t))
+\end{gather*}
+\section{System}
+A \textit{system} receives a signal as input, does some action, and returns a
+signal.
+
+It is symbolized as $x(t) \implies y(f)$.
+
+There are \textit{single input single output} (SISO) and \textit{multiple input
+multiple output} (MIMO) systems, or any combination of the two.
+
+\subsection{Connecting Systems}
+There are three ways to connect systems:
+\begin{itemize}
+    \item \textit{Parallel}: $y = Fu + Gu$
+    \item \textit{Series}: $y = G(Fu) = GFu$
+    \item \textit{Feedback}: $y = F(u - Gy)$
+\end{itemize}
+\begin{definition}[Linear System]
+    A system is \textit{linear} if it has the following qualities:
+    \begin{itemize}
+        \item Additivity: $(x_1 \implies y_1, x_2 \implies y_2) \implies
+            x_1+x_2\implies y_1+y_2$
+        \item Homogeneous: $(x\implies y) \implies k\cdot x \implies k \cdot y$
+    \end{itemize}
+\end{definition}
+\section{Time-invariant System}
+Not that the system isn't dependent on time (then nothing would happen), rather
+that the output given the input isn't dependent on time.
+\begin{definition}[Time-invariant System]
+    Let $S_T$ be system shifted in time: $S_T[x(t)]=x(t-T)$. A
+    \textit{time-invariant system} $y$ for all $x(t)$:
+    \begin{displaymath}
+        y(S_T[x(t)])=S_T[y(x(t))]
+    \end{displaymath}
+\end{definition}
+
+\section{Linear Time-Invariant Systems}
+\begin{definition}[Linear Time-Invariant System]
+    A \textit{linear time-invariant} system (LTI) is system that is both linear
+    and time-invariant.
+    There are two types of LTIs:
+    \begin{itemize}
+        \item LTI continuous (LTIC)
+        \item LTI discrete (LTID)
+    \end{itemize}
+\end{definition}
+\begin{claim}
+    Important claims:
+    \begin{itemize}
+        \item Chaining two LTI systems produce an LTI system
+        \item A derivative or integral in time (from $-\infty$ to $t$) is an LTI
+            system
+        \item The \textit{exponential function} is an \textit{eigenfunction} on
+            LTI systems
+    \end{itemize}
+\end{claim}
+\begin{proof}
+Let $y_1(t)$ be an LTI system. Let the input be of the form $x_1(t)=e^{\omega}t$.
+We define:
+$$e^{\omega t}\implies y_1(t)$$
+We multiply the equation by a number $ e^{\omega T} $. By linearity we know
+that:
+$$ e^{\omega t}e^{\omega T} \implies y_1(t)e^{\omega T} $$
+By time-invariance:
+$$ e^{\omega t}e^{\omega T} = e^{\omega(t+T)}\implies y_1(t+T) $$
+Therefore:
+$$y_1(t+T)=y_1(t)e^{\omega T}$$
+If we define $t=0$:
+$$y_1(T) = y_1(0)e^{\omega T}$$
+Instead of $T$ we substitute $t$:
+$$ y_1(t)=y_1(0)e^{\omega t}=y_1(0)x_0(t) $$
+In other words:
+$$ e^{\omega t} \implies y_1(0)e^{\omega t}$$
+\end{proof}
+\section{Causal Systems}
+\begin{definition}[Causal Systems]
+    A \textit{causal system} as a system that dependent only on its past, and
+    not its future.
+\end{definition}
 \end{document}
