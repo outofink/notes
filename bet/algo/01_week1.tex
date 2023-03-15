@@ -127,21 +127,28 @@ to find $ A \in I $ such that $ w(A) = \sum_{e \in A}w(e) $ is maximal.
             the algorithm is using. At the beginning $ A = \emptyset $ so
             obviously $ A \subseteq B $.
 
-            We will assume that $ A \subseteq B $ and we will consider $ e \in
-            E $. If $ A \cup \{e\} \notin I $ and $ B \cup \{e\} \notin i $,
-            then we're left with $ A \subseteq B $.
+            We will assume that $ A \subseteq B $ and we will consider $ e \in E
+            $. 
+            \begin{itemize}
+                \item If $ A \cup \{e\} \notin I $ and $ B \cup \{e\} \notin i
+                    $, then we're left with $ A \subseteq B $.
 
-            If so, we assume that $ A \cup \{e\} \in I $. If $ e \in B $ then
-            clearly $ A \cup \{e\} \subseteq B$. If so, we're left with the
-            problem that $ e \notin B $. But then, we will extend $ A \cup \{e\}
-            $ to basis $ B' $ such that $ e \in B' \setminus B$, and therefore,
-            there is a $ f \in B \setminus B' $ such that $ B \setminus \{f\}
-            \cup \{e\} $ is a basis, but $ w(f) \leq w(e) $ and therefore $ B
-            \setminus \{f\} \cup \{e\} $ is also an optimal basis. 
+                \item If $ A \cup \{e\} \in I $:
+                    \begin{itemize}
+                        \item If $ e \in B $ then clearly $ A \cup \{e\}
+                            \subseteq B$.
 
-
-
-
+                        \item Otherwise, we're left with the problem that $ e
+                            \notin B $. But then, we will extend $ A \cup \{e\}
+                            $ to basis $ B' $ such that $ e \in B' \setminus B$,
+                            and therefore, there is a $ f \in B \setminus B' $
+                            such that $ B \setminus \{f\} \cup \{e\} $ is a
+                            basis, but $ w(f) \leq w(e) $ and therefore $ B
+                            \setminus \{f\} \cup \{e\} $ is also an optimal
+                            basis. 
+                    \end{itemize} 
+            \end{itemize}
+        \item[$\Leftarrow$] To be continued... 
     \end{itemize}
 \end{proof}
 \end{document}
