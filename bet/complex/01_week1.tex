@@ -1,10 +1,257 @@
 \documentclass[00_complete]{subfiles}
 
-\title{Complex Varibles and Applications}
+\title{Complex Variables and Applications}
 \author{Moshe Krumbein}
 \date{Spring 2023}
 
 \begin{document}
 \Chapter{Introduction}{1}
+\section{Introduction}
+\begin{gather*}
+    \mathbb{C}= \{a+bi \mid a,b \in \mathbb{R}\} \quad i \equiv \sqrt{-1} \\ 
+    \arg(z)=\{\theta + 2\pi k\mid k\in \mathbb{Z}\} \quad \mathrm{Arg}(z)=\theta,
+    \quad -\pi < \theta \leq \pi \\ \\ 
+    \mathrm{Arg}(z) =\begin{cases}
+        \arctan{\frac{y}{x}} & x > 0 \\ 
+        \frac{\pi}{2} & x=0, y> 0 \\ 
+        -\frac{\pi}{2} & x=0, y<0 \\ 
+         \pi +\arctan{\frac{y}{x}} & x < 0, y > 0 \\ 
+        -\pi+ \arctan{\frac{y}{x}} & x < 0, y > 0
+    \end{cases}
+\end{gather*}
+\section{Operations}
 
+\begin{gather}
+    (a+bi)+(c+di) = (a+d)+(b+d)i \\
+    (a+bi)-(c+di) = (a-d)+(b-d)i \\
+    (a+bi)(c+di) = (ac - bd) + (ad + bc)i \\
+    \frac{a+bi}{c+di} = \frac{(a+bi)(c-di)}{(c+di)(c-di)}
+    = \frac{e+fi}{c^2+d^2} = \frac{e}{c^2+d^2}+\frac{f}{c^2+d^2}i
+\end{gather}
+
+\section{Complex Plane}
+
+Every complex number \(z=a+bi\) can be represented on the complex plane
+at the point \((a,b)\).
+
+It can also be represented in the polar form: \[
+\begin{gathered}
+    r=|z| \quad \theta = \arg(z) \\
+    z = r \cos \theta + r \sin \theta i \quad (\cis \theta)\\
+\end{gathered}
+\]
+
+\subsection{Characteristics}
+
+\begin{enumerate}
+\item
+  Properties of four algebraic operations of the real numbers also apply
+  to the complex ones (i.e. associative, distributive, etc.)
+\item
+  \emph{Complex conjugate}: \[
+  \begin{gathered}
+   \overline{z_1 \pm z_2} = \overline z_1 \pm \overline z_2 \\
+   \overline{z_1 \cdot z_2} = \overline z_1 \cdot \overline z_2 \\
+   \overline{\frac{z_1}{z_2}} = \frac{\overline z_1}{\overline z_2} \\
+   \frac{1}{z}=\frac{\overline z}{|z|^2}, \; z \cdot \overline z  = |z|^2 \\
+  \end{gathered}
+  \]
+\end{enumerate}
+
+\subsection{Analysis}
+
+\[
+\begin{gathered}
+    z_1 = r_1(\cos \theta_1 + i \sin \theta_1) \\
+    z_2 = r_2(\cos \theta_2 + i \sin \theta_2) \\
+    z_1 z_2= r_1 r_2 [
+        (\underbrace{\cos \theta_1 \cos \theta_2 - \sin \theta_1 \sin\theta_2}
+            _{\cos (\theta_1 + \theta_2)})
+        +i(\underbrace{\sin \theta_1 \cos \theta_2 + \sin \theta_2 \cos \theta_1}
+            _{\sin(\theta_1 + \theta_2)})
+    ] \\
+\end{gathered}
+\]
+
+\begin{conclusion}
+\[
+\begin{gathered}
+    |z_1 z_2| = r_1 r_2 \\
+    \arg(z_1 z_2) = \theta_1 + \theta_2
+\end{gathered}
+\]
+\end{conclusion}
+
+\begin{definition}[De Moivre's Formula]
+\[
+(r \cis\theta)^n=r^n \cis(n \theta)
+\]
+\end{definition}
+
+\begin{definition}[\texorpdfstring{\(n\)th-root of a complex
+number}{nth-root of a complex number}]
+\[
+\begin{gathered}
+    z^n = r \cis \theta \\
+    z = \sqrt[n]{r} \cis\left(\frac{\theta + 2 \pi k}{n}\right),
+    \quad k = 0, 1, 2, \ldots, n-1
+\end{gathered}
+\]
+\end{definition}
+
+\begin{definition}[Euler's Formula]
+\[
+\begin{gathered}
+    e^{i \theta} = \cos \theta + i \sin \theta \\
+    e^{-i \theta} = \cos  \theta - i \sin \theta \\
+    \cos \theta = \frac{1}{2}\left(e^{i \theta}+e^{-i \theta}\right)
+    \quad \sin \theta = \frac{1}{2i}\left(e^{i \theta} - e^{-i \theta}\right)
+\end{gathered}
+\]
+
+\(e\) to a complex number:
+\[
+e^{a+ib} = e^a e^{ib} = e^a(\cos b + i\sin b)
+\]
+
+\end{definition}
+Our goal is to:
+
+\begin{enumerate}
+\item
+  Express \(\cos(nx)\) in terms of \(\sin x, \cos x\).
+\item
+  Express \(\sin^n(x)\) as a sum of \(\sin x, \cos x\), without
+  multiplying them.
+\end{enumerate}
+
+\begin{example}
+\[
+\begin{gathered}
+    \cos(5x) = \Re(e^{i5x}) = \Re((e^{ix})^5) \\
+    = \Re((\cos x+i\sin x)^5) \\
+    (a+b)^5 = a^5 + 5a^4b+10a^3b^2 + 10a^2b^3 + \ldots
+\end{gathered}
+\]
+To simplify our calculation since we are only looking for the real part
+of our solution, we can ignore any place where \(\sin\) is raised to an
+odd power (since \(i^2 = -1\)). \[
+    = \cos^5x-10\cos^x\sin^2x+5\cos x\sin^4x
+\] Now for an example in the opposite direction: \[
+\begin{gathered}
+    \sin^5x = \left(\frac{1}{2i}\right)^4(e^{ix}-e^{-ix})^4 \\
+    \frac{1}{16}(e^{i4x}-4e^{i2x} +6 -4 e^{-i2x}+e^{-i4x}) \\
+    =\frac{1}{16}(2\cos (4x)-8 \cos (2x)+6)
+\end{gathered}
+\]
+\end{example}
+\begin{example}
+\[
+\begin{gathered}
+    a \cos (\omega t) + b\sin(\omega t) \\
+    \Re(\underbrace{(a+bi)}_{re^{i \theta}}\underbrace{(\cos(\omega t)- i \sin
+    (\omega t)}_{e^{-i\omega t}}) \\
+    = \Re\left(re^{i(\theta - \omega t)}\right) = r \cos(\theta - \omega t) = r \cos(\omega t - \theta)\\
+    =\sqrt{a^2 + b^2} \cos\left(\omega t -\tan^{-1}\left(\frac{a}{b}\right)(+
+    \pi)\right) 
+\end{gathered}
+\]
+\end{example}
+
+\section{Continuity}
+\begin{example}
+    \begin{gather*}
+        f_0(z)=\mathrm{Arg}(z)=u(x,y)+iv(x,y) \\ 
+        f_0: \mathbb{C} \setminus \{0\} \to \mathbb{C} \\ 
+        (x,y) \in \mathbb{R}^2 \setminus \{(0,0)\} \quad v(x,y)=0
+    \end{gather*}
+    This function isn't continuous when $y=0, x<0$ because the limit from above
+    equals $\pi$ but the limit from below is $-\pi$.
+    \begin{gather*}
+        f_k(z)= \mathrm{Arg}(z) + 2\pi k
+    \end{gather*}
+\end{example}
+\begin{note}
+    We can define $ \theta(z) $ as a continuous function on $ D_1 $ such that:
+    $$ f(D_1)=[0,2\pi) $$
+    such that we define the domain to be:
+    $$ D_1 = \mathbb{C} \setminus \{(t+i0), t \geq 0\} \quad f(D_1)=(0,2\pi)$$
+\end{note}
+In general, we can define $f: U \to \mathbb{C}$ to be continuous such that 
+$ \forall z \in U $: $$ z= |z|e^{if(z)} $$
+if $ U $ does not contain \textit{closed paths} that surround $ 0 $.
+\begin{example}
+    $$ U = \mathbb{C} \setminus \{(it), t\geq 0\}) $$
+    Given the example of $ f: U \to \mathbb{C} $ such that $ \forall z \in U $:
+    $$ z=|z|e^{if(z)} $$
+    We can define:
+    $$ f(z) = \begin{cases}
+        \arctan{\frac{y}{x}} & x > 0 \\ 
+        \frac{\pi}{2} & x= 0, y> 0 \\ 
+        \pi + \arctan{\frac{y}{x}} & x < 0
+    \end{cases} $$
+\end{example}
+\begin{example}
+    $$ U = \mathbb{C} \setminus \{(t+it^2), t \geq 0\} $$
+    Where $ f: U \to \mathbb{C} $ is continuous such that $ \forall z \in U $:
+    $$ \begin{cases}
+        z = |z|e^{if(z)} \\ f(2+2i)=\frac{\pi}{4}
+    \end{cases} $$
+    We define $ \gamma $ to be the path that is not defined in $ U $.
+    In other words: $ \gamma: y=x^2, x \geq 0 $.
+
+    We see that the discontinuity will be between when $ y<x^2 $ and $ y>x^2 $.
+    $$ \begin{cases}
+        \arctan{\frac{y}{x}} - 2\pi& x>0, y>x^2 \\ 
+        \arctan{\frac{y}{x}} & x>0, y<x^2 \\
+        -\frac{\pi}{2} & x = 0, y < 0\\ 
+        -\frac{3\pi}{2} & x=0, y > 0 \\ 
+        \arctan{\frac{y}{x}}-\pi &  x < 0
+    \end{cases} $$
+\end{example}
+\section{Linear Translation}
+$$ f(z) = az+b \quad a,b \in \mathbb{C} $$
+\begin{reminder}
+    \begin{gather*}
+        z_1 + z_2 = x_1 + x_2 + i(y_1 + y_2) \\ 
+        z_1 \cdot z_2  = |z_1|\cdot|z_2|\cdot e^{i(\theta_1+\theta_2)}
+    \end{gather*}
+\end{reminder}
+An uninteresting case would be when $ a = 0 $ because then $ f(z)=b $ so we'll
+asssume $ a \neq 0 $.
+
+$ f $ is not a linear function since $ f(z_1 + z_2) \neq f(z_1) + f(z_2) $.
+\begin{claim}
+    $ f $ is injective and surjective, and therefore bijective, and in that
+    sense is linear.
+\end{claim}
+\begin{proof}
+    Let $ w \in \mathbb{C} $. We find for all $ z \in \mathbb{C} $:
+    \begin{gather*}
+        f(z)=w \iff a z+b=w \iff z= \frac{1}{a}(w-b) \iff
+        z=\frac{1}{a}w-\frac{b}{a}= f^{-1}(w)
+    \end{gather*}
+\end{proof}
+\begin{example}
+    \begin{gather*}
+        \gamma=\{(t+i\cos t) \mid t \in [-\pi, \pi]\} \\ 
+        f(z) = 2iz-3
+    \end{gather*}
+    We first take $ \gamma $, scale it by $ 2 $, rotate it a quarter turn
+    counter-clockwise, and then translate it left by $ 3 $.
+
+    Important: remember that the scaling is done in both the imaginary and
+    real directions!
+\end{example}
+\begin{claim}
+    $ f: \mathbb{C} \to \mathbb{C}$ is continuous.
+\end{claim}
+\begin{proof}
+    Let $ z_0 \in \mathbb{C} $ and $ \varepsilon > 0 $ and we see that there
+    exists $ \delta > 0 $ such that:
+    $$ |f(z) - f(z_0)| < \varepsilon \Leftarrow |z-z_0| <\delta $$
+\end{proof}
+\begin{claim}
+    $ f $ translates straight lines to straight lines and circles to circles.
+\end{claim}
 \end{document}
